@@ -200,9 +200,17 @@
     transform: scale(1.06);
     will-change: transform;
   }
-  #hBg img {
-    width: 100%; height: 100%; object-fit: cover; object-position: center;
-    display: block;
+  #hBg iframe {
+    position: absolute;
+    top: 50%; left: 50%;
+    /* cover trick: keep 16:9 ratio and always fill the container */
+    width: 100vw;
+    height: 56.25vw;   /* 100/16*9 */
+    min-width: 177.78vh; /* 100/9*16 */
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border: none;
   }
   .h-ov {
     position: absolute; inset: 0;
@@ -564,7 +572,9 @@
   @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
   /* ── TESTIMONIALS ── */
-  #testimonials { background: var(--white); }
+  #testimonials { background: var(--white); padding-left: 0; padding-right: 0; }
+  #testimonials .sec-inner { padding: 0 60px; text-align: center; }
+  #testimonials .ol { justify-content: center; }
   .test-grid {
     display: grid; grid-template-columns: repeat(3,1fr);
     gap: 3px; margin-top: 64px;
@@ -775,6 +785,7 @@
     .nav-links { display: none; }
     .nav-ham { display: flex; }
     .sec { padding: 88px 36px; }
+    #testimonials .sec-inner { padding: 0 36px; }
     #footer { padding: 60px 36px 28px; }
     .h-content { padding: 0 36px 64px; }
     .h-stats { grid-template-columns: repeat(2,1fr); gap: 28px; }
@@ -789,6 +800,7 @@
   }
   @media (max-width: 768px) {
     .sec { padding: 68px 22px; }
+    #testimonials .sec-inner { padding: 0 22px; }
     #nav { padding: 12px 22px; }
     #nav.scrolled { padding: 10px 22px; }
     #footer { padding: 52px 22px 24px; }
@@ -822,6 +834,68 @@
     .h-ctas { margin-bottom: 16px; }
     .h-content { padding-bottom: 32px; }
     .h-stats { padding-top: 20px; }
+  }
+
+  /* ── STAGGER TESTIMONIALS ── */
+  .stagger-wrap {
+    position: relative; width: 100%; height: 580px;
+    overflow: hidden; margin-top: 64px;
+  }
+  .stagger-card {
+    position: absolute; left: 50%; top: 50%;
+    cursor: pointer; border: 2px solid; padding: 32px;
+    clip-path: polygon(50px 0%, calc(100% - 50px) 0%, 100% 50px, 100% 100%, calc(100% - 50px) 100%, 50px 100%, 0 100%, 0 0);
+    transition: transform .6s cubic-bezier(.25,.46,.45,.94), opacity .6s ease, background .5s ease, border-color .4s ease, box-shadow .5s ease;
+  }
+  .stagger-card.is-center {
+    z-index: 10;
+    background: var(--gold); border-color: var(--gold);
+    box-shadow: 0px 8px 0px 4px rgba(51,219,231,.25);
+  }
+  .stagger-card.is-side {
+    z-index: 0;
+    background: var(--black); border-color: rgba(51,219,231,.2);
+  }
+  .stagger-card.is-side:hover { border-color: rgba(51,219,231,.5); }
+  .sc-line {
+    position: absolute; display: block; height: 2px;
+    right: -2px; top: 48px;
+    transform-origin: top right; transform: rotate(45deg);
+  }
+  .stagger-card.is-center .sc-line { background: rgba(2,28,30,.18); }
+  .stagger-card.is-side  .sc-line { background: rgba(51,219,231,.22); }
+  .sc-img {
+    margin-bottom: 16px; height: 56px; width: 48px;
+    object-fit: cover; object-position: top; display: block;
+  }
+  .stagger-card.is-center .sc-img { box-shadow: 3px 3px 0px rgba(2,28,30,.25); }
+  .stagger-card.is-side  .sc-img  { box-shadow: 3px 3px 0px rgba(237,239,240,.08); }
+  .sc-quote {
+    font-family: var(--fd); font-size: 17px; font-weight: 400;
+    font-style: italic; line-height: 1.65; margin: 0 0 52px;
+  }
+  .stagger-card.is-center .sc-quote { color: var(--charcoal); }
+  .stagger-card.is-side  .sc-quote { color: rgba(237,239,240,.82); }
+  .sc-author {
+    position: absolute; bottom: 28px; left: 32px; right: 32px;
+    font-size: 9.5px; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; margin: 0;
+  }
+  .stagger-card.is-center .sc-author { color: rgba(2,28,30,.65); }
+  .stagger-card.is-side  .sc-author { color: rgba(51,219,231,.65); }
+  .stagger-nav {
+    position: absolute; bottom: 20px; left: 50%;
+    transform: translateX(-50%); display: flex; gap: 8px; z-index: 20;
+  }
+  .stagger-btn {
+    width: 52px; height: 52px; display: flex; align-items: center; justify-content: center;
+    background: var(--white); border: 2px solid rgba(10,10,10,.15); cursor: pointer;
+    color: var(--black); transition: background .3s ease, border-color .3s ease, color .3s ease;
+  }
+  .stagger-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--charcoal); }
+  .stagger-btn svg {
+    width: 22px; height: 22px; stroke: currentColor; fill: none;
+    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
   }
 </style>
 </head>
@@ -859,7 +933,15 @@
 
 <!-- ①  HERO -->
 <section id="hero">
-  <div id="hBg"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=90&fit=crop" alt="" loading="eager" fetchpriority="high"></div>
+  <div id="hBg">
+    <iframe
+      src="https://player.vimeo.com/video/1197530249?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0&controls=0"
+      allow="autoplay; fullscreen"
+      allowfullscreen
+      title=""
+      aria-hidden="true"
+    ></iframe>
+  </div>
   <div class="h-ov"></div>
   <div class="h-ov2"></div>
   <div class="h-grain"></div>
@@ -1165,25 +1247,15 @@
       <div class="ol">Client Voices</div>
       <h2 class="sec-title">Trusted by Las Vegas<br><span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);">Home Buyers &amp; Sellers</span></h2>
     </div>
-    <div class="test-grid">
-      <div class="t-card rv">
-        <p class="t-q">"We cannot say enough about this team! Mike, Ryan, and Frank were all amazing! There is such a collaborative effort between everyone. Mike spent many hours with us to determine what style of home we wanted — I can't recommend this team enough!"</p>
-        <div class="t-divider"></div>
-        <div class="t-name">Tracy Monroe</div>
-        <div class="t-detail">Home Buyer · Las Vegas</div>
-      </div>
-      <div class="t-card rv d2">
-        <p class="t-q">"Ana and Ryan are phenomenal! They sold my house FAST. Very communicative throughout the entire process. Always got back to me in a timely manner. Any questions I had they always answered professionally. I would definitely go with them again!"</p>
-        <div class="t-divider"></div>
-        <div class="t-name">Dioselina Lopez</div>
-        <div class="t-detail">Home Seller · Henderson</div>
-      </div>
-      <div class="t-card rv d4">
-        <p class="t-q">"Liz made my entire experience with this company so comfortable, accommodating, and easy to digest. I never felt pressured or rushed and truly wouldn't choose anyone else to buy and sell my homes in the future."</p>
-        <div class="t-divider"></div>
-        <div class="t-name">Gg Bellz</div>
-        <div class="t-detail">Home Buyer &amp; Seller · Las Vegas</div>
-      </div>
+  </div>
+  <div class="stagger-wrap" id="stagger-wrap">
+    <div class="stagger-nav">
+      <button class="stagger-btn" id="stagger-prev" aria-label="Previous testimonial">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <button class="stagger-btn" id="stagger-next" aria-label="Next testimonial">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
     </div>
   </div>
 </section>
@@ -1521,6 +1593,153 @@ document.querySelectorAll('.flt').forEach(function (btn) {
       ham.querySelectorAll('span')[1].style.transform = '';
     });
   });
+})();
+
+/* ── STAGGER TESTIMONIALS ── */
+(function() {
+  var VISIBLE = 7, HALF = 3;
+
+  var testimonials = [
+    { quote: "We cannot say enough about this team! Mike, Ryan, and Frank were all amazing. There is such a collaborative effort between everyone. Mike spent many hours with us to determine what style of home we wanted. I cannot recommend this team enough!", name: "Tracy Monroe", detail: "Home Buyer · Las Vegas", img: "https://i.pravatar.cc/150?img=1" },
+    { quote: "Ana and Ryan are phenomenal! They sold my house FAST. Very communicative throughout the entire process. Always got back to me in a timely manner. Any questions I had they always answered professionally. I would definitely go with them again!", name: "Dioselina Lopez", detail: "Home Seller · Henderson", img: "https://i.pravatar.cc/150?img=5" },
+    { quote: "Liz made my entire experience so comfortable, accommodating, and easy to digest. I never felt pressured or rushed and truly would not choose anyone else to buy and sell my homes in the future.", name: "Gg Bellz", detail: "Home Buyer & Seller · Las Vegas", img: "https://i.pravatar.cc/150?img=9" },
+    { quote: "This team truly goes above and beyond. From our very first meeting to closing day, we felt supported every step of the way. Ryan's knowledge of the Las Vegas market is second to none.", name: "Michael Santos", detail: "Home Buyer · Summerlin", img: "https://i.pravatar.cc/150?img=12" },
+    { quote: "Frank and the team made selling our home completely stress-free. They priced it right, marketed it beautifully, and we received multiple offers in the first week. Could not be happier with the result!", name: "Jennifer Williams", detail: "Home Seller · Summerlin", img: "https://i.pravatar.cc/150?img=20" },
+    { quote: "As first-time home buyers, we were nervous about the process. The Crighton Rinaldi Team held our hand through every step and found us our perfect home within budget. Truly exceptional service.", name: "David & Maria Chen", detail: "First-Time Buyers · Henderson", img: "https://i.pravatar.cc/150?img=25" },
+    { quote: "We had looked at dozens of homes before working with the Crighton Rinaldi Team. Within two weeks they found us the perfect place in Summerlin. Their patience and expertise made all the difference.", name: "Raymond & Lisa Park", detail: "Home Buyers · Summerlin", img: "https://i.pravatar.cc/150?img=32" },
+    { quote: "I was relocating from out of state and had no idea where to start. The team handled everything remotely, sent video walkthroughs, and negotiated a price well below asking. Seamless from start to finish.", name: "Sandra Gutierrez", detail: "Relocation Buyer · North Las Vegas", img: "https://i.pravatar.cc/150?img=47" },
+    { quote: "Sold in four days at full asking price. The marketing package they put together — professional photos, 3D tour, targeted digital ads — was unlike anything I had seen. Absolute professionals.", name: "Kevin Thompson", detail: "Home Seller · Henderson", img: "https://i.pravatar.cc/150?img=53" },
+    { quote: "We bought and sold with the team in the same year. Both transactions were handled flawlessly. They truly treat every client like family. We will not use anyone else for our real estate needs in Las Vegas.", name: "Michelle & Tom Davis", detail: "Buyer & Seller · Las Vegas", img: "https://i.pravatar.cc/150?img=60" }
+  ];
+
+  var currentIndex = 0, hasAnimated = false;
+  var wrap = document.getElementById('stagger-wrap');
+  var lineW = Math.sqrt(5000).toFixed(2);
+  var slots = [];
+
+  function cs() { return window.innerWidth >= 640 ? 365 : 290; }
+
+  function ft(pos, c) {
+    var tx = (c / 1.5) * pos;
+    var ty = pos === 0 ? -65 : (pos % 2 !== 0 ? 15 : -15);
+    var rot = pos === 0 ? 0 : (pos % 2 !== 0 ? 2.5 : -2.5);
+    return 'translate(-50%,-50%) translateX(' + tx + 'px) translateY(' + ty + 'px) rotate(' + rot + 'deg)';
+  }
+
+  function buildCards() {
+    wrap.querySelectorAll('.stagger-card').forEach(function(c) { c.remove(); });
+    slots = [];
+    var len = testimonials.length, c = cs(), nav = wrap.querySelector('.stagger-nav');
+
+    for (var d = 0; d < VISIBLE; d++) {
+      var pos = d - HALF;
+      var idx = ((currentIndex + pos) % len + len) % len;
+      var t = testimonials[idx];
+      var isCenter = pos === 0;
+
+      var card = document.createElement('div');
+      card.className = 'stagger-card ' + (isCenter ? 'is-center' : 'is-side');
+      card.style.width = c + 'px';
+      card.style.zIndex = isCenter ? 10 : Math.max(1, 5 - Math.abs(pos));
+      card.dataset.pos = String(pos);
+
+      var finalT = ft(pos, c);
+      if (hasAnimated) {
+        card.style.transform = finalT; card.style.opacity = '1';
+      } else {
+        card.style.transform = 'translate(-50%,-50%) translateX(' + ((c / 1.5) * pos * 0.25) + 'px) translateY(60px) scale(0.82)';
+        card.style.opacity = '0';
+        card.dataset.ft = finalT;
+        card.dataset.delay = String(Math.abs(pos) * 90);
+      }
+
+      var line = document.createElement('span');
+      line.className = 'sc-line'; line.style.width = lineW + 'px';
+
+      var img = document.createElement('img');
+      img.className = 'sc-img'; img.src = t.img; img.alt = t.name;
+
+      var q = document.createElement('p');
+      q.className = 'sc-quote'; q.textContent = '“' + t.quote + '”';
+
+      var author = document.createElement('p');
+      author.className = 'sc-author'; author.textContent = t.name + ' — ' + t.detail;
+
+      card.appendChild(line); card.appendChild(img); card.appendChild(q); card.appendChild(author);
+      wrap.insertBefore(card, nav);
+      slots.push(card);
+
+      card.addEventListener('click', (function(el) {
+        return function() { var p = parseInt(el.dataset.pos, 10); if (p !== 0) staggerMove(p); };
+      })(card));
+    }
+  }
+
+  function updateSlots() {
+    var len = testimonials.length, c = cs();
+    slots.forEach(function(card, d) {
+      var pos = d - HALF, isCenter = pos === 0;
+      var idx = ((currentIndex + pos) % len + len) % len;
+      var t = testimonials[idx];
+      card.className = 'stagger-card ' + (isCenter ? 'is-center' : 'is-side');
+      card.style.zIndex = isCenter ? 10 : Math.max(1, 5 - Math.abs(pos));
+      card.dataset.pos = String(pos);
+      card.querySelector('.sc-img').src = t.img; card.querySelector('.sc-img').alt = t.name;
+      card.querySelector('.sc-quote').textContent = '“' + t.quote + '”';
+      card.querySelector('.sc-author').textContent = t.name + ' — ' + t.detail;
+      card.style.transform = ft(pos, c);
+    });
+  }
+
+  function animateIn() {
+    if (hasAnimated) return;
+    hasAnimated = true;
+    slots.forEach(function(card) {
+      var delay = parseInt(card.dataset.delay || '0', 10);
+      var finalT = card.dataset.ft;
+      setTimeout(function() { card.style.transform = finalT; card.style.opacity = '1'; }, delay);
+    });
+  }
+
+  window.staggerMove = function(steps) {
+    var len = testimonials.length;
+    currentIndex = ((currentIndex + steps) % len + len) % len;
+    if (hasAnimated && slots.length) { updateSlots(); } else { buildCards(); }
+  };
+
+  document.getElementById('stagger-prev').addEventListener('click', function() { staggerMove(-1); });
+  document.getElementById('stagger-next').addEventListener('click', function() { staggerMove(1); });
+
+  var _prevCS = cs();
+  window.addEventListener('resize', function() {
+    var ncs = cs();
+    if (ncs !== _prevCS) { _prevCS = ncs; buildCards(); }
+  });
+
+  var io = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) { animateIn(); io.disconnect(); }
+  }, { threshold: 0.18 });
+  io.observe(document.getElementById('testimonials'));
+
+  /* ── scroll-to-advance ── */
+  var scrollAccum = 0, lastScrollY = window.scrollY, scrollLocked = false;
+  var section = document.getElementById('testimonials');
+  window.addEventListener('scroll', function() {
+    if (!hasAnimated || scrollLocked) { lastScrollY = window.scrollY; return; }
+    var rect = section.getBoundingClientRect(), vh = window.innerHeight;
+    /* active when section centre is within the viewport */
+    if (rect.top > vh * 0.6 || rect.bottom < vh * 0.4) { scrollAccum = 0; lastScrollY = window.scrollY; return; }
+    scrollAccum += window.scrollY - lastScrollY;
+    lastScrollY = window.scrollY;
+    if (Math.abs(scrollAccum) >= 140) {
+      staggerMove(scrollAccum > 0 ? 1 : -1);
+      scrollAccum = 0;
+      scrollLocked = true;
+      setTimeout(function() { scrollLocked = false; }, 680);
+    }
+  }, { passive: true });
+
+  buildCards();
 })();
 </script>
 </body>
