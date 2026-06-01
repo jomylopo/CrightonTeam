@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ylopo Media Center</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Montserrat', sans-serif; background: #fff; color: #111; -webkit-font-smoothing: antialiased; }
+  a { text-decoration: none; color: inherit; }
+  img { display: block; max-width: 100%; }
+
+  /* ─── NAV ─── */
+  #nav { position: sticky; top: 0; z-index: 200; background: #fff; border-bottom: 1px solid #e8e8e8; }
+  .nav-inner { max-width: 1140px; margin: 0 auto; padding: 0 32px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo img { height: 28px; }
+  .nav-right { display: flex; align-items: center; gap: 10px; }
+  .btn-nav-ghost { font-size: 13px; font-weight: 600; color: #333; padding: 9px 16px; border-radius: 6px; transition: background .15s; cursor: pointer; }
+  .btn-nav-ghost:hover { background: #f4f4f4; }
+  .btn-cta { font-size: 13px; font-weight: 700; color: #fff; background: #111; padding: 9px 20px; border-radius: 6px; transition: background .16s, transform .12s; cursor: pointer; border: none; font-family: inherit; display: inline-block; }
+  .btn-cta:hover { background: #2a2a2a; transform: translateY(-1px); }
+
+  /* ─── HERO ─── */
+  #hero { background: #0a0a0a; padding-top: 68px; overflow: hidden; position: relative; }
+  #hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.5; pointer-events: none; }
+  .hero-inner { max-width: 1140px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: flex-end; position: relative; z-index: 1; }
+  .hero-copy { padding-bottom: 72px; }
+  .hero-copy h1 { font-size: 46px; font-weight: 800; line-height: 1.1; letter-spacing: -.03em; color: #fff; margin-bottom: 16px; }
+  .hero-copy .sub { font-size: 15px; font-weight: 400; line-height: 1.72; color: rgba(255,255,255,0.6); max-width: 400px; margin-bottom: 30px; }
+  .hero-btns { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .btn-green { display: inline-flex; align-items: center; justify-content: center; background: #74B943; color: #fff; font-size: 13px; font-weight: 700; font-family: inherit; padding: 12px 24px; border-radius: 6px; border: none; cursor: pointer; transition: background .15s, transform .12s; box-shadow: 0 0 20px rgba(116,185,67,0.35); }
+  .btn-green:hover { background: #5a9234; transform: translateY(-1px); }
+  .link-demo { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.75); transition: color .14s; }
+  .link-demo:hover { color: #fff; }
+  .link-demo svg { transition: transform .14s; }
+  .link-demo:hover svg { transform: translateX(2px); }
+  .hero-photo { align-self: flex-end; border-radius: 12px 12px 0 0; overflow: hidden; line-height: 0; }
+  .hero-photo img { width: 100%; display: block; }
+
+  /* ─── STATS BAR — CTA #1 ─── */
+  #stats-bar { background: #173244; padding: 20px 32px; }
+  .stats-inner { max-width: 1140px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  .stat-item { display: flex; align-items: center; gap: 10px; }
+  .stat-num { font-size: 22px; font-weight: 800; color: #74B943; letter-spacing: -.02em; }
+  .stat-label { font-size: 12px; font-weight: 500; color: rgba(255,255,255,.6); line-height: 1.4; }
+  .stat-divider { width: 1px; height: 36px; background: rgba(255,255,255,.12); }
+  .btn-stats { display: inline-flex; align-items: center; gap: 8px; background: #74B943; color: #fff; font-size: 13px; font-weight: 700; font-family: inherit; padding: 10px 22px; border-radius: 6px; border: none; cursor: pointer; transition: background .15s, transform .12s; white-space: nowrap; }
+  .btn-stats:hover { background: #5a9234; transform: translateY(-1px); }
+
+  /* ─── ICON STRIP ─── */
+  #strip { background: #f7f6f4; padding: 60px 32px; }
+  .strip-inner { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .strip-item { background: #fff; border: 1px solid #e8e8e8; border-radius: 14px; padding: 32px 28px 30px; transition: background .22s, border-color .22s, box-shadow .22s, transform .22s; cursor: pointer; }
+  .strip-item:hover { background: #74B943; border-color: #74B943; box-shadow: 0 8px 28px rgba(116,185,67,.35); transform: translateY(-3px); }
+  .strip-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+  .strip-icon svg { width: 32px; height: 32px; fill: none; stroke-width: 1.5; stroke: #111; transition: stroke .22s; }
+  .strip-item:hover .strip-icon svg { stroke: #fff; }
+  .strip-item h4 { font-size: 15px; font-weight: 700; color: #111; margin-bottom: 10px; transition: color .22s; }
+  .strip-item:hover h4 { color: #fff; }
+  .strip-item p { font-size: 13px; color: #555; line-height: 1.65; transition: color .22s; }
+  .strip-item:hover p { color: rgba(255,255,255,.85); }
+
+  /* ─── DEMO BANNER — CTA #2 ─── */
+  #demo-banner { background: linear-gradient(135deg, #0a0a0a 0%, #1a2a1a 100%); padding: 64px 32px; position: relative; overflow: hidden; }
+  #demo-banner::before { content: ''; position: absolute; top: -80px; right: -80px; width: 320px; height: 320px; background: radial-gradient(circle, rgba(116,185,67,.18) 0%, transparent 70%); pointer-events: none; }
+  .demo-banner-inner { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; position: relative; z-index: 1; }
+  .demo-banner-copy h2 { font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -.025em; line-height: 1.2; margin-bottom: 10px; }
+  .demo-banner-copy h2 em { color: #74B943; font-style: normal; }
+  .demo-banner-copy p { font-size: 14px; color: rgba(255,255,255,.55); line-height: 1.65; max-width: 500px; }
+  .banner-btns { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; flex-shrink: 0; }
+  .btn-green-lg { display: inline-flex; align-items: center; gap: 8px; background: #74B943; color: #fff; font-size: 14px; font-weight: 700; font-family: inherit; padding: 14px 28px; border-radius: 8px; border: none; cursor: pointer; transition: background .15s, transform .12s; box-shadow: 0 4px 20px rgba(116,185,67,.35); white-space: nowrap; }
+  .btn-green-lg:hover { background: #5a9234; transform: translateY(-2px); }
+  .btn-outline-white { display: inline-flex; align-items: center; background: transparent; color: rgba(255,255,255,.8); font-size: 13px; font-weight: 600; font-family: inherit; padding: 13px 22px; border-radius: 8px; border: 1.5px solid rgba(255,255,255,.2); cursor: pointer; transition: border-color .15s, color .15s; white-space: nowrap; }
+  .btn-outline-white:hover { border-color: rgba(255,255,255,.5); color: #fff; }
+
+  /* ─── CALL NIGHT SECTION HEAD ─── */
+  #blog { background: #eeeee6; padding: 80px 32px 40px; }
+  .blog-head { max-width: 680px; margin: 0 auto 52px; text-align: center; }
+  .blog-head h2 { font-size: clamp(52px, 7vw, 84px); font-weight: 900; letter-spacing: -.03em; line-height: 1.05; margin-bottom: 20px; }
+  .blog-head h2 .line-dark { display: block; color: #173244; }
+  .blog-head h2 .line-green { display: block; color: #74B943; font-style: italic; }
+  .blog-head p { font-size: 15px; color: #555; max-width: 800px; margin: 0 auto 28px; line-height: 1.75; }
+  .blog-head-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-dark-outline { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: #173244; font-size: 13px; font-weight: 700; font-family: inherit; padding: 11px 22px; border-radius: 6px; border: 2px solid #173244; cursor: pointer; transition: background .15s, color .15s; white-space: nowrap; }
+  .btn-dark-outline:hover { background: #173244; color: #fff; }
+
+  /* ─── CALL NIGHT GRID ─── */
+  .webinar-sec { background: #eeeee6; padding: 0 32px 20px; }
+  .agents-grid { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-bottom: 20px; }
+  .agent_card { background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid #e0e0d8; transition: transform .22s, box-shadow .22s, border-color .22s; cursor: pointer; }
+  .agent_card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,.12); border-color: #c4dba4; }
+  .img_container { aspect-ratio: 16/9; overflow: hidden; }
+  .img_container img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .32s; }
+  .agent_card:hover .img_container img { transform: scale(1.04); }
+  .info_container { padding: 16px 18px 20px; }
+  .agentNamex { font-size: 13px; font-weight: 700; color: #111; line-height: 1.45; display: block; margin-bottom: 8px; }
+  .card-desc { font-size: 12px; color: #666; line-height: 1.6; margin-bottom: 14px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .card-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .btn-card-read { display: inline-flex; align-items: center; background: #74B943; color: #fff; font-size: 11px; font-weight: 700; font-family: inherit; padding: 7px 14px; border-radius: 5px; transition: background .15s; white-space: nowrap; }
+  .btn-card-read:hover { background: #5a9234; }
+  .btn-card-watch { display: inline-flex; align-items: center; background: transparent; color: #555; font-size: 11px; font-weight: 600; font-family: inherit; padding: 6px 12px; border-radius: 5px; border: 1.5px solid #d8d8cf; transition: border-color .15s, color .15s; white-space: nowrap; }
+  .btn-card-watch:hover { border-color: #74B943; color: #74B943; }
+
+  /* ─── INLINE GRID CTA ─── */
+  .grid-cta-wrap { max-width: 1140px; margin: 0 auto 20px; padding: 0; }
+  .grid-cta-card { background: linear-gradient(135deg, #173244 0%, #0d1f2d 100%); border-radius: 16px; padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; gap: 32px; position: relative; overflow: hidden; }
+  .grid-cta-card::before { content: ''; position: absolute; top: -60px; right: -60px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(116,185,67,.2) 0%, transparent 70%); pointer-events: none; }
+  .grid-cta-copy h3 { font-size: 22px; font-weight: 800; color: #fff; letter-spacing: -.02em; margin-bottom: 8px; }
+  .grid-cta-copy h3 em { color: #74B943; font-style: normal; }
+  .grid-cta-copy p { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.6; max-width: 420px; }
+  .grid-cta-actions { display: flex; gap: 10px; align-items: center; flex-shrink: 0; flex-wrap: wrap; }
+
+  /* ─── EXPLORE RESOURCES SECTION ─── */
+  .explore-cta-sec { background: #eeeee6; padding: 0 32px 60px; }
+  .explore-cta-card { max-width: 1140px; margin: 0 auto; background: linear-gradient(135deg, #74B943 0%, #5a9234 100%); border-radius: 16px; padding: 52px 48px; text-align: center; position: relative; overflow: hidden; }
+  .explore-cta-card::before { content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 360px; height: 360px; background: radial-gradient(circle, rgba(255,255,255,.14) 0%, transparent 70%); pointer-events: none; }
+  .explore-cta-card h3 { font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -.02em; margin-bottom: 12px; position: relative; }
+  .explore-cta-card p { font-size: 14px; color: rgba(255,255,255,.88); line-height: 1.7; margin-bottom: 28px; max-width: 520px; margin-left: auto; margin-right: auto; position: relative; }
+  .explore-btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
+  .btn-white-solid { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: #173244; font-size: 14px; font-weight: 700; font-family: inherit; padding: 14px 28px; border-radius: 8px; border: none; cursor: pointer; transition: background .15s, transform .12s; white-space: nowrap; }
+  .btn-white-solid:hover { background: #f2f2f2; transform: translateY(-2px); }
+  .btn-white-outline { display: inline-flex; align-items: center; background: transparent; color: #fff; font-size: 13px; font-weight: 600; font-family: inherit; padding: 13px 24px; border-radius: 8px; border: 2px solid rgba(255,255,255,.65); cursor: pointer; transition: border-color .15s; white-space: nowrap; }
+  .btn-white-outline:hover { border-color: #fff; }
+
+  /* ─── TESTIMONIALS ─── */
+  #testimonials { background: #fff; padding: 80px 32px; border-top: 1px solid #e8e8e8; }
+  .testimonials-inner { max-width: 1140px; margin: 0 auto; }
+  .testimonials-head { text-align: center; margin-bottom: 48px; }
+  .testimonials-head h2 { font-size: 32px; font-weight: 800; color: #111; letter-spacing: -.025em; margin-bottom: 12px; }
+  .testimonials-head p { font-size: 15px; color: #777; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 56px; }
+  .testimonial-card { background: #f8f8f6; border: 1px solid #e8e8e8; border-radius: 16px; padding: 28px; }
+  .testimonial-stars { display: flex; gap: 3px; margin-bottom: 14px; }
+  .testimonial-stars span { color: #74B943; font-size: 16px; }
+  .testimonial-quote { font-size: 14px; color: #333; line-height: 1.72; margin-bottom: 20px; font-style: italic; }
+  .testimonial-author { display: flex; align-items: center; gap: 12px; }
+  .t-avatar { width: 40px; height: 40px; border-radius: 50%; background: #173244; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: #74B943; flex-shrink: 0; }
+  .t-name { font-size: 13px; font-weight: 700; color: #111; }
+  .t-role { font-size: 12px; color: #888; }
+  .testimonials-cta { text-align: center; }
+  .testimonials-cta h3 { font-size: 24px; font-weight: 800; color: #111; margin-bottom: 8px; letter-spacing: -.02em; }
+  .testimonials-cta p { font-size: 14px; color: #666; margin-bottom: 24px; }
+  .btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-dark-lg { display: inline-flex; align-items: center; gap: 8px; background: #111; color: #fff; font-size: 14px; font-weight: 700; font-family: inherit; padding: 14px 28px; border-radius: 8px; border: none; cursor: pointer; transition: background .15s, transform .12s; white-space: nowrap; }
+  .btn-dark-lg:hover { background: #2a2a2a; transform: translateY(-2px); }
+
+  /* ─── EMAIL CTA ─── */
+  #cta { background: #fff; border-top: 1px solid #e8e8e8; padding: 76px 32px; text-align: center; }
+  #cta h2 { font-size: 28px; font-weight: 800; letter-spacing: -.02em; color: #0d0d0d; margin-bottom: 28px; }
+  .cta-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .cta-row input { width: 280px; padding: 12px 18px; border: 1.5px solid #d0d0d0; border-radius: 6px; font-size: 13px; font-family: inherit; outline: none; transition: border-color .15s; }
+  .cta-row input:focus { border-color: #74B943; }
+  .cta-row input::placeholder { color: #bbb; }
+  .btn-green-cta { display: inline-flex; align-items: center; background: #74B943; color: #fff; font-size: 13px; font-weight: 700; font-family: inherit; padding: 12px 22px; border-radius: 6px; border: none; cursor: pointer; transition: background .15s, transform .12s; }
+  .btn-green-cta:hover { background: #5a9234; transform: translateY(-1px); }
+  .fine { font-size: 12px; color: #aaa; margin-top: 14px; }
+
+  /* ─── FOOTER ─── */
+  #footer { background: #0c0e14; padding: 60px 32px 32px; }
+  .footer-grid { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: 200px repeat(4, 1fr); gap: 28px; padding-bottom: 44px; border-bottom: 1px solid rgba(255,255,255,.07); margin-bottom: 28px; }
+  .footer-brand img { height: 22px; filter: brightness(0) invert(1); opacity: .55; margin-bottom: 14px; }
+  .footer-brand p { font-size: 12px; color: rgba(255,255,255,.35); line-height: 1.7; }
+  .footer-col h5 { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.55); margin-bottom: 14px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .footer-col ul li a { font-size: 12px; color: rgba(255,255,255,.32); transition: color .15s; }
+  .footer-col ul li a:hover { color: rgba(255,255,255,.78); }
+  .footer-bottom { max-width: 1140px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+  .footer-bottom p { font-size: 11px; color: rgba(255,255,255,.25); }
+
+  /* ─── STICKY BAR ─── */
+  #sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 999; background: #173244; border-top: 2px solid rgba(116,185,67,.4); padding: 14px 32px; transform: translateY(100%); transition: transform .35s cubic-bezier(.23,1,.32,1); }
+  #sticky-bar.visible { transform: translateY(0); }
+  .sticky-inner { max-width: 1140px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .sticky-left { display: flex; align-items: center; gap: 10px; }
+  .sticky-dot { width: 8px; height: 8px; background: #74B943; border-radius: 50%; flex-shrink: 0; animation: pulse-dot 2s infinite; }
+  @keyframes pulse-dot { 0%,100%{box-shadow:0 0 0 0 rgba(116,185,67,.4)} 50%{box-shadow:0 0 0 6px rgba(116,185,67,0)} }
+  .sticky-left p { font-size: 13px; font-weight: 600; color: rgba(255,255,255,.85); }
+  .sticky-left p span { color: #74B943; }
+  .sticky-right { display: flex; gap: 10px; align-items: center; }
+  .btn-dismiss { font-size: 12px; color: rgba(255,255,255,.4); cursor: pointer; padding: 4px 8px; background: none; border: none; font-family: inherit; transition: color .15s; }
+  .btn-dismiss:hover { color: rgba(255,255,255,.7); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-photo { display: none; }
+    .hero-copy { padding-bottom: 60px; }
+    .demo-banner-inner { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 768px) {
+    .hero-copy h1 { font-size: 34px; }
+    .strip-inner { grid-template-columns: repeat(2, 1fr); }
+    #strip { padding: 40px 20px; }
+    .agents-grid { grid-template-columns: repeat(2, 1fr); }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .grid-cta-card { flex-direction: column; padding: 28px 24px; }
+    .stats-inner { gap: 12px; }
+    .stat-divider { display: none; }
+    .explore-cta-card { padding: 36px 24px; }
+  }
+  @media (max-width: 540px) {
+    .hero-copy h1 { font-size: 28px; }
+    .strip-inner { grid-template-columns: 1fr; }
+    .agents-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="https://www.ylopo.com">
+      <img src="brand_assets/ylopo-logo.png" alt="Ylopo">
+    </a>
+    <div class="nav-right">
+      <a class="btn-nav-ghost" href="https://www.ylopo.com/pricing">Pricing</a>
+      <a class="btn-nav-ghost" href="https://www.ylopo.com/resources">Resources</a>
+      <a class="btn-nav-ghost" href="https://www.ylopo.com/contact">Contact Ylopo</a>
+      <a class="btn-cta" href="https://demo.ylopo.com/free-demo-step-1" target="_blank">Book A Demo</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <h1>Ylopo<br>Media Center</h1>
+      <p class="sub">Stay sharp with the latest strategies, tools, and expert insights from our community of top-performing real estate professionals. Discover on-demand call night replays, expert articles, and virtual events built to grow your business.</p>
+      <div class="hero-btns">
+        <a href="https://demo.ylopo.com/free-demo-step-1" target="_blank" class="btn-green">Get started free</a>
+        <a href="#blog" class="link-demo">Explore Call Night <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="https://images.squarespace-cdn.com/content/58c9da27197aeafaeb59ce29/57f85066-a471-4e26-b7cd-5838a1eb667e/media-center-image.png?content-type=image%2Fpng" alt="Ylopo presenter">
+    </div>
+  </div>
+</section>
+
+<!-- CTA #1 — STATS BAR -->
+<section id="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num">10,000+</div>
+      <div class="stat-label">Active<br>Agents</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num">$2B+</div>
+      <div class="stat-label">Closed<br>Volume</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num">95%</div>
+      <div class="stat-label">Client<br>Retention</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num">80+</div>
+      <div class="stat-label">On-Demand<br>Resources</div>
+    </div>
+    <a href="https://demo.ylopo.com/free-demo-step-1" target="_blank" class="btn-stats">
+      See it in your market <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ICON STRIP -->
+<section id="strip">
+  <div class="strip-inner">
+    <div class="strip-item">
+      <div class="strip-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12l3 3 5-5"/></svg></div>
+      <h4>Webinar</h4>
+      <p>As part of Ylopo's commitment to excellence and education, we present our best guides on the latest tech and trends in real estate and lead generation.</p>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+      <h4>Call Night</h4>
+      <p>National Call Nights bring Ylopo teams together to call leads, build relationships, and set appointments in a fun, competitive environment.</p>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l4-8 4 4 3-6 4 6"/><circle cx="20" cy="6" r="2"/></svg></div>
+      <h4>Academy Live</h4>
+      <p>This is the most extensive Ylopo training available. Day 1 is for all agents, Day 2 is geared specifically toward team leaders and admins.</p>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8V6a2 2 0 00-2-2H5a2 2 0 00-2 2v2"/><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M9 14h.01M12 14h3"/></svg></div>
+      <h4>Case Studies</h4>
+      <p>As part of Ylopo's commitment to excellence and education, we present our best guides on the latest tech and trends in real estate.</p>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 10h12M4 14h8M4 18h5"/></svg></div>
+      <h4>Master Class</h4>
+      <p>Scripting isn't just about saying the right thing — it's about building authentic connections that create trust and drive real results.</p>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 00-9.95 9h11.64L9.74 6.95a1 1 0 011.41-1.41l5.66 5.65a1 1 0 010 1.42l-5.66 5.65a1 1 0 01-1.41-1.41L14.69 13H2.05A10 10 0 1012 2z"/></svg></div>
+      <h4>All Training</h4>
+      <p>Access expert-led training, webinars, coaching sessions, and educational resources designed to help agents and teams maximize lead generation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA #2 — DEMO BANNER -->
+<section id="demo-banner">
+  <div class="demo-banner-inner">
+    <div class="demo-banner-copy">
+      <h2>See Ylopo working <em>in your market</em> — live.</h2>
+      <p>Get a personalized walkthrough with one of our product specialists. We'll show you exactly how Ylopo generates, nurtures, and converts leads for teams like yours — no generic slides, no fluff.</p>
+    </div>
+    <div class="banner-btns">
+      <a href="https://demo.ylopo.com/free-demo-step-1" target="_blank" class="btn-green-lg">Book A Free Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="#cta" class="btn-outline-white">Try free for 14 days</a>
+    </div>
+  </div>
+</section>
+
+<!-- CALL NIGHT SECTION HEAD -->
+<section id="blog">
+  <div class="blog-head">
+    <h2><span class="line-dark">CALL NIGHT.</span><span class="line-green">Win Every Call.</span></h2>
+    <p>National Call Nights bring Ylopo teams together to call leads, build relationships, and set appointments in a fun, competitive environment. Explore expert strategies, success stories, and step-by-step playbooks to make your next call night your most productive yet.</p>
+    <div class="blog-head-btns">
+      <a href="https://www.ylopo.com/ylopo-media-center-call-night" target="_blank" class="btn-green">Watch Call Night →</a>
+      <a href="https://www.ylopo.com/resources" class="btn-dark-outline">Explore More Resources</a>
+    </div>
+  </div>
+</section>
+
+<!-- CALL NIGHT ARTICLE GRID -->
+<div class="webinar-sec">
+  <div class="agents-grid">
+
+    <!-- Article 1 -->
+    <a href="https://www.ylopo.com/call-night/2020/3/9/robby-trefethren-call-night-prep-hacks">
+      <div class="agent_card">
+        <div class="img_container">
+          <img src="https://placehold.co/800x450/173244/74B943?text=Call+Night+Prep+Hacks" alt="Robby Trefethren Call Night Prep Hacks">
+        </div>
+        <div class="info_container">
+          <span class="agentNamex">Robby Trefethren Call Night Prep Hacks</span>
+          <p class="card-desc">Hatch Coaching's Robbie T shares powerful tips for a successful call night — shift your mindset from selling to serving, and set yourself up with the right conversation starters to maximize appointments.</p>
+          <div class="card-actions">
+            <span class="btn-card-read">Read the Article →</span>
+            <span class="btn-card-watch">Watch Call Night</span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Article 2 -->
+    <a href="https://www.ylopo.com/call-night/2020/3/9/real-estate-call-night-success-story">
+      <div class="agent_card">
+        <div class="img_container">
+          <img src="https://placehold.co/800x450/0d1f2d/74B943?text=126+Calls+%E2%80%A2+26+Appointments" alt="Real Estate Call Night Success Story">
+        </div>
+        <div class="info_container">
+          <span class="agentNamex">Real Estate Call Night Success Story</span>
+          <p class="card-desc">Ylopo Realtor in Residence Livia Monteforte shares incredible results from a single call night: 126 calls made in under 2 hours with 26 appointments set — proof the Ylopo system delivers.</p>
+          <div class="card-actions">
+            <span class="btn-card-read">Read the Article →</span>
+            <span class="btn-card-watch">Watch Call Night</span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Article 3 -->
+    <a href="https://www.ylopo.com/call-night/2020/3/9/how-to-set-up-a-call-night-residential-real-estate-agents">
+      <div class="agent_card">
+        <div class="img_container">
+          <img src="https://placehold.co/800x450/1a2a1a/74B943?text=How+to+Set+Up+a+Call+Night" alt="How To Set Up A Call Night">
+        </div>
+        <div class="info_container">
+          <span class="agentNamex">How To Set Up A Call Night (Residential Real Estate Agents)</span>
+          <p class="card-desc">Step-by-step guidance for real estate teams ready to run their first call night — dive into your database, turn leads into real conversations, and systematically convert them into booked appointments.</p>
+          <div class="card-actions">
+            <span class="btn-card-read">Read the Article →</span>
+            <span class="btn-card-watch">Watch Call Night</span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- CTA #3 — MID-GRID BANNER -->
+  <div class="grid-cta-wrap">
+    <div class="grid-cta-card">
+      <div class="grid-cta-copy">
+        <h3>Ready to run your own Call Night? See Ylopo <em>driving live results</em>.</h3>
+        <p>Join 10,000+ agents already using Ylopo to generate more leads, make more calls, and close more deals with AI-powered nurturing and live transfer technology.</p>
+      </div>
+      <div class="grid-cta-actions">
+        <a href="https://demo.ylopo.com/free-demo-step-1" target="_blank" class="btn-green-lg">Schedule a Demo</a>
+        <a href="https://www.ylopo.com/contact" class="btn-outline-white">Contact Ylopo</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- EXPLORE MORE RESOURCES CTA -->
+<div class="explore-cta-sec">
+  <div class="explore-cta-card">
+    <h3>Explore More Ylopo Resources</h3>
+    <p>Webinars, case studies, master classes, and live training — everything you need to grow your real estate business with the power of Ylopo's AI platform.</p>
+    <div class="explore-btn-row">
+      <a href="https://www.ylopo.com/resources" target="_blank" class="btn-white-solid">Explore More Resources →</a>
+      <a href="https://www.ylopo.com/ylopo-media-center-call-night" target="_blank" class="btn-white-outline">View All Call Night Articles</a>
+    </div>
+  </div>
+</div>
+
+<!-- CTA #5 — TESTIMONIALS -->
+<section id="testimonials">
+  <div class="testimonials-inner">
+    <div class="testimonials-head">
+      <h2>Trusted by top-producing agents nationwide</h2>
+      <p>See what real estate professionals are saying about Ylopo</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="testimonial-quote">"Ylopo completely changed how we generate and nurture leads. Our team went from struggling to convert to consistently closing deals with AI-driven follow-up. The ROI is undeniable."</p>
+        <div class="testimonial-author">
+          <div class="t-avatar">JF</div>
+          <div><div class="t-name">Justin Ford</div><div class="t-role">Top Producer, Dallas TX — 200+ closings/year</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="testimonial-quote">"We've tried every lead gen tool out there. Ylopo is the only one that actually follows up automatically and transfers leads live to our agents. It's like having an AI ISA working 24/7."</p>
+        <div class="testimonial-author">
+          <div class="t-avatar">BJ</div>
+          <div><div class="t-name">Barry Jenkins</div><div class="t-role">Team Leader, Charlotte NC — 350+ units/year</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="testimonial-quote">"The call nights alone are worth it — but when you combine the training with the actual technology, it's a complete ecosystem for growing your business. I can't imagine running my team without Ylopo."</p>
+        <div class="testimonial-author">
+          <div class="t-avatar">LM</div>
+          <div><div class="t-name">Livia Monteforte</div><div class="t-role">Broker/Owner, Florida — 126 calls &amp; 26 appts in one night</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonials-cta">
+      <h3>Ready to see results like these?</h3>
+      <p>Book a personalized demo and we'll show you exactly how Ylopo works for your market.</p>
+      <div class="btn-row">
+        <a href="https://demo.ylopo.com/free-demo-step-1" target="_blank" class="btn-green-lg">Book A Free Demo →</a>
+        <a href="https://www.ylopo.com/contact" class="btn-dark-lg">Contact Ylopo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL CTA -->
+<section id="cta">
+  <h2>Get started in 30 seconds.</h2>
+  <div class="cta-row">
+    <input type="email" placeholder="Enter your work email">
+    <button class="btn-green-cta">Try Ylopo free →</button>
+  </div>
+  <p class="fine">No credit card required &nbsp;·&nbsp; Free 14-day trial &nbsp;·&nbsp; Cancel anytime</p>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="brand_assets/ylopo-logo.png" alt="Ylopo">
+      <p>AI-powered lead generation and nurturing for real estate professionals.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Products</h5>
+      <ul>
+        <li><a href="https://www.ylopo.com/real-estate-lead-generation">Lead Generation</a></li>
+        <li><a href="https://www.ylopo.com/buyer-lead-generation">Buyer Leads</a></li>
+        <li><a href="https://www.ylopo.com/seller">Seller Leads</a></li>
+        <li><a href="https://www.ylopo.com/ai-for-real-estate">AI for Real Estate</a></li>
+        <li><a href="https://www.ylopo.com/google-ppc">Google PPC</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Resources</h5>
+      <ul>
+        <li><a href="https://www.ylopo.com/test-webinar">Webinars</a></li>
+        <li><a href="https://www.ylopo.com/ylopo-media-center-call-night">Call Night</a></li>
+        <li><a href="https://www.ylopo.com/blog">Blog</a></li>
+        <li><a href="https://www.ylopo.com/success-stories">Success Stories</a></li>
+        <li><a href="https://www.ylopo.com/reviews">Reviews</a></li>
+        <li><a href="https://www.ylopo.com/faqs">FAQs</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="https://www.ylopo.com/about">About Us</a></li>
+        <li><a href="https://www.ylopo.com/pricing">Pricing</a></li>
+        <li><a href="https://www.ylopo.com/realtors-in-residence">Realtors in Residence</a></li>
+        <li><a href="https://www.ylopo.com/contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Legal</h5>
+      <ul>
+        <li><a href="https://www.ylopo.com/terms-of-service">Terms of Service</a></li>
+        <li><a href="https://www.ylopo.com/privacy-policy">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Ylopo LLC. All rights reserved.</p>
+    <p>info@ylopo.com &nbsp;|&nbsp; SOC 2 Compliant</p>
+  </div>
+</footer>
+
+<!-- STICKY BAR -->
+<div id="sticky-bar">
+  <div class="sticky-inner">
+    <div class="sticky-left">
+      <div class="sticky-dot"></div>
+      <p>Spots are limited this week — <span>book your free Ylopo demo</span> and see AI lead generation in action.</p>
+    </div>
+    <div class="sticky-right">
+      <a href="https://demo.ylopo.com/free-demo-step-1" target="_blank" class="btn-green-lg" style="font-size:13px;padding:10px 20px;">Book A Demo →</a>
+      <button class="btn-dismiss" onclick="document.getElementById('sticky-bar').remove()">Dismiss</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* sticky bar scroll trigger */
+  (function(){
+    const bar = document.getElementById('sticky-bar');
+    let shown = false;
+    window.addEventListener('scroll', function(){
+      if(!shown && window.scrollY > 400){ bar.classList.add('visible'); shown = true; }
+    }, {passive:true});
+  })();
+
+  /* hero canvas glow grid */
+  (function(){
+    const canvas = document.getElementById('hero-canvas');
+    if(!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const GRID = 50;
+    let W=0, H=0, glows=[];
+
+    function resize(){
+      W = canvas.width = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+    }
+    function mkGlow(){
+      return { x:Math.random()*W, y:Math.random()*H, vx:(Math.random()-.5)*.4, vy:(Math.random()-.5)*.4,
+               r:80+Math.random()*120, color:['#4A00E0','#8E2DE2','#74B943'][Math.floor(Math.random()*3)] };
+    }
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      ctx.strokeStyle='rgba(255,255,255,0.05)'; ctx.lineWidth=1;
+      for(let x=0;x<W;x+=GRID){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+      for(let y=0;y<H;y+=GRID){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+      glows.forEach(function(g){
+        g.x+=g.vx; g.y+=g.vy;
+        if(g.x<-g.r) g.x=W+g.r; if(g.x>W+g.r) g.x=-g.r;
+        if(g.y<-g.r) g.y=H+g.r; if(g.y>H+g.r) g.y=-g.r;
+        var grad=ctx.createRadialGradient(g.x,g.y,0,g.x,g.y,g.r);
+        grad.addColorStop(0,g.color+'44'); grad.addColorStop(1,'transparent');
+        ctx.fillStyle=grad; ctx.beginPath(); ctx.arc(g.x,g.y,g.r,0,Math.PI*2); ctx.fill();
+      });
+      requestAnimationFrame(draw);
+    }
+    resize();
+    for(var i=0;i<10;i++) glows.push(mkGlow());
+    draw();
+    window.addEventListener('resize', resize);
+  })();
+</script>
+</body>
+</html>

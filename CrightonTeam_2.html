@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+<title>Crighton-Rinaldi Team | Top Real Estate Agents in Las Vegas</title>
+<meta name="description" content="Crighton-Rinaldi Team — Top Real Estate Agents in Las Vegas. Extraordinary properties, exceptional representation across Summerlin, Henderson, The Strip, and all of Las Vegas.">
+<meta name="keywords" content="Las Vegas real estate, luxury homes Las Vegas, Summerlin real estate, Henderson homes, luxury brokerage Las Vegas, Crighton Rinaldi">
+<meta property="og:title" content="Crighton-Rinaldi Team — Top Real Estate Agents in Las Vegas">
+<meta property="og:description" content="Curating Las Vegas's most extraordinary properties for discerning buyers and sellers.">`
+<meta property="og:type" content="website">
+<!-- Image preloads -->
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="preconnect" href="https://picsum.photos">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=90&fit=crop" fetchpriority="high">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=700&q=80&fit=crop&crop=faces">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          'lux-black':    '#0A0A0A',
+          'lux-charcoal': '#021C1E',
+          'lux-white':    '#EDEFF0',
+          'lux-gold':     '#33dbe7',
+          'lux-beige':    '#ededc2',
+          'lux-teal':     '#7acfd1',
+          'lux-mint':     '#bcdecd',
+          'lux-ocean':    '#0E201F',
+        },
+        fontFamily: {
+          'display': ['"Cormorant Garamond"', 'serif'],
+          'heading':  ['"Playfair Display"',  'serif'],
+          'body':     ['Inter', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black:    #0A0A0A;
+    --charcoal: #021C1E;
+    --dark2:    #171711;
+    --ocean:    #0E201F;
+    --white:    #EDEFF0;
+    --gold:     #33dbe7;
+    --beige:    #ededc2;
+    --teal:     #7acfd1;
+    --mint:     #bcdecd;
+    --fd: 'Cormorant Garamond', serif;
+    --fh: 'Playfair Display',  serif;
+    --fb: 'Inter', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--fb);
+    background: var(--white);
+    color: var(--black);
+    -webkit-font-smoothing: antialiased;
+    cursor: none;
+    overflow-x: hidden;
+	      background: #000;
+  }
+
+  a  { text-decoration: none; color: inherit; }
+  img { display: block; max-width: 100%; }
+
+  /* ── SCROLL PROGRESS ── */
+  #prog {
+    position: fixed; top: 0; left: 0;
+    height: 2px; width: 0%;
+    background: var(--gold);
+    z-index: 1000;
+    transition: width 0.08s linear;
+  }
+
+  /* ── LOADER ── */
+  #loader {
+    position: fixed; inset: 0;
+    background: var(--black);
+    z-index: 9999;
+    display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 20px;
+    transition: opacity 0.9s ease, visibility 0.9s ease;
+  }
+  #loader.out { opacity: 0; visibility: hidden; pointer-events: none; }
+  .ldr-logo { display: none; }
+  .ldr-bar {
+    width: 0; height: 1px; background: var(--gold);
+    animation: growBar 1.2s ease 0.7s forwards;
+  }
+  .ldr-sub {
+    font-family: var(--fb); font-size: 10px; font-weight: 400;
+    letter-spacing: 0.26em; text-transform: uppercase; color: rgba(237,239,240,.35);
+    opacity: 0; animation: fadeUp 0.7s ease 1.1s forwards;
+  }
+  @keyframes fadeUp  { to { opacity: 1; transform: none; } from { opacity: 0; transform: translateY(10px); } }
+  @keyframes growBar { to { width: 100px; } }
+
+  /* ── CUSTOM CURSOR ── */
+  #cOuter {
+    position: fixed; width: 32px; height: 32px;
+    border: 1px solid rgba(51,219,231,.7); border-radius: 50%;
+    pointer-events: none; z-index: 9998;
+    transform: translate(-50%,-50%);
+    transition: width .22s ease, height .22s ease, background .22s ease, opacity .3s ease;
+    opacity: 0;
+  }
+  #cInner {
+    position: fixed; width: 4px; height: 4px;
+    background: var(--gold); border-radius: 50%;
+    pointer-events: none; z-index: 9998;
+    transform: translate(-50%,-50%);
+    transition: opacity .3s ease;
+    opacity: 0;
+  }
+  body:hover #cOuter,
+  body:hover #cInner { opacity: 1; }
+
+  /* ── NAVBAR ── */
+  #nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+    padding: 16px 56px;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: background .45s ease, padding .45s ease, backdrop-filter .45s ease;
+  }
+  #nav.scrolled {
+    background: rgba(10,10,10,.93);
+    backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+    padding: 12px 56px;
+    border-bottom: 1px solid rgba(51,219,231,.12);
+  }
+  .nav-logo {
+    display: flex; align-items: center;
+    user-select: none; flex-shrink: 0;
+  }
+  .nav-links { display: flex; align-items: center; gap: 40px; list-style: none; }
+  .nav-links a {
+    font-size: 10.5px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(237,239,240,.62);
+    transition: color .22s ease;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -5px; left: 0;
+    width: 0; height: 1px; background: var(--gold);
+    transition: width .32s ease;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta {
+    font-size: 10.5px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); border: 1px solid rgba(51,219,231,.6);
+    padding: 11px 28px;
+    transition: background .3s ease, color .3s ease, border-color .3s ease;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+  .nav-ham { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .nav-ham span { display: block; width: 22px; height: 1px; background: var(--white); }
+
+  /* ── OVERLINE ── */
+  .ol {
+    display: flex; align-items: center; gap: 14px;
+    font-size: 15px; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--gold);
+  }
+  .ol::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); flex-shrink: 0; }
+
+  /* ── REVEAL ── */
+  .rv {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity .85s ease, transform .85s ease;
+  }
+  .rv.vis { opacity: 1; transform: none; }
+  .rv.d1 { transition-delay: .1s; } .rv.d2 { transition-delay: .2s; }
+  .rv.d3 { transition-delay: .3s; } .rv.d4 { transition-delay: .4s; }
+  .rv.d5 { transition-delay: .5s; }
+
+  /* ── GRAIN FILTER ── */
+  #grain-filter { position: absolute; width: 0; height: 0; }
+
+  /* ── HERO ── */
+  #hero {
+    position: relative; height: 100vh; min-height: 680px;
+    display: flex; align-items: flex-end; overflow: hidden;
+    background: var(--black);
+  }
+  #hBg {
+    position: absolute; inset: 0;
+    overflow: hidden;
+    transform: scale(1.06);
+    will-change: transform;
+  }
+  #hBg img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center;
+    display: block;
+  }
+  .h-ov {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      175deg,
+      rgba(10,10,10,.78) 0%,
+      rgba(10,10,10,.30) 40%,
+      rgba(10,10,10,.88) 100%
+    );
+  }
+  /* dark fade from nav into hero so there is no visible "seam" */
+  .h-nav-fade {
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 140px; z-index: 3; pointer-events: none;
+    background: linear-gradient(to bottom, rgba(10,10,10,.85) 0%, transparent 100%);
+  }
+  .h-ov2 {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 20% 80%, rgba(51,219,231,.08) 0%, transparent 70%);
+  }
+  .h-grain {
+    position: absolute; inset: 0; opacity: .035; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat; background-size: 200px;
+  }
+
+  .h-content {
+    position: relative; z-index: 2;
+    width: 100%; max-width: 1440px; margin: 0 auto;
+    padding: 0 60px 88px;
+  }
+  /* hero content always starts visible; subtle fade-up on load */
+  @keyframes hIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  @keyframes hFd { from { opacity: 0; } to { opacity: 1; } }
+  .h-content .ol { animation: hIn .7s ease .05s both; }
+  .h-hl          { animation: hIn .8s ease .05s both; }
+  .h-sub         { animation: hIn .7s ease .05s both; }
+  .h-ctas        { animation: hIn .7s ease .05s both; }
+  .h-stats       { animation: hFd .7s ease .05s both; }
+
+  .h-hl {
+    font-family: var(--fd);
+    font-size: clamp(44px, 5.5vw, 88px);
+    font-weight: 300; line-height: 1.0; letter-spacing: -.02em;
+    color: var(--white); margin: 20px 0 26px;
+  }
+  .h-hl em { font-style: italic; color: var(--gold); }
+
+  .h-sub {
+    font-size: 18px; font-weight: 300; line-height: 1.75;
+    color: rgba(237,239,240,.6); max-width: 460px; margin-bottom: 44px;
+  }
+
+  .h-ctas { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 44px; }
+
+  .btn-gld {
+    font-size: 10.5px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--charcoal); background: var(--gold); padding: 16px 40px; border: none;
+    transition: background .3s ease, color .3s ease, transform .2s ease;
+    cursor: pointer; display: inline-block;
+  }
+  .btn-gld:hover { background: var(--charcoal); color: var(--white); transform: translateY(-2px); }
+
+  .btn-ghost {
+    font-size: 10.5px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--white); border: 1px solid rgba(237,239,240,.38);
+    padding: 16px 40px;
+    transition: border-color .3s ease, color .3s ease, transform .2s ease;
+    cursor: pointer; display: inline-block;
+  }
+  .btn-ghost:hover { border-color: var(--white); transform: translateY(-2px); }
+
+  .h-stats {
+    display: grid; grid-template-columns: repeat(4,1fr);
+    border-top: 1px solid rgba(51,219,231,.2);
+    padding-top: 36px; gap: 0;
+  }
+  .h-stat { padding-right: 20px; }
+  .h-stat-n {
+    font-family: var(--fd);
+    font-size: 38px; font-weight: 300; letter-spacing: -.02em;
+    color: var(--gold); line-height: 1; margin-bottom: 7px;
+  }
+  .h-stat-l {
+    font-size: 9.5px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(237,239,240,.4);
+  }
+
+  .h-scroll-ind {
+    position: absolute; bottom: 40px; right: 52px; z-index: 3;
+    display: flex; flex-direction: column; align-items: center; gap: 9px;
+    opacity: .45;
+  }
+  .h-scroll-ind span {
+    font-size: 9.5px; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--white); writing-mode: vertical-rl;
+  }
+  .h-scroll-bar {
+    width: 1px; height: 52px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease infinite;
+  }
+  @keyframes scrollPulse {
+    0%,100% { transform: scaleY(1);   opacity: .5; }
+    50%      { transform: scaleY(.55); opacity: 1;  }
+  }
+
+  /* ── SECTION SHELLS ── */
+  .sec { padding: 128px 60px; }
+  .sec-inner { max-width: 1440px; margin: 0 auto; }
+  .sec-hd { margin-bottom: 20px; }
+  .sec-title {
+    font-family: var(--fh);
+    font-size: clamp(34px, 4vw, 62px);
+    font-weight: 400; letter-spacing: -.02em; line-height: 1.08;
+    color: var(--black); margin: 18px 0 36px;
+  }
+  .sec-title-light { color: var(--white); }
+
+  /* ── PROPERTIES ── */
+  #properties { background: var(--white); }
+
+  .prop-filters {
+    display: flex; gap: 0;
+    border-bottom: 1px solid rgba(10,10,10,.1);
+    flex-wrap: wrap;
+  }
+  .flt {
+    font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(10,10,10,.38); padding: 12px 24px 12px 0;
+    background: none; border: none; cursor: pointer;
+    transition: color .22s ease; position: relative;
+  }
+  .flt::after {
+    content: ''; position: absolute; bottom: -1px; left: 0;
+    width: 0; height: 2px; background: var(--gold);
+    transition: width .32s ease;
+  }
+  .flt.on,
+  .flt:hover { color: var(--black); }
+  .flt.on::after { width: 100%; }
+
+  .props-grid {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 3px; margin-top: 52px;
+  }
+  .p-card {
+    position: relative; overflow: hidden;
+    background: var(--charcoal); cursor: pointer;
+  }
+  .p-card img {
+    width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block;
+    transition: transform .7s cubic-bezier(.25,.46,.45,.94), filter .5s ease;
+    filter: brightness(.88) saturate(.95);
+  }
+  .p-card:hover img {
+    transform: scale(1.07);
+    filter: brightness(.62) saturate(.85);
+  }
+  .p-ov {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10,10,10,.88) 0%, rgba(10,10,10,.22) 55%, transparent 100%);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 28px;
+  }
+  .p-tag {
+    position: absolute; top: 22px; left: 22px;
+    font-size: 8.5px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--black); background: var(--gold); padding: 5px 12px;
+  }
+  .p-loc {
+    font-size: 9.5px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 7px;
+  }
+  .p-name {
+    font-family: var(--fd); font-size: 22px; font-weight: 400;
+    color: var(--white); line-height: 1.25; margin-bottom: 12px;
+  }
+  .p-price {
+    font-size: 13px; font-weight: 500; letter-spacing: .05em;
+    color: var(--white); margin-bottom: 14px;
+  }
+  .p-dets {
+    display: flex; gap: 18px;
+    opacity: 0; transform: translateY(8px);
+    transition: opacity .38s ease, transform .38s ease;
+  }
+  .p-card:hover .p-dets { opacity: 1; transform: none; }
+  .p-det-item {
+    font-size: 9px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(237,239,240,.55);
+  }
+  .p-det-item strong {
+    display: block; font-size: 13px; font-weight: 500; letter-spacing: 0;
+    color: var(--white); margin-bottom: 2px;
+  }
+
+  .view-all {
+    display: flex; justify-content: center; margin-top: 52px;
+  }
+  .btn-ol {
+    font-size: 10.5px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--black); border: 1px solid var(--gold); padding: 15px 44px;
+    transition: background .3s ease, color .3s ease; cursor: pointer; display: inline-block;
+  }
+  .btn-ol:hover { background: var(--gold); }
+
+  /* ── SPOTLIGHT ── */
+  #spotlight {
+    display: grid; grid-template-columns: 1fr 1fr;
+    min-height: 90vh; background: var(--black);
+  }
+  .sp-img { position: relative; overflow: hidden; min-height: 600px; }
+  .sp-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 7s ease;
+  }
+  .sp-img:hover img { transform: scale(1.04); }
+  .sp-img-ov {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, transparent 55%, rgba(10,10,10,.55) 100%);
+  }
+  .sp-content {
+    padding: 88px 80px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .sp-hl {
+    font-family: var(--fd);
+    font-size: clamp(40px, 4.5vw, 76px);
+    font-weight: 300; line-height: 1.0; letter-spacing: -.025em;
+    color: var(--white); margin: 18px 0 26px;
+  }
+  .sp-hl em { font-style: italic; color: var(--gold); }
+  .sp-desc {
+    font-size: 14px; font-weight: 300; line-height: 1.85;
+    color: rgba(237,239,240,.5); max-width: 440px; margin-bottom: 44px;
+  }
+  .sp-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 22px; padding-top: 36px;
+    border-top: 1px solid rgba(51,219,231,.15);
+    margin-bottom: 52px;
+  }
+  .sp-item-l {
+    font-size: 9px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 5px;
+  }
+  .sp-item-v {
+    font-family: var(--fd); font-size: 20px; font-weight: 400;
+    color: var(--white); line-height: 1.2;
+  }
+
+  /* ── MARKETS ── */
+  #markets { background: var(--white); }
+  .mkts-grid {
+    display: grid; grid-template-columns: repeat(5,1fr);
+    gap: 3px; margin-top: 52px;
+  }
+  .mkt-card {
+    position: relative; overflow: hidden;
+    aspect-ratio: 3/5; cursor: pointer;
+  }
+  .mkt-card img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .65s cubic-bezier(.25,.46,.45,.94), filter .4s ease;
+    filter: brightness(.6) saturate(.75);
+  }
+  .mkt-card:hover img { transform: scale(1.1); filter: brightness(.4) saturate(.65); }
+  .mkt-ov {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10,10,10,.84) 0%, transparent 58%);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 22px 18px;
+  }
+  .mkt-name {
+    font-family: var(--fd); font-size: 22px; font-weight: 400;
+    color: var(--white); margin-bottom: 3px;
+  }
+  .mkt-count {
+    font-size: 9.5px; font-weight: 400; letter-spacing: 0.17em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 14px;
+  }
+  .mkt-btn {
+    font-size: 8.5px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--black); background: var(--gold); padding: 8px 16px;
+    display: inline-block; width: fit-content;
+    opacity: 0; transform: translateY(8px);
+    transition: opacity .3s ease, transform .3s ease;
+  }
+  .mkt-card:hover .mkt-btn { opacity: 1; transform: none; }
+
+  /* ── ABOUT ── */
+  #about { background: var(--charcoal); }
+  .abt-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 88px; align-items: center;
+  }
+  .abt-img-wrap { position: relative; }
+  .abt-img {
+    width: 100%; aspect-ratio: 3/4; object-fit: cover;
+    filter: grayscale(18%) brightness(.88);
+  }
+  .abt-corner {
+    position: absolute; bottom: -22px; right: -22px;
+    width: 180px; height: 180px;
+    border: 1px solid rgba(51,219,231,.22);
+    pointer-events: none;
+  }
+  .abt-hl {
+    font-family: var(--fd);
+    font-size: clamp(40px, 4.5vw, 72px);
+    font-weight: 300; line-height: 1.0; letter-spacing: -.025em;
+    color: var(--white); margin: 18px 0 26px;
+  }
+  .abt-hl em { font-style: italic; color: var(--gold); }
+  .abt-bio {
+    font-size: 14px; font-weight: 300; line-height: 1.88;
+    color: rgba(237,239,240,.5); margin-bottom: 44px;
+  }
+  .abt-ach {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 22px;
+    border-top: 1px solid rgba(51,219,231,.15);
+    padding-top: 36px; margin-bottom: 44px;
+  }
+  .ach-l {
+    font-size: 9px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 5px;
+  }
+  .ach-v {
+    font-family: var(--fd); font-size: 20px; font-weight: 400;
+    color: var(--white); line-height: 1.2;
+  }
+  .abt-badges { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge {
+    font-size: 9px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(237,239,240,.32); border: 1px solid rgba(51,219,231,.18);
+    padding: 6px 14px;
+  }
+
+  /* ── PRESS MARQUEE ── */
+  #press {
+    background: var(--black);
+    border-top: 1px solid rgba(51,219,231,.08);
+    border-bottom: 1px solid rgba(51,219,231,.08);
+    padding: 44px 0; overflow: hidden;
+  }
+  .press-track {
+    display: flex; gap: 0; width: max-content;
+    animation: marquee 28s linear infinite;
+  }
+  .press-set { display: flex; align-items: center; gap: 60px; flex-shrink: 0; padding-right: 60px; }
+  .press-n {
+    font-family: var(--fd); font-size: 23px; font-weight: 300; letter-spacing: .06em;
+    color: rgba(237,239,240,.2); white-space: nowrap;
+    transition: color .3s ease; cursor: default;
+  }
+  .press-n:hover { color: var(--gold); }
+  .press-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); opacity: .3; flex-shrink: 0; }
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--white); }
+  .test-grid {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 3px; margin-top: 64px;
+  }
+  .t-card {
+    background: var(--black); padding: 52px 42px;
+    position: relative;
+  }
+  .t-card::before {
+    content: '\201C';
+    position: absolute; top: 18px; right: 30px;
+    font-family: var(--fd); font-size: 130px; font-weight: 300; line-height: 1;
+    color: rgba(51,219,231,.08); pointer-events: none;
+  }
+  .t-q {
+    font-family: var(--fd); font-size: 18px; font-weight: 300; font-style: italic;
+    line-height: 1.75; color: rgba(237,239,240,.65); margin-bottom: 34px;
+  }
+  .t-divider { width: 28px; height: 1px; background: var(--gold); margin-bottom: 22px; }
+  .t-name {
+    font-size: 11.5px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--white); margin-bottom: 5px;
+  }
+  .t-detail { font-size: 11px; font-weight: 300; color: var(--gold); opacity: .65; }
+
+  /* ── LIFESTYLE ── */
+  #lifestyle { background: var(--charcoal); }
+  .life-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 340px 340px;
+    gap: 3px; margin-top: 64px;
+  }
+  .life-card {
+    position: relative; overflow: hidden; cursor: pointer;
+  }
+  .life-card:first-child { grid-row: span 2; }
+  .life-card img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .65s ease, filter .4s ease;
+    filter: brightness(.68) saturate(.78);
+  }
+  .life-card:hover img { transform: scale(1.06); filter: brightness(.45) saturate(.65); }
+  .life-ov {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10,10,10,.78) 0%, transparent 58%);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 26px;
+  }
+  .life-tag {
+    font-size: 9px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 8px;
+  }
+  .life-title {
+    font-family: var(--fd); font-size: 21px; font-weight: 400;
+    color: var(--white); line-height: 1.3;
+  }
+  .life-card:first-child .life-title { font-size: 34px; }
+
+  /* ── INSTAGRAM ── */
+  #instagram { background: var(--black); }
+  .ig-hd {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 52px;
+  }
+  .ig-follow {
+    font-size: 10.5px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); border-bottom: 1px solid rgba(51,219,231,.5);
+    padding-bottom: 4px; margin-bottom: 6px;
+    transition: color .2s ease, border-color .2s ease;
+  }
+  .ig-follow:hover { color: var(--white); border-color: var(--white); }
+  .ig-grid {
+    display: grid; grid-template-columns: repeat(6,1fr);
+    gap: 3px;
+  }
+  .ig-item {
+    position: relative; overflow: hidden; aspect-ratio: 1; cursor: pointer;
+  }
+  .ig-item img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .5s ease, filter .4s ease;
+    filter: brightness(.82) saturate(.88);
+  }
+  .ig-item:hover img { transform: scale(1.09); filter: brightness(.45) saturate(.65); }
+  .ig-ov {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(51,219,231,.1);
+    opacity: 0; transition: opacity .3s ease;
+  }
+  .ig-item:hover .ig-ov { opacity: 1; }
+  .ig-icon { font-size: 22px; color: var(--white); font-style: normal; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--charcoal); }
+  .ct-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 88px;
+  }
+  .ct-hl {
+    font-family: var(--fd);
+    font-size: clamp(40px, 4.5vw, 72px);
+    font-weight: 300; line-height: 1.0; letter-spacing: -.025em;
+    color: var(--white); margin: 18px 0 26px;
+  }
+  .ct-hl em { font-style: italic; color: var(--gold); }
+  .ct-info-txt {
+    font-size: 14px; font-weight: 300; line-height: 1.85;
+    color: rgba(237,239,240,.45); margin-bottom: 52px;
+  }
+  .ct-office { margin-bottom: 36px; }
+  .ct-off-l {
+    font-size: 9px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 8px;
+  }
+  .ct-off-v {
+    font-size: 13px; font-weight: 300; line-height: 1.75;
+    color: rgba(237,239,240,.55);
+  }
+  .ct-socials { display: flex; gap: 22px; margin-top: 44px; }
+  .ct-soc {
+    font-size: 9.5px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(237,239,240,.28); transition: color .22s ease;
+  }
+  .ct-soc:hover { color: var(--gold); }
+
+  .ct-form { display: flex; flex-direction: column; gap: 22px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .fg { display: flex; flex-direction: column; gap: 9px; }
+  .fg label {
+    font-size: 9px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--gold);
+  }
+  .fg input, .fg select, .fg textarea {
+    background: rgba(237,239,240,.04);
+    border: 1px solid rgba(51,219,231,.18);
+    padding: 14px 16px;
+    font-family: var(--fb); font-size: 13px; font-weight: 300;
+    color: var(--white); outline: none;
+    transition: border-color .3s ease;
+    -webkit-appearance: none; appearance: none;
+  }
+  .fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--gold); }
+  .fg input::placeholder, .fg textarea::placeholder { color: rgba(237,239,240,.18); }
+  .fg select option { background: var(--charcoal); color: var(--white); }
+  .fg textarea { resize: vertical; min-height: 126px; }
+  .btn-submit {
+    font-size: 10.5px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--black); background: var(--gold); border: none;
+    padding: 18px 44px; cursor: pointer; width: fit-content;
+    transition: background .3s ease, transform .2s ease;
+  }
+  .btn-submit:hover { background: var(--white); transform: translateY(-2px); }
+  .ct-fine {
+    font-size: 10.5px; font-weight: 300; line-height: 1.7;
+    color: rgba(237,239,240,.2); margin-top: 6px;
+  }
+
+  /* ── FOOTER ── */
+  #footer {
+    background: var(--black);
+    border-top: 1px solid rgba(51,219,231,.09);
+    padding: 72px 60px 36px;
+  }
+  .ft-inner { max-width: 1440px; margin: 0 auto; }
+  .ft-top {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 52px; padding-bottom: 52px;
+    border-bottom: 1px solid rgba(51,219,231,.09);
+    margin-bottom: 36px;
+  }
+  .ft-brand {
+    font-family: var(--fd); font-size: 34px; font-weight: 300;
+    letter-spacing: 0.24em; color: var(--white); margin-bottom: 14px;
+  }
+  .ft-brand span { color: var(--gold); }
+  .ft-tag {
+    font-size: 12px; font-weight: 300; line-height: 1.75;
+    color: rgba(237,239,240,.28); max-width: 280px; margin-bottom: 28px;
+  }
+  .ft-col-h {
+    font-size: 9px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 20px;
+  }
+  .ft-links { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+  .ft-links a {
+    font-size: 12px; font-weight: 300; color: rgba(237,239,240,.28);
+    transition: color .22s ease;
+  }
+  .ft-links a:hover { color: var(--gold); }
+  .ft-bot {
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .ft-copy { font-size: 10.5px; font-weight: 300; color: rgba(237,239,240,.2); letter-spacing: .05em; }
+  .ft-legal { display: flex; gap: 26px; }
+  .ft-legal a {
+    font-size: 10.5px; font-weight: 300; color: rgba(237,239,240,.2);
+    transition: color .22s ease;
+  }
+  .ft-legal a:hover { color: var(--gold); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1100px) {
+    #nav { padding: 14px 36px; }
+    #nav.scrolled { padding: 10px 36px; }
+    .nav-links { display: none; }
+    .nav-ham { display: flex; }
+    .sec { padding: 88px 36px; }
+    #footer { padding: 60px 36px 28px; }
+    .h-content { padding: 0 36px 64px; }
+    .h-stats { grid-template-columns: repeat(2,1fr); gap: 28px; }
+    .props-grid { grid-template-columns: repeat(2,1fr); }
+    .mkts-grid { grid-template-columns: repeat(3,1fr); }
+    #spotlight { grid-template-columns: 1fr; }
+    .sp-content { padding: 60px 44px; }
+    .abt-inner { grid-template-columns: 1fr; gap: 52px; }
+    .ct-inner { grid-template-columns: 1fr; gap: 52px; }
+    .ft-top { grid-template-columns: 1fr 1fr; }
+    .test-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 768px) {
+    .sec { padding: 68px 22px; }
+    #nav { padding: 12px 22px; }
+    #nav.scrolled { padding: 10px 22px; }
+    #footer { padding: 52px 22px 24px; }
+    .h-content { padding: 0 22px 52px; }
+    .h-stats { grid-template-columns: 1fr 1fr; gap: 22px 16px; }
+    .props-grid { grid-template-columns: 1fr; }
+    .mkts-grid { grid-template-columns: repeat(2,1fr); }
+    .life-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+    .life-card:first-child { grid-row: span 1; }
+    .ig-grid { grid-template-columns: repeat(3,1fr); }
+    .ft-top { grid-template-columns: 1fr; gap: 36px; }
+    .test-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .sp-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .ig-grid { grid-template-columns: repeat(2,1fr); }
+    .mkts-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ── SHORT VIEWPORT: keep hero content below nav ── */
+  @media (max-height: 820px) {
+    .h-hl { font-size: clamp(38px, 5.5vw, 72px); margin: 10px 0 16px; }
+    .h-sub { font-size: 16px; margin-bottom: 24px; }
+    .h-ctas { margin-bottom: 24px; }
+    .h-content { padding-bottom: 52px; }
+  }
+  @media (max-height: 680px) {
+    .h-hl { font-size: clamp(32px, 5.5vw, 58px); margin: 8px 0 12px; }
+    .h-sub { font-size: 14px; margin-bottom: 16px; }
+    .h-ctas { margin-bottom: 16px; }
+    .h-content { padding-bottom: 32px; }
+    .h-stats { padding-top: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS -->
+<div id="prog"></div>
+
+<!-- CURSOR -->
+<div id="cOuter"></div>
+<div id="cInner"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <img src="CrightonRinaldiTeam.webp" alt="Crighton-Rinaldi Team" style="height:64px; width:auto; object-fit:contain; opacity:0; animation:fadeUp .8s ease .3s forwards;">
+  <div class="ldr-bar"></div>
+  <div class="ldr-sub">Top Real Estate Agents in Las Vegas</div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="nav">
+  <a href="https://www.crightonrinalditeam.com/" class="nav-logo"><img src="CrightonRinaldiTeam.webp" alt="Crighton-Rinaldi Team" style="height:64px; width:auto; object-fit:contain; display:block;"></a>
+  <ul class="nav-links">
+    <li><a href="https://search.crightonrinalditeam.com/">Buy</a></li>
+    <li><a href="#markets">Communities</a></li>
+    <li><a href="#about">Our Team</a></li>
+    <li><a href="#lifestyle">Blog</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://www.crightonrinalditeam.com/contact-us" class="nav-cta">Schedule Consultation</a>
+  <div class="nav-ham" id="ham" aria-label="Menu" role="button" tabindex="0">
+    <span></span><span></span>
+  </div>
+</nav>
+
+<!-- ①  HERO -->
+<section id="hero">
+  <div id="hBg"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=90&fit=crop" alt="" loading="eager" fetchpriority="high"></div>
+  <div class="h-ov"></div>
+  <div class="h-ov2"></div>
+  <div class="h-grain"></div>
+  <div class="h-nav-fade"></div>
+
+  <div class="h-content">
+    <div class="ol">Top Real Estate Agents · Las Vegas</div>
+    <h1 class="h-hl">
+      Your Las Vegas<br>Home,<br>
+      <em>Found &amp; Sold.</em>
+    </h1>
+    <p class="h-sub">To treat others the way we would want to be treated — in life and in real estate. Serving Las Vegas, Henderson, Summerlin, and the entire valley.</p>
+    <div class="h-ctas">
+      <a href="https://search.crightonrinalditeam.com/" class="btn-gld">Find Your Dream Home</a>
+      <a href="https://www.crightonrinalditeam.com/home-valuation" class="btn-ghost">Get Home Valuation</a>
+    </div>
+    <div class="h-stats">
+      <div class="h-stat">
+        <div class="h-stat-n" data-count="500" data-suffix="+">0</div>
+        <div class="h-stat-l">Homes Sold</div>
+      </div>
+      <div class="h-stat">
+        <div class="h-stat-n" data-prefix="Top " data-suffix="%">1</div>
+        <div class="h-stat-l">Agent Ranking</div>
+      </div>
+      <div class="h-stat">
+        <div class="h-stat-n" data-count="29">0</div>
+        <div class="h-stat-l">Team Agents</div>
+      </div>
+      <div class="h-stat">
+        <div class="h-stat-n">5-Star</div>
+        <div class="h-stat-l">Client Rating</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="h-scroll-ind">
+    <span>Scroll</span>
+    <div class="h-scroll-bar"></div>
+  </div>
+</section>
+
+<!-- ②  FEATURED PROPERTIES -->
+<section id="properties" class="sec">
+  <div class="sec-inner">
+    <div class="sec-hd rv">
+      <div class="ol">Las Vegas Listings</div>
+      <h2 class="sec-title">Browse Properties</h2>
+      <nav class="prop-filters" aria-label="Property filters">
+        <button class="flt on"   data-filter="all">All</button>
+        <button class="flt" data-filter="single-family">Single Family</button>
+        <button class="flt" data-filter="condo">Condo</button>
+        <button class="flt" data-filter="townhouse">Townhouse</button>
+        <button class="flt" data-filter="new-listings">New Listings</button>
+      </nav>
+    </div>
+
+    <div class="props-grid">
+      <div class="p-card rv d1">
+        <img loading="eager" src="https://picsum.photos/seed/summerlin1/800/1067" alt="The Ridgeline Estate">
+        <div class="p-ov">
+          <span class="p-tag">For Sale</span>
+          <div class="p-loc">Summerlin, Las Vegas</div>
+          <div class="p-name">The Ridgeline Estate</div>
+          <div class="p-price">$1,250,000</div>
+          <div class="p-dets">
+            <div class="p-det-item"><strong>5</strong>Beds</div>
+            <div class="p-det-item"><strong>4</strong>Baths</div>
+            <div class="p-det-item"><strong>3,800</strong>Sq Ft</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-card rv d2">
+        <img loading="eager" src="https://picsum.photos/seed/henderson2/800/1067" alt="The Green Valley Manor">
+        <div class="p-ov">
+          <span class="p-tag">For Sale</span>
+          <div class="p-loc">Green Valley, Henderson</div>
+          <div class="p-name">The Green Valley Manor</div>
+          <div class="p-price">$875,000</div>
+          <div class="p-dets">
+            <div class="p-det-item"><strong>4</strong>Beds</div>
+            <div class="p-det-item"><strong>3</strong>Baths</div>
+            <div class="p-det-item"><strong>2,950</strong>Sq Ft</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-card rv d3">
+        <img loading="eager" src="https://picsum.photos/seed/lasvegas3/800/1067" alt="Southern Highlands Retreat">
+        <div class="p-ov">
+          <span class="p-tag" style="background:rgba(51,219,231,.12);color:var(--gold);border:1px solid rgba(51,219,231,.5);">Off-Market</span>
+          <div class="p-loc">Southern Highlands, Las Vegas</div>
+          <div class="p-name">Southern Highlands Retreat</div>
+          <div class="p-price">$2,100,000</div>
+          <div class="p-dets">
+            <div class="p-det-item"><strong>5</strong>Beds</div>
+            <div class="p-det-item"><strong>6</strong>Baths</div>
+            <div class="p-det-item"><strong>4,600</strong>Sq Ft</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-card rv d1">
+        <img loading="eager" src="https://picsum.photos/seed/summerlin4/800/1067" alt="The Ridges Luxury Home">
+        <div class="p-ov">
+          <span class="p-tag">New Listing</span>
+          <div class="p-loc">The Ridges, Summerlin</div>
+          <div class="p-name">The Ridges Luxury Home</div>
+          <div class="p-price">$3,400,000</div>
+          <div class="p-dets">
+            <div class="p-det-item"><strong>6</strong>Beds</div>
+            <div class="p-det-item"><strong>7</strong>Baths</div>
+            <div class="p-det-item"><strong>5,800</strong>Sq Ft</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-card rv d2">
+        <img loading="eager" src="https://picsum.photos/seed/henderson5/800/1067" alt="MacDonald Ranch Residence">
+        <div class="p-ov">
+          <span class="p-tag">For Sale</span>
+          <div class="p-loc">MacDonald Ranch, Henderson</div>
+          <div class="p-name">MacDonald Ranch Residence</div>
+          <div class="p-price">$695,000</div>
+          <div class="p-dets">
+            <div class="p-det-item"><strong>4</strong>Beds</div>
+            <div class="p-det-item"><strong>3</strong>Baths</div>
+            <div class="p-det-item"><strong>2,400</strong>Sq Ft</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-card rv d3">
+        <img loading="eager" src="https://picsum.photos/seed/lasvegas6/800/1067" alt="Lake Las Vegas Villa">
+        <div class="p-ov">
+          <span class="p-tag">Just Listed</span>
+          <div class="p-loc">Lake Las Vegas</div>
+          <div class="p-name">Lake Las Vegas Villa</div>
+          <div class="p-price">$1,850,000</div>
+          <div class="p-dets">
+            <div class="p-det-item"><strong>4</strong>Beds</div>
+            <div class="p-det-item"><strong>4</strong>Baths</div>
+            <div class="p-det-item"><strong>3,200</strong>Sq Ft</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="view-all rv">
+      <a href="https://search.crightonrinalditeam.com/" class="btn-ol">View All Listings</a>
+    </div>
+  </div>
+</section>
+
+<!-- ③  LIST YOUR HOME WITH US -->
+<section id="spotlight">
+  <div class="sp-img">
+    <img loading="eager" src="https://picsum.photos/seed/lvhomelist/1200/900" alt="List your Las Vegas home with us">
+    <div class="sp-img-ov"></div>
+  </div>
+  <div class="sp-content rv">
+    <div class="ol" style="color:rgba(51,219,231,.65);">Why List With Us</div>
+    <h2 class="sp-hl">List Your Home<br><em>With Us!</em></h2>
+    <p class="sp-desc">
+      Digital remains the fastest-growing advertising category. Your potential buyers are browsing the internet — and it's our job to place your property exactly where they can see it: on their screens.
+    </p>
+    <div class="sp-grid">
+      <div><div class="sp-item-l">Facebook Reach</div><div class="sp-item-v">1.9B+ Monthly Users</div></div>
+      <div><div class="sp-item-l">Google Searches</div><div class="sp-item-v">3.5B+ Per Day</div></div>
+      <div><div class="sp-item-l">Our Network</div><div class="sp-item-v">Rothwell Gornt</div></div>
+      <div><div class="sp-item-l">Market Expertise</div><div class="sp-item-v">Las Vegas MLS</div></div>
+    </div>
+    <a href="https://www.crightonrinalditeam.com/why-list-with-us" class="btn-gld" style="display:inline-block;">Ask Us Now</a>
+  </div>
+</section>
+
+<!-- ④  MARKETS -->
+<section id="markets" class="sec">
+  <div class="sec-inner">
+    <div class="sec-hd rv">
+      <div class="ol">Where We Work</div>
+      <h2 class="sec-title">Featured Communities</h2>
+    </div>
+    <div class="mkts-grid">
+      <a href="https://www.crightonrinalditeam.com/communities/las-vegas-real-estate" style="display:block;text-decoration:none;">
+        <div class="mkt-card rv d1">
+          <img loading="eager" src="https://picsum.photos/seed/lvdowntown/600/1000" alt="Las Vegas">
+          <div class="mkt-ov">
+            <div class="mkt-name">Las Vegas</div>
+            <div class="mkt-count">Browse Listings</div>
+            <span class="mkt-btn">Explore</span>
+          </div>
+        </div>
+      </a>
+      <a href="https://www.crightonrinalditeam.com/communities/henderson-real-estate" style="display:block;text-decoration:none;">
+        <div class="mkt-card rv d2">
+          <img loading="eager" src="https://picsum.photos/seed/henderson nv/600/1000" alt="Henderson">
+          <div class="mkt-ov">
+            <div class="mkt-name">Henderson</div>
+            <div class="mkt-count">Browse Listings</div>
+            <span class="mkt-btn">Explore</span>
+          </div>
+        </div>
+      </a>
+      <a href="https://search.crightonrinalditeam.com/" style="display:block;text-decoration:none;">
+        <div class="mkt-card rv d3">
+          <img loading="eager" src="https://picsum.photos/seed/summerlin lv/600/1000" alt="Summerlin">
+          <div class="mkt-ov">
+            <div class="mkt-name">Summerlin</div>
+            <div class="mkt-count">Browse Listings</div>
+            <span class="mkt-btn">Explore</span>
+          </div>
+        </div>
+      </a>
+      <a href="https://search.crightonrinalditeam.com/" style="display:block;text-decoration:none;">
+        <div class="mkt-card rv d4">
+          <img loading="eager" src="https://picsum.photos/seed/northlv/600/1000" alt="North Las Vegas">
+          <div class="mkt-ov">
+            <div class="mkt-name">North Las Vegas</div>
+            <div class="mkt-count">Browse Listings</div>
+            <span class="mkt-btn">Explore</span>
+          </div>
+        </div>
+      </a>
+      <a href="https://search.crightonrinalditeam.com/" style="display:block;text-decoration:none;">
+        <div class="mkt-card rv d5">
+          <img loading="eager" src="https://picsum.photos/seed/bouldercity/600/1000" alt="Boulder City">
+          <div class="mkt-ov">
+            <div class="mkt-name">Boulder City</div>
+            <div class="mkt-count">Browse Listings</div>
+            <span class="mkt-btn">Explore</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ⑤  ABOUT -->
+<section id="about" class="sec">
+  <div class="sec-inner">
+    <div class="abt-inner">
+      <div class="abt-img-wrap rv">
+        <img class="abt-img" loading="eager" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=700&q=80&fit=crop&crop=faces" alt="Frank Rinaldi and Ryan Crighton — Team Leaders">
+        <div class="abt-corner"></div>
+      </div>
+      <div class="rv d2">
+        <div class="ol" style="color:rgba(51,219,231,.65);">The Team Leaders</div>
+        <h2 class="abt-hl">Frank &amp; Ryan<br><em>Crighton Rinaldi</em></h2>
+        <p class="abt-bio">
+          To treat others the way we would want to be treated — in life and in real estate. That mission drives everything the Crighton Rinaldi Team does for clients across Las Vegas, Henderson, Summerlin, and the entire valley.<br><br>
+          With a full team of 29 licensed agents and deep roots in the local market, we combine proven digital marketing strategies with personal service to help buyers find their dream home and sellers achieve top value.
+        </p>
+        <div class="abt-ach">
+          <div><div class="ach-l">Team Agents</div><div class="ach-v">29</div></div>
+          <div><div class="ach-l">Client Reviews</div><div class="ach-v">5-Star</div></div>
+          <div><div class="ach-l">Phone</div><div class="ach-v">(702) 761-3320</div></div>
+          <div><div class="ach-l">Brokerage</div><div class="ach-v">Rothwell Gornt</div></div>
+        </div>
+        <div class="abt-badges">
+          <span class="badge">Zillow</span>
+          <span class="badge">Google</span>
+          <span class="badge">Realtor.com</span>
+          <span class="badge">Facebook</span>
+          <span class="badge">MLS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑥  PRESS MARQUEE -->
+<section id="press">
+  <div class="press-track" aria-hidden="true">
+    <div class="press-set">
+      <span class="press-n">Zillow</span><span class="press-dot"></span>
+      <span class="press-n">Google</span><span class="press-dot"></span>
+      <span class="press-n">Realtor.com</span><span class="press-dot"></span>
+      <span class="press-n">Rothwell Gornt</span><span class="press-dot"></span>
+      <span class="press-n">Facebook</span><span class="press-dot"></span>
+      <span class="press-n">Homes.com</span><span class="press-dot"></span>
+      <span class="press-n">Las Vegas MLS</span><span class="press-dot"></span>
+      <span class="press-n">Yelp</span><span class="press-dot"></span>
+    </div>
+    <div class="press-set">
+      <span class="press-n">Zillow</span><span class="press-dot"></span>
+      <span class="press-n">Google</span><span class="press-dot"></span>
+      <span class="press-n">Realtor.com</span><span class="press-dot"></span>
+      <span class="press-n">Rothwell Gornt</span><span class="press-dot"></span>
+      <span class="press-n">Facebook</span><span class="press-dot"></span>
+      <span class="press-n">Homes.com</span><span class="press-dot"></span>
+      <span class="press-n">Las Vegas MLS</span><span class="press-dot"></span>
+      <span class="press-n">Yelp</span><span class="press-dot"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ⑦  TESTIMONIALS -->
+<section id="testimonials" class="sec">
+  <div class="sec-inner">
+    <div class="rv">
+      <div class="ol">Client Voices</div>
+      <h2 class="sec-title">Trusted by Las Vegas<br><span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);">Home Buyers &amp; Sellers</span></h2>
+    </div>
+    <div class="test-grid">
+      <div class="t-card rv">
+        <p class="t-q">"We cannot say enough about this team! Mike, Ryan, and Frank were all amazing! There is such a collaborative effort between everyone. Mike spent many hours with us to determine what style of home we wanted — I can't recommend this team enough!"</p>
+        <div class="t-divider"></div>
+        <div class="t-name">Tracy Monroe</div>
+        <div class="t-detail">Home Buyer · Las Vegas</div>
+      </div>
+      <div class="t-card rv d2">
+        <p class="t-q">"Ana and Ryan are phenomenal! They sold my house FAST. Very communicative throughout the entire process. Always got back to me in a timely manner. Any questions I had they always answered professionally. I would definitely go with them again!"</p>
+        <div class="t-divider"></div>
+        <div class="t-name">Dioselina Lopez</div>
+        <div class="t-detail">Home Seller · Henderson</div>
+      </div>
+      <div class="t-card rv d4">
+        <p class="t-q">"Liz made my entire experience with this company so comfortable, accommodating, and easy to digest. I never felt pressured or rushed and truly wouldn't choose anyone else to buy and sell my homes in the future."</p>
+        <div class="t-divider"></div>
+        <div class="t-name">Gg Bellz</div>
+        <div class="t-detail">Home Buyer &amp; Seller · Las Vegas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑧  LIFESTYLE / BLOG -->
+<section id="lifestyle" class="sec">
+  <div class="sec-inner">
+    <div class="rv">
+      <div class="ol" style="color:rgba(51,219,231,.65);">The CR Team Blog</div>
+      <h2 class="sec-title sec-title-light">Las Vegas Real Estate<br><em style="font-family:'Cormorant Garamond',serif;color:var(--gold);">Insights</em></h2>
+    </div>
+    <div class="life-grid">
+      <div class="life-card rv">
+        <img loading="eager" src="https://picsum.photos/seed/lvmarket2024/900/700" alt="Las Vegas Market">
+        <div class="life-ov">
+          <div class="life-tag">Market Update</div>
+          <div class="life-title">Las Vegas Real Estate Market Trends: What Buyers and Sellers Need to Know in 2024</div>
+        </div>
+      </div>
+      <div class="life-card rv d1">
+        <img loading="eager" src="https://picsum.photos/seed/lvbuying/600/500" alt="Buying in Las Vegas">
+        <div class="life-ov">
+          <div class="life-tag">Buying Guide</div>
+          <div class="life-title">First-Time Buyer's Complete Guide to Purchasing a Home in Las Vegas</div>
+        </div>
+      </div>
+      <div class="life-card rv d2">
+        <img loading="eager" src="https://picsum.photos/seed/summerlin2024/600/500" alt="Summerlin community">
+        <div class="life-ov">
+          <div class="life-tag">Community</div>
+          <div class="life-title">Why Summerlin Is Las Vegas's Most In-Demand Neighborhood</div>
+        </div>
+      </div>
+      <div class="life-card rv d3">
+        <img loading="eager" src="https://picsum.photos/seed/lvhomesell/600/500" alt="Selling Las Vegas home">
+        <div class="life-ov">
+          <div class="life-tag">Selling Guide</div>
+          <div class="life-title">How to Price and Market Your Las Vegas Home for Maximum Value</div>
+        </div>
+      </div>
+      <div class="life-card rv d4">
+        <img loading="eager" src="https://picsum.photos/seed/henderson2024/600/500" alt="Henderson real estate">
+        <div class="life-ov">
+          <div class="life-tag">Investment</div>
+          <div class="life-title">Why Henderson, NV Is a Top Real Estate Investment Market</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑨  INSTAGRAM / SOCIAL -->
+<section id="instagram" class="sec">
+  <div class="sec-inner">
+    <div class="ig-hd rv">
+      <div>
+        <div class="ol" style="color:rgba(51,219,231,.65);">@CrightonRinaldiTeam</div>
+        <h2 class="sec-title sec-title-light" style="margin-bottom:0;">Curated Moments</h2>
+      </div>
+      <a href="https://www.facebook.com/crightonrinalditeam/" class="ig-follow">Follow Us</a>
+    </div>
+    <div class="ig-grid">
+      <div class="ig-item rv">    <img loading="eager" src="https://picsum.photos/seed/crteam1/500/500" alt=""><div class="ig-ov"><span class="ig-icon">✦</span></div></div>
+      <div class="ig-item rv d1"> <img loading="eager" src="https://picsum.photos/seed/crteam2/500/500" alt=""><div class="ig-ov"><span class="ig-icon">✦</span></div></div>
+      <div class="ig-item rv d2"> <img loading="eager" src="https://picsum.photos/seed/crteam3/500/500" alt=""><div class="ig-ov"><span class="ig-icon">✦</span></div></div>
+      <div class="ig-item rv d3"> <img loading="eager" src="https://picsum.photos/seed/crteam4/500/500" alt=""><div class="ig-ov"><span class="ig-icon">✦</span></div></div>
+      <div class="ig-item rv d4"> <img loading="eager" src="https://picsum.photos/seed/crteam5/500/500" alt=""><div class="ig-ov"><span class="ig-icon">✦</span></div></div>
+      <div class="ig-item rv d5"> <img loading="eager" src="https://picsum.photos/seed/crteam6/500/500" alt=""><div class="ig-ov"><span class="ig-icon">✦</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑩  CONTACT -->
+<section id="contact" class="sec">
+  <div class="sec-inner">
+    <div class="ct-inner">
+      <div class="rv">
+        <div class="ol" style="color:rgba(51,219,231,.65);">Connect</div>
+        <h2 class="ct-hl">Begin Your<br><em>Journey</em></h2>
+        <p class="ct-info-txt">Whether you're looking to buy your dream home or sell your current property, we're here to help every step of the way. All inquiries are handled with the highest level of professionalism and care.</p>
+        <div class="ct-office">
+          <div class="ct-off-l">Henderson Office</div>
+          <div class="ct-off-v">105 North Pecos Road Ste 140<br>Henderson, NV 89074<br>(702) 761-3320</div>
+        </div>
+        <div class="ct-office">
+          <div class="ct-off-l">Email</div>
+          <div class="ct-off-v">Info@CRHomeTeam.com</div>
+        </div>
+        <div class="ct-office">
+          <div class="ct-off-l">Hours</div>
+          <div class="ct-off-v">Monday – Saturday: 9am – 6pm<br>Sunday: By Appointment</div>
+        </div>
+        <div class="ct-socials">
+          <a href="https://www.facebook.com/crightonrinalditeam/" class="ct-soc">Facebook</a>
+          <a href="https://www.zillow.com/" class="ct-soc">Zillow</a>
+          <a href="https://www.google.com/" class="ct-soc">Google</a>
+        </div>
+      </div>
+
+      <div class="rv d2">
+        <form class="ct-form" onsubmit="return false;">
+          <div class="form-row">
+            <div class="fg">
+              <label for="fn">First Name</label>
+              <input id="fn" type="text" placeholder="First Name" autocomplete="given-name">
+            </div>
+            <div class="fg">
+              <label for="ln">Last Name</label>
+              <input id="ln" type="text" placeholder="Last Name" autocomplete="family-name">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="fg">
+              <label for="em">Email Address</label>
+              <input id="em" type="email" placeholder="your@email.com" autocomplete="email">
+            </div>
+            <div class="fg">
+              <label for="ph">Phone Number</label>
+              <input id="ph" type="tel" placeholder="(702) 555-0000" autocomplete="tel">
+            </div>
+          </div>
+          <div class="fg">
+            <label for="pi">How Can We Help?</label>
+            <select id="pi">
+              <option value="" disabled selected>Select your interest</option>
+              <option>Buying in Las Vegas</option>
+              <option>Buying in Henderson</option>
+              <option>Buying in Summerlin</option>
+              <option>Selling My Home</option>
+              <option>Home Valuation Request</option>
+              <option>Investment Property</option>
+              <option>Relocation to Las Vegas</option>
+              <option>General Inquiry</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="msg">Message</label>
+            <textarea id="msg" placeholder="Tell us about your real estate goals. All inquiries are handled with care."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Submit Inquiry</button>
+          <p class="ct-fine">Your privacy is our priority. We never share your information with third parties.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div>
+        <img src="CrightonRinaldiTeam.webp" alt="Crighton-Rinaldi Team" style="height:52px;width:auto;object-fit:contain;margin-bottom:16px;">
+        <p class="ft-tag">Top Real Estate Agents serving Las Vegas, Henderson, Summerlin, and the entire valley. A proud member of Rothwell Gornt Companies.</p>
+        <div style="display:flex;gap:18px;">
+          <a href="https://www.facebook.com/crightonrinalditeam/" style="font-size:11px;color:rgba(237,239,240,.28);transition:color .22s ease;" onmouseover="this.style.color='#33dbe7'" onmouseout="this.style.color='rgba(237,239,240,.28)'">Facebook</a>
+          <a href="https://www.zillow.com/profile/CrightonRinaldiTeam" style="font-size:11px;color:rgba(237,239,240,.28);transition:color .22s ease;" onmouseover="this.style.color='#33dbe7'" onmouseout="this.style.color='rgba(237,239,240,.28)'">Zillow</a>
+        </div>
+      </div>
+      <div>
+        <div class="ft-col-h">Buy &amp; Sell</div>
+        <ul class="ft-links">
+          <li><a href="https://search.crightonrinalditeam.com/">Search Homes</a></li>
+          <li><a href="https://www.crightonrinalditeam.com/home-valuation">Home Valuation</a></li>
+          <li><a href="https://www.crightonrinalditeam.com/why-list-with-us">Why List With Us</a></li>
+          <li><a href="https://search.crightonrinalditeam.com/">Off-Market Access</a></li>
+          <li><a href="https://www.crightonrinalditeam.com/join-our-team">Join Our Team</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-col-h">Communities</div>
+        <ul class="ft-links">
+          <li><a href="https://www.crightonrinalditeam.com/communities/las-vegas-real-estate">Las Vegas</a></li>
+          <li><a href="https://www.crightonrinalditeam.com/communities/henderson-real-estate">Henderson</a></li>
+          <li><a href="https://search.crightonrinalditeam.com/">Summerlin</a></li>
+          <li><a href="https://search.crightonrinalditeam.com/">North Las Vegas</a></li>
+          <li><a href="https://search.crightonrinalditeam.com/">Boulder City</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-col-h">Company</div>
+        <ul class="ft-links">
+          <li><a href="https://www.crightonrinalditeam.com/team-page">Our Team</a></li>
+          <li><a href="https://www.crightonrinalditeam.com/testimonials">Testimonials</a></li>
+          <li><a href="https://www.crightonrinalditeam.com/blog">Blog</a></li>
+          <li><a href="https://www.crightonrinalditeam.com/contact-us">Contact Us</a></li>
+          <li><a href="https://www.crightonrinalditeam.com/">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <p class="ft-copy">© Rothwell Gornt Companies 2024. All Rights Reserved. Licensed Real Estate Broker.</p>
+      <div class="ft-legal">
+        <a href="https://www.crightonrinalditeam.com/">Privacy Policy</a>
+        <a href="https://www.crightonrinalditeam.com/">Fair Housing Notice</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE NAV OVERLAY -->
+<div id="mobileNav" style="
+  display:none; position:fixed; inset:0; z-index:490;
+  background:rgba(10,10,10,.97);
+  flex-direction:column; align-items:center; justify-content:center; gap:44px;
+">
+  <a href="https://search.crightonrinalditeam.com/" class="nav-links" style="font-size:13px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,239,240,.7);">Buy</a>
+  <a href="#markets"    style="font-size:13px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,239,240,.7);">Communities</a>
+  <a href="#about"      style="font-size:13px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,239,240,.7);">Our Team</a>
+  <a href="#lifestyle"  style="font-size:13px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,239,240,.7);">Blog</a>
+  <a href="#contact"    style="font-size:13px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,239,240,.7);">Contact</a>
+  <a href="https://www.crightonrinalditeam.com/contact-us" class="btn-gld" style="font-size:11px;">Schedule Consultation</a>
+</div>
+
+<script>
+/* ── LOADER ── */
+(function () {
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      document.getElementById('loader').classList.add('out');
+      document.body.classList.add('loaded');
+      document.querySelectorAll('[data-count]').forEach(function (el) {
+        setTimeout(function () { animateCount(el); }, 100);
+      });
+    }, 0);
+  });
+  /* Fallback: reveal all sections after 800ms for full-page screenshots */
+  setTimeout(function () {
+    document.querySelectorAll('.rv').forEach(function (el) {
+      el.classList.add('vis');
+    });
+  }, 800);
+})();
+
+/* ── COUNTER ── */
+function animateCount(el) {
+  var target   = parseInt(el.dataset.count, 10);
+  var prefix   = el.dataset.prefix || '';
+  var suffix   = el.dataset.suffix || '';
+  var dur      = 1800;
+  var start    = performance.now();
+  (function step(now) {
+    var p = Math.min((now - start) / dur, 1);
+    var ease = 1 - Math.pow(1 - p, 3);
+    el.textContent = prefix + Math.floor(ease * target) + suffix;
+    if (p < 1) requestAnimationFrame(step);
+  })(start);
+}
+
+/* ── SCROLL PROGRESS ── */
+window.addEventListener('scroll', function () {
+  var max = document.documentElement.scrollHeight - window.innerHeight;
+  document.getElementById('prog').style.width = (window.scrollY / max * 100) + '%';
+}, { passive: true });
+
+/* ── NAVBAR ── */
+(function () {
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function () {
+    nav.classList.toggle('scrolled', window.scrollY > 56);
+  }, { passive: true });
+})();
+
+/* ── HERO PARALLAX ── */
+window.addEventListener('scroll', function () {
+  var bg = document.getElementById('hBg');
+  if (bg) bg.style.transform = 'translateY(' + (window.scrollY * 0.32) + 'px) scale(1.06)';
+}, { passive: true });
+
+/* ── REVEAL ON SCROLL ── */
+(function () {
+  var els = document.querySelectorAll('.rv');
+  var io  = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+
+/* ── CUSTOM CURSOR ── */
+(function () {
+  var outer = document.getElementById('cOuter');
+  var inner = document.getElementById('cInner');
+  var mx = 0, my = 0, ox = 0, oy = 0;
+
+  document.addEventListener('mousemove', function (e) {
+    mx = e.clientX; my = e.clientY;
+    inner.style.left = mx + 'px'; inner.style.top = my + 'px';
+  });
+
+  (function loop() {
+    ox += (mx - ox) * 0.11;
+    oy += (my - oy) * 0.11;
+    outer.style.left = ox + 'px'; outer.style.top = oy + 'px';
+    requestAnimationFrame(loop);
+  })();
+
+  var hoverEls = document.querySelectorAll('a, button, .p-card, .mkt-card, .life-card, .ig-item');
+  hoverEls.forEach(function (el) {
+    el.addEventListener('mouseenter', function () {
+      outer.style.width = '58px'; outer.style.height = '58px';
+      outer.style.background = 'rgba(51,219,231,.07)';
+    });
+    el.addEventListener('mouseleave', function () {
+      outer.style.width = '32px'; outer.style.height = '32px';
+      outer.style.background = 'none';
+    });
+  });
+})();
+
+/* ── FILTER TABS ── */
+document.querySelectorAll('.flt').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    document.querySelectorAll('.flt').forEach(function (b) { b.classList.remove('on'); });
+    this.classList.add('on');
+  });
+});
+
+/* ── MOBILE NAV ── */
+(function () {
+  var ham = document.getElementById('ham');
+  var mob = document.getElementById('mobileNav');
+  var open = false;
+  ham.addEventListener('click', function () {
+    open = !open;
+    mob.style.display = open ? 'flex' : 'none';
+    ham.querySelectorAll('span')[0].style.transform = open ? 'rotate(45deg) translate(4px,4px)' : '';
+    ham.querySelectorAll('span')[1].style.transform = open ? 'rotate(-45deg) translate(4px,-4px)' : '';
+  });
+  mob.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      open = false; mob.style.display = 'none';
+      ham.querySelectorAll('span')[0].style.transform = '';
+      ham.querySelectorAll('span')[1].style.transform = '';
+    });
+  });
+})();
+</script>
+</body>
+</html>

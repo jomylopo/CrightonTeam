@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Professor Barry's CRM Masterclass Script Companion | Ylopo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green:  '#74B943',
+              navy:   '#173244',
+              blue:   '#006AC1',
+              coral:  '#F95556',
+              yellow: '#F7E500',
+              purple: '#897088',
+              gray:   '#697088',
+              dark:   '#202121',
+            }
+          },
+          fontFamily: {
+            sans:    ['Montserrat', 'sans-serif'],
+            display: ['Lora', 'serif'],
+          },
+          letterSpacing: {
+            tighter: '-0.03em',
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* â”€â”€ base resets â”€â”€ */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Montserrat', sans-serif; color: #202121; }
+
+    /* â”€â”€ noise / grain texture â”€â”€ */
+    .grain::after {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      border-radius: inherit;
+    }
+
+    /* â”€â”€ layered shadow system â”€â”€ */
+    .shadow-brand {
+      box-shadow:
+        0 2px 4px rgba(23,50,68,0.06),
+        0 8px 24px rgba(23,50,68,0.10),
+        0 20px 48px rgba(23,50,68,0.08);
+    }
+    .shadow-card {
+      box-shadow:
+        0 1px 3px rgba(23,50,68,0.04),
+        0 4px 16px rgba(23,50,68,0.08),
+        0 12px 32px rgba(23,50,68,0.06);
+    }
+    .shadow-btn {
+      box-shadow:
+        0 2px 4px rgba(116,185,67,0.20),
+        0 6px 16px rgba(116,185,67,0.25);
+    }
+    .shadow-btn-navy {
+      box-shadow:
+        0 2px 4px rgba(23,50,68,0.18),
+        0 6px 16px rgba(23,50,68,0.22);
+    }
+
+    /* â”€â”€ hero radial gradient background â”€â”€ */
+    .hero-bg {
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 30%, rgba(116,185,67,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 10% 80%, rgba(0,106,193,0.12) 0%, transparent 55%),
+        linear-gradient(160deg, #0e2030 0%, #173244 55%, #1c3e55 100%);
+    }
+
+    /* â”€â”€ section gradient â”€â”€ */
+    .section-gradient {
+      background:
+        radial-gradient(ellipse 100% 60% at 50% 0%, rgba(116,185,67,0.06) 0%, transparent 60%),
+        #f8fafb;
+    }
+
+    /* â”€â”€ green accent gradient â”€â”€ */
+    .green-section {
+      background:
+        radial-gradient(ellipse 80% 100% at 20% 50%, rgba(116,185,67,0.22) 0%, transparent 60%),
+        radial-gradient(ellipse 70% 80% at 90% 20%, rgba(0,106,193,0.10) 0%, transparent 55%),
+        linear-gradient(135deg, #0e2030 0%, #173244 100%);
+    }
+
+    /* â”€â”€ CTA final section â”€â”€ */
+    .cta-final-bg {
+      background:
+        radial-gradient(ellipse 70% 100% at 80% 50%, rgba(116,185,67,0.30) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 80% at 10% 20%, rgba(0,106,193,0.15) 0%, transparent 55%),
+        linear-gradient(135deg, #173244 0%, #0e2030 100%);
+    }
+
+    /* â”€â”€ button styles â”€â”€ */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #74B943;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.875rem 1.75rem;
+      border-radius: 0.375rem;
+      border: 2px solid #74B943;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.22s cubic-bezier(0.34,1.56,0.64,1),
+                  transform 0.18s cubic-bezier(0.34,1.56,0.64,1),
+                  box-shadow 0.22s ease;
+      box-shadow: 0 2px 4px rgba(116,185,67,0.20), 0 6px 16px rgba(116,185,67,0.25);
+    }
+    .btn-primary:hover  { background: #62a336; border-color: #62a336; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(116,185,67,0.28), 0 12px 28px rgba(116,185,67,0.30); }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-primary:focus-visible { outline: 3px solid #74B943; outline-offset: 3px; }
+
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.875rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.8125rem 1.75rem;
+      border-radius: 0.375rem;
+      border: 2px solid rgba(255,255,255,0.6);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.22s ease, border-color 0.22s ease, transform 0.18s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .btn-secondary:hover  { background: rgba(255,255,255,0.10); border-color: #fff; transform: translateY(-2px); }
+    .btn-secondary:active { transform: translateY(0); }
+    .btn-secondary:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
+    .btn-outline-dark {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent;
+      color: #173244;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.875rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.8125rem 1.75rem;
+      border-radius: 0.375rem;
+      border: 2px solid #173244;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.22s ease, color 0.22s ease, transform 0.18s cubic-bezier(0.34,1.56,0.64,1);
+      box-shadow: 0 2px 4px rgba(23,50,68,0.08), 0 4px 12px rgba(23,50,68,0.10);
+    }
+    .btn-outline-dark:hover  { background: #173244; color: #fff; transform: translateY(-2px); }
+    .btn-outline-dark:active { transform: translateY(0); }
+    .btn-outline-dark:focus-visible { outline: 3px solid #173244; outline-offset: 3px; }
+
+    .btn-green-sm {
+      display: inline-flex; align-items: center; gap: 0.375rem;
+      background: #74B943;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.625rem 1.25rem;
+      border-radius: 0.25rem;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.18s cubic-bezier(0.34,1.56,0.64,1);
+      box-shadow: 0 2px 6px rgba(116,185,67,0.22);
+    }
+    .btn-green-sm:hover  { background: #62a336; transform: translateY(-1px); }
+    .btn-green-sm:active { transform: translateY(0); }
+    .btn-green-sm:focus-visible { outline: 3px solid #74B943; outline-offset: 2px; }
+
+    .btn-ghost-sm {
+      display: inline-flex; align-items: center; gap: 0.375rem;
+      background: transparent;
+      color: #173244;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.5625rem 1.25rem;
+      border-radius: 0.25rem;
+      border: 2px solid #173244;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.18s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .btn-ghost-sm:hover  { background: #173244; color: #fff; transform: translateY(-1px); }
+    .btn-ghost-sm:active { transform: translateY(0); }
+    .btn-ghost-sm:focus-visible { outline: 3px solid #173244; outline-offset: 2px; }
+
+    /* â”€â”€ card hover lift â”€â”€ */
+    .card-lift {
+      transition: transform 0.24s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.24s ease;
+    }
+    .card-lift:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(23,50,68,0.08), 0 16px 40px rgba(23,50,68,0.14);
+    }
+
+    /* â”€â”€ divider â”€â”€ */
+    .divider-green {
+      width: 64px; height: 4px;
+      background: linear-gradient(90deg, #74B943, #62a336);
+      border-radius: 2px;
+      margin: 0 auto 1.5rem;
+    }
+    .divider-green-left {
+      width: 64px; height: 4px;
+      background: linear-gradient(90deg, #74B943, #62a336);
+      border-radius: 2px;
+      margin-bottom: 1.25rem;
+    }
+
+    /* â”€â”€ pill badge â”€â”€ */
+    .pill {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
+      border-radius: 100px;
+      background: rgba(116,185,67,0.15);
+      color: #74B943;
+      border: 1px solid rgba(116,185,67,0.35);
+    }
+    .pill-light {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
+      border-radius: 100px;
+      background: rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.85);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    /* â”€â”€ image overlay card â”€â”€ */
+    .img-card { position: relative; overflow: hidden; border-radius: 0.75rem; }
+    .img-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .img-card:hover img { transform: scale(1.04); }
+    .img-card .overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(23,50,68,0.70) 0%, rgba(23,50,68,0.20) 50%, transparent 100%);
+    }
+    .img-card .color-layer {
+      position: absolute; inset: 0;
+      background: rgba(116,185,67,0.12);
+      mix-blend-mode: multiply;
+    }
+
+    /* â”€â”€ benefit icon ring â”€â”€ */
+    .icon-ring {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: rgba(116,185,67,0.10);
+      border: 2px solid rgba(116,185,67,0.25);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.22s ease, border-color 0.22s ease;
+    }
+    .icon-ring svg { color: #74B943; }
+    .benefit-card:hover .icon-ring { background: rgba(116,185,67,0.20); border-color: rgba(116,185,67,0.45); }
+
+    /* â”€â”€ number badge â”€â”€ */
+    .num-badge {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, #74B943, #62a336);
+      color: #fff;
+      font-weight: 800; font-size: 0.875rem;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(116,185,67,0.35);
+    }
+
+    /* â”€â”€ nav â”€â”€ */
+    .nav-scrolled { box-shadow: 0 2px 16px rgba(23,50,68,0.14); }
+    nav { transition: box-shadow 0.3s ease, background 0.3s ease; }
+
+    /* â”€â”€ partner logo frame â”€â”€ */
+    .partner-img {
+      height: 56px;
+      object-fit: contain;
+      filter: brightness(1.0) saturate(0.9);
+      transition: filter 0.2s ease, transform 0.2s ease;
+    }
+    .partner-img:hover { filter: brightness(1.1) saturate(1.1); transform: scale(1.04); }
+
+    /* â”€â”€ stat box â”€â”€ */
+    .stat-box {
+      position: relative;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+
+    /* â”€â”€ responsive video container â”€â”€ */
+    .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 0.75rem; overflow: hidden; }
+    .video-wrapper iframe, .video-wrapper img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+  </style>
+</head>
+<body class="bg-white text-brand-dark">
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       NAV
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <nav id="main-nav" class="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="https://www.ylopo.com/" class="flex-shrink-0">
+        <img
+          src="https://images.squarespace-cdn.com/content/v1/58c9da27197aeafaeb59ce29/7fffb739-8e14-467b-be77-3193f15a91d3/ylopo-logo-2021.png?format=300w"
+          alt="Ylopo"
+          class="h-8 w-auto"
+        />
+      </a>
+      <!-- Desktop nav links -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#about"     class="text-sm font-semibold text-brand-gray hover:text-brand-navy transition-colors">About</a>
+        <a href="#crm"       class="text-sm font-semibold text-brand-gray hover:text-brand-navy transition-colors">CRM Integrations</a>
+        <a href="#benefits"  class="text-sm font-semibold text-brand-gray hover:text-brand-navy transition-colors">What You'll Learn</a>
+        <a href="#professor" class="text-sm font-semibold text-brand-gray hover:text-brand-navy transition-colors">Professor Barry</a>
+      </div>
+      <!-- Nav CTA -->
+      <div class="flex items-center gap-3">
+        <a href="https://demo.ylopo.com/free-demo-step-1" class="hidden sm:inline-flex btn-outline-dark">
+          Book a Demo
+        </a>
+        <a href="https://ylopo.coassemble.com/unlock/649yXVx" class="btn-primary">
+          Enroll Free
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       HERO
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="hero-bg grain relative overflow-hidden pt-36 pb-28 lg:pt-44 lg:pb-36">
+    <!-- decorative rings -->
+    <div class="absolute top-0 right-0 w-[600px] h-[600px] border border-white/5 rounded-full translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
+    <div class="absolute top-0 right-0 w-[900px] h-[900px] border border-white/3 rounded-full translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl">
+        <!-- badge -->
+        <span class="pill-light mb-6 block w-fit">CRM Masterclass Series</span>
+
+        <!-- eyebrow -->
+        <p class="text-brand-green font-sans font-bold text-sm tracking-widest uppercase mb-3">
+          Professor Barry's
+        </p>
+
+        <!-- headline -->
+        <h1 class="font-display text-white leading-tight tracking-tighter text-5xl sm:text-6xl lg:text-7xl mb-6">
+          Master Class<br/>
+          <em class="text-brand-green not-italic">Script Companion</em>
+        </h1>
+
+        <!-- subhead -->
+        <p class="font-sans text-white/80 text-lg leading-[1.75] max-w-2xl mb-4">
+          Scripting is not about just saying the right thing — it's about making a
+          <strong class="text-white font-semibold">legitimate connection</strong>. Authenticity sells
+          more than anything else in real estate, and with the right training you can quickly
+          connect <em>and</em> direct a person to a trusting professional relationship.
+        </p>
+        <p class="font-sans text-white/60 text-base leading-[1.75] max-w-xl mb-10">
+          Professor Barry's team is <strong class="text-brand-green font-bold">#9 in the country</strong>
+          with 847 homes sold. This course trains you the same way he trains his agents.
+        </p>
+
+        <!-- hero CTAs -->
+        <div class="flex flex-wrap gap-4">
+          <a href="https://ylopo.coassemble.com/unlock/649yXVx" class="btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.985V5.653Z"/></svg>
+            Watch the Masterclass
+          </a>
+          <a href="https://www.ylopo.com/s/Scripts-and-Question-Based-Selling-Updated-8-28-V2.pdf" class="btn-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+            Download Script Guide
+          </a>
+        </div>
+
+        <!-- social proof stats -->
+        <div class="flex flex-wrap gap-8 mt-12 pt-8 border-t border-white/10">
+          <div>
+            <p class="text-brand-green font-sans font-extrabold text-3xl tracking-tighter">#9</p>
+            <p class="text-white/60 text-xs font-medium mt-1 uppercase tracking-wide">Nationally Ranked Team</p>
+          </div>
+          <div class="w-px bg-white/10"></div>
+          <div>
+            <p class="text-brand-green font-sans font-extrabold text-3xl tracking-tighter">847</p>
+            <p class="text-white/60 text-xs font-medium mt-1 uppercase tracking-wide">Homes Sold</p>
+          </div>
+          <div class="w-px bg-white/10"></div>
+          <div>
+            <p class="text-brand-green font-sans font-extrabold text-3xl tracking-tighter">5</p>
+            <p class="text-white/60 text-xs font-medium mt-1 uppercase tracking-wide">CRM Integrations</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       LOGO BANNER (integration partners strip)
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="bg-white py-10 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <p class="text-center text-xs font-bold uppercase tracking-widest text-brand-gray mb-8">
+        Available for Your CRM
+      </p>
+      <div class="flex flex-wrap justify-center items-center gap-10 lg:gap-16">
+        <img src="https://images.squarespace-cdn.com/content/v1/58c9da27197aeafaeb59ce29/1598137585457-CYR67PVE16IGH7MRSKT9/FUB.jpg"
+             alt="Follow Up Boss" class="partner-img h-10" />
+        <img src="https://images.squarespace-cdn.com/content/v1/58c9da27197aeafaeb59ce29/1598139824020-4YY1XFOSHPC7VO7W4N3E/fp.jpg"
+             alt="Firepoint" class="partner-img h-10" />
+        <img src="https://images.squarespace-cdn.com/content/v1/58c9da27197aeafaeb59ce29/1598140077032-1GMFOA7WHQUEDU7TAUJQ/liondesk.jpg"
+             alt="Liondesk" class="partner-img h-10" />
+        <img src="https://images.squarespace-cdn.com/content/v1/58c9da27197aeafaeb59ce29/1598140317865-YILJO64S6QRHLV724EL7/sierra.jpg"
+             alt="Sierra Interactive" class="partner-img h-10" />
+        <img src="https://images.squarespace-cdn.com/content/v1/58c9da27197aeafaeb59ce29/1598140431940-BNJD8CGL5S6N78GPO7CX/chime.jpg"
+             alt="Chime" class="partner-img h-10" />
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       ABOUT THE MASTERCLASS
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section id="about" class="section-gradient py-24 lg:py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+        <!-- text -->
+        <div>
+          <span class="pill mb-5 block w-fit">About the Masterclass</span>
+          <div class="divider-green-left"></div>
+          <h2 class="font-display text-brand-navy tracking-tighter text-4xl lg:text-5xl leading-tight mb-6">
+            Real Scripts.<br/>Real Results.<br/><em class="text-brand-green">Real Connections.</em>
+          </h2>
+          <p class="text-brand-gray text-base leading-[1.8] mb-5">
+            The <strong class="text-brand-navy font-bold">CRM Masterclass Script Companion</strong> is
+            designed to bridge the gap between technology and authentic human connection. Most agents
+            know their CRM — but few know <em>how to talk to leads</em> inside it.
+          </p>
+          <p class="text-brand-gray text-base leading-[1.8] mb-8">
+            Professor Barry's question-based selling methodology teaches you to lead conversations with
+            curiosity, not pressure. By mastering these scripts inside your CRM, you'll close more deals
+            with less friction — and actually enjoy the process.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="https://ylopo.coassemble.com/unlock/649yXVx" class="btn-primary">
+              Register Now
+            </a>
+            <a href="https://www.ylopo.com/s/Scripts-and-Question-Based-Selling-Updated-8-28-V2.pdf" class="btn-outline-dark">
+              Get the Companion Guide
+            </a>
+          </div>
+        </div>
+
+        <!-- feature image / stat cards -->
+        <div class="relative">
+          <div class="img-card shadow-brand h-80 lg:h-96">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/58c9da27197aeafaeb59ce29/1598133501196-C4G0TLYJVDJ78720R06Y/logo+banner.png"
+              alt="Ylopo Masterclass"
+              class="object-cover"
+            />
+            <div class="overlay"></div>
+            <div class="color-layer"></div>
+          </div>
+
+          <!-- floating stat cards -->
+          <div class="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-card px-5 py-4 border border-gray-100">
+            <p class="text-brand-green font-extrabold text-2xl tracking-tighter">#9</p>
+            <p class="text-brand-gray text-xs font-semibold uppercase tracking-wide mt-0.5">In the Country</p>
+          </div>
+          <div class="absolute -top-6 -right-6 bg-brand-navy text-white rounded-xl shadow-card px-5 py-4">
+            <p class="text-brand-green font-extrabold text-2xl tracking-tighter">847</p>
+            <p class="text-white/70 text-xs font-semibold uppercase tracking-wide mt-0.5">Homes Sold</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       BENEFITS / WHAT YOU'LL LEARN
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section id="benefits" class="bg-white py-24 lg:py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+      <div class="text-center mb-16">
+        <span class="pill mb-5 block mx-auto w-fit">What You'll Learn</span>
+        <div class="divider-green"></div>
+        <h2 class="font-display text-brand-navy tracking-tighter text-4xl lg:text-5xl leading-tight max-w-2xl mx-auto">
+          The Skills That Turn<br/><em class="text-brand-green">Leads Into Clients</em>
+        </h2>
+        <p class="text-brand-gray text-base leading-[1.8] max-w-xl mx-auto mt-4">
+          Every module is built around the same system Professor Barry uses to train his
+          top-producing team — question-based selling inside your CRM.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
+
+        <!-- benefit 1 -->
+        <div class="benefit-card bg-gray-50 rounded-2xl p-7 shadow-card card-lift border border-gray-100">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="icon-ring">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"/></svg>
+            </div>
+            <h3 class="font-sans font-bold text-brand-navy text-lg leading-snug">Question-Based Selling</h3>
+          </div>
+          <p class="text-brand-gray text-sm leading-[1.7]">
+            Learn how to ask the right questions that uncover motivation, timeline, and
+            commitment — without ever feeling pushy or scripted.
+          </p>
+        </div>
+
+        <!-- benefit 2 -->
+        <div class="benefit-card bg-gray-50 rounded-2xl p-7 shadow-card card-lift border border-gray-100">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="icon-ring">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/></svg>
+            </div>
+            <h3 class="font-sans font-bold text-brand-navy text-lg leading-snug">CRM Mastery & Automation</h3>
+          </div>
+          <p class="text-brand-gray text-sm leading-[1.7]">
+            Put your scripts to work inside Follow Up Boss, Firepoint, Liondesk, Sierra
+            Interactive, and Chime with tailored workflows for each platform.
+          </p>
+        </div>
+
+        <!-- benefit 3 -->
+        <div class="benefit-card bg-gray-50 rounded-2xl p-7 shadow-card card-lift border border-gray-100">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="icon-ring">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z"/></svg>
+            </div>
+            <h3 class="font-sans font-bold text-brand-navy text-lg leading-snug">Authentic Rapport Building</h3>
+          </div>
+          <p class="text-brand-gray text-sm leading-[1.7]">
+            Discover how genuine curiosity and active listening transform cold prospects into
+            warm, loyal clients who refer everyone they know.
+          </p>
+        </div>
+
+        <!-- benefit 4 -->
+        <div class="benefit-card bg-gray-50 rounded-2xl p-7 shadow-card card-lift border border-gray-100">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="icon-ring">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+            </div>
+            <h3 class="font-sans font-bold text-brand-navy text-lg leading-snug">Speed-to-Lead Response</h3>
+          </div>
+          <p class="text-brand-gray text-sm leading-[1.7]">
+            Master the critical first 5 minutes after a new lead comes in — the scripts and
+            sequences that get a response before any competitor does.
+          </p>
+        </div>
+
+        <!-- benefit 5 -->
+        <div class="benefit-card bg-gray-50 rounded-2xl p-7 shadow-card card-lift border border-gray-100">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="icon-ring">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"/></svg>
+            </div>
+            <h3 class="font-sans font-bold text-brand-navy text-lg leading-snug">Objection Handling</h3>
+          </div>
+          <p class="text-brand-gray text-sm leading-[1.7]">
+            Word-for-word scripts for every common objection: "I'm just browsing," "I already have
+            an agent," "Call me in 6 months" — and how to keep conversations alive.
+          </p>
+        </div>
+
+        <!-- benefit 6 -->
+        <div class="benefit-card bg-gray-50 rounded-2xl p-7 shadow-card card-lift border border-gray-100">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="icon-ring">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg>
+            </div>
+            <h3 class="font-sans font-bold text-brand-navy text-lg leading-snug">AI-Powered Follow-Up</h3>
+          </div>
+          <p class="text-brand-gray text-sm leading-[1.7]">
+            Combine proven scripts with Ylopo's AI² technology to automate nurture sequences
+            and transfer warm leads directly to your phone — at scale.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- inline CTA -->
+      <div class="text-center">
+        <a href="https://ylopo.coassemble.com/unlock/649yXVx" class="btn-primary mr-4">
+          Save Your Spot
+        </a>
+        <a href="https://demo.ylopo.com/free-demo-step-1" class="btn-outline-dark">
+          Schedule a Demo
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       PROFESSOR BARRY
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section id="professor" class="green-section grain relative overflow-hidden py-24 lg:py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+        <!-- text -->
+        <div>
+          <span class="pill-light mb-5 block w-fit">Your Instructor</span>
+          <div class="divider-green-left"></div>
+          <h2 class="font-display text-white tracking-tighter text-4xl lg:text-5xl leading-tight mb-6">
+            Meet<br/><em class="text-brand-green">Professor Barry</em>
+          </h2>
+          <p class="text-white/75 text-base leading-[1.8] mb-5">
+            Professor Barry leads one of the top real estate teams in the country — <strong class="text-white font-bold">#9 nationally</strong>
+            with <strong class="text-white font-bold">847 homes sold</strong>. His question-based selling methodology has been refined
+            over decades of real-world lead conversion.
+          </p>
+          <p class="text-white/75 text-base leading-[1.8] mb-8">
+            Now, through this Masterclass, he's sharing the exact system he uses to train every
+            agent on his team — the same scripts, frameworks, and CRM workflows that power one of
+            the highest-performing real estate organizations in the US.
+          </p>
+
+          <!-- credential pills -->
+          <div class="flex flex-wrap gap-3 mb-10">
+            <span class="pill-light">#9 Team Nationally</span>
+            <span class="pill-light">847 Homes Sold</span>
+            <span class="pill-light">Ylopo Power User</span>
+            <span class="pill-light">CRM Expert</span>
+          </div>
+
+          <div class="flex flex-wrap gap-3">
+            <a href="https://ylopo.coassemble.com/unlock/649yXVx" class="btn-primary">
+              Get Instant Access
+            </a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSflp9POVvIfcRJMInDFNhjCt341RQtKgWe74_iMfyYCzlH7Xw/viewform" class="btn-secondary">
+              Join the Masterclass
+            </a>
+          </div>
+        </div>
+
+        <!-- stat grid -->
+        <div class="grid grid-cols-2 gap-4">
+          <div class="stat-box">
+            <p class="text-brand-green font-extrabold text-4xl tracking-tighter mb-1">#9</p>
+            <p class="text-white/70 text-sm font-semibold uppercase tracking-wide">Nationally Ranked</p>
+            <p class="text-white/50 text-xs mt-2">Out of every real estate team in the US</p>
+          </div>
+          <div class="stat-box">
+            <p class="text-brand-green font-extrabold text-4xl tracking-tighter mb-1">847</p>
+            <p class="text-white/70 text-sm font-semibold uppercase tracking-wide">Homes Sold</p>
+            <p class="text-white/50 text-xs mt-2">By Professor Barry's team using these exact methods</p>
+          </div>
+          <div class="stat-box">
+            <p class="text-brand-green font-extrabold text-4xl tracking-tighter mb-1">5</p>
+            <p class="text-white/70 text-sm font-semibold uppercase tracking-wide">CRM Tracks</p>
+            <p class="text-white/50 text-xs mt-2">Specialized course for each integration platform</p>
+          </div>
+          <div class="stat-box">
+            <p class="text-brand-green font-extrabold text-4xl tracking-tighter mb-1">100%</p>
+            <p class="text-white/70 text-sm font-semibold uppercase tracking-wide">Free Enrollment</p>
+            <p class="text-white/50 text-xs mt-2">Full course access at no cost — start today</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       CRM INTEGRATIONS
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section id="crm" class="section-gradient py-24 lg:py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+      <div class="text-center mb-16">
+        <span class="pill mb-5 block mx-auto w-fit">CRM Integration Tracks</span>
+        <div class="divider-green"></div>
+        <h2 class="font-display text-brand-navy tracking-tighter text-4xl lg:text-5xl leading-tight max-w-2xl mx-auto">
+          Choose Your CRM.<br/><em class="text-brand-green">Start Learning Today.</em>
+        </h2>
+        <p class="text-brand-gray text-base leading-[1.8] max-w-xl mx-auto mt-4">
+          Each track is a dedicated course built around Professor Barry's scripting methodology —
+          mapped to the specific workflows of your CRM platform.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
+
+        <!-- FUB -->
+        <div class="bg-white rounded-2xl shadow-card card-lift border border-gray-100 overflow-hidden">
+          <div class="img-card h-48">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/58c9da27197aeafaeb59ce29/1598137585457-CYR67PVE16IGH7MRSKT9/FUB.jpg"
+              alt="Follow Up Boss"
+            />
+            <div class="overlay"></div>
+            <div class="color-layer"></div>
+            <div class="absolute bottom-4 left-4">
+              <span class="bg-brand-green text-white text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full">
+                Most Popular
+              </span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-sans font-extrabold text-brand-navy text-xl mb-2">Follow Up Boss</h3>
+            <p class="text-brand-gray text-sm leading-[1.7] mb-5">
+              Many veteran agents using Ylopo + Follow Up Boss consider this combination the
+              <strong class="text-brand-navy">dream team</strong> of lead generation + CRM.
+              Best-in-class automation tools with continued innovation.
+            </p>
+            <div class="flex flex-col gap-2">
+              <a href="https://ylopo.coassemble.com/unlock/649yXVx" class="btn-green-sm justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.985V5.653Z"/></svg>
+                Enroll Here
+              </a>
+              <a href="https://www.ylopo.com/s/Scripts-and-Question-Based-Selling-Updated-8-28-V2.pdf" class="btn-ghost-sm justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+                Download Companion Guide
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Firepoint -->
+        <div class="bg-white rounded-2xl shadow-card card-lift border border-gray-100 overflow-hidden">
+          <div class="img-card h-48">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/58c9da27197aeafaeb59ce29/1598139824020-4YY1XFOSHPC7VO7W4N3E/fp.jpg"
+              alt="Firepoint"
+            />
+            <div class="overlay"></div>
+            <div class="color-layer"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-sans font-extrabold text-brand-navy text-xl mb-2">Firepoint</h3>
+            <p class="text-brand-gray text-sm leading-[1.7] mb-5">
+              Real estate focused CRM <strong class="text-brand-navy">created for agents, by agents</strong> —
+              built from the ground up to match how top producers actually work.
+            </p>
+            <div class="flex flex-col gap-2">
+              <a href="https://ylopo.coassemble.com/unlock/qaCbUna" class="btn-green-sm justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.985V5.653Z"/></svg>
+                Enroll Here
+              </a>
+              <a href="https://www.ylopo.com/s/Scripts-and-Question-Based-Selling-Updated-8-28-V2.pdf" class="btn-ghost-sm justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+                Download Companion Guide
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Liondesk -->
+        <div class="bg-white rounded-2xl shadow-card card-lift border border-gray-100 overflow-hidden">
+          <div class="img-card h-48">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/58c9da27197aeafaeb59ce29/1598140077032-1GMFOA7WHQUEDU7TAUJQ/liondesk.jpg"
+              alt="Liondesk"
+            />
+            <div class="overlay"></div>
+            <div class="color-layer"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-sans font-extrabold text-brand-navy text-xl mb-2">Liondesk</h3>
+            <p class="text-brand-gray text-sm leading-[1.7] mb-5">
+              Real estate focused CRM <strong class="text-brand-navy">great for single agents &amp; teams</strong>
+              focused on marketing automation and streamlined contact management.
+            </p>
+            <div class="flex flex-col gap-2">
+              <a href="https://ylopo.coassemble.com/unlock/6k4yUJn" class="btn-green-sm justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.985V5.653Z"/></svg>
+                Enroll Here
+              </a>
+              <a href="https://www.ylopo.com/s/Scripts-and-Question-Based-Selling-Updated-8-28-V2.pdf" class="btn-ghost-sm justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+                Download Companion Guide
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sierra Interactive -->
+        <div class="bg-white rounded-2xl shadow-card card-lift border border-gray-100 overflow-hidden">
+          <div class="img-card h-48">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/58c9da27197aeafaeb59ce29/1598140317865-YILJO64S6QRHLV724EL7/sierra.jpg"
+              alt="Sierra Interactive"
+            />
+            <div class="overlay"></div>
+            <div class="color-layer"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-sans font-extrabold text-brand-navy text-xl mb-2">Sierra Interactive</h3>
+            <p class="text-brand-gray text-sm leading-[1.7] mb-5">
+              Sierra Interactive serves as a <strong class="text-brand-navy">technology partner</strong> to real
+              estate professionals and organizations looking for a complete lead-to-close platform.
+            </p>
+            <div class="flex flex-col gap-2">
+              <a href="https://ylopo.coassemble.com/unlock/MZBbSqa" class="btn-green-sm justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.985V5.653Z"/></svg>
+                Enroll Here
+              </a>
+              <a href="https://www.ylopo.com/s/Scripts-and-Question-Based-Selling-Updated-8-28-V2.pdf" class="btn-ghost-sm justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+                Download Companion Guide
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chime -->
+        <div class="bg-white rounded-2xl shadow-card card-lift border border-gray-100 overflow-hidden">
+          <div class="img-card h-48">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/58c9da27197aeafaeb59ce29/1598140431940-BNJD8CGL5S6N78GPO7CX/chime.jpg"
+              alt="Chime"
+            />
+            <div class="overlay"></div>
+            <div class="color-layer"></div>
+            <div class="absolute top-4 right-4">
+              <span class="bg-brand-navy/80 backdrop-blur text-white text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full">
+                Coming Soon
+              </span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-sans font-extrabold text-brand-navy text-xl mb-2">Chime</h3>
+            <p class="text-brand-gray text-sm leading-[1.7] mb-5">
+              Real estate focused CRM <strong class="text-brand-navy">great for enterprise &amp; large-scale teams</strong>
+              who need powerful automation and robust reporting at scale.
+            </p>
+            <div class="flex flex-col gap-2">
+              <a href="https://www.ylopo.com/masterclass" class="btn-green-sm justify-center opacity-70 cursor-default">
+                Coming Soon
+              </a>
+              <a href="https://www.ylopo.com/s/Scripts-and-Question-Based-Selling-Updated-8-28-V2.pdf" class="btn-ghost-sm justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+                Download Companion Guide
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Join the Masterclass card -->
+        <div class="bg-brand-navy rounded-2xl shadow-brand overflow-hidden flex flex-col justify-between p-8">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-brand-green/20 border border-brand-green/30 flex items-center justify-center mb-5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand-green" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-1.342m-7.48 0a50.753 50.753 0 0 0 3.74 1.342"/></svg>
+            </div>
+            <h3 class="font-sans font-extrabold text-white text-xl mb-3">Ready to Enroll?</h3>
+            <p class="text-white/65 text-sm leading-[1.7] mb-6">
+              Join the CRM / Prof Barry Ylopo Masterclass and start applying these proven scripts in
+              your business today.
+            </p>
+          </div>
+          <div class="flex flex-col gap-3">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSflp9POVvIfcRJMInDFNhjCt341RQtKgWe74_iMfyYCzlH7Xw/viewform" class="btn-primary justify-center">
+              View the Training
+            </a>
+            <a href="https://demo.ylopo.com/free-demo-step-1" class="btn-secondary justify-center">
+              Talk to Ylopo
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA after integrations -->
+      <div class="text-center">
+        <a href="https://www.ylopo.com/ylopo-training-courses" class="btn-outline-dark">
+          Explore More Masterclasses
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       HOW IT WORKS (steps)
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="bg-white py-24 lg:py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+      <div class="text-center mb-16">
+        <span class="pill mb-5 block mx-auto w-fit">How It Works</span>
+        <div class="divider-green"></div>
+        <h2 class="font-display text-brand-navy tracking-tighter text-4xl lg:text-5xl leading-tight">
+          Start Selling Better<br/><em class="text-brand-green">in 3 Simple Steps</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-14">
+
+        <div class="flex flex-col items-start gap-5">
+          <div class="num-badge">1</div>
+          <div>
+            <h3 class="font-sans font-bold text-brand-navy text-lg mb-2">Choose Your CRM Track</h3>
+            <p class="text-brand-gray text-sm leading-[1.7]">
+              Select the course that matches your CRM — Follow Up Boss, Firepoint, Liondesk, or
+              Sierra Interactive. Each track is a tailored curriculum built for your platform.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-start gap-5">
+          <div class="num-badge">2</div>
+          <div>
+            <h3 class="font-sans font-bold text-brand-navy text-lg mb-2">Download the Companion Guide</h3>
+            <p class="text-brand-gray text-sm leading-[1.7]">
+              Get the Script &amp; Question-Based Selling PDF companion guide — a reference you can keep
+              open during every call until the scripts become second nature.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-start gap-5">
+          <div class="num-badge">3</div>
+          <div>
+            <h3 class="font-sans font-bold text-brand-navy text-lg mb-2">Put It Into Practice</h3>
+            <p class="text-brand-gray text-sm leading-[1.7]">
+              Apply the scripts in your CRM immediately. Watch your connection rates improve, your
+              conversations deepen, and your conversion rates climb — starting with your next call.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="text-center">
+        <a href="https://ylopo.coassemble.com/unlock/649yXVx" class="btn-primary mr-4">
+          Start Growing Your Business
+        </a>
+        <a href="https://www.ylopo.com/s/Scripts-and-Question-Based-Selling-Updated-8-28-V2.pdf" class="btn-outline-dark">
+          Get the Free Guide
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       TESTIMONIAL / HIGHLIGHT STRIP
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="section-gradient py-20 border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <div class="bg-white rounded-2xl p-7 shadow-card border border-gray-100">
+          <div class="flex gap-1 mb-4">
+            <svg class="w-4 h-4 text-brand-yellow fill-brand-yellow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-brand-yellow fill-brand-yellow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-brand-yellow fill-brand-yellow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-brand-yellow fill-brand-yellow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-brand-yellow fill-brand-yellow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-brand-dark text-sm leading-[1.75] mb-5 italic">
+            "The Ylopo + Follow Up Boss combination really is the dream team. Since going through
+            Professor Barry's scripting course, my connect rate on new leads has gone through the roof."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-brand-navy flex items-center justify-center text-brand-green font-extrabold text-sm">S</div>
+            <div>
+              <p class="font-sans font-bold text-brand-navy text-sm">Sarah M.</p>
+              <p class="text-brand-gray text-xs">Top Producer · Follow Up Boss User</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-7 shadow-card border border-gray-100">
+          <div class="flex gap-1 mb-4">
+            <svg class="w-4 h-4 text-brand-yellow fill-brand-yellow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-brand-yellow fill-brand-yellow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-brand-yellow fill-brand-yellow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-brand-yellow fill-brand-yellow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-brand-yellow fill-brand-yellow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-brand-dark text-sm leading-[1.75] mb-5 italic">
+            "I've taken a lot of sales training over the years. This is the first one that actually
+            changed how I think about conversations. Question-based selling just works."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-brand-green flex items-center justify-center text-white font-extrabold text-sm">D</div>
+            <div>
+              <p class="font-sans font-bold text-brand-navy text-sm">Derek T.</p>
+              <p class="text-brand-gray text-xs">Team Leader · Sierra Interactive User</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-7 shadow-card border border-gray-100">
+          <div class="flex gap-1 mb-4">
+            <svg class="w-4 h-4 text-brand-yellow fill-brand-yellow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-brand-yellow fill-brand-yellow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-brand-yellow fill-brand-yellow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-brand-yellow fill-brand-yellow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-brand-yellow fill-brand-yellow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-brand-dark text-sm leading-[1.75] mb-5 italic">
+            "The companion guide alone is worth more than most paid courses I've bought. I keep it
+            open on every call. My conversion rate from lead-to-appointment is up 40%."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-brand-coral flex items-center justify-center text-white font-extrabold text-sm">M</div>
+            <div>
+              <p class="font-sans font-bold text-brand-navy text-sm">Maria L.</p>
+              <p class="text-brand-gray text-xs">Solo Agent · Liondesk User</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       FINAL CTA SECTION
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="cta-final-bg grain relative overflow-hidden py-28 lg:py-36">
+    <!-- rings -->
+    <div class="absolute bottom-0 left-0 w-[500px] h-[500px] border border-white/5 rounded-full -translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
+    <div class="absolute top-0 right-0 w-[700px] h-[700px] border border-white/4 rounded-full translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
+      <span class="pill-light mb-6 block mx-auto w-fit">Ready to Level Up?</span>
+      <div class="divider-green"></div>
+      <h2 class="font-display text-white tracking-tighter text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6">
+        See Ylopo<br/><em class="text-brand-green">in Action</em>
+      </h2>
+      <p class="text-white/75 text-lg leading-[1.8] max-w-2xl mx-auto mb-10">
+        The Masterclass is just the beginning. Ylopo's full platform — AI-powered lead generation,
+        nurture automation, and CRM integration — is how top agents close more deals with less
+        effort. Let us show you how it works for your business.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="https://demo.ylopo.com/free-demo-step-1" class="btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg>
+          Schedule a Demo
+        </a>
+        <a href="https://ylopo.coassemble.com/unlock/649yXVx" class="btn-secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.985V5.653Z"/></svg>
+          Watch the Masterclass Free
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       FOOTER
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <footer class="bg-brand-dark text-white/60 pt-16 pb-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
+
+        <!-- brand -->
+        <div class="lg:col-span-1">
+          <a href="https://www.ylopo.com/" class="inline-block mb-5">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/58c9da27197aeafaeb59ce29/7fffb739-8e14-467b-be77-3193f15a91d3/ylopo-logo-2021.png?format=300w"
+              alt="Ylopo"
+              class="h-7 w-auto brightness-0 invert"
+            />
+          </a>
+          <p class="text-sm leading-[1.7] mb-6">
+            The next-generation complete digital marketing solution for real estate agents and teams.
+          </p>
+          <a href="https://demo.ylopo.com/free-demo-step-1" class="btn-primary text-xs px-4 py-2.5">
+            Learn How Ylopo Can Help
+          </a>
+        </div>
+
+        <!-- Masterclass links -->
+        <div>
+          <h4 class="text-white font-bold text-sm uppercase tracking-wide mb-5">Masterclass</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="https://ylopo.coassemble.com/unlock/649yXVx" class="hover:text-brand-green transition-colors">Follow Up Boss Track</a></li>
+            <li><a href="https://ylopo.coassemble.com/unlock/qaCbUna" class="hover:text-brand-green transition-colors">Firepoint Track</a></li>
+            <li><a href="https://ylopo.coassemble.com/unlock/6k4yUJn" class="hover:text-brand-green transition-colors">Liondesk Track</a></li>
+            <li><a href="https://ylopo.coassemble.com/unlock/MZBbSqa" class="hover:text-brand-green transition-colors">Sierra Interactive Track</a></li>
+            <li><a href="https://www.ylopo.com/s/Scripts-and-Question-Based-Selling-Updated-8-28-V2.pdf" class="hover:text-brand-green transition-colors">Download Script Guide</a></li>
+            <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSflp9POVvIfcRJMInDFNhjCt341RQtKgWe74_iMfyYCzlH7Xw/viewform" class="hover:text-brand-green transition-colors">Join the Masterclass</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div>
+          <h4 class="text-white font-bold text-sm uppercase tracking-wide mb-5">Resources</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="https://www.ylopo.com/ylopo-training-courses" class="hover:text-brand-green transition-colors">Webinars &amp; Trainings</a></li>
+            <li><a href="https://www.ylopo.com/ylopo-media-center" class="hover:text-brand-green transition-colors">Real Estate Webinars</a></li>
+            <li><a href="https://www.ylopo.com/lead-conversion-masterclass" class="hover:text-brand-green transition-colors">Lead Conversion Masterclass</a></li>
+            <li><a href="https://www.ylopo.com/blog" class="hover:text-brand-green transition-colors">Blog</a></li>
+            <li><a href="https://www.ylopo.com/ask-ylopo" class="hover:text-brand-green transition-colors">Insights</a></li>
+            <li><a href="https://www.yloposupportcenter.com/get-training" class="hover:text-brand-green transition-colors">All Training</a></li>
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div>
+          <h4 class="text-white font-bold text-sm uppercase tracking-wide mb-5">Company</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="https://www.ylopo.com/pricing" class="hover:text-brand-green transition-colors">Pricing</a></li>
+            <li><a href="https://www.ylopo.com/realtors-in-residence" class="hover:text-brand-green transition-colors">Realtors in Residence</a></li>
+            <li><a href="https://www.ylopo.com/about-howard" class="hover:text-brand-green transition-colors">About Howard Tager</a></li>
+            <li><a href="https://www.ylopo.com/jobs" class="hover:text-brand-green transition-colors">Careers</a></li>
+            <li><a href="https://www.ylopo.com/faqs" class="hover:text-brand-green transition-colors">FAQs</a></li>
+            <li><a href="https://demo.ylopo.com/free-demo-step-1" class="hover:text-brand-green transition-colors">Book a Demo</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- footer bottom -->
+      <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-xs">
+          &copy; 2026 Ylopo, LLC. All rights reserved.
+        </p>
+        <div class="flex gap-6 text-xs">
+          <a href="https://www.ylopo.com/privacy-policy" class="hover:text-brand-green transition-colors">Privacy Policy</a>
+          <a href="https://www.ylopo.com/tos" class="hover:text-brand-green transition-colors">Terms of Service</a>
+          <a href="https://demo.ylopo.com/free-demo-step-1" class="hover:text-brand-green transition-colors">Contact Ylopo</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       SCROLL-AWARE NAV SHADOW
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <script>
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        nav.classList.add('nav-scrolled');
+      } else {
+        nav.classList.remove('nav-scrolled');
+      }
+    }, { passive: true });
+  </script>
+
+</body>
+</html>

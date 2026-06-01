@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ylopo Pricing — Choose Your Right Plan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+
+    /* ── TOKENS ─────────────────────────────── */
+    :root {
+      --green:      #74B943;
+      --green-dark: #5a9432;
+      --navy:       #173244;
+      --navy-dark:  #0f2233;
+      --teal:       #097088;
+      --coral:      #FF5056;
+      --slate:      #697088;
+      --lime:       #B2F726;
+    }
+
+    /* ── RESET ──────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html  { scroll-behavior: smooth; }
+    body  { font-family: 'Inter', sans-serif; color: #1a2332; background: #fff; }
+    h1, h2, h3, h4, h5 { font-family: 'Montserrat', sans-serif; }
+    img   { display: block; }
+    a     { text-decoration: none; }
+
+    /* ── BUTTONS ────────────────────────────── */
+    .btn-primary {
+      background: var(--green);
+      color: #fff;
+      padding: 13px 28px;
+      border-radius: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      display: inline-block;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.18s ease, transform 0.15s ease, box-shadow 0.18s ease;
+      box-shadow: 0 4px 14px rgba(116,185,67,0.28), 0 1px 3px rgba(116,185,67,0.15);
+    }
+    .btn-primary:hover       { background: var(--green-dark); transform: translateY(-1px); box-shadow: 0 8px 22px rgba(116,185,67,0.38); }
+    .btn-primary:active      { transform: translateY(0); }
+    .btn-primary:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
+
+    .btn-navy {
+      background: var(--navy);
+      color: #fff;
+      padding: 13px 28px;
+      border-radius: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      display: inline-block;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.18s ease, transform 0.15s ease;
+      box-shadow: 0 4px 14px rgba(23,50,68,0.2);
+    }
+    .btn-navy:hover        { background: var(--navy-dark); transform: translateY(-1px); }
+    .btn-navy:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+
+    .btn-ghost-green {
+      border: 2px solid var(--green);
+      color: var(--green);
+      background: transparent;
+      padding: 11px 26px;
+      border-radius: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      display: inline-block;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .btn-ghost-green:hover        { background: var(--green); color: #fff; transform: translateY(-1px); }
+    .btn-ghost-green:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
+
+    .btn-ghost-white {
+      border: 2px solid rgba(255,255,255,0.65);
+      color: #fff;
+      background: transparent;
+      padding: 11px 26px;
+      border-radius: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      display: inline-block;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .btn-ghost-white:hover        { background: rgba(255,255,255,0.12); border-color: #fff; transform: translateY(-1px); }
+    .btn-ghost-white:focus-visible { outline: 3px solid rgba(255,255,255,0.6); outline-offset: 3px; }
+
+    .btn-outline-teal {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--teal);
+      border: 1px solid #b8d8e0;
+      border-radius: 6px;
+      padding: 9px 16px;
+      display: inline-block;
+      transition: all 0.15s ease;
+    }
+    .btn-outline-teal:hover { background: var(--teal); color: #fff; }
+
+    /* Button size / display modifiers */
+    .btn--sm     { padding: 10px 20px; font-size: 13px; }
+    .btn--sm-alt { padding: 11px 22px; font-size: 13px; white-space: nowrap; }
+    .btn--lg     { font-size: 15px; padding: 15px 32px; }
+    .btn--full   { width: 100%; display: block; text-align: center; }
+    .btn--nowrap { white-space: nowrap; }
+
+    /* ── CARD ───────────────────────────────── */
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid #e5e9ef;
+      box-shadow:
+        0 2px 4px rgba(23,50,68,0.04),
+        0 8px 24px rgba(23,50,68,0.06),
+        0 20px 40px rgba(23,50,68,0.03);
+      transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.22s ease;
+      overflow: hidden;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 4px 8px rgba(23,50,68,0.06),
+        0 16px 40px rgba(23,50,68,0.1),
+        0 30px 60px rgba(23,50,68,0.06);
+    }
+    .card.featured { border-color: var(--green); border-width: 2px; }
+
+    /* ── BADGES ─────────────────────────────── */
+    .badge {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 11px;
+      border-radius: 20px;
+    }
+    .badge-teal  { background: #e0f2f7; color: var(--teal); }
+    .badge-coral { background: var(--coral); color: #fff; }
+    .badge-amber { background: #fff3e0; color: #c06a00; }
+
+    /* ── FEATURE CHECK ROW ──────────────────── */
+    .check-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 13.5px;
+      color: #4a5568;
+      line-height: 1.5;
+    }
+    .check-dot {
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    /* ── FAQ LINKS ──────────────────────────── */
+    a.faq-link {
+      font-size: 13px;
+      color: var(--teal);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.15s;
+    }
+    a.faq-link:hover { color: var(--green); }
+
+    /* ── REUSABLE HELPERS ───────────────────── */
+    .eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .eyebrow--green { color: var(--green); }
+    .eyebrow--teal  { color: var(--teal); }
+    .eyebrow--dark  { color: var(--navy); margin-bottom: 14px; }
+
+    .section-heading {
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 900;
+      color: var(--navy);
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .section-body {
+      font-size: 15.5px;
+      color: var(--slate);
+      line-height: 1.72;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    .features-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 14px;
+    }
+
+    /* ── NAVIGATION ─────────────────────────── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #fff;
+      border-bottom: 1px solid #e8ecf0;
+    }
+    .nav__inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+    .nav__logo  { height: 34px; }
+    .nav__links { display: flex; align-items: center; gap: 28px; }
+    .nav__link {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--navy);
+      transition: color 0.15s;
+    }
+    .nav__link:hover     { color: var(--green); }
+    .nav__link--active   { font-weight: 700; color: var(--green); }
+
+    /* ── HERO ───────────────────────────────── */
+    .hero {
+      background: linear-gradient(150deg, #f6fcf0 0%, #f0f6f8 55%, #f2f7fc 100%);
+      padding: 76px 28px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero__orb {
+      position: absolute;
+      pointer-events: none;
+      border-radius: 50%;
+    }
+    .hero__orb--green {
+      top: -120px; left: -120px;
+      width: 520px; height: 520px;
+      background: radial-gradient(ellipse, rgba(116,185,67,0.09) 0%, transparent 70%);
+    }
+    .hero__orb--teal {
+      bottom: -80px; right: -80px;
+      width: 420px; height: 420px;
+      background: radial-gradient(ellipse, rgba(9,112,136,0.07) 0%, transparent 70%);
+    }
+    .hero__inner   { max-width: 720px; margin: 0 auto; position: relative; }
+    .hero__eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 14px;
+    }
+    .hero__heading {
+      font-size: clamp(34px, 5.5vw, 58px);
+      font-weight: 900;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      margin-bottom: 18px;
+    }
+    .hero__subtext {
+      font-size: 17px;
+      color: #4a5568;
+      line-height: 1.75;
+      margin-bottom: 36px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero__microcopy { font-size: 12.5px; color: #9aaab8; margin-bottom: 44px; }
+
+    .value-props { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .value-prop {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 11px 18px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .value-prop__dot   { width: 7px; height: 7px; background: var(--green); border-radius: 50%; flex-shrink: 0; }
+    .value-prop__label { font-family: 'Montserrat', sans-serif; font-size: 12.5px; font-weight: 700; color: var(--navy); }
+
+    /* ── NUDGE BAR (after hero) ─────────────── */
+    .nudge-wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 28px 28px 0;
+    }
+    .nudge-bar {
+      background: linear-gradient(90deg, #f0f8e8, #e8f4f8);
+      border: 1px solid #c4e4a0;
+      border-radius: 10px;
+      padding: 18px 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .nudge-bar__title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 14.5px;
+      color: var(--navy);
+      margin-bottom: 3px;
+    }
+    .nudge-bar__body { font-size: 13px; color: var(--slate); }
+
+    /* ── PRICING CARDS SECTION ──────────────── */
+    .section-pricing { padding: 36px 28px 72px; }
+    .container-md    { max-width: 920px; margin: 0 auto; }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 26px;
+      margin-bottom: 36px;
+    }
+
+    /* Card headers */
+    .card__header {
+      padding: 30px 32px 26px;
+      position: relative;
+      overflow: hidden;
+    }
+    .card__header--navy   { background: linear-gradient(135deg, #173244 0%, #1d3d5c 100%); }
+    .card__header--lime   { background: var(--lime); }
+    .card__header--forest {
+      background: linear-gradient(135deg, #182e18 0%, #2a5820 50%, #377a26 100%);
+      padding: 30px 40px;
+    }
+
+    .card__header-orb {
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 180px; height: 180px;
+      background: radial-gradient(ellipse, rgba(255,255,255,0.05) 0%, transparent 70%);
+      pointer-events: none;
+      border-radius: 50%;
+    }
+    .card__header-orb--lime   { background: radial-gradient(ellipse, rgba(116,185,67,0.18) 0%, transparent 70%); }
+    .card__header-orb--forest { top: -50px; right: -50px; width: 260px; height: 260px; background: radial-gradient(ellipse, rgba(116,185,67,0.22) 0%, transparent 70%); }
+
+    .card__badge-wrap { margin-bottom: 10px; }
+
+    .card__title {
+      font-size: 25px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 4px;
+    }
+    .card__title--dark { color: var(--navy); }
+    .card__title--xl   { font-size: 30px; margin-bottom: 8px; }
+
+    .card__subtitle {
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 10px;
+    }
+    .card__subtitle--dark { color: rgba(23,50,68,0.65); }
+
+    .card__desc        { font-size: 13.5px; color: rgba(255,255,255,0.78); line-height: 1.65; }
+    .card__desc--dark  { color: rgba(23,50,68,0.78); }
+    .card__desc--wide  { font-size: 14.5px; color: rgba(255,255,255,0.8); max-width: 500px; }
+
+    .card__cta-row  { padding: 22px 32px 18px; border-bottom: 1px solid #f0f4f7; }
+    .card__cta-note { text-align: center; font-size: 11.5px; color: #9aaab8; margin-top: 9px; }
+    .card__features { padding: 22px 32px 30px; }
+
+    /* Expanded feature items (Suite+ blocks) */
+    .feature-item {
+      background: #f6fcf0;
+      border-radius: 8px;
+      padding: 15px 16px;
+      margin-bottom: 14px;
+    }
+    .feature-item__header { display: flex; align-items: center; gap: 10px; margin-bottom: 7px; }
+    .feature-item__title  { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13.5px; color: var(--navy); }
+    .feature-item__body   { font-size: 12.5px; color: var(--slate); line-height: 1.6; padding-left: 28px; }
+
+    /* Managed-marketing nudge inside Suite+ */
+    .managed-nudge {
+      margin-top: 20px;
+      padding: 14px 16px;
+      background: #fff8e8;
+      border: 1px solid #ffe0a0;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .managed-nudge__text { font-size: 12.5px; color: #7a5500; }
+    .managed-nudge__link { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; color: #c06a00; }
+    .managed-nudge__link:hover { text-decoration: underline; }
+
+    /* Plan comparison bridge */
+    .compare-bridge {
+      background: linear-gradient(135deg, #f7f9f5 0%, #f0f4f8 100%);
+      border: 1px solid #dde8f0;
+      border-radius: 12px;
+      padding: 30px 36px;
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .compare-bridge__title { font-family: 'Montserrat', sans-serif; font-size: 17px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .compare-bridge__body  { font-size: 13.5px; color: var(--slate); line-height: 1.65; margin-bottom: 22px; }
+
+    /* ── SECTION DIVIDER ────────────────────── */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #e5e9ef 20%, #e5e9ef 80%, transparent);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* ── AI BRIDGE HEADER ───────────────────── */
+    .section-ai-bridge { padding: 56px 28px 28px; text-align: center; }
+    .container-sm { max-width: 640px; margin: 0 auto; }
+
+    /* ── AI ASSISTANT CARD ──────────────────── */
+    .section-ai  { padding: 0 28px 72px; }
+    .container-ai { max-width: 800px; margin: 0 auto; }
+
+    .ai-top-cta {
+      padding: 22px 40px;
+      border-bottom: 1px solid #f0f4f7;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .ai-top-cta__title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; color: var(--navy); }
+    .ai-top-cta__body  { font-size: 12.5px; color: var(--slate); margin-top: 4px; }
+
+    .ai-features-grid {
+      padding: 28px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    .ai-feature__header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .ai-icon {
+      width: 34px; height: 34px;
+      background: #e8f5dc;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .ai-feature__title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14.5px; color: var(--navy); }
+    .ai-feature__body  { font-size: 13px; color: var(--slate); line-height: 1.7; }
+
+    .ai-bottom-cta {
+      background: #f6faf2;
+      border-top: 1px solid #e0ecd0;
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .ai-bottom-cta__text { font-size: 13px; color: var(--slate); max-width: 440px; }
+
+    /* ── MID-PAGE CTA BANNER ────────────────── */
+    .section-cta-banner {
+      background: var(--lime);
+      padding: 72px 28px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner__orb-right {
+      position: absolute;
+      top: -40%; right: -8%;
+      width: 55%; height: 200%;
+      background: radial-gradient(ellipse at center, rgba(116,185,67,0.13) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-banner__orb-left {
+      position: absolute;
+      bottom: -30%; left: -6%;
+      width: 50%; height: 180%;
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-banner__inner   { max-width: 660px; margin: 0 auto; position: relative; z-index: 1; }
+    .cta-banner__heading { font-size: clamp(26px,4.2vw,44px); font-weight: 900; color: var(--navy); letter-spacing: -0.025em; line-height: 1.12; margin-bottom: 14px; }
+    .cta-banner__body    { font-size: 16.5px; color: rgba(23,50,68,0.72); line-height: 1.72; margin-bottom: 34px; }
+    .cta-banner__note    { font-size: 12px; color: rgba(23,50,68,0.45); }
+
+    /* ── FAQ SECTION ────────────────────────── */
+    .section-faq   { padding: 72px 28px 48px; background: #fafbfc; }
+    .container-faq { max-width: 740px; margin: 0 auto; }
+
+    .faq-nudge {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .faq-nudge__text         { font-size: 13.5px; color: #4a5568; }
+    .faq-nudge__text strong  { color: var(--navy); }
+    .faq-nudge__link         { font-family: 'Montserrat', sans-serif; font-size: 12.5px; font-weight: 700; color: var(--green); white-space: nowrap; }
+    .faq-nudge__link:hover   { text-decoration: underline; }
+
+    .faq-card__body    { padding: 36px 40px; display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap; }
+    .faq-card__text    { flex: 1; min-width: 260px; }
+    .faq-card__eyebrow { font-family: 'Montserrat', sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 10px; }
+    .faq-card__heading { font-size: 20px; font-weight: 800; color: var(--navy); line-height: 1.3; margin-bottom: 14px; letter-spacing: -0.015em; }
+    .faq-card__desc    { font-size: 13.5px; color: var(--slate); line-height: 1.72; margin-bottom: 22px; }
+    .faq-card__actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+    .faq-card__photo  { flex-shrink: 0; text-align: center; min-width: 120px; }
+    .faq-card__avatar { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin: 0 auto 9px; box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
+    .faq-card__name   { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12.5px; color: var(--navy); }
+    .faq-card__role   { font-size: 11.5px; color: var(--slate); }
+
+    .faq-links {
+      border-top: 1px solid #f0f4f7;
+      background: #fafbfc;
+      padding: 22px 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 10px;
+    }
+
+    .post-faq-cta       { text-align: center; margin-top: 36px; padding: 36px; background: #fff; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+    .post-faq-cta__title { font-family: 'Montserrat', sans-serif; font-size: 17px; font-weight: 800; color: var(--navy); margin-bottom: 7px; }
+    .post-faq-cta__body  { font-size: 13.5px; color: var(--slate); margin-bottom: 22px; line-height: 1.65; }
+
+    /* ── FOOTER CTA BANNER ──────────────────── */
+    .section-footer-cta {
+      background: var(--navy);
+      padding: 72px 28px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .footer-cta__overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 28% 50%, rgba(116,185,67,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse at 72% 50%, rgba(9,112,136,0.09)  0%, transparent 60%);
+      pointer-events: none;
+    }
+    .footer-cta__inner   { max-width: 620px; margin: 0 auto; position: relative; z-index: 1; }
+    .footer-cta__logo    { height: 30px; margin: 0 auto 26px; filter: brightness(0) invert(1); opacity: 0.85; }
+    .footer-cta__heading { font-size: clamp(24px,4vw,38px); font-weight: 900; color: #fff; letter-spacing: -0.025em; line-height: 1.18; margin-bottom: 12px; }
+    .footer-cta__body    { font-size: 15.5px; color: rgba(255,255,255,0.68); line-height: 1.72; margin-bottom: 34px; }
+    .footer-cta__group   { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 22px; }
+    .footer-cta__contact { font-size: 12px; color: rgba(255,255,255,0.35); }
+
+    /* ── SITE FOOTER ────────────────────────── */
+    .site-footer { background: #0f2233; padding: 40px 28px; border-top: 1px solid rgba(255,255,255,0.06); }
+    .footer__inner { max-width: 1140px; margin: 0 auto; }
+    .footer__top   { display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; align-items: flex-start; margin-bottom: 32px; }
+    .footer__logo  { height: 26px; filter: brightness(0) invert(1); opacity: 0.7; margin-bottom: 14px; }
+    .footer__social      { display: flex; gap: 14px; margin-bottom: 10px; }
+    .footer__social-link { font-size: 12.5px; color: rgba(255,255,255,0.38); transition: color 0.15s; }
+    .footer__social-link:hover { color: var(--green); }
+    .footer__copyright   { font-size: 11.5px; color: rgba(255,255,255,0.28); }
+    .footer__nav-cols    { display: flex; flex-wrap: wrap; gap: 40px; }
+    .footer__nav-heading { font-family: 'Montserrat', sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.36); margin-bottom: 12px; }
+    .footer__nav-list    { display: flex; flex-direction: column; gap: 8px; }
+    .footer__nav-link    { font-size: 12.5px; color: rgba(255,255,255,0.58); transition: color 0.15s; }
+    .footer__nav-link:hover { color: #fff; }
+
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     NAV
+══════════════════════════════════════════ -->
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="https://www.ylopo.com/">
+      <img src="brand_assets/ylopo-logo.png" alt="Ylopo" class="nav__logo">
+    </a>
+    <div class="nav__links">
+      <a href="https://www.ylopo.com/real-estate-lead-generation" class="nav__link">Lead Gen</a>
+      <a href="https://www.ylopo.com/ylopo-ai"                    class="nav__link">AI Text + Voice</a>
+      <a href="https://www.ylopo.com/pricing"                     class="nav__link nav__link--active">Pricing</a>
+      <a href="https://www.ylopo.com/faqs"                        class="nav__link">FAQs</a>
+      <a href="https://demo.ylopo.com/free-demo-step-1"           class="btn-primary btn--sm">Book A Demo</a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero__orb hero__orb--green"></div>
+  <div class="hero__orb hero__orb--teal"></div>
+
+  <div class="hero__inner">
+    <p class="hero__eyebrow">Pricing</p>
+    <h1 class="hero__heading">Choose Your Right Plan</h1>
+    <p class="hero__subtext">
+      Select the plan that matches your market, your team, and your goals — confidently.
+      Not sure yet? A 20-minute demo call gets you a custom recommendation.
+    </p>
+
+    <div class="cta-group">
+      <a href="https://demo.ylopo.com/free-demo-step-1" class="btn-primary">Book Your Pricing Demo</a>
+      <a href="https://demo.ylopo.com/free-demo-step-1" class="btn-ghost-green">See Which Plan Fits Your Team</a>
+    </div>
+    <p class="hero__microcopy">No contracts. No surprises. Custom pricing in one call.</p>
+
+    <div class="value-props">
+      <div class="value-prop"><div class="value-prop__dot"></div><span class="value-prop__label">Unlimited User Seats</span></div>
+      <div class="value-prop"><div class="value-prop__dot"></div><span class="value-prop__label">Monthly Budget Adjustments</span></div>
+      <div class="value-prop"><div class="value-prop__dot"></div><span class="value-prop__label">Unlimited Marketing Budgets</span></div>
+      <div class="value-prop"><div class="value-prop__dot"></div><span class="value-prop__label">No Long Term Contracts</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     CTA 1 — AFTER-HERO NUDGE
+══════════════════════════════════════════ -->
+<div class="nudge-wrap">
+  <div class="nudge-bar">
+    <div>
+      <p class="nudge-bar__title">Not sure which plan is right for you?</p>
+      <p class="nudge-bar__body">Our team will match you to the right package based on your market, team size, and goals.</p>
+    </div>
+    <a href="https://demo.ylopo.com/free-demo-step-1" class="btn-navy btn--sm-alt">Talk to a Growth Consultant →</a>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     PRICING CARDS
+══════════════════════════════════════════ -->
+<section class="section-pricing">
+  <div class="container-md">
+    <div class="cards-grid">
+
+      <!-- ── Card 1: Suite Only ── -->
+      <div class="card">
+        <div class="card__header card__header--navy">
+          <div class="card__header-orb"></div>
+          <div class="card__badge-wrap"><span class="badge badge-teal">Core Solution</span></div>
+          <h2 class="card__title">Ylopo Suite Only</h2>
+          <p class="card__subtitle">(No Lead Gen)</p>
+          <p class="card__desc">For individual agents or small teams getting started on our platform.</p>
+        </div>
+
+        <div class="card__cta-row">
+          <a href="https://demo.ylopo.com/free-demo-step-1" class="btn-primary btn--full">Start With a Demo</a>
+          <p class="card__cta-note">Pricing is customized to your market and team size.</p>
+        </div>
+
+        <div class="card__features">
+          <p class="features-label">Everything Included</p>
+          <div class="check-row"><div class="check-dot"><svg width="9" height="7" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Ylopo Community</span></div>
+          <div class="check-row"><div class="check-dot"><svg width="9" height="7" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Branded Website</span></div>
+          <div class="check-row"><div class="check-dot"><svg width="9" height="7" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>IDX Home Search</span></div>
+          <div class="check-row"><div class="check-dot"><svg width="9" height="7" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Open House Tool</span></div>
+          <div class="check-row"><div class="check-dot"><svg width="9" height="7" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Google Remarketing and Ads</span></div>
+          <div class="check-row"><div class="check-dot"><svg width="9" height="7" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Buyer Presentation</span></div>
+          <div class="check-row"><div class="check-dot"><svg width="9" height="7" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Seller Suite + Zoodealio Account</span></div>
+          <div class="check-row"><div class="check-dot"><svg width="9" height="7" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Branded Market Trends</span></div>
+          <div class="check-row"><div class="check-dot"><svg width="9" height="7" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Buyer Single Listing Flyer</span></div>
+          <div class="check-row"><div class="check-dot"><svg width="9" height="7" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Ongoing Coaching and Training</span></div>
+          <div class="check-row"><div class="check-dot"><svg width="9" height="7" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Buyer Smart Lists, Action Plans, and Automation</span></div>
+          <div class="check-row"><div class="check-dot"><svg width="9" height="7" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Optional Google My Business Management</span></div>
+        </div>
+      </div>
+
+      <!-- ── Card 2: Suite+ Most Popular ── -->
+      <div class="card featured">
+        <div class="card__header card__header--lime">
+          <div class="card__header-orb card__header-orb--lime"></div>
+          <div class="card__badge-wrap"><span class="badge badge-coral">★ Most Popular</span></div>
+          <h2 class="card__title card__title--dark">Ylopo Suite+</h2>
+          <p class="card__subtitle card__subtitle--dark">Managed Marketing</p>
+          <p class="card__desc card__desc--dark">For growing teams focused on building more leads together.</p>
+        </div>
+
+        <div class="card__cta-row">
+          <a href="https://demo.ylopo.com/free-demo-step-1" class="btn-primary btn--full">Book Your Pricing Demo</a>
+          <p class="card__cta-note">Get a custom lead gen plan built for your market.</p>
+        </div>
+
+        <div class="card__features">
+          <p class="features-label">Everything in Suite Only, Plus</p>
+
+          <div class="feature-item">
+            <div class="feature-item__header">
+              <div class="check-dot"><svg width="9" height="7" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <span class="feature-item__title">Direct Connect</span>
+            </div>
+            <p class="feature-item__body">Generate high-quality leads with a complete profile, driving higher conversion rates.</p>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-item__header">
+              <div class="check-dot"><svg width="9" height="7" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <span class="feature-item__title">PPC (Pay Per Click)</span>
+            </div>
+            <p class="feature-item__body">Google and Bing Search campaigns targeting long-tail searches that drive qualified leads to your IDX site.</p>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-item__header">
+              <div class="check-dot"><svg width="9" height="7" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <span class="feature-item__title">Dynamic Ads (DyVA)</span>
+            </div>
+            <p class="feature-item__body">Video ads on Facebook and Instagram showcasing your listings — show sellers exactly how you market their homes.</p>
+          </div>
+
+          <div class="managed-nudge">
+            <p class="managed-nudge__text"><strong>Ask about Managed Marketing</strong> — our team handles the ad strategy so you can focus on closing.</p>
+            <a href="https://demo.ylopo.com/free-demo-step-1" class="managed-nudge__link">Learn More →</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /cards-grid -->
+
+    <!-- CTA 2 — Plan Comparison Bridge -->
+    <div class="compare-bridge">
+      <p class="compare-bridge__title">Not sure which plan fits your team?</p>
+      <p class="compare-bridge__body">Our growth consultants will walk you through both plans side-by-side and recommend the right fit for your market, budget, and goals — in one 20-minute call.</p>
+      <div class="cta-group">
+        <a href="https://demo.ylopo.com/free-demo-step-1" class="btn-primary">Find the Right Ylopo Package</a>
+        <a href="https://demo.ylopo.com/free-demo-step-1" class="btn-ghost-green">Compare Plans With an Expert</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     DIVIDER
+══════════════════════════════════════════ -->
+<div class="section-divider"></div>
+
+
+<!-- ══════════════════════════════════════════
+     AI BRIDGE HEADER
+══════════════════════════════════════════ -->
+<section class="section-ai-bridge">
+  <div class="container-sm">
+    <p class="eyebrow eyebrow--teal">Power Up Your Plan</p>
+    <h2 class="section-heading">Already getting leads?<br>Let AI convert them for you.</h2>
+    <p class="section-body">Add Ylopo AI to any plan and put your lead nurture on autopilot — 24/7 texting and voice calls that engage leads before you ever pick up the phone.</p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     AI ASSISTANT CARD
+══════════════════════════════════════════ -->
+<section class="section-ai">
+  <div class="container-ai">
+    <div class="card">
+      <div class="card__header card__header--forest">
+        <div class="card__header-orb card__header-orb--forest"></div>
+        <div class="card__badge-wrap"><span class="badge badge-amber">Optional Add-On</span></div>
+        <h2 class="card__title card__title--xl">AI Assistant</h2>
+        <p class="card__desc card__desc--wide">Add AI Text, AI Voice, or both to any Ylopo plan. Let AI work your leads 24/7 so you can focus on closing.</p>
+      </div>
+
+      <div class="ai-top-cta">
+        <div>
+          <p class="ai-top-cta__title">Can be added to any plan, individually or together</p>
+          <p class="ai-top-cta__body">Ask your growth consultant for add-on pricing details.</p>
+        </div>
+        <a href="https://demo.ylopo.com/free-demo-step-1" class="btn-primary btn--nowrap">Explore AI Text + Voice</a>
+      </div>
+
+      <div class="ai-features-grid">
+        <div>
+          <div class="ai-feature__header">
+            <div class="ai-icon">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke="#74B943" stroke-width="1.5"/></svg>
+            </div>
+            <span class="ai-feature__title">AI Voice</span>
+          </div>
+          <p class="ai-feature__body">Calls new and past leads to confirm readiness, capture key information, live-transfer hot leads, and set callbacks. Follow-up continues automatically for 90 days.</p>
+        </div>
+        <div>
+          <div class="ai-feature__header">
+            <div class="ai-icon">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" stroke="#74B943" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span class="ai-feature__title">AI Text</span>
+          </div>
+          <p class="ai-feature__body">Engages leads through natural texting dialogue, captures detailed profile data, and schedules call appointments. All conversations are logged for a seamless handoff when you're ready.</p>
+        </div>
+      </div>
+
+      <div class="ai-bottom-cta">
+        <p class="ai-bottom-cta__text">AI Text + Voice works with every Ylopo package. Ask us which combination fits your lead volume and follow-up workflow.</p>
+        <a href="https://demo.ylopo.com/free-demo-step-1" class="btn-ghost-green">Ask About AI Add-Ons</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     MID-PAGE CTA BANNER
+══════════════════════════════════════════ -->
+<section class="section-cta-banner">
+  <div class="cta-banner__orb-right"></div>
+  <div class="cta-banner__orb-left"></div>
+  <div class="cta-banner__inner">
+    <p class="eyebrow eyebrow--dark">Ready to Grow?</p>
+    <h2 class="cta-banner__heading">See How Ylopo Can<br>Grow Your Pipeline</h2>
+    <p class="cta-banner__body">Book a no-pressure demo and get a custom growth plan tailored to your market, your team, and your budget.</p>
+    <div class="cta-group">
+      <a href="https://demo.ylopo.com/free-demo-step-1" class="btn-navy">Get a Custom Pricing Recommendation</a>
+      <a href="https://demo.ylopo.com/free-demo-step-1" class="btn-ghost-green">See Which Plan Fits Your Team</a>
+    </div>
+    <p class="cta-banner__note">No obligation. No guesswork. Just a clear plan for your next step.</p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     PRICING FAQ SECTION
+══════════════════════════════════════════ -->
+<section class="section-faq">
+  <div class="container-faq">
+
+    <div class="faq-nudge">
+      <p class="faq-nudge__text">Have questions about how Ylopo pricing works? <strong>We'll answer them on a demo call.</strong></p>
+      <a href="https://demo.ylopo.com/free-demo-step-1" class="faq-nudge__link">Get Answers on a Demo Call →</a>
+    </div>
+
+    <div class="card">
+      <div class="faq-card__body">
+        <div class="faq-card__text">
+          <p class="faq-card__eyebrow">Pricing</p>
+          <h3 class="faq-card__heading">How does Ylopo pricing work — and why do you need a demo to get a real number?</h3>
+          <p class="faq-card__desc">Ylopo pricing isn't one-size-fits-all. Your plan is built around your market, team size, and lead goals — which is why a short demo call is the fastest way to get an accurate, honest number.</p>
+          <div class="faq-card__actions">
+            <a href="https://www.ylopo.com/faq/how-does-ylopo-pricing-work-and-why-do-you-need-a-demo-to-get-a-real-number" class="btn-outline-teal">Read More →</a>
+            <a href="https://demo.ylopo.com/free-demo-step-1" class="btn-primary btn--sm">Book a Demo Call</a>
+          </div>
+        </div>
+        <div class="faq-card__photo">
+          <img src="https://images.squarespace-cdn.com/content/58c9da27197aeafaeb59ce29/1d4faf71-0648-4e82-8f9a-1d886f7706ce/Ge-image.png?content-type=image%2Fpng" alt="Juefeng Ge" class="faq-card__avatar">
+          <p class="faq-card__name">Juefeng Ge</p>
+          <p class="faq-card__role">Co-Founder, President &amp; CMO</p>
+        </div>
+      </div>
+
+      <div class="faq-links">
+        <a href="https://www.ylopo.com/faq/does-more-ad-spend-get-more-leads"              class="faq-link"><span>→</span> More ad spend = more leads?</a>
+        <a href="https://www.ylopo.com/faq/ylopo-cost-vs-buying-tools-separately"           class="faq-link"><span>→</span> Cost vs. buying tools separately?</a>
+        <a href="https://www.ylopo.com/faq/ylopo-roi-real-agent-results"                    class="faq-link"><span>→</span> What ROI can I expect?</a>
+        <a href="https://www.ylopo.com/faq/social-vs-ppc-vs-live-transfer-lead-cost"        class="faq-link"><span>→</span> Social vs PPC vs Live Transfer</a>
+        <a href="https://www.ylopo.com/faq/what-happens-on-a-ylopo-demo-call"               class="faq-link"><span>→</span> Why require a demo?</a>
+        <a href="https://www.ylopo.com/faq/ylopo-cost-per-lead-ppc-social-live-transfer"    class="faq-link"><span>→</span> Typical cost per lead?</a>
+      </div>
+    </div>
+
+    <div class="post-faq-cta">
+      <p class="post-faq-cta__title">Ready to stop guessing and start growing?</p>
+      <p class="post-faq-cta__body">Skip the research. Book a 20-minute demo and get real answers specific to your market, your team, and your goals.</p>
+      <a href="https://demo.ylopo.com/free-demo-step-1" class="btn-primary">Book Your Pricing Demo</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FOOTER CTA BANNER
+══════════════════════════════════════════ -->
+<section class="section-footer-cta">
+  <div class="footer-cta__overlay"></div>
+  <div class="footer-cta__inner">
+    <img src="brand_assets/ylopo-logo.png" alt="Ylopo" class="footer-cta__logo">
+    <h2 class="footer-cta__heading">Find the Right Ylopo Package<br>for Your Business</h2>
+    <p class="footer-cta__body">Whether you're a solo agent or a growing brokerage, we'll build a plan around your goals. Let's talk.</p>
+    <div class="footer-cta__group">
+      <a href="https://demo.ylopo.com/free-demo-step-1" class="btn-primary btn--lg">Book A Demo</a>
+      <a href="https://demo.ylopo.com/free-demo-step-1" class="btn-ghost-white">Talk to a Growth Consultant</a>
+    </div>
+    <p class="footer-cta__contact">(844) 359-5493 &nbsp;·&nbsp; info@ylopo.com</p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <div>
+        <img src="brand_assets/ylopo-logo.png" alt="Ylopo" class="footer__logo">
+        <div class="footer__social">
+          <a href="https://www.facebook.com/ylopoinc"                       class="footer__social-link">Facebook</a>
+          <a href="https://www.instagram.com/ylopo_official/"               class="footer__social-link">Instagram</a>
+          <a href="https://www.youtube.com/channel/UC3YKuRTO1KlESokfexpD04g" class="footer__social-link">YouTube</a>
+          <a href="https://www.linkedin.com/company/ylopo-official/"        class="footer__social-link">LinkedIn</a>
+        </div>
+        <p class="footer__copyright">© Ylopo, LLC | Copyright 2026 | All Rights Reserved.</p>
+      </div>
+      <div class="footer__nav-cols">
+        <div>
+          <p class="footer__nav-heading">Platform</p>
+          <div class="footer__nav-list">
+            <a href="https://www.ylopo.com/real-estate-lead-generation"  class="footer__nav-link">Lead Generation</a>
+            <a href="https://www.ylopo.com/real-estate-lead-nurture"     class="footer__nav-link">Lead Nurture</a>
+            <a href="https://www.ylopo.com/ylopo-ai"                     class="footer__nav-link">AI Text + Voice</a>
+            <a href="https://www.ylopo.com/idx-home-search"              class="footer__nav-link">IDX Home Search</a>
+            <a href="https://www.ylopo.com/real-estate-website-design"   class="footer__nav-link">Branded Websites</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer__nav-heading">Company</p>
+          <div class="footer__nav-list">
+            <a href="https://www.ylopo.com/faqs"                class="footer__nav-link">FAQs</a>
+            <a href="https://www.ylopo.com/ylopo-case-studies"  class="footer__nav-link">Case Studies</a>
+            <a href="https://www.ylopo.com/reviews"             class="footer__nav-link">Reviews</a>
+            <a href="https://www.ylopo.com/blog"                class="footer__nav-link">Blog</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer__nav-heading">Legal</p>
+          <div class="footer__nav-list">
+            <a href="https://www.ylopo.com/tos"            class="footer__nav-link">Terms of Service</a>
+            <a href="https://www.ylopo.com/privacy-policy" class="footer__nav-link">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

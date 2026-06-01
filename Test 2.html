@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920">
+  <title>Bond Real Estate Group | Jay Bond Homepage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #fff; overflow-x: hidden; }
+    a { text-decoration: none; }
+    .btn-black {
+      background: #000; color: #fff; border-radius: 10px; height: 60px;
+      padding: 0 30px; font-size: 18px; letter-spacing: 1px; text-transform: uppercase;
+      cursor: pointer; border: none; font-family: 'Inter', sans-serif;
+      white-space: nowrap; display: inline-flex; align-items: center; justify-content: center;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn-black:hover { background: #222; }
+    .btn-black:active { transform: scale(0.98); }
+    .btn-black:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+    .btn-outline-white {
+      background: transparent; color: #fff; border: 2px solid #fff; border-radius: 10px;
+      height: 60px; padding: 0 30px; font-size: 18px; letter-spacing: 1px; text-transform: uppercase;
+      cursor: pointer; font-family: 'Inter', sans-serif;
+      white-space: nowrap; display: inline-flex; align-items: center; justify-content: center;
+      transition: background 0.2s, color 0.2s, transform 0.1s;
+    }
+    .btn-outline-white:hover { background: #fff; color: #000; }
+    .btn-outline-white:active { transform: scale(0.98); }
+    .btn-outline-white:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+    .btn-outline-black {
+      background: transparent; color: #000; border: 2px solid #000; border-radius: 10px;
+      height: 60px; padding: 0 30px; font-size: 18px; letter-spacing: 1px; text-transform: uppercase;
+      cursor: pointer; font-family: 'Inter', sans-serif;
+      white-space: nowrap; display: inline-flex; align-items: center; justify-content: center;
+      transition: background 0.2s, color 0.2s, transform 0.1s;
+    }
+    .btn-outline-black:hover { background: #000; color: #fff; }
+    .btn-outline-black:active { transform: scale(0.98); }
+    .btn-outline-black:focus-visible { outline: 2px solid #000; outline-offset: 2px; }
+    .community-card { transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; }
+    .community-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.35) !important; }
+    .listing-card { transition: transform 0.25s ease; cursor: pointer; }
+    .listing-card:hover { transform: translateY(-6px); }
+    .nav-arrow {
+      background: transparent; border: none; color: #fff; font-size: 28px; cursor: pointer;
+      width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;
+      opacity: 0.8; transition: opacity 0.2s;
+    }
+    .nav-arrow:hover { opacity: 1; }
+    .nav-arrow-dark { color: #333; }
+  </style>
+</head>
+<body>
+
+<!-- ===================== 1. HERO ===================== -->
+<section style="position:relative;width:100%;height:960px;overflow:hidden;">
+  <img src="https://www.figma.com/api/mcp/asset/77964d93-56fd-4d2f-92de-4082e7b5309a"
+       alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:0 0 50px 50px;">
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,0) 50%),linear-gradient(90deg,rgba(0,0,0,.1),rgba(0,0,0,.1));border-radius:0 0 50px 50px;"></div>
+
+  <!-- Navbar -->
+  <div style="position:absolute;top:50px;left:100px;right:100px;display:flex;align-items:center;justify-content:space-between;">
+    <img src="https://www.figma.com/api/mcp/asset/1353e60d-6c72-4fdf-93a9-2fc01640a73b" alt="Bond Real Estate Group" style="height:100px;width:auto;">
+    <button style="background:transparent;border:none;cursor:pointer;padding:5px;display:flex;flex-direction:column;gap:10px;" aria-label="Menu">
+      <span style="display:block;width:35px;height:2px;background:#fff;"></span>
+      <span style="display:block;width:35px;height:2px;background:#fff;"></span>
+      <span style="display:block;width:35px;height:2px;background:#fff;"></span>
+    </button>
+  </div>
+
+  <!-- Hero Content -->
+  <div style="position:absolute;left:50%;top:366px;transform:translateX(-50%);width:958px;display:flex;flex-direction:column;align-items:center;gap:100px;">
+    <div style="text-align:center;color:#fff;text-shadow:0 0 20px rgba(0,0,0,.25);">
+      <p style="font-size:32px;font-weight:400;letter-spacing:10px;line-height:40px;text-transform:uppercase;">Welcome to</p>
+      <p style="font-size:56px;font-weight:900;letter-spacing:5px;line-height:70px;text-transform:uppercase;">THE Bond Real Estate</p>
+      <p style="font-size:56px;font-weight:900;letter-spacing:5px;line-height:70px;text-transform:uppercase;">Group Experience!</p>
+    </div>
+    <div style="background:#fff;border-radius:10px;height:60px;width:800px;display:flex;align-items:center;justify-content:space-between;padding:0 15px 0 20px;">
+      <span style="font-size:18px;color:rgba(0,0,0,.7);flex:1;">Start your search by City, Neighborhood, or Zip Code</span>
+      <button style="background:#000;border:none;border-radius:5px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;" aria-label="Search">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <circle cx="6.5" cy="6.5" r="5" stroke="white" stroke-width="1.5"/>
+          <path d="M10.5 10.5L14 14" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 2. FIND / SELL CARDS ===================== -->
+<section style="background:#fff;padding:80px 0;">
+  <div style="width:1237px;margin:0 auto;display:flex;gap:67px;">
+    <!-- Find Dream Home -->
+    <div class="listing-card" style="position:relative;width:585px;height:591px;border-radius:20px;overflow:hidden;box-shadow:0 10px 11.5px rgba(0,0,0,.23),0 42px 21px rgba(0,0,0,.2),0 168px 33.5px rgba(0,0,0,.03);display:flex;align-items:flex-end;padding-bottom:50px;padding-left:100px;padding-right:100px;justify-content:center;">
+      <img src="https://www.figma.com/api/mcp/asset/aa6845dd-5184-4d25-9741-a52b3d760f61" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 50%,rgba(0,0,0,.8));"></div>
+      <p style="position:relative;font-size:40px;font-weight:700;color:#fff;letter-spacing:5px;text-transform:uppercase;text-align:center;line-height:50px;">Find your<br>dream home</p>
+    </div>
+    <!-- Sell Your Home -->
+    <div class="listing-card" style="position:relative;width:585px;height:591px;border-radius:20px;overflow:hidden;box-shadow:0 10px 11.5px rgba(0,0,0,.23),0 42px 21px rgba(0,0,0,.2),0 168px 33.5px rgba(0,0,0,.03);display:flex;align-items:flex-end;padding-bottom:50px;padding-left:100px;padding-right:100px;justify-content:center;">
+      <img src="https://www.figma.com/api/mcp/asset/b96214ea-845a-4b57-a0e0-0cb44403ee80" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 50%,rgba(0,0,0,.8));"></div>
+      <p style="position:relative;font-size:40px;font-weight:700;color:#fff;letter-spacing:5px;text-transform:uppercase;text-align:center;line-height:50px;">SELL YOUR HOME<br>WITH US</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 3. EXCLUSIVE LISTINGS ===================== -->
+<section style="background:#000;width:100%;padding:120px 230px;">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:50px;">
+    <!-- Title -->
+    <div style="text-align:center;color:#fff;">
+      <p style="font-size:24px;font-weight:400;letter-spacing:10px;line-height:32px;text-transform:uppercase;">BROWSE OUR</p>
+      <p style="font-size:48px;font-weight:900;letter-spacing:5px;line-height:60px;text-transform:uppercase;">EXCLUSIVE LISTINGS</p>
+    </div>
+    <!-- Nav Arrows -->
+    <div style="display:flex;gap:16px;align-items:center;">
+      <button class="nav-arrow" id="listings-prev" aria-label="Previous" style="opacity:0.3;">
+        <svg width="17" height="30" viewBox="0 0 17 30" fill="none"><path d="M15 2L2 15L15 28" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="nav-arrow" id="listings-next" aria-label="Next">
+        <svg width="17" height="30" viewBox="0 0 17 30" fill="none"><path d="M2 2L15 15L2 28" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+    <!-- Cards viewport (clipping wrapper) -->
+    <div id="listings-viewport" style="overflow:hidden;width:1460px;">
+      <div id="listings-track" style="display:flex;gap:50px;align-items:flex-start;transition:transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94);will-change:transform;">
+        <!-- Card 1 -->
+        <div class="listing-card" style="display:flex;flex-direction:column;align-items:center;width:453px;flex-shrink:0;">
+          <div style="position:relative;width:453px;height:250px;border-radius:20px;overflow:hidden;">
+            <img src="https://www.figma.com/api/mcp/asset/5b989141-9ad8-48ed-bead-7fc9327ddebd" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+            <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 50%,rgba(0,0,0,.7));"></div>
+            <div style="position:absolute;bottom:30px;left:0;right:0;text-align:center;">
+              <span style="font-size:24px;font-weight:700;color:#fff;letter-spacing:2px;">$1,749,000</span>
+            </div>
+          </div>
+          <div style="padding:30px 20px;text-align:center;">
+            <p style="font-size:18px;font-weight:700;color:#fff;line-height:24px;">967 Capistrano Court</p>
+            <p style="font-size:16px;font-weight:400;color:#fff;line-height:24px;margin-top:4px;">San Luis Obispo, CA 93405</p>
+          </div>
+        </div>
+        <!-- Card 2 (featured) -->
+        <div class="listing-card" style="display:flex;flex-direction:column;align-items:flex-start;width:453px;flex-shrink:0;">
+          <div style="position:relative;width:453px;height:250px;border-top-left-radius:20px;border-top-right-radius:20px;overflow:hidden;">
+            <img src="https://www.figma.com/api/mcp/asset/2a1037df-5524-4630-94cf-c19bf0666409" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div style="background:#fff;width:100%;border-bottom-left-radius:20px;border-bottom-right-radius:20px;padding:30px 20px;text-align:center;">
+            <p style="font-size:18px;font-weight:700;color:#000;line-height:24px;">3662 Rock Garden Lane</p>
+            <p style="font-size:16px;font-weight:400;color:#000;line-height:24px;margin-top:4px;">San Luis Obispo, CA 93401</p>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:10px;padding:30px 20px 0;width:100%;">
+            <span style="font-size:18px;color:#fff;"><strong>5</strong> <span style="font-weight:400;letter-spacing:1px;">BEDS</span></span>
+            <span style="color:#fff;font-size:6px;">●</span>
+            <span style="font-size:18px;color:#fff;"><strong>4</strong> <span style="font-weight:400;letter-spacing:1px;">BATHS</span></span>
+            <span style="color:#fff;font-size:6px;">●</span>
+            <span style="font-size:18px;color:#fff;"><strong>2769</strong> <span style="font-weight:400;letter-spacing:1px;">SQFT</span></span>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="listing-card" style="display:flex;flex-direction:column;align-items:center;width:453px;flex-shrink:0;">
+          <div style="position:relative;width:453px;height:250px;border-radius:20px;overflow:hidden;">
+            <img src="https://www.figma.com/api/mcp/asset/e507061c-9636-4165-a266-39e48cf3cb9f" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+            <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 50%,rgba(0,0,0,.7));"></div>
+            <div style="position:absolute;bottom:30px;left:0;right:0;text-align:center;">
+              <span style="font-size:24px;font-weight:700;color:#fff;letter-spacing:2px;">$1,399,000</span>
+            </div>
+          </div>
+          <div style="padding:30px 20px;text-align:center;">
+            <p style="font-size:18px;font-weight:700;color:#fff;line-height:24px;">3610 Chelsea Street</p>
+            <p style="font-size:16px;font-weight:400;color:#fff;line-height:24px;margin-top:4px;">Orlando, FL 32803</p>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="listing-card" style="display:flex;flex-direction:column;align-items:center;width:453px;flex-shrink:0;">
+          <div style="position:relative;width:453px;height:250px;border-radius:20px;overflow:hidden;">
+            <img src="https://placehold.co/453x250/1a1a1a/555?text=." alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+            <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 50%,rgba(0,0,0,.7));"></div>
+            <div style="position:absolute;bottom:30px;left:0;right:0;text-align:center;">
+              <span style="font-size:24px;font-weight:700;color:#fff;letter-spacing:2px;">$895,000</span>
+            </div>
+          </div>
+          <div style="padding:30px 20px;text-align:center;">
+            <p style="font-size:18px;font-weight:700;color:#fff;line-height:24px;">123 Coastal Drive</p>
+            <p style="font-size:16px;font-weight:400;color:#fff;line-height:24px;margin-top:4px;">Pismo Beach, CA 93449</p>
+          </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="listing-card" style="display:flex;flex-direction:column;align-items:center;width:453px;flex-shrink:0;">
+          <div style="position:relative;width:453px;height:250px;border-radius:20px;overflow:hidden;">
+            <img src="https://placehold.co/453x250/1a1a1a/555?text=." alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+            <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 50%,rgba(0,0,0,.7));"></div>
+            <div style="position:absolute;bottom:30px;left:0;right:0;text-align:center;">
+              <span style="font-size:24px;font-weight:700;color:#fff;letter-spacing:2px;">$1,250,000</span>
+            </div>
+          </div>
+          <div style="padding:30px 20px;text-align:center;">
+            <p style="font-size:18px;font-weight:700;color:#fff;line-height:24px;">456 Pacific Avenue</p>
+            <p style="font-size:16px;font-weight:400;color:#fff;line-height:24px;margin-top:4px;">Morro Bay, CA 93442</p>
+          </div>
+        </div>
+        <!-- Card 6 -->
+        <div class="listing-card" style="display:flex;flex-direction:column;align-items:center;width:453px;flex-shrink:0;">
+          <div style="position:relative;width:453px;height:250px;border-radius:20px;overflow:hidden;">
+            <img src="https://placehold.co/453x250/1a1a1a/555?text=." alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+            <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 50%,rgba(0,0,0,.7));"></div>
+            <div style="position:absolute;bottom:30px;left:0;right:0;text-align:center;">
+              <span style="font-size:24px;font-weight:700;color:#fff;letter-spacing:2px;">$675,000</span>
+            </div>
+          </div>
+          <div style="padding:30px 20px;text-align:center;">
+            <p style="font-size:18px;font-weight:700;color:#fff;line-height:24px;">789 Oak Trail</p>
+            <p style="font-size:16px;font-weight:400;color:#fff;line-height:24px;margin-top:4px;">Templeton, CA 93465</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- CTA -->
+    <button class="btn-outline-white">VIEW MORE LISTINGS</button>
+  </div>
+</section>
+
+<!-- ===================== 4. MEET JAY BOND ===================== -->
+<section style="display:flex;width:100%;min-height:937px;">
+  <!-- Left: Photo -->
+  <div style="position:relative;width:50%;overflow:hidden;flex-shrink:0;">
+    <img src="https://www.figma.com/api/mcp/asset/9c120862-1e83-456d-8682-fb66e250fbad" alt="Jay Bond" style="width:100%;height:100%;object-fit:cover;border-bottom-right-radius:50px;">
+  </div>
+  <!-- Right: Text -->
+  <div style="width:50%;background:#fff;padding:150px;display:flex;flex-direction:column;gap:50px;justify-content:center;flex-shrink:0;">
+    <div>
+      <p style="font-size:20px;font-weight:400;letter-spacing:5px;text-transform:uppercase;color:#000;line-height:normal;">MEET THE FOUNDER</p>
+      <p style="font-size:48px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:#000;line-height:normal;margin-top:20px;">JAY BOND</p>
+    </div>
+    <p style="font-size:18px;font-weight:400;color:#000;line-height:30px;">
+      As Real Estate Specialists in San Luis Obispo County, Jay Bond and the Bond Real Estate Group understand the high level of stress involved with buying our selling your home. Our team focuses on reducing that stress, by taking a comprehensive look at your situation and real estate goals. The Bond Real Estate Group prides itself on providing the level of customer service you would expect from a true professional. Jay Bond is a full-time REALTOR® with the Bond Real Estate Group in San Luis Obispo California.
+      <br><br>
+      Being the 4th generation of his family to be born and raised in San Luis Obispo County, Jay Bond is what you would consider a local area expert. If you are looking to move to San Luis Obispo (or any of the surrounding cities) let Jay Bond and the Bond Real Estate Group guide you every step of the way.
+    </p>
+    <div style="display:flex;gap:30px;align-items:center;flex-wrap:wrap;">
+      <button class="btn-black">LEARN MORE JAY BOND</button>
+      <button class="btn-outline-black">MEET THE TEAM</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 5. EXPLORE COMMUNITIES ===================== -->
+<section style="position:relative;background:#fff;width:100%;height:971px;overflow:hidden;">
+  <!-- Title -->
+  <div style="position:absolute;top:0;left:0;right:0;text-align:center;z-index:10;padding-top:0;">
+    <p style="font-size:24px;font-weight:400;letter-spacing:10px;text-transform:uppercase;color:#000;line-height:32px;padding-top:30px;">EXPLORE OUR</p>
+    <p style="font-size:48px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:#000;line-height:56px;">COMMUNITIES</p>
+  </div>
+  <!-- Button -->
+  <div style="position:absolute;top:141px;left:50%;transform:translateX(-50%);z-index:10;">
+    <button class="btn-black">VIEW ALL COMMUNITIES</button>
+  </div>
+  <!-- Cards -->
+  <div style="position:absolute;left:98px;top:0;width:1722px;height:971px;">
+    <!-- SLO (top row) -->
+    <div class="community-card" style="position:absolute;left:0;top:131px;width:408px;height:650px;border-radius:20px;overflow:hidden;box-shadow:0 10px 11.5px rgba(0,0,0,.23),0 42px 21px rgba(0,0,0,.2),0 168px 33.5px rgba(0,0,0,.03);">
+      <img src="https://www.figma.com/api/mcp/asset/e3ec6e4e-7ba2-4215-971b-5ba4cea69075" alt="" style="width:100%;height:100%;object-fit:cover;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 50%,rgba(0,0,0,.8));"></div>
+      <p style="position:absolute;bottom:50px;left:0;right:0;text-align:center;font-size:20px;font-weight:700;color:#fff;letter-spacing:5px;text-transform:uppercase;">SAN LUIS OBISPO</p>
+    </div>
+    <!-- Pismo (lower row) -->
+    <div class="community-card" style="position:absolute;left:438px;top:251px;width:408px;height:650px;border-radius:20px;overflow:hidden;box-shadow:0 10px 11.5px rgba(0,0,0,.23),0 42px 21px rgba(0,0,0,.2),0 168px 33.5px rgba(0,0,0,.03);">
+      <img src="https://www.figma.com/api/mcp/asset/24ca2552-b6a4-4ee3-aeef-deaafb3f6a4c" alt="" style="width:100%;height:100%;object-fit:cover;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 50%,rgba(0,0,0,.8));"></div>
+      <p style="position:absolute;bottom:50px;left:0;right:0;text-align:center;font-size:20px;font-weight:700;color:#fff;letter-spacing:5px;text-transform:uppercase;">PISMO BEACH</p>
+    </div>
+    <!-- Arroyo Grande (lower row) -->
+    <div class="community-card" style="position:absolute;left:876px;top:251px;width:408px;height:650px;border-radius:20px;overflow:hidden;box-shadow:0 10px 11.5px rgba(0,0,0,.23),0 42px 21px rgba(0,0,0,.2),0 168px 33.5px rgba(0,0,0,.03);">
+      <img src="https://www.figma.com/api/mcp/asset/2fc9d540-a2b8-430e-9d7f-f5454de66a3d" alt="" style="width:100%;height:100%;object-fit:cover;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 50%,rgba(0,0,0,.8));"></div>
+      <p style="position:absolute;bottom:50px;left:0;right:0;text-align:center;font-size:20px;font-weight:700;color:#fff;letter-spacing:5px;text-transform:uppercase;">ARROYO GRANDE</p>
+    </div>
+    <!-- Avila Beach (top row, dark) -->
+    <div class="community-card" style="position:absolute;left:1314px;top:131px;width:408px;height:650px;border-radius:20px;overflow:hidden;box-shadow:0 10px 11.5px rgba(0,0,0,.23),0 42px 21px rgba(0,0,0,.2),0 168px 33.5px rgba(0,0,0,.03);">
+      <img src="https://www.figma.com/api/mcp/asset/acc872d6-4999-46b1-89d8-9926f0d34d40" alt="" style="width:100%;height:100%;object-fit:cover;">
+      <div style="position:absolute;inset:0;background:rgba(0,0,0,.7);"></div>
+      <p style="position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);text-align:center;font-size:20px;font-weight:700;color:#fff;letter-spacing:5px;text-transform:uppercase;">AVILA BEACH</p>
+    </div>
+  </div>
+  <!-- Pagination Dots -->
+  <div style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:10;">
+    <button style="width:20px;height:20px;border-radius:50%;background:#000;border:none;cursor:pointer;" aria-label="Page 1"></button>
+    <button style="width:20px;height:20px;border-radius:50%;background:#ccc;border:none;cursor:pointer;" aria-label="Page 2"></button>
+    <button style="width:20px;height:20px;border-radius:50%;background:#ccc;border:none;cursor:pointer;" aria-label="Page 3"></button>
+    <button style="width:20px;height:20px;border-radius:50%;background:#ccc;border:none;cursor:pointer;" aria-label="Page 4"></button>
+    <button style="width:20px;height:20px;border-radius:50%;background:#ccc;border:none;cursor:pointer;" aria-label="Page 5"></button>
+  </div>
+</section>
+
+<!-- ===================== 6. REVIEWS ===================== -->
+<section style="position:relative;width:100%;height:640px;overflow:hidden;background:#fff;">
+  <!-- Black left panel -->
+  <div style="position:absolute;left:0;top:0;width:1145px;height:640px;background:#000;border-top-right-radius:50px;"></div>
+
+  <!-- Left text -->
+  <div style="position:absolute;left:201px;top:205px;display:flex;flex-direction:column;gap:50px;z-index:10;">
+    <div>
+      <p style="font-size:24px;font-weight:400;letter-spacing:10px;text-transform:uppercase;color:#fff;line-height:60px;">WHAT OUR CLIENTS</p>
+      <p style="font-size:48px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:#fff;line-height:60px;">ARE SAYING</p>
+    </div>
+    <button class="btn-outline-white">VIEW MORE REVIEWS</button>
+  </div>
+
+  <!-- Large quote mark decoration -->
+  <div style="position:absolute;left:1231px;top:100px;font-size:90px;color:#111;font-weight:900;line-height:1;z-index:2;font-family:Georgia,serif;">"</div>
+
+  <!-- Review cards -->
+  <div style="position:absolute;left:710px;top:160px;display:flex;gap:50px;z-index:5;">
+    <div style="background:#fff;border-radius:20px;padding:70px;width:635px;box-shadow:0 10px 11.5px rgba(0,0,0,.23),0 42px 21px rgba(0,0,0,.2);flex-shrink:0;">
+      <p style="font-size:18px;font-style:italic;line-height:30px;color:#000;">Jay sold my parent's home in Santa Maria for my sister and me. The other recent reviews are spot on. The sales strategy Jay suggested executed flawlessly and generated a lot of interest and bidding war...</p>
+      <p style="font-size:18px;font-weight:700;line-height:30px;color:#000;margin-top:16px;">Donald Honda</p>
+    </div>
+    <div style="background:#fff;border-radius:20px;padding:70px;width:635px;box-shadow:0 10px 11.5px rgba(0,0,0,.23),0 42px 21px rgba(0,0,0,.2);flex-shrink:0;">
+      <p style="font-size:18px;font-style:italic;line-height:30px;color:#000;">At the onset of our "beach house" hunting, we weren't really sure what we were looking for. We randomly stumbled upon Jay Bond through Realtor.com. We quickly realized that we had found an agent who was always...</p>
+      <p style="font-size:18px;font-weight:700;line-height:30px;color:#000;margin-top:16px;">Doug Fluetsch</p>
+    </div>
+  </div>
+
+  <!-- Review nav arrows -->
+  <div style="position:absolute;left:1012px;top:530px;display:flex;gap:16px;z-index:10;">
+    <button class="nav-arrow nav-arrow-dark" aria-label="Previous review">
+      <svg width="17" height="30" viewBox="0 0 17 30" fill="none"><path d="M15 2L2 15L15 28" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="nav-arrow nav-arrow-dark" aria-label="Next review">
+      <svg width="17" height="30" viewBox="0 0 17 30" fill="none"><path d="M2 2L15 15L2 28" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ===================== 7. CTA BANNER ===================== -->
+<section style="position:relative;width:100%;height:550px;overflow:hidden;">
+  <img src="https://www.figma.com/api/mcp/asset/97846d70-8b33-4f85-ad60-f531ca8053fb" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,.85));"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(22,61,108,0),rgba(22,61,108,.4));"></div>
+
+  <!-- Text centered -->
+  <div style="position:absolute;top:181px;left:50%;transform:translateX(-50%);text-align:center;width:1113px;">
+    <p style="font-size:40px;font-weight:400;color:#fffefa;letter-spacing:5px;text-transform:uppercase;line-height:70px;">LET the Bond Real Estate Group</p>
+    <p style="font-size:40px;font-weight:700;color:#fffefa;letter-spacing:5px;text-transform:uppercase;line-height:70px;">guide you every step of the way</p>
+  </div>
+  <div style="position:absolute;top:333px;left:50%;transform:translateX(-50%);">
+    <button class="btn-outline-white">CONTACT US TODAY</button>
+  </div>
+</section>
+
+<!-- ===================== 8. FOOTER ===================== -->
+<footer style="background:#000;width:100%;padding:120px 341px 120px;">
+  <div style="width:1240px;">
+    <!-- Top: logos + copyright + social -->
+    <div style="display:flex;align-items:flex-end;margin-bottom:50px;gap:0;position:relative;width:1153px;">
+      <!-- Logos -->
+      <div style="display:flex;align-items:flex-end;gap:100px;">
+        <img src="https://www.figma.com/api/mcp/asset/97da262a-b1a5-43a5-ae99-3e6f0302348b" alt="Bond Real Estate Group" style="height:73px;width:auto;">
+        <img src="https://www.figma.com/api/mcp/asset/0e01da12-e1db-4ddc-a239-b5b8b940bb02" alt="eXp Realty" style="height:80px;width:auto;">
+      </div>
+      <!-- Copyright -->
+      <div style="color:#fff;font-size:18px;line-height:26px;margin-left:auto;margin-right:100px;text-align:left;position:absolute;left:616px;">
+        <p style="font-weight:700;letter-spacing:1px;">©EXP REALTY | DRE 0187827</p>
+        <p style="font-weight:700;letter-spacing:1px;">Jay Bond | DRE 01823529</p>
+        <p style="font-weight:400;">All Rights Reserved 2025</p>
+      </div>
+      <!-- Social Icons -->
+      <div style="display:flex;gap:15px;align-items:center;position:absolute;left:1003px;top:0;">
+        <img src="https://www.figma.com/api/mcp/asset/b146b6d5-2f1b-4a61-8daf-a9677b7f9324" alt="Facebook" style="width:40px;height:40px;cursor:pointer;">
+        <img src="https://www.figma.com/api/mcp/asset/c70372d1-4abd-42ab-999a-f230a3fbdd27" alt="Instagram" style="width:40px;height:40px;cursor:pointer;">
+        <img src="https://www.figma.com/api/mcp/asset/d7c699ed-26ef-48f0-b5d6-05e411d9a72d" alt="YouTube" style="width:40px;height:40px;cursor:pointer;">
+      </div>
+    </div>
+
+    <!-- Nav links + office hours + contact -->
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:50px;">
+      <!-- Popular Pages -->
+      <div>
+        <p style="font-size:18px;font-weight:700;color:#fff;letter-spacing:5px;text-transform:uppercase;margin-bottom:20px;">POPULAR PAGES</p>
+        <div style="display:flex;gap:75px;">
+          <div style="display:flex;flex-direction:column;gap:20px;font-size:16px;">
+            <a href="#" style="color:#fff;">Buy</a>
+            <a href="#" style="color:#fff;">Sell</a>
+            <a href="#" style="color:#fff;">Communities</a>
+            <a href="#" style="color:#fff;">Financing</a>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:20px;font-size:16px;">
+            <a href="#" style="color:#fff;">Testimonials</a>
+            <a href="#" style="color:#fff;">Contact Us</a>
+            <a href="#" style="color:#fff;">Team</a>
+            <a href="#" style="color:#fff;">Join Our Team</a>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:20px;font-size:16px;">
+            <a href="#" style="color:#fff;">Events</a>
+            <a href="#" style="color:#fff;">Probate</a>
+            <a href="#" style="color:#fff;">Divorce</a>
+            <a href="#" style="color:#fff;">Blog</a>
+          </div>
+        </div>
+      </div>
+      <!-- Office Hours -->
+      <div style="color:#fff;font-size:18px;">
+        <p style="font-weight:700;letter-spacing:5px;text-transform:uppercase;line-height:26px;margin-bottom:16px;">OFFICE HOURS</p>
+        <p style="line-height:30px;">Monday to Friday<br>9AM to 7PM</p>
+        <p style="line-height:30px;margin-top:16px;">Saturday and Sunday<br>By Appointment</p>
+      </div>
+      <!-- Contact -->
+      <div style="color:#fff;font-size:18px;">
+        <p style="font-weight:700;letter-spacing:5px;text-transform:uppercase;line-height:26px;margin-bottom:16px;">CONTACT US</p>
+        <p style="line-height:28px;">Phone: (805) 793-0589</p>
+        <p style="line-height:28px;">Email: info@bondreg.com</p>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div style="border-top:1px solid rgba(255,255,255,.25);margin-bottom:50px;"></div>
+
+    <!-- Legal -->
+    <div style="color:#fff;">
+      <p style="font-size:18px;font-weight:700;letter-spacing:5px;text-transform:uppercase;margin-bottom:16px;">PRIVACY POLICY</p>
+      <p style="font-size:16px;font-weight:400;line-height:24px;margin-bottom:24px;">Copyright © 2025 California Regional MLS. All Rights Reserved. Information herein is deemed reliable but not guaranteed and is provided exclusively for consumers personal, non-commercial use, and may not be used for any purpose other than to identify prospective properties consumers may be interested in purchasing. Data last refreshed Fri Aug 22 2025 12:18:30 GMT-0700 (Pacific Daylight Time).</p>
+      <p style="font-size:18px;font-weight:700;letter-spacing:5px;text-transform:uppercase;margin-bottom:16px;">DMCA NOTICE</p>
+      <p style="font-size:16px;font-weight:400;line-height:24px;">Listing information curtesy of the Northwest Ohio Real Estate Information System. IDX information is provided exclusively for the consumers' personal, non-commercial use, that it may not be used for any purpose other than to identify prospective properties consumers may be interested in purchasing. All information provided is deemed reliable but is not guaranteed accurate by the MLS.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    const CARD_W = 453;
+    const GAP    = 50;
+    const STEP   = CARD_W + GAP; // 503px per card
+    const VISIBLE = 3;
+
+    const track    = document.getElementById('listings-track');
+    const prevBtn  = document.getElementById('listings-prev');
+    const nextBtn  = document.getElementById('listings-next');
+
+    let current = 0;
+
+    function totalCards() { return track.children.length; }
+    function maxIndex()   { return totalCards() - VISIBLE; }
+
+    function update(animate) {
+      if (!animate) track.style.transition = 'none';
+      track.style.transform = `translateX(-${current * STEP}px)`;
+      if (!animate) requestAnimationFrame(() => { track.style.transition = ''; });
+
+      prevBtn.style.opacity = current === 0        ? '0.3' : '1';
+      nextBtn.style.opacity = current >= maxIndex() ? '0.3' : '1';
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current >= maxIndex();
+    }
+
+    prevBtn.addEventListener('click', () => {
+      if (current > 0) { current--; update(true); }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (current < maxIndex()) { current++; update(true); }
+    });
+
+    // Keyboard nav when focus is inside the carousel
+    document.getElementById('listings-viewport').addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft')  { if (current > 0)           { current--; update(true); } }
+      if (e.key === 'ArrowRight') { if (current < maxIndex())  { current++; update(true); } }
+    });
+
+    update(false);
+  })();
+</script>
+</body>
+</html>

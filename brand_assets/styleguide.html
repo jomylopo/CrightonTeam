@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crighton-Rinaldi Team — Brand Style Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black:    #0A0A0A;
+    --dark2:    #171711;
+    --ocean:    #0E201F;
+    --midnight: #021C1E;
+    --primary:  #33dbe7;
+    --teal:     #7acfd1;
+    --mint:     #bcdecd;
+    --sage:     #ededc2;
+    --white:    #EDEFF0;
+    --mid:      #2E5052;
+    --light:    #EEF5F5;
+    --fd: 'Cormorant Garamond', serif;
+    --fh: 'Playfair Display', serif;
+    --fb: 'Inter', sans-serif;
+  }
+
+  body {
+    background: #F5F8F8;
+    color: var(--black);
+    font-family: var(--fb);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ── HEADER ── */
+  .sg-header {
+    background: var(--midnight);
+    padding: 44px 72px 40px;
+    border-bottom: 1px solid rgba(51,219,231,.2);
+  }
+  .sg-logo-img {
+    height: 64px;
+    width: auto;
+    object-fit: contain;
+    object-position: left center;
+    display: block;
+    margin-bottom: 12px;
+  }
+  .sg-subtitle {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(51,219,231,.65);
+    margin-bottom: 20px;
+  }
+  .sg-title {
+    font-family: var(--fh);
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(237,239,240,.4);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ── LAYOUT ── */
+  .sg-body { max-width: 1200px; margin: 0 auto; padding: 72px 72px 120px; }
+
+  .sg-section {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 0 80px;
+    padding: 64px 0;
+    border-bottom: 1px solid #D8E6E6;
+  }
+  .sg-section:last-child { border-bottom: none; }
+
+  .sg-section-label h2 {
+    font-family: var(--fh);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--black);
+    margin-bottom: 10px;
+  }
+  .sg-section-label p {
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--mid);
+    max-width: 160px;
+  }
+
+  /* ── COLOR ── */
+  .color-group { margin-bottom: 40px; }
+  .color-group:last-child { margin-bottom: 0; }
+  .color-group-title {
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 16px;
+  }
+  .swatches { display: flex; gap: 16px; flex-wrap: wrap; }
+  .swatch { display: flex; flex-direction: column; gap: 8px; }
+  .swatch-block {
+    width: 80px; height: 56px;
+    border-radius: 3px;
+    border: 1px solid rgba(0,0,0,.06);
+  }
+  .swatch-name { font-size: 11px; font-weight: 500; color: var(--black); line-height: 1.3; }
+  .swatch-hex { font-size: 10.5px; color: var(--mid); font-family: 'Courier New', monospace; letter-spacing: 0.02em; }
+
+  /* ── TYPOGRAPHY ── */
+  .type-content { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; }
+  .type-family-name {
+    font-size: 9.5px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--mid); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #D8E6E6;
+  }
+  .type-specimen-lg {
+    font-family: var(--fd); font-size: 52px; font-weight: 300; line-height: 1;
+    color: var(--black); letter-spacing: -.02em; margin-bottom: 8px;
+  }
+  .type-specimen-lg.playfair { font-family: var(--fh); font-size: 42px; }
+  .type-specimen-lg.inter { font-family: var(--fb); font-size: 36px; font-weight: 300; letter-spacing: -.01em; }
+
+  .type-weights { display: flex; flex-direction: column; gap: 6px; margin-bottom: 24px; }
+  .type-weight-row { display: flex; align-items: baseline; gap: 12px; }
+  .type-weight-label {
+    font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #9BB5B6; width: 60px; flex-shrink: 0;
+  }
+  .type-weight-sample { font-size: 15px; color: var(--black); line-height: 1.3; }
+
+  /* Heading scale */
+  .heading-scale { display: flex; flex-direction: column; gap: 12px; }
+  .heading-row {
+    display: flex; align-items: baseline; gap: 20px;
+    padding-bottom: 10px; border-bottom: 1px solid #E2EDED;
+  }
+  .heading-row:last-child { border-bottom: none; }
+  .heading-meta {
+    font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--primary); width: 48px; flex-shrink: 0;
+  }
+  .heading-sample-text {
+    font-family: var(--fd); font-weight: 300;
+    color: var(--black); letter-spacing: -.02em; line-height: 1.1;
+  }
+  .heading-spec {
+    font-size: 9px; color: #9BB5B6; margin-left: auto;
+    font-family: 'Courier New', monospace; letter-spacing: .02em; white-space: nowrap;
+  }
+
+  /* ── SPACING ── */
+  .spacing-grid { display: flex; flex-direction: column; gap: 16px; }
+  .spacing-row { display: flex; align-items: center; gap: 24px; }
+  .spacing-visual { background: var(--primary); height: 8px; opacity: .45; border-radius: 2px; flex-shrink: 0; }
+  .spacing-info { display: flex; gap: 20px; align-items: center; }
+  .spacing-token { font-family: 'Courier New', monospace; font-size: 10.5px; color: var(--black); width: 60px; }
+  .spacing-px { font-size: 10.5px; color: var(--mid); width: 36px; }
+  .spacing-use { font-size: 10px; color: #9BB5B6; }
+
+  /* ── BUTTONS ── */
+  .btn-group-label {
+    font-size: 9.5px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--mid); margin-bottom: 14px;
+  }
+  .btn-row { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+
+  .btn-primary {
+    font-family: var(--fb);
+    font-size: 10.5px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--midnight); background: var(--primary); padding: 16px 40px; border: none;
+    cursor: pointer; display: inline-block; text-decoration: none;
+    transition: background .3s ease, color .3s ease;
+  }
+  .btn-primary:hover { background: var(--midnight); color: var(--white); }
+
+  .btn-ghost {
+    font-family: var(--fb);
+    font-size: 10.5px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--black); border: 1px solid rgba(10,10,10,.38);
+    padding: 16px 40px; cursor: pointer; display: inline-block; text-decoration: none;
+    background: transparent;
+    transition: border-color .3s ease;
+  }
+  .btn-ghost:hover { border-color: var(--black); }
+
+  .btn-ghost.dark {
+    color: #EDEFF0; border-color: rgba(237,239,240,.38); background: transparent;
+  }
+  .btn-ghost.dark:hover { border-color: #EDEFF0; }
+
+  .btn-primary.sm { padding: 12px 28px; font-size: 9.5px; }
+  .btn-ghost.sm   { padding: 12px 28px; font-size: 9.5px; }
+
+  .btn-dark-bg {
+    background: var(--midnight);
+    padding: 24px 32px; border-radius: 2px;
+    display: inline-flex; gap: 16px; align-items: center;
+  }
+
+  .btn-spec-table { margin-top: 20px; }
+  .btn-spec-row { display: flex; gap: 0; }
+  .btn-spec-cell {
+    font-size: 10px; padding: 7px 16px 7px 0; color: var(--mid);
+    border-bottom: 1px solid #D8E6E6; min-width: 140px;
+  }
+  .btn-spec-cell:first-child { color: #9BB5B6; font-size: 9px; letter-spacing: .06em; text-transform: uppercase; }
+
+  /* ── CARDS ── */
+  .card-grid { display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap; }
+  .property-card { width: 220px; background: var(--midnight); position: relative; overflow: hidden; }
+  .property-card-img {
+    width: 100%; height: 280px;
+    background: linear-gradient(160deg, #0E201F 0%, #021C1E 100%);
+    position: relative; overflow: hidden;
+  }
+  .property-card-img-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(2,28,30,.9) 0%, rgba(2,28,30,.1) 60%);
+  }
+  .property-card-img-placeholder {
+    width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+    font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: rgba(51,219,231,.2);
+  }
+  .property-card-body { padding: 18px 20px 20px; }
+  .property-card-tag {
+    font-size: 8.5px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--primary); margin-bottom: 6px;
+  }
+  .property-card-title {
+    font-family: var(--fd); font-size: 17px; font-weight: 300;
+    color: var(--white); margin-bottom: 4px; letter-spacing: -.01em;
+  }
+  .property-card-price {
+    font-family: var(--fd); font-size: 14px; font-weight: 400;
+    color: rgba(237,239,240,.55); margin-bottom: 14px;
+  }
+  .property-card-meta {
+    display: flex; gap: 14px;
+    font-size: 9px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(237,239,240,.35); padding-top: 12px;
+    border-top: 1px solid rgba(51,219,231,.15);
+  }
+
+  /* NAV preview */
+  .nav-preview {
+    background: var(--midnight); padding: 20px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-radius: 2px; margin-bottom: 24px;
+  }
+  .nav-logo-preview {
+    font-family: var(--fd); font-size: 22px; font-weight: 300; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--white);
+  }
+  .nav-logo-preview span { color: var(--primary); }
+  .nav-links-preview { display: flex; gap: 32px; }
+  .nav-link-preview {
+    font-size: 9.5px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(237,239,240,.55);
+  }
+  .nav-cta-preview {
+    font-size: 9.5px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--primary); border: 1px solid rgba(51,219,231,.5); padding: 9px 22px;
+  }
+
+  /* OVERLINE */
+  .ol-preview {
+    display: flex; align-items: center; gap: 14px;
+    font-size: 15px; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--primary);
+  }
+  .ol-preview::before { content: ''; display: block; width: 32px; height: 1px; background: var(--primary); }
+
+  /* ── EFFECTS ── */
+  .effects-grid { display: flex; gap: 32px; flex-wrap: wrap; }
+  .effect-label {
+    font-size: 9.5px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--mid); margin-bottom: 14px;
+  }
+  .effect-block { width: 180px; height: 100px; border-radius: 3px; background: var(--white); }
+  .effect-block.shadow-1 { box-shadow: 0 2px 16px rgba(2,28,30,.07), 0 1px 4px rgba(2,28,30,.04); }
+  .effect-block.shadow-2 { box-shadow: 0 8px 40px rgba(2,28,30,.12), 0 2px 12px rgba(2,28,30,.07); }
+  .effect-block.shadow-3 { box-shadow: 0 24px 80px rgba(2,28,30,.18), 0 8px 24px rgba(2,28,30,.10); }
+  .effect-block.teal-tint {
+    box-shadow: 0 8px 40px rgba(51,219,231,.16), 0 2px 12px rgba(51,219,231,.08);
+    border: 1px solid rgba(51,219,231,.18);
+  }
+  .effect-block.overlay-dark {
+    background: linear-gradient(175deg, rgba(2,28,30,.45) 0%, rgba(2,28,30,.28) 45%, rgba(2,28,30,.88) 100%);
+  }
+  .effect-spec { font-size: 9px; font-family: 'Courier New', monospace; color: #9BB5B6; margin-top: 8px; line-height: 1.6; }
+
+  /* ── GRID ── */
+  .grid-preview { background: var(--light); padding: 24px; border-radius: 2px; border: 1px solid #D8E6E6; }
+  .grid-cols { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; margin-bottom: 16px; }
+  .grid-col { background: rgba(51,219,231,.15); height: 32px; border-radius: 1px; }
+  .grid-info { font-size: 10px; color: var(--mid); display: flex; gap: 32px; }
+  .grid-stat span { font-weight: 500; color: var(--black); }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="sg-header">
+  <img class="sg-logo-img" src="../CrightonRinaldiTeam.webp" alt="Crighton-Rinaldi Team">
+  <div class="sg-subtitle">Top Real Estate Agents in Las Vegas</div>
+  <div class="sg-title">Brand Style Guide</div>
+</header>
+
+<main class="sg-body">
+
+  <!-- ① COLOR -->
+  <section class="sg-section">
+    <div class="sg-section-label">
+      <h2>Color</h2>
+      <p>A teal-forward palette evoking Las Vegas luxury — ocean depths, fresh air, and desert light.</p>
+    </div>
+    <div>
+      <div class="color-group">
+        <div class="color-group-title">Brand Palette</div>
+        <div class="swatches">
+          <div class="swatch">
+            <div class="swatch-block" style="background:#33dbe7;"></div>
+            <div class="swatch-name">Cyan Teal</div>
+            <div class="swatch-hex">#33dbe7</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-block" style="background:#7acfd1;"></div>
+            <div class="swatch-name">Soft Teal</div>
+            <div class="swatch-hex">#7acfd1</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-block" style="background:#bcdecd; border-color:#A8D0BC;"></div>
+            <div class="swatch-name">Mint Green</div>
+            <div class="swatch-hex">#bcdecd</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-block" style="background:#ededc2; border-color:#DCDBA8;"></div>
+            <div class="swatch-name">Sage</div>
+            <div class="swatch-hex">#ededc2</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-block" style="background:#EDEFF0; border-color:#D5D8DA;"></div>
+            <div class="swatch-name">Pearl White</div>
+            <div class="swatch-hex">#EDEFF0</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="color-group">
+        <div class="color-group-title">Dark Scale</div>
+        <div class="swatches">
+          <div class="swatch">
+            <div class="swatch-block" style="background:#0A0A0A;"></div>
+            <div class="swatch-name">Noir Black</div>
+            <div class="swatch-hex">#0A0A0A</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-block" style="background:#171711;"></div>
+            <div class="swatch-name">Deep Slate</div>
+            <div class="swatch-hex">#171711</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-block" style="background:#0E201F;"></div>
+            <div class="swatch-name">Ocean Deep</div>
+            <div class="swatch-hex">#0E201F</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-block" style="background:#021C1E;"></div>
+            <div class="swatch-name">Midnight Teal</div>
+            <div class="swatch-hex">#021C1E</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="color-group">
+        <div class="color-group-title">Usage Rules</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; max-width:580px;">
+          <div style="font-size:11px; color:#2E5052; line-height:1.6;"><strong style="color:#0A0A0A; font-weight:500;">Cyan Teal (#33dbe7)</strong> — Primary CTAs, accent lines, overlines, stat numbers, hover states, borders</div>
+          <div style="font-size:11px; color:#2E5052; line-height:1.6;"><strong style="color:#0A0A0A; font-weight:500;">Midnight (#021C1E)</strong> — Page background, footer, nav, dark section backgrounds</div>
+          <div style="font-size:11px; color:#2E5052; line-height:1.6;"><strong style="color:#0A0A0A; font-weight:500;">Pearl White (#EDEFF0)</strong> — Body text on dark backgrounds, hero headlines</div>
+          <div style="font-size:11px; color:#2E5052; line-height:1.6;"><strong style="color:#0A0A0A; font-weight:500;">Soft Teal / Mint (#7acfd1, #bcdecd)</strong> — Supporting accents, card borders, tag labels</div>
+          <div style="font-size:11px; color:#2E5052; line-height:1.6;"><strong style="color:#0A0A0A; font-weight:500;">Sage (#ededc2)</strong> — Highlight backgrounds, callout sections, warm accent areas</div>
+          <div style="font-size:11px; color:#2E5052; line-height:1.6;"><strong style="color:#0A0A0A; font-weight:500;">Ocean Deep / Deep Slate</strong> — Card backgrounds, secondary dark surfaces</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ② TYPOGRAPHY -->
+  <section class="sg-section" style="display:block; padding:64px 0;">
+    <div style="display:grid; grid-template-columns:200px 1fr; gap:0 80px;">
+      <div class="sg-section-label">
+        <h2>Typography</h2>
+        <p>Three typefaces — each with a precise role. Never swap them between roles.</p>
+      </div>
+      <div class="type-content">
+
+        <!-- Cormorant -->
+        <div class="type-family">
+          <div class="type-family-name">Display / Editorial</div>
+          <div class="type-specimen-lg">Aa</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:12px; color:#2E5052; margin-bottom:8px; font-weight:400; letter-spacing:.12em;">Cormorant Garamond</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:11px; color:#9BB5B6; margin-bottom:20px; letter-spacing:.06em;">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789</div>
+          <div class="type-weights">
+            <div class="type-weight-row">
+              <span class="type-weight-label">Light 300</span>
+              <span class="type-weight-sample" style="font-family:'Cormorant Garamond',serif; font-weight:300;">Extraordinary</span>
+            </div>
+            <div class="type-weight-row">
+              <span class="type-weight-label">Regular 400</span>
+              <span class="type-weight-sample" style="font-family:'Cormorant Garamond',serif; font-weight:400;">Extraordinary</span>
+            </div>
+            <div class="type-weight-row">
+              <span class="type-weight-label">Medium 500</span>
+              <span class="type-weight-sample" style="font-family:'Cormorant Garamond',serif; font-weight:500;">Extraordinary</span>
+            </div>
+            <div class="type-weight-row">
+              <span class="type-weight-label">Italic 300</span>
+              <span class="type-weight-sample" style="font-family:'Cormorant Garamond',serif; font-weight:300; font-style:italic; color:#33dbe7;">Exceptional</span>
+            </div>
+          </div>
+          <div style="font-size:10px; color:#9BB5B6; margin-top:8px;">Used for: Hero H1, section H2s, display numerals, pull quotes</div>
+        </div>
+
+        <!-- Playfair -->
+        <div class="type-family">
+          <div class="type-family-name">Headings</div>
+          <div class="type-specimen-lg playfair">Aa</div>
+          <div style="font-family:'Playfair Display',serif; font-size:12px; color:#2E5052; margin-bottom:8px; font-weight:400; letter-spacing:.12em;">Playfair Display</div>
+          <div style="font-family:'Playfair Display',serif; font-size:11px; color:#9BB5B6; margin-bottom:20px; letter-spacing:.06em;">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789</div>
+          <div class="type-weights">
+            <div class="type-weight-row">
+              <span class="type-weight-label">Regular 400</span>
+              <span class="type-weight-sample" style="font-family:'Playfair Display',serif; font-weight:400;">Properties</span>
+            </div>
+            <div class="type-weight-row">
+              <span class="type-weight-label">Medium 500</span>
+              <span class="type-weight-sample" style="font-family:'Playfair Display',serif; font-weight:500;">Properties</span>
+            </div>
+            <div class="type-weight-row">
+              <span class="type-weight-label">Bold 700</span>
+              <span class="type-weight-sample" style="font-family:'Playfair Display',serif; font-weight:700;">Properties</span>
+            </div>
+            <div class="type-weight-row">
+              <span class="type-weight-label">Italic 400</span>
+              <span class="type-weight-sample" style="font-family:'Playfair Display',serif; font-style:italic; color:#33dbe7;">Curated</span>
+            </div>
+          </div>
+          <div style="font-size:10px; color:#9BB5B6; margin-top:8px;">Used for: Section H3s, card titles, subheadings, testimonial names</div>
+        </div>
+
+        <!-- Inter -->
+        <div class="type-family">
+          <div class="type-family-name">Body / UI</div>
+          <div class="type-specimen-lg inter">Aa</div>
+          <div style="font-family:'Inter',sans-serif; font-size:12px; color:#2E5052; margin-bottom:8px; font-weight:400; letter-spacing:.12em;">Inter</div>
+          <div style="font-family:'Inter',sans-serif; font-size:11px; color:#9BB5B6; margin-bottom:20px; letter-spacing:.06em;">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789</div>
+          <div class="type-weights">
+            <div class="type-weight-row">
+              <span class="type-weight-label">Light 300</span>
+              <span class="type-weight-sample" style="font-family:'Inter',sans-serif; font-weight:300;">Body copy</span>
+            </div>
+            <div class="type-weight-row">
+              <span class="type-weight-label">Regular 400</span>
+              <span class="type-weight-sample" style="font-family:'Inter',sans-serif; font-weight:400;">Body copy</span>
+            </div>
+            <div class="type-weight-row">
+              <span class="type-weight-label">Medium 500</span>
+              <span class="type-weight-sample" style="font-family:'Inter',sans-serif; font-weight:500;">LABEL · UI</span>
+            </div>
+            <div class="type-weight-row">
+              <span class="type-weight-label">Semi Bold</span>
+              <span class="type-weight-sample" style="font-family:'Inter',sans-serif; font-weight:600;">Navigation</span>
+            </div>
+          </div>
+          <div style="font-size:10px; color:#9BB5B6; margin-top:8px;">Used for: Body paragraphs, navigation, labels, buttons, captions, form inputs</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Type Scale -->
+    <div style="display:grid; grid-template-columns:200px 1fr; gap:0 80px; margin-top:56px;">
+      <div class="sg-section-label">
+        <h2 style="font-size:15px; color:#9BB5B6;">Type Scale</h2>
+        <p>All sizes use Cormorant Garamond unless noted.</p>
+      </div>
+      <div class="heading-scale">
+        <div class="heading-row">
+          <span class="heading-meta">D1</span>
+          <span class="heading-sample-text" style="font-size:72px;">Extraordinary</span>
+          <span class="heading-spec">Cormorant 300 · clamp(44px,5.5vw,88px) · lh 1.0</span>
+        </div>
+        <div class="heading-row">
+          <span class="heading-meta">D2</span>
+          <span class="heading-sample-text" style="font-size:52px;">Premier Markets</span>
+          <span class="heading-spec">Cormorant 300 · clamp(36px,4vw,64px) · lh 1.05</span>
+        </div>
+        <div class="heading-row">
+          <span class="heading-meta">H1</span>
+          <span class="heading-sample-text" style="font-size:38px; font-family:'Playfair Display',serif; font-weight:400;">Featured Properties</span>
+          <span class="heading-spec">Playfair 400 · 38px · lh 1.15</span>
+        </div>
+        <div class="heading-row">
+          <span class="heading-meta">H2</span>
+          <span class="heading-sample-text" style="font-size:28px; font-family:'Playfair Display',serif; font-weight:400;">Las Vegas Luxury Homes</span>
+          <span class="heading-spec">Playfair 400 · 28px · lh 1.2</span>
+        </div>
+        <div class="heading-row">
+          <span class="heading-meta">LABEL</span>
+          <span class="heading-sample-text" style="font-size:15px; font-family:'Inter',sans-serif; font-weight:500; letter-spacing:.24em; text-transform:uppercase; color:#33dbe7;">Top Real Estate · Las Vegas</span>
+          <span class="heading-spec">Inter 500 · 15px · ls 0.26em · uppercase</span>
+        </div>
+        <div class="heading-row">
+          <span class="heading-meta">BODY</span>
+          <span class="heading-sample-text" style="font-size:18px; font-family:'Inter',sans-serif; font-weight:300; letter-spacing:0; color:#2E5052;">Curating the world's most exclusive residences for discerning buyers and sellers in Las Vegas.</span>
+          <span class="heading-spec">Inter 300 · 18px · lh 1.75</span>
+        </div>
+        <div class="heading-row">
+          <span class="heading-meta">STAT</span>
+          <span class="heading-sample-text" style="font-size:38px; color:#33dbe7;">$1B+</span>
+          <span class="heading-spec">Cormorant 300 · 38px · cyan teal</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ③ SPACING -->
+  <section class="sg-section">
+    <div class="sg-section-label">
+      <h2>Spacing</h2>
+      <p>Consistent spatial rhythm creates the sense of restraint and precision luxury design requires.</p>
+    </div>
+    <div>
+      <div class="spacing-grid">
+        <div class="spacing-row">
+          <div class="spacing-visual" style="width:4px;"></div>
+          <div class="spacing-info"><span class="spacing-token">xs</span><span class="spacing-px">4px</span><span class="spacing-use">Icon gap, tight badge padding</span></div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-visual" style="width:8px;"></div>
+          <div class="spacing-info"><span class="spacing-token">sm</span><span class="spacing-px">8px</span><span class="spacing-use">Overline-to-label gap</span></div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-visual" style="width:16px;"></div>
+          <div class="spacing-info"><span class="spacing-token">md</span><span class="spacing-px">16px</span><span class="spacing-use">Button row gap, swatch grid</span></div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-visual" style="width:28px;"></div>
+          <div class="spacing-info"><span class="spacing-token">lg</span><span class="spacing-px">28px</span><span class="spacing-use">Card body padding, stat column</span></div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-visual" style="width:44px;"></div>
+          <div class="spacing-info"><span class="spacing-token">xl</span><span class="spacing-px">44px</span><span class="spacing-use">Section inner padding, H2 margin-bottom</span></div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-visual" style="width:60px;"></div>
+          <div class="spacing-info"><span class="spacing-token">2xl</span><span class="spacing-px">60px</span><span class="spacing-use">Container horizontal padding</span></div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-visual" style="width:88px;"></div>
+          <div class="spacing-info"><span class="spacing-token">3xl</span><span class="spacing-px">88px</span><span class="spacing-use">Hero bottom padding, section pad</span></div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-visual" style="width:120px;"></div>
+          <div class="spacing-info"><span class="spacing-token">4xl</span><span class="spacing-px">120px</span><span class="spacing-use">Full-section top/bottom padding</span></div>
+        </div>
+      </div>
+      <div style="margin-top:32px;">
+        <div class="color-group-title">Layout Grid</div>
+        <div class="grid-preview">
+          <div class="grid-cols">
+            <div class="grid-col"></div><div class="grid-col"></div><div class="grid-col"></div>
+            <div class="grid-col"></div><div class="grid-col"></div><div class="grid-col"></div>
+            <div class="grid-col"></div><div class="grid-col"></div><div class="grid-col"></div>
+            <div class="grid-col"></div><div class="grid-col"></div><div class="grid-col"></div>
+          </div>
+          <div class="grid-info">
+            <div class="grid-stat">Max width: <span>1440px</span></div>
+            <div class="grid-stat">Columns: <span>12</span></div>
+            <div class="grid-stat">Gutter: <span>28px</span></div>
+            <div class="grid-stat">Margin: <span>60px</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ④ COMPONENTS -->
+  <section class="sg-section">
+    <div class="sg-section-label">
+      <h2>Components</h2>
+      <p>Every interactive element has hover, focus-visible, and active states. No exceptions.</p>
+    </div>
+    <div>
+
+      <!-- Navigation -->
+      <div class="btn-group-label">Navigation Bar</div>
+      <div class="nav-preview">
+        <div class="nav-logo-preview">CRIGHTON<span>·</span>RINALDI</div>
+        <div class="nav-links-preview">
+          <span class="nav-link-preview">Properties</span>
+          <span class="nav-link-preview">Markets</span>
+          <span class="nav-link-preview">About</span>
+          <span class="nav-link-preview">Journal</span>
+          <span class="nav-link-preview">Contact</span>
+        </div>
+        <div class="nav-cta-preview">Schedule Consultation</div>
+      </div>
+      <div style="font-size:10px; color:#9BB5B6; margin-bottom:36px; font-family:'Courier New',monospace;">position: fixed · z-index: 500 · backdrop-filter: blur(24px) on scroll · transition: bg .45s ease</div>
+
+      <!-- Overline -->
+      <div class="btn-group-label">Overline Label</div>
+      <div style="margin-bottom:10px;"><div class="ol-preview">Top Real Estate Agents · Las Vegas</div></div>
+      <div style="font-size:10px; color:#9BB5B6; margin-bottom:36px; font-family:'Courier New',monospace;">Inter 500 · 15px · ls 0.26em · uppercase · cyan accent line 32×1px</div>
+
+      <!-- Buttons Light -->
+      <div class="btn-group-label">Buttons — Light Background</div>
+      <div class="btn-row" style="margin-bottom:8px;">
+        <a class="btn-primary" href="#">View Listings</a>
+        <a class="btn-ghost" href="#">Schedule Consultation</a>
+        <a class="btn-primary sm" href="#">Inquire</a>
+        <a class="btn-ghost sm" href="#">Learn More</a>
+      </div>
+      <div class="btn-spec-table" style="margin-bottom:36px;">
+        <div class="btn-spec-row">
+          <span class="btn-spec-cell">Variant</span>
+          <span class="btn-spec-cell">Background</span>
+          <span class="btn-spec-cell">Text</span>
+          <span class="btn-spec-cell">Hover</span>
+          <span class="btn-spec-cell">Padding</span>
+        </div>
+        <div class="btn-spec-row">
+          <span class="btn-spec-cell">Primary (Teal)</span>
+          <span class="btn-spec-cell">#33dbe7</span>
+          <span class="btn-spec-cell">#021C1E</span>
+          <span class="btn-spec-cell">bg → #021C1E, text → #EDEFF0</span>
+          <span class="btn-spec-cell">16px 40px</span>
+        </div>
+        <div class="btn-spec-row">
+          <span class="btn-spec-cell">Ghost (Secondary)</span>
+          <span class="btn-spec-cell">transparent</span>
+          <span class="btn-spec-cell">#0A0A0A</span>
+          <span class="btn-spec-cell">border → 100% opacity</span>
+          <span class="btn-spec-cell">16px 40px</span>
+        </div>
+      </div>
+
+      <!-- Buttons Dark -->
+      <div class="btn-group-label">Buttons — Dark Background</div>
+      <div class="btn-dark-bg" style="margin-bottom:8px;">
+        <a class="btn-primary" href="#">View Listings</a>
+        <a class="btn-ghost dark" href="#">Schedule Consultation</a>
+      </div>
+      <div style="font-size:10px; color:#9BB5B6; margin-bottom:36px;">Ghost button on dark: border rgba(237,239,240,.38) · text #EDEFF0</div>
+
+      <!-- Property Card -->
+      <div class="btn-group-label">Property Card</div>
+      <div class="card-grid">
+        <div class="property-card">
+          <div class="property-card-img">
+            <div class="property-card-img-placeholder">Property Image</div>
+            <div class="property-card-img-overlay"></div>
+          </div>
+          <div class="property-card-body">
+            <div class="property-card-tag">Las Vegas · Summerlin</div>
+            <div class="property-card-title">Desert Sky Estate</div>
+            <div class="property-card-price">$4,200,000</div>
+            <div class="property-card-meta"><span>5 BD</span><span>6 BA</span><span>5,400 SF</span></div>
+          </div>
+        </div>
+        <div class="property-card">
+          <div class="property-card-img">
+            <div class="property-card-img-placeholder">Property Image</div>
+            <div class="property-card-img-overlay"></div>
+          </div>
+          <div class="property-card-body">
+            <div class="property-card-tag">Las Vegas · Henderson</div>
+            <div class="property-card-title">Canyon Ridge Villa</div>
+            <div class="property-card-price">$2,950,000</div>
+            <div class="property-card-meta"><span>4 BD</span><span>5 BA</span><span>4,100 SF</span></div>
+          </div>
+        </div>
+        <div class="property-card">
+          <div class="property-card-img">
+            <div class="property-card-img-placeholder">Property Image</div>
+            <div class="property-card-img-overlay"></div>
+          </div>
+          <div class="property-card-body">
+            <div class="property-card-tag">Las Vegas · The Strip</div>
+            <div class="property-card-title">High-Rise Penthouse</div>
+            <div class="property-card-price">$6,800,000</div>
+            <div class="property-card-meta"><span>3 BD</span><span>4 BA</span><span>3,200 SF</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="font-size:10px; color:#9BB5B6; margin-top:12px; font-family:'Courier New',monospace;">bg: #021C1E · img overlay: linear-gradient(to-top, rgba(2,28,30,.9) 0%, .10 60%) · border-top: 1px rgba(51,219,231,.15)</div>
+
+    </div>
+  </section>
+
+  <!-- ⑤ EFFECTS -->
+  <section class="sg-section">
+    <div class="sg-section-label">
+      <h2>Effects</h2>
+      <p>Layered shadows and overlays create depth without competing with the imagery.</p>
+    </div>
+    <div>
+      <div class="effects-grid">
+        <div class="effect-item">
+          <div class="effect-label">Elevation 1 (Cards)</div>
+          <div class="effect-block shadow-1"></div>
+          <div class="effect-spec">0 2px 16px rgba(2,28,30,.07)<br>0 1px 4px rgba(2,28,30,.04)</div>
+        </div>
+        <div class="effect-item">
+          <div class="effect-label">Elevation 2 (Modals)</div>
+          <div class="effect-block shadow-2"></div>
+          <div class="effect-spec">0 8px 40px rgba(2,28,30,.12)<br>0 2px 12px rgba(2,28,30,.07)</div>
+        </div>
+        <div class="effect-item">
+          <div class="effect-label">Elevation 3 (Overlays)</div>
+          <div class="effect-block shadow-3"></div>
+          <div class="effect-spec">0 24px 80px rgba(2,28,30,.18)<br>0 8px 24px rgba(2,28,30,.10)</div>
+        </div>
+        <div class="effect-item">
+          <div class="effect-label">Teal Tint Shadow</div>
+          <div class="effect-block teal-tint"></div>
+          <div class="effect-spec">0 8px 40px rgba(51,219,231,.16)<br>border: 1px rgba(51,219,231,.18)</div>
+        </div>
+        <div class="effect-item">
+          <div class="effect-label">Hero Image Overlay</div>
+          <div class="effect-block overlay-dark"></div>
+          <div class="effect-spec">linear-gradient(175deg,<br>rgba(2,28,30,.45) 0%,<br>rgba(2,28,30,.28) 45%,<br>rgba(2,28,30,.88) 100%)</div>
+        </div>
+      </div>
+
+      <div style="margin-top:36px;">
+        <div class="color-group-title">Animation Tokens</div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div style="font-size:11px; color:#2E5052; display:flex; gap:20px; align-items:baseline;">
+            <span style="font-family:'Courier New',monospace; font-size:10px; color:#33dbe7; width:160px;">--ease-standard</span>
+            <span><code style="font-size:10px; background:#EEF5F5; padding:2px 6px; border-radius:2px;">ease</code></span>
+            <span style="color:#9BB5B6;">General transitions</span>
+          </div>
+          <div style="font-size:11px; color:#2E5052; display:flex; gap:20px; align-items:baseline;">
+            <span style="font-family:'Courier New',monospace; font-size:10px; color:#33dbe7; width:160px;">--duration-fast</span>
+            <span><code style="font-size:10px; background:#EEF5F5; padding:2px 6px; border-radius:2px;">0.22s</code></span>
+            <span style="color:#9BB5B6;">Hover color changes</span>
+          </div>
+          <div style="font-size:11px; color:#2E5052; display:flex; gap:20px; align-items:baseline;">
+            <span style="font-family:'Courier New',monospace; font-size:10px; color:#33dbe7; width:160px;">--duration-base</span>
+            <span><code style="font-size:10px; background:#EEF5F5; padding:2px 6px; border-radius:2px;">0.45s</code></span>
+            <span style="color:#9BB5B6;">Nav scroll state, modal open</span>
+          </div>
+          <div style="font-size:11px; color:#2E5052; display:flex; gap:20px; align-items:baseline;">
+            <span style="font-family:'Courier New',monospace; font-size:10px; color:#33dbe7; width:160px;">--duration-reveal</span>
+            <span><code style="font-size:10px; background:#EEF5F5; padding:2px 6px; border-radius:2px;">0.85s</code></span>
+            <span style="color:#9BB5B6;">Scroll-reveal (opacity + translateY 28px)</span>
+          </div>
+          <div style="font-size:11px; color:#2E5052; display:flex; gap:20px; align-items:baseline;">
+            <span style="font-family:'Courier New',monospace; font-size:10px; color:#33dbe7; width:160px;">Properties only</span>
+            <span><code style="font-size:10px; background:#EEF5F5; padding:2px 6px; border-radius:2px;">transform, opacity</code></span>
+            <span style="color:#9BB5B6;">Never animate layout properties</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑥ BRAND VOICE -->
+  <section class="sg-section">
+    <div class="sg-section-label">
+      <h2>Brand Voice</h2>
+      <p>The language of the brand is as considered as the visual design.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start;">
+      <div>
+        <div class="color-group-title" style="margin-bottom:16px;">Tone</div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div style="font-size:12px; color:#2E5052; padding-left:16px; border-left:2px solid #33dbe7;">Authoritative — speak from expertise, never explain</div>
+          <div style="font-size:12px; color:#2E5052; padding-left:16px; border-left:2px solid #33dbe7;">Local — Las Vegas expertise is the differentiator</div>
+          <div style="font-size:12px; color:#2E5052; padding-left:16px; border-left:2px solid #33dbe7;">Aspirational — describe lifestyle, not just floor plans</div>
+          <div style="font-size:12px; color:#2E5052; padding-left:16px; border-left:2px solid #33dbe7;">Personal — "discerning clients", never "customers"</div>
+        </div>
+      </div>
+      <div>
+        <div class="color-group-title" style="margin-bottom:16px;">Do / Don't</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px 16px;">
+          <div style="font-size:11px; color:#2A7A4F; font-weight:500;">Top Real Estate Agents in Las Vegas</div>
+          <div style="font-size:11px; color:#C0392B; font-weight:500; text-decoration:line-through; opacity:.6;">We Sell Homes!</div>
+          <div style="font-size:11px; color:#2A7A4F; font-weight:500;">Curating · Exceptional · Discerning</div>
+          <div style="font-size:11px; color:#C0392B; font-weight:500; text-decoration:line-through; opacity:.6;">Best · Cheapest · Great</div>
+          <div style="font-size:11px; color:#2A7A4F; font-weight:500;">Begin Your Journey</div>
+          <div style="font-size:11px; color:#C0392B; font-weight:500; text-decoration:line-through; opacity:.6;">Contact Us Today!</div>
+          <div style="font-size:11px; color:#2A7A4F; font-weight:500;">$4,200,000</div>
+          <div style="font-size:11px; color:#C0392B; font-weight:500; text-decoration:line-through; opacity:.6;">Only $4.2M!!!</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>
