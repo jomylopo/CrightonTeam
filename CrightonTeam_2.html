@@ -18,6 +18,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>
+  var YLOPO_HOSTNAME = 'search.crightonrinalditeam.com';
+  window.YLOPO_WIDGETS = { domain: 'search.crightonrinalditeam.com' };
+</script>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
@@ -332,26 +336,7 @@
 
   /* ── PROPERTIES ── */
   #properties { background: var(--white); }
-
-  .prop-filters {
-    display: flex; gap: 0;
-    border-bottom: 1px solid rgba(10,10,10,.1);
-    flex-wrap: wrap;
-  }
-  .flt {
-    font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
-    color: rgba(10,10,10,.38); padding: 12px 24px 12px 0;
-    background: none; border: none; cursor: pointer;
-    transition: color .22s ease; position: relative;
-  }
-  .flt::after {
-    content: ''; position: absolute; bottom: -1px; left: 0;
-    width: 0; height: 2px; background: var(--gold);
-    transition: width .32s ease;
-  }
-  .flt.on,
-  .flt:hover { color: var(--black); }
-  .flt.on::after { width: 100%; }
+  .ylopo-widget-wrap { margin-top: 48px; width: 100%; min-height: 480px; }
 
   .props-grid {
     display: grid; grid-template-columns: repeat(3,1fr);
@@ -990,109 +975,10 @@
     <div class="sec-hd rv">
       <div class="ol">Las Vegas Listings</div>
       <h2 class="sec-title">Browse Properties</h2>
-      <nav class="prop-filters" aria-label="Property filters">
-        <button class="flt on"   data-filter="all">All</button>
-        <button class="flt" data-filter="single-family">Single Family</button>
-        <button class="flt" data-filter="condo">Condo</button>
-        <button class="flt" data-filter="townhouse">Townhouse</button>
-        <button class="flt" data-filter="new-listings">New Listings</button>
-      </nav>
     </div>
 
-    <div class="props-grid">
-      <div class="p-card rv d1">
-        <img loading="eager" src="https://picsum.photos/seed/summerlin1/800/1067" alt="The Ridgeline Estate">
-        <div class="p-ov">
-          <span class="p-tag">For Sale</span>
-          <div class="p-loc">Summerlin, Las Vegas</div>
-          <div class="p-name">The Ridgeline Estate</div>
-          <div class="p-price">$1,250,000</div>
-          <div class="p-dets">
-            <div class="p-det-item"><strong>5</strong>Beds</div>
-            <div class="p-det-item"><strong>4</strong>Baths</div>
-            <div class="p-det-item"><strong>3,800</strong>Sq Ft</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="p-card rv d2">
-        <img loading="eager" src="https://picsum.photos/seed/henderson2/800/1067" alt="The Green Valley Manor">
-        <div class="p-ov">
-          <span class="p-tag">For Sale</span>
-          <div class="p-loc">Green Valley, Henderson</div>
-          <div class="p-name">The Green Valley Manor</div>
-          <div class="p-price">$875,000</div>
-          <div class="p-dets">
-            <div class="p-det-item"><strong>4</strong>Beds</div>
-            <div class="p-det-item"><strong>3</strong>Baths</div>
-            <div class="p-det-item"><strong>2,950</strong>Sq Ft</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="p-card rv d3">
-        <img loading="eager" src="https://picsum.photos/seed/lasvegas3/800/1067" alt="Southern Highlands Retreat">
-        <div class="p-ov">
-          <span class="p-tag" style="background:rgba(51,219,231,.12);color:var(--gold);border:1px solid rgba(51,219,231,.5);">Off-Market</span>
-          <div class="p-loc">Southern Highlands, Las Vegas</div>
-          <div class="p-name">Southern Highlands Retreat</div>
-          <div class="p-price">$2,100,000</div>
-          <div class="p-dets">
-            <div class="p-det-item"><strong>5</strong>Beds</div>
-            <div class="p-det-item"><strong>6</strong>Baths</div>
-            <div class="p-det-item"><strong>4,600</strong>Sq Ft</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="p-card rv d1">
-        <img loading="eager" src="https://picsum.photos/seed/summerlin4/800/1067" alt="The Ridges Luxury Home">
-        <div class="p-ov">
-          <span class="p-tag">New Listing</span>
-          <div class="p-loc">The Ridges, Summerlin</div>
-          <div class="p-name">The Ridges Luxury Home</div>
-          <div class="p-price">$3,400,000</div>
-          <div class="p-dets">
-            <div class="p-det-item"><strong>6</strong>Beds</div>
-            <div class="p-det-item"><strong>7</strong>Baths</div>
-            <div class="p-det-item"><strong>5,800</strong>Sq Ft</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="p-card rv d2">
-        <img loading="eager" src="https://picsum.photos/seed/henderson5/800/1067" alt="MacDonald Ranch Residence">
-        <div class="p-ov">
-          <span class="p-tag">For Sale</span>
-          <div class="p-loc">MacDonald Ranch, Henderson</div>
-          <div class="p-name">MacDonald Ranch Residence</div>
-          <div class="p-price">$695,000</div>
-          <div class="p-dets">
-            <div class="p-det-item"><strong>4</strong>Beds</div>
-            <div class="p-det-item"><strong>3</strong>Baths</div>
-            <div class="p-det-item"><strong>2,400</strong>Sq Ft</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="p-card rv d3">
-        <img loading="eager" src="https://picsum.photos/seed/lasvegas6/800/1067" alt="Lake Las Vegas Villa">
-        <div class="p-ov">
-          <span class="p-tag">Just Listed</span>
-          <div class="p-loc">Lake Las Vegas</div>
-          <div class="p-name">Lake Las Vegas Villa</div>
-          <div class="p-price">$1,850,000</div>
-          <div class="p-dets">
-            <div class="p-det-item"><strong>4</strong>Beds</div>
-            <div class="p-det-item"><strong>4</strong>Baths</div>
-            <div class="p-det-item"><strong>3,200</strong>Sq Ft</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="view-all rv">
-      <a href="https://search.crightonrinalditeam.com/" class="btn-ol">View All Listings</a>
+    <div class="ylopo-widget-wrap rv">
+      <div class="YLOPO_resultsWidget" data-search='{"locations":[{"city":"Las Vegas","state":"NV"},{"city":"Henderson","state":"NV"},{"neighborhood":"Summerlin","city":"Las Vegas","state":"NV"}],"propertyTypes":["house","condo","townhouse"],"status":"active"}'></div>
     </div>
   </div>
 </section>
@@ -1742,5 +1628,6 @@ document.querySelectorAll('.flt').forEach(function (btn) {
   buildCards();
 })();
 </script>
+<script src="https://d2hnwe88wt837l.cloudfront.net/build/js/widgetBuilder~runtime.js"></script>
 </body>
 </html>
