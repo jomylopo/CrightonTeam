@@ -979,6 +979,105 @@
 
     <div class="ylopo-widget-wrap rv">
       <div class="YLOPO_resultsWidget" data-search='{"locations":[{"city":"Las Vegas","state":"NV"},{"city":"Henderson","state":"NV"},{"neighborhood":"Summerlin","city":"Las Vegas","state":"NV"}],"propertyTypes":["house","condo","townhouse"],"status":"active"}'></div>
+
+      <!-- Static fallback grid — hidden automatically once YLOPO injects listings -->
+      <div id="static-props-fallback">
+        <div class="props-grid">
+          <!-- Card 1 -->
+          <div class="p-card rv">
+            <img src="https://picsum.photos/seed/summerlin1/800/1067" alt="The Ridgeline Estate" loading="lazy">
+            <div class="p-ov">
+              <div class="p-tag">For Sale</div>
+              <div class="p-loc">Summerlin, NV</div>
+              <div class="p-name">The Ridgeline<br>Estate</div>
+              <div class="p-price">$1,250,000</div>
+              <div class="p-dets">
+                <div class="p-det-item"><strong>5</strong>Beds</div>
+                <div class="p-det-item"><strong>4</strong>Baths</div>
+                <div class="p-det-item"><strong>3,800</strong>Sq Ft</div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="p-card rv">
+            <img src="https://picsum.photos/seed/henderson2/800/1067" alt="The Green Valley Manor" loading="lazy">
+            <div class="p-ov">
+              <div class="p-tag">For Sale</div>
+              <div class="p-loc">Henderson, NV</div>
+              <div class="p-name">The Green Valley<br>Manor</div>
+              <div class="p-price">$875,000</div>
+              <div class="p-dets">
+                <div class="p-det-item"><strong>4</strong>Beds</div>
+                <div class="p-det-item"><strong>3</strong>Baths</div>
+                <div class="p-det-item"><strong>2,950</strong>Sq Ft</div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="p-card rv">
+            <img src="https://picsum.photos/seed/lasvegas3/800/1067" alt="Southern Highlands Retreat" loading="lazy">
+            <div class="p-ov">
+              <div class="p-tag">Off-Market</div>
+              <div class="p-loc">Southern Highlands, NV</div>
+              <div class="p-name">Southern Highlands<br>Retreat</div>
+              <div class="p-price">$2,100,000</div>
+              <div class="p-dets">
+                <div class="p-det-item"><strong>5</strong>Beds</div>
+                <div class="p-det-item"><strong>6</strong>Baths</div>
+                <div class="p-det-item"><strong>4,600</strong>Sq Ft</div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="p-card rv">
+            <img src="https://picsum.photos/seed/summerlin4/800/1067" alt="The Ridges Luxury Home" loading="lazy">
+            <div class="p-ov">
+              <div class="p-tag">New Listing</div>
+              <div class="p-loc">The Ridges, Summerlin</div>
+              <div class="p-name">The Ridges<br>Luxury Home</div>
+              <div class="p-price">$3,400,000</div>
+              <div class="p-dets">
+                <div class="p-det-item"><strong>6</strong>Beds</div>
+                <div class="p-det-item"><strong>7</strong>Baths</div>
+                <div class="p-det-item"><strong>5,800</strong>Sq Ft</div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 5 -->
+          <div class="p-card rv">
+            <img src="https://picsum.photos/seed/henderson5/800/1067" alt="MacDonald Ranch Residence" loading="lazy">
+            <div class="p-ov">
+              <div class="p-tag">For Sale</div>
+              <div class="p-loc">MacDonald Ranch, Henderson</div>
+              <div class="p-name">MacDonald Ranch<br>Residence</div>
+              <div class="p-price">$695,000</div>
+              <div class="p-dets">
+                <div class="p-det-item"><strong>4</strong>Beds</div>
+                <div class="p-det-item"><strong>3</strong>Baths</div>
+                <div class="p-det-item"><strong>2,400</strong>Sq Ft</div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 6 -->
+          <div class="p-card rv">
+            <img src="https://picsum.photos/seed/lasvegas6/800/1067" alt="Lake Las Vegas Villa" loading="lazy">
+            <div class="p-ov">
+              <div class="p-tag">Just Listed</div>
+              <div class="p-loc">Lake Las Vegas, NV</div>
+              <div class="p-name">Lake Las Vegas<br>Villa</div>
+              <div class="p-price">$1,850,000</div>
+              <div class="p-dets">
+                <div class="p-det-item"><strong>4</strong>Beds</div>
+                <div class="p-det-item"><strong>4</strong>Baths</div>
+                <div class="p-det-item"><strong>3,200</strong>Sq Ft</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="view-all">
+          <a href="https://search.crightonrinalditeam.com" target="_blank" rel="noopener" class="btn-ol">View All Listings</a>
+        </div>
+      </div><!-- /#static-props-fallback -->
     </div>
   </div>
 </section>
@@ -1629,5 +1728,27 @@ document.querySelectorAll('.flt').forEach(function (btn) {
 })();
 </script>
 <script src="https://d2hnwe88wt837l.cloudfront.net/build/js/widgetBuilder~runtime.js"></script>
+<script>
+/* Hide static fallback grid once YLOPO widget populates */
+(function() {
+  var fallback = document.getElementById('static-props-fallback');
+  var widget = document.querySelector('.YLOPO_resultsWidget');
+  if (!fallback || !widget) return;
+  var mo = new MutationObserver(function() {
+    if (widget.children.length > 0) {
+      fallback.style.display = 'none';
+      mo.disconnect();
+    }
+  });
+  mo.observe(widget, { childList: true, subtree: true });
+  /* Also check after 4s in case the widget loaded before observer attached */
+  setTimeout(function() {
+    if (widget.children.length > 0) {
+      fallback.style.display = 'none';
+      mo.disconnect();
+    }
+  }, 4000);
+})();
+</script>
 </body>
 </html>
