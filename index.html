@@ -17,7 +17,7 @@
 <link rel="preload" as="image" href="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=700&q=80&fit=crop&crop=faces">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
 <script>
   var YLOPO_HOSTNAME = 'search.crightonrinalditeam.com';
   window.YLOPO_WIDGETS = { domain: 'search.crightonrinalditeam.com' };
@@ -38,9 +38,9 @@
           'lux-ocean':    '#0E201F',
         },
         fontFamily: {
-          'display': ['"Cormorant Garamond"', 'serif'],
-          'heading':  ['"Playfair Display"',  'serif'],
-          'body':     ['Inter', 'sans-serif'],
+          'display': ['"Tenor Sans"', 'sans-serif'],
+          'heading':  ['"Tenor Sans"',  'sans-serif'],
+          'body':     ['"Open Sans"', 'sans-serif'],
         }
       }
     }
@@ -59,9 +59,9 @@
     --beige:    #ededc2;
     --teal:     #7acfd1;
     --mint:     #bcdecd;
-    --fd: 'Cormorant Garamond', serif;
-    --fh: 'Playfair Display',  serif;
-    --fb: 'Inter', sans-serif;
+    --fd: 'Tenor Sans', sans-serif;
+    --fh: 'Tenor Sans',  sans-serif;
+    --fb: 'Open Sans', sans-serif;
   }
 
   html { scroll-behavior: smooth; }
@@ -170,6 +170,19 @@
   .nav-cta:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
   .nav-ham { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
   .nav-ham span { display: block; width: 22px; height: 1px; background: var(--white); }
+
+  /* ── COMMUNITIES DROPDOWN ── */
+  .nav-communities { position: relative; }
+  .nav-communities-trigger { display: flex; align-items: center; gap: 5px; cursor: pointer; font-size: 10.5px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(237,239,240,.62); transition: color .22s ease; }
+  .nav-communities-trigger::after { content: '▾'; font-size: 9px; color: rgba(237,239,240,.4); transition: color .22s ease; }
+  .nav-communities:hover .nav-communities-trigger,
+  .nav-communities:hover .nav-communities-trigger::after { color: var(--white); }
+  .communities-dropdown { position: absolute; top: calc(100% + 20px); left: 50%; transform: translateX(-50%) translateY(-6px); background: rgba(10,10,10,.97); border: 1px solid rgba(51,219,231,.15); min-width: 200px; opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 100; }
+  .communities-dropdown::before { content: ''; position: absolute; top: -20px; left: 0; right: 0; height: 20px; }
+  .nav-communities:hover .communities-dropdown { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+  .communities-dropdown a { display: block; padding: 11px 20px; font-size: 10px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(237,239,240,.65); text-decoration: none; border-bottom: 1px solid rgba(51,219,231,.08); transition: color .2s, background .2s; }
+  .communities-dropdown a:last-child { border-bottom: none; }
+  .communities-dropdown a:hover { color: var(--gold); background: rgba(51,219,231,.05); }
 
   /* ── OVERLINE ── */
   .ol {
@@ -1076,7 +1089,16 @@
   <a href="https://www.crightonrinalditeam.com/" class="nav-logo"><img src="CrightonRinaldiTeam.webp" alt="Crighton-Rinaldi Team" style="height:64px; width:auto; object-fit:contain; display:block;"></a>
   <ul class="nav-links">
     <li><a href="https://search.crightonrinalditeam.com/">Buy</a></li>
-    <li><a href="#markets">Communities</a></li>
+    <li class="nav-communities">
+      <span class="nav-communities-trigger">Communities</span>
+      <div class="communities-dropdown">
+        <a href="https://www.crightonrinalditeam.com/communities/las-vegas-real-estate">Las Vegas</a>
+        <a href="henderson.html">Henderson</a>
+        <a href="https://www.crightonrinalditeam.com/communities/summerlin-real-estate">Summerlin</a>
+        <a href="https://www.crightonrinalditeam.com/communities/north-las-vegas-real-estate">North Las Vegas</a>
+        <a href="https://www.crightonrinalditeam.com/communities/boulder-city-real-estate">Boulder City</a>
+      </div>
+    </li>
     <li><a href="#team">Our Team</a></li>
     <li><a href="#lifestyle">Blog</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -1379,7 +1401,7 @@
   <div class="sec-inner">
     <div class="tc-hd" id="tc-hd">
       <div class="ol">The People Behind the Promise</div>
-      <h2 class="sec-title sec-title-light">Meet Our<br><span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);">Team</span></h2>
+      <h2 class="sec-title sec-title-light">Meet Our<br><span style="font-family:'Tenor Sans',sans-serif;font-style:italic;color:var(--gold);">Team</span></h2>
     </div>
   </div>
 
@@ -1716,7 +1738,7 @@
   <div class="sec-inner">
     <div class="rv">
       <div class="ol">Client Voices</div>
-      <h2 class="sec-title">Trusted by Las Vegas<br><span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);">Home Buyers &amp; Sellers</span></h2>
+      <h2 class="sec-title">Trusted by Las Vegas<br><span style="font-family:'Tenor Sans',sans-serif;font-style:italic;color:var(--gold);">Home Buyers &amp; Sellers</span></h2>
       <p class="tsv2-sub">Real stories from real clients across Las Vegas, Henderson, and Summerlin.</p>
     </div>
   </div>
@@ -1770,7 +1792,7 @@
   <div class="sec-inner">
     <div class="rv">
       <div class="ol" style="color:rgba(51,219,231,.65);">The CR Team Blog</div>
-      <h2 class="sec-title sec-title-light">Las Vegas Real Estate<br><em style="font-family:'Cormorant Garamond',serif;color:var(--gold);">Insights</em></h2>
+      <h2 class="sec-title sec-title-light">Las Vegas Real Estate<br><em style="font-family:'Tenor Sans',sans-serif;color:var(--gold);">Insights</em></h2>
     </div>
     <div class="life-grid">
       <div class="life-card rv">
@@ -1903,7 +1925,14 @@
   flex-direction:column; align-items:center; justify-content:center; gap:44px;
 ">
   <a href="https://search.crightonrinalditeam.com/" class="nav-links" style="font-size:13px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,239,240,.7);">Buy</a>
-  <a href="#markets"    style="font-size:13px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,239,240,.7);">Communities</a>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:18px;border-top:1px solid rgba(51,219,231,0.12);border-bottom:1px solid rgba(51,219,231,0.12);padding:20px 0;">
+    <span style="font-size:9px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:rgba(51,219,231,0.6);">Communities</span>
+    <a href="https://www.crightonrinalditeam.com/communities/las-vegas-real-estate" style="font-size:12px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,239,240,.6);text-decoration:none;">Las Vegas</a>
+    <a href="henderson.html" style="font-size:12px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(51,219,231,0.9);text-decoration:none;">Henderson</a>
+    <a href="https://www.crightonrinalditeam.com/communities/summerlin-real-estate" style="font-size:12px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,239,240,.6);text-decoration:none;">Summerlin</a>
+    <a href="https://www.crightonrinalditeam.com/communities/north-las-vegas-real-estate" style="font-size:12px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,239,240,.6);text-decoration:none;">North Las Vegas</a>
+    <a href="https://www.crightonrinalditeam.com/communities/boulder-city-real-estate" style="font-size:12px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,239,240,.6);text-decoration:none;">Boulder City</a>
+  </div>
   <a href="#team"       style="font-size:13px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,239,240,.7);">Our Team</a>
   <a href="#lifestyle"  style="font-size:13px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,239,240,.7);">Blog</a>
   <a href="#contact"    style="font-size:13px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,239,240,.7);">Contact</a>

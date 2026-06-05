@@ -1,0 +1,1967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Henderson Real Estate | Crighton Rinaldi Team</title>
+<meta name="description" content="Explore Henderson, NV real estate with the Crighton Rinaldi Team. Master-planned communities, golf estates, and family neighborhoods — from Anthem to Lake Las Vegas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.css" rel="stylesheet">
+<script>var YLOPO_HOSTNAME='search.crightonrinalditeam.com';window.YLOPO_WIDGETS={domain:'search.crightonrinalditeam.com'};</script>
+<script src="https://search.crightonrinalditeam.com/build/js/main.js" async defer></script>
+<style>
+/* ============================================================
+   PHILIP SCHEINFELD–INSPIRED DESIGN SYSTEM
+   Henderson — Crighton Rinaldi Team
+============================================================ */
+:root {
+  --primary: #33dbe7;
+  --midnight: #021C1E;
+  --ocean: #0E201F;
+  --dark2: #171711;
+  --black: #0A0A0A;
+  --white: #EDEFF0;
+  --mid: #2E5052;
+  --light: #EEF5F5;
+  --teal: #7acfd1;
+  --mint: #bcdecd;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+html{scroll-behavior:smooth;}
+body{font-family:'Open Sans',system-ui,sans-serif;background:#fff;color:#111111;overflow-x:hidden;-webkit-font-smoothing:antialiased;font-weight:300;}
+/* Override Ylopo widget's dynamically-injected global a{color} — scoped to page sections only, never nav/footer */
+section a{color:inherit!important;text-decoration:none!important;}
+section li a{color:inherit!important;text-decoration:none!important;}
+p a{color:inherit!important;text-decoration:none!important;}
+td a{color:inherit!important;text-decoration:none!important;}
+/* Button overrides — must come after the section a rule to win */
+a.btn-primary,section a.btn-primary{color:#021C1E!important;text-decoration:none!important;}
+a.btn-primary:hover,section a.btn-primary:hover{color:#EDEFF0!important;}
+a.btn-outline,section a.btn-outline{color:#021C1E!important;text-decoration:none!important;}
+a.btn-outline:hover,section a.btn-outline:hover{color:#EDEFF0!important;}
+a.btn-view-all,section a.btn-view-all{color:#021C1E!important;text-decoration:none!important;}
+a.btn-view-all:hover,section a.btn-view-all:hover{color:#EDEFF0!important;}
+a.btn-text,section a.btn-text{color:#33dbe7!important;}
+strong{font-weight:600;}
+
+/* ============================================================
+   HERO
+============================================================ */
+#community-hero{
+  position:relative;width:100%;height:100vh;min-height:650px;
+  overflow:hidden;background:#0a0a0a;
+  display:flex;align-items:center;justify-content:center;
+}
+#hero-map{position:absolute;inset:0;width:100%;height:100%;}
+.hero-map-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(175deg, rgba(2,28,30,.45) 0%, rgba(2,28,30,.28) 45%, rgba(2,28,30,.88) 100%);
+  z-index:1;
+}
+.hero-content{
+  position:relative;z-index:2;
+  text-align:center;
+  padding:0 40px 100px; /* bottom padding keeps title clear of stats bar */
+  width:100%;
+  max-width:900px;
+}
+.breadcrumb{
+  position:absolute;top:80px;left:80px;
+  display:flex;align-items:center;gap:10px;
+  z-index:3;
+  /* Now a direct child of #community-hero — positions correctly */
+}
+.breadcrumb a,.breadcrumb span{
+  font-family:'Open Sans',sans-serif;font-size:9px;font-weight:400;
+  letter-spacing:0.22em;text-transform:uppercase;text-decoration:none;
+  transition:color 0.2s;
+}
+.breadcrumb a{color:rgba(255,255,255,0.5);}
+.breadcrumb a:hover{color:rgba(255,255,255,0.85);}
+.breadcrumb .sep{color:rgba(255,255,255,0.3);font-size:10px;}
+.breadcrumb .current{color:rgba(255,255,255,0.65);}
+.hero-eyebrow{
+  font-family:'Open Sans',sans-serif;font-size:9px;font-weight:400;
+  letter-spacing:0.38em;text-transform:uppercase;
+  color:rgba(255,255,255,0.65);margin-bottom:20px;
+}
+.hero-title{
+  font-family:'Tenor Sans',Georgia,serif;
+  font-size:clamp(48px,6vw,88px);font-weight:400;
+  line-height:1;color:#ffffff;
+  text-transform:uppercase;letter-spacing:0.25em;
+  margin-bottom:20px;
+}
+.hero-title em{font-style:italic;letter-spacing:0.15em;}
+.hero-stats{
+  display:flex;gap:0;align-items:stretch;
+  justify-content:center;
+  border-top:1px solid rgba(255,255,255,0.22);
+  position:absolute;bottom:0;left:0;right:0;
+  z-index:2;
+}
+.hero-stat{
+  flex:1;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:5px;padding:22px 20px;
+  border-right:1px solid rgba(255,255,255,0.15);
+}
+.hero-stat:last-child{border-right:none;}
+.hero-stat-value{
+  font-family:'Tenor Sans',serif;font-size:26px;font-weight:400;
+  color:#33dbe7;
+}
+.hero-stat-label{
+  font-family:'Open Sans',sans-serif;font-size:8px;font-weight:400;
+  letter-spacing:0.28em;text-transform:uppercase;
+  color:rgba(237,239,240,0.55);
+}
+.hero-divider-v{display:none;}
+
+/* ============================================================
+   VALLEY LOCATION
+============================================================ */
+#valley-location{background:#ffffff;padding:80px 0 64px;}
+.valley-loc-head{
+  text-align:center;max-width:640px;margin:0 auto 52px;padding:0 80px;
+}
+.valley-loc-eyebrow{
+  font-family:'Open Sans',sans-serif;font-size:9px;font-weight:500;
+  letter-spacing:0.26em;text-transform:uppercase;
+  color:#33dbe7;margin-bottom:10px;
+  display:flex;align-items:center;gap:14px;
+}
+.valley-loc-eyebrow::before{
+  content:'';display:block;width:32px;height:1px;background:#33dbe7;
+}
+.valley-loc-title{
+  font-family:'Tenor Sans',Georgia,serif;
+  font-size:clamp(30px,3vw,48px);font-weight:400;
+  color:#111111;line-height:1.1;margin-bottom:16px;
+  text-transform:uppercase;letter-spacing:0.2em;
+}
+.valley-loc-title em{font-style:italic;letter-spacing:0.1em;text-transform:none;}
+.valley-loc-desc{
+  font-family:'Open Sans',sans-serif;font-size:14px;font-weight:300;
+  color:var(--mid);line-height:1.85;max-width:520px;margin:0 auto;
+}
+.valley-loc-map-wrap{
+  position:relative;width:100%;height:460px;overflow:hidden;
+  border-top:1px solid rgba(17,17,17,0.08);
+  border-bottom:1px solid rgba(17,17,17,0.08);
+}
+.valley-loc-cards{display:flex;gap:20px;flex-wrap:wrap;padding:36px 80px 0;}
+.valley-loc-card{
+  background:#EEF5F5;border:1px solid rgba(17,17,17,0.10);
+  padding:20px 28px;flex:1;min-width:160px;
+}
+.valley-loc-card-time{
+  display:block;font-family:'Tenor Sans',serif;font-size:26px;
+  font-weight:400;color:#111111;margin-bottom:4px;
+}
+.valley-loc-card-dest{
+  display:block;font-family:'Open Sans',sans-serif;font-size:11px;
+  font-weight:500;color:#111111;margin-bottom:2px;letter-spacing:0.05em;
+}
+.valley-loc-card-via{
+  display:block;font-family:'Open Sans',sans-serif;font-size:10px;
+  font-weight:300;color:rgba(17,17,17,0.45);letter-spacing:0.04em;
+}
+/* Valley city label markers — keep intact */
+.valley-city-label{
+  background:rgba(13,13,13,0.82);border:1px solid rgba(200,200,200,0.30);
+  border-radius:3px;color:rgba(255,255,255,0.72);
+  font-family:'Open Sans',sans-serif;font-size:8px;font-weight:600;
+  letter-spacing:0.22em;text-transform:uppercase;padding:5px 11px;
+  white-space:nowrap;cursor:default;
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  transition:border-color 0.2s;
+}
+.valley-city-label.active{
+  background:rgba(255,225,77,0.92);border-color:#FFE14D;
+  color:#000;font-weight:700;box-shadow:0 0 16px rgba(255,225,77,0.35);
+}
+
+/* ============================================================
+   OVERVIEW
+============================================================ */
+#overview{
+  background:#ffffff;padding:96px 80px;
+  display:grid;grid-template-columns:1fr 400px;gap:80px;align-items:start;
+  position:relative;overflow:hidden;
+}
+#overview::before{
+  content:'H';
+  position:absolute;right:-60px;top:50%;transform:translateY(-50%);
+  font-family:'Tenor Sans',Georgia,serif;font-size:400px;font-weight:400;
+  color:rgba(0,0,0,0.03);pointer-events:none;z-index:0;
+  line-height:1;
+}
+#overview > *{position:relative;z-index:1;}
+.overview-text .section-eyebrow{
+  font-family:'Open Sans',sans-serif;font-size:9px;font-weight:500;
+  letter-spacing:0.26em;text-transform:uppercase;color:#33dbe7;margin-bottom:14px;
+}
+.overview-title{
+  font-family:'Tenor Sans',Georgia,serif;
+  font-size:clamp(32px,3vw,48px);font-weight:400;
+  line-height:1.1;color:#111111;margin-bottom:28px;
+  text-transform:uppercase;letter-spacing:0.2em;
+}
+.overview-title em{font-style:italic;letter-spacing:0.1em;text-transform:none;}
+.overview-divider{width:40px;height:1px;background:#33dbe7;margin-bottom:28px;}
+.overview-body{
+  font-family:'Open Sans',sans-serif;font-size:15px;font-weight:300;
+  line-height:1.85;color:var(--mid);margin-bottom:20px;max-width:640px;
+}
+.overview-cta{margin-top:36px;display:flex;gap:20px;align-items:center;flex-wrap:wrap;}
+.quick-facts{
+  background:#021C1E;padding:32px;
+  border-left:2px solid #33dbe7;
+}
+.quick-facts-heading{
+  font-family:'Open Sans',sans-serif;font-size:9px;font-weight:600;
+  letter-spacing:0.3em;text-transform:uppercase;color:#33dbe7;margin-bottom:24px;
+}
+.quick-fact{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding:12px 0;border-bottom:1px solid rgba(237,239,240,0.08);gap:16px;
+}
+.quick-fact:last-child{border-bottom:none;}
+.fact-label{
+  font-family:'Open Sans',sans-serif;font-size:10px;font-weight:400;
+  letter-spacing:0.18em;text-transform:uppercase;
+  color:rgba(237,239,240,0.45);
+}
+.fact-value{
+  font-family:'Tenor Sans',serif;font-size:14px;font-weight:400;
+  color:#EDEFF0;text-align:right;
+}
+
+/* ============================================================
+   DEMOGRAPHICS
+============================================================ */
+#demographics{
+  background:#EEF5F5;
+  border-top:1px solid rgba(17,17,17,0.08);
+  border-bottom:1px solid rgba(17,17,17,0.08);
+  padding:56px 80px;
+}
+.demo-header{
+  display:flex;justify-content:space-between;align-items:center;margin-bottom:36px;
+}
+.demo-eyebrow{
+  font-family:'Open Sans',sans-serif;font-size:9px;font-weight:500;
+  letter-spacing:0.26em;text-transform:uppercase;color:#33dbe7;
+  display:flex;align-items:center;gap:14px;
+}
+.demo-eyebrow::before{
+  content:'';display:block;width:32px;height:1px;background:#33dbe7;
+}
+.demo-source-note{
+  font-family:'Open Sans',sans-serif;font-size:9px;font-weight:300;
+  color:rgba(17,17,17,0.35);letter-spacing:0.05em;
+}
+.demo-stats{display:flex;align-items:center;}
+.demo-stat{
+  flex:1;display:flex;flex-direction:column;
+  align-items:center;text-align:center;gap:10px;
+}
+.demo-divider-v{
+  width:1px;height:48px;background:rgba(17,17,17,0.12);flex-shrink:0;
+}
+.demo-value{
+  font-family:'Tenor Sans',Georgia,serif;font-size:40px;font-weight:400;
+  color:#33dbe7;line-height:1;
+}
+.demo-label{
+  font-family:'Open Sans',sans-serif;font-size:9px;font-weight:400;
+  letter-spacing:0.28em;text-transform:uppercase;
+  color:rgba(17,17,17,0.5);
+}
+
+/* ============================================================
+   HIGHLIGHTS
+============================================================ */
+#highlights{background:#021C1E;padding:96px 80px;}
+.section-eyebrow{
+  font-family:'Open Sans',sans-serif;font-size:9px;font-weight:500;
+  letter-spacing:0.26em;text-transform:uppercase;color:#33dbe7;margin-bottom:14px;
+  display:flex;align-items:center;gap:14px;
+}
+.section-eyebrow::before{
+  content:'';display:block;width:32px;height:1px;background:#33dbe7;flex-shrink:0;
+}
+.section-title{
+  font-family:'Tenor Sans',Georgia,serif;
+  font-size:clamp(32px,3vw,48px);font-weight:400;
+  line-height:1.1;color:#111111;margin-bottom:56px;
+  text-transform:uppercase;letter-spacing:0.2em;
+}
+.section-title em{font-style:italic;letter-spacing:0.1em;text-transform:none;}
+#highlights .section-eyebrow{color:#33dbe7;}
+#highlights .section-title{color:#EDEFF0;}
+.highlights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.highlight-card{
+  background:#0E201F;border-radius:0;
+  border:1px solid rgba(51,219,231,0.12);
+  padding:32px;
+  transition:background 0.3s,border-color 0.3s;
+}
+.highlight-card:hover{background:rgba(14,32,31,0.85);border-color:rgba(51,219,231,0.25);}
+.highlight-icon{font-size:0;display:none;}
+.highlight-title{
+  font-family:'Tenor Sans',Georgia,serif;font-size:20px;font-weight:400;
+  color:#EDEFF0;margin-bottom:14px;
+  text-transform:uppercase;letter-spacing:0.15em;line-height:1.2;
+}
+.highlight-body{
+  font-family:'Open Sans',sans-serif;font-size:13.5px;font-weight:300;
+  line-height:1.85;color:rgba(237,239,240,0.55);
+}
+
+/* ============================================================
+   NEIGHBORHOODS
+============================================================ */
+#neighborhoods{background:#EEF5F5;padding:96px 80px;}
+#neighborhoods .section-eyebrow{color:#33dbe7;}
+#neighborhoods .section-title{color:#111111;margin-bottom:48px;}
+.neighborhoods-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.neighborhood-card{
+  background:#ffffff;border:1px solid rgba(17,17,17,0.10);
+  border-radius:0;padding:18px 20px 16px;
+  transition:box-shadow 0.25s,border-color 0.25s;
+}
+.neighborhood-card:hover{
+  border-color:rgba(17,17,17,0.25);
+  box-shadow:0 4px 24px rgba(17,17,17,0.07);
+}
+.neighborhood-header{
+  display:flex;justify-content:space-between;
+  align-items:flex-start;gap:10px;margin-bottom:5px;
+}
+.neighborhood-name{
+  font-family:'Open Sans',sans-serif;font-size:13px;font-weight:500;
+  letter-spacing:0.1em;text-transform:uppercase;color:#111111;line-height:1.3;
+}
+.neighborhood-price{
+  font-family:'Open Sans',sans-serif;font-size:12px;font-weight:400;
+  color:#33dbe7;white-space:nowrap;flex-shrink:0;
+}
+.neighborhood-tags{
+  font-family:'Open Sans',sans-serif;font-size:11px;font-weight:300;
+  color:rgba(17,17,17,0.45);letter-spacing:0.03em;
+}
+
+/* ============================================================
+   CITY STATS
+============================================================ */
+#city-stats{background:#021C1E;padding:80px 80px;border:none;}
+.city-stats-row{display:flex;justify-content:center;}
+.city-stat-item{
+  flex:1;display:flex;flex-direction:column;
+  align-items:center;gap:16px;padding:0 24px;
+  border-right:1px solid rgba(255,255,255,0.08);text-align:center;
+}
+.city-stat-item:last-child{border-right:none;}
+.city-stat-icon{
+  width:52px;height:52px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.city-stat-icon svg{
+  width:22px;height:22px;stroke:rgba(255,255,255,0.55);fill:none;
+  stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;
+}
+.city-stat-number{
+  font-family:'Tenor Sans',Georgia,serif;font-size:42px;font-weight:400;
+  color:#33dbe7;line-height:1;
+}
+.city-stat-label{
+  font-family:'Open Sans',sans-serif;font-size:10px;font-weight:400;
+  letter-spacing:0.18em;text-transform:uppercase;
+  color:rgba(237,239,240,0.45);max-width:120px;line-height:1.5;
+}
+
+/* ============================================================
+   LISTINGS
+============================================================ */
+#listings{background:#ffffff;padding:96px 52px;}
+#listings .section-eyebrow{color:#33dbe7;}
+#listings .section-title{color:#111111;margin-bottom:16px;}
+.listings-header{
+  display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;
+}
+.view-all-link{
+  font-family:'Open Sans',sans-serif;font-size:9px;font-weight:400;
+  letter-spacing:0.28em;text-transform:uppercase;
+  color:#33dbe7;text-decoration:none;
+  border-bottom:1px solid rgba(51,219,231,0.4);
+  padding-bottom:3px;white-space:nowrap;
+  transition:border-color 0.3s,color 0.3s;margin-bottom:6px;
+}
+.view-all-link:hover{border-color:#33dbe7;color:#33dbe7;}
+.listings-cta-row{text-align:center;margin-top:52px;}
+
+/* ============================================================
+   HOA FEES
+============================================================ */
+#hoa-fees{background:#EEF5F5;padding:96px 80px;}
+#hoa-fees .section-eyebrow{color:#33dbe7;}
+#hoa-fees .section-title{color:#111111;margin-bottom:56px;}
+.hoa-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:start;}
+.hoa-table{width:100%;border-collapse:collapse;margin-bottom:20px;}
+.hoa-table th{
+  font-family:'Open Sans',sans-serif;font-size:9px;font-weight:500;
+  letter-spacing:0.28em;text-transform:uppercase;color:#33dbe7;
+  text-align:left;padding:12px 0 10px;
+  border-bottom:1px solid rgba(17,17,17,0.15);
+}
+.hoa-table td{
+  font-family:'Open Sans',sans-serif;font-size:13.5px;font-weight:300;
+  color:var(--mid);padding:14px 0;
+  border-bottom:1px solid rgba(17,17,17,0.07);vertical-align:middle;
+}
+.hoa-table td:last-child{
+  font-family:'Tenor Sans',serif;font-size:16px;font-weight:400;
+  color:#111111;text-align:right;
+}
+.hoa-table tr:last-child td{border-bottom:none;}
+.hoa-note{
+  font-family:'Open Sans',sans-serif;font-size:10.5px;font-weight:300;
+  color:var(--mid);line-height:1.75;margin-top:16px;padding:14px 18px;
+  border-left:2px solid rgba(17,17,17,0.15);background:rgba(17,17,17,0.02);
+}
+.hoa-covers-heading{
+  font-family:'Open Sans',sans-serif;font-size:9px;font-weight:500;
+  letter-spacing:0.28em;text-transform:uppercase;color:#111111;margin-bottom:20px;
+}
+.hoa-covers-list{list-style:none;}
+.hoa-covers-list li{
+  font-family:'Open Sans',sans-serif;font-size:13.5px;font-weight:300;
+  color:var(--mid);padding:12px 0;
+  border-bottom:1px solid rgba(17,17,17,0.07);
+  display:flex;align-items:center;gap:14px;
+}
+.hoa-covers-list li:last-child{border-bottom:none;}
+.hoa-covers-list li::before{
+  content:'';display:block;width:18px;height:1px;
+  background:#111111;flex-shrink:0;
+}
+.hoa-cta-note{background:#EEF5F5;padding:18px 22px;margin-top:28px;}
+.hoa-cta-note p{
+  font-family:'Open Sans',sans-serif;font-size:9px;font-weight:500;
+  letter-spacing:0.2em;text-transform:uppercase;color:#111111;margin-bottom:5px;
+}
+.hoa-cta-note span{
+  font-family:'Open Sans',sans-serif;font-size:13px;font-weight:300;color:var(--mid);
+}
+
+/* ============================================================
+   PARKS & RECREATION
+============================================================ */
+#parks-rec{background:#021C1E;padding:96px 80px;}
+#parks-rec .section-eyebrow{color:#33dbe7;}
+#parks-rec .section-title{color:#EDEFF0;margin-bottom:56px;}
+.parks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px;}
+.park-card{
+  background:#0E201F;padding:28px 26px;
+  border:1px solid rgba(51,219,231,0.12);
+  transition:border-color 0.3s,background 0.3s;
+}
+.park-card:hover{
+  border-color:rgba(51,219,231,0.28);background:rgba(14,32,31,0.85);
+}
+.park-name{
+  font-family:'Tenor Sans',Georgia,serif;font-size:22px;font-weight:400;
+  color:#ffffff;margin-bottom:5px;line-height:1.2;
+}
+.park-address{
+  font-family:'Open Sans',sans-serif;font-size:11px;font-weight:300;
+  color:rgba(51,219,231,0.65);letter-spacing:0.04em;margin-bottom:14px;
+}
+.park-size{
+  display:inline-block;font-family:'Open Sans',sans-serif;font-size:9px;
+  font-weight:500;letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(51,219,231,0.6);
+  background:transparent;
+  border:1px solid rgba(51,219,231,0.18);
+  padding:4px 10px;margin-bottom:18px;
+}
+.park-amenities{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.park-amenities li{
+  font-family:'Open Sans',sans-serif;font-size:12.5px;font-weight:300;
+  color:rgba(255,255,255,0.55);display:flex;align-items:flex-start;
+  gap:10px;line-height:1.4;
+}
+.park-amenities li::before{
+  content:'·';color:rgba(255,255,255,0.35);font-size:16px;
+  line-height:1.2;flex-shrink:0;
+}
+
+/* ============================================================
+   SCHOOLS
+============================================================ */
+#schools{background:#EEF5F5;padding:96px 80px;}
+#schools .section-eyebrow{color:#33dbe7;}
+#schools .section-title{color:#111111;margin-bottom:20px;}
+.schools-intro{
+  font-family:'Open Sans',sans-serif;font-size:13.5px;font-weight:300;
+  line-height:1.85;color:var(--mid);max-width:640px;margin-bottom:44px;
+}
+.schools-tabs{
+  display:flex;border-bottom:1px solid rgba(17,17,17,0.12);margin-bottom:0;gap:0;
+}
+.schools-tab{
+  font-family:'Open Sans',sans-serif;font-size:10.5px;font-weight:500;
+  letter-spacing:0.16em;text-transform:uppercase;
+  color:rgba(17,17,17,0.4);
+  padding:14px 26px;cursor:pointer;
+  border-bottom:2px solid transparent;margin-bottom:-1px;
+  transition:color 0.25s,border-color 0.25s;user-select:none;
+}
+.schools-tab:hover{color:rgba(17,17,17,0.7);}
+.schools-tab.active{color:#33dbe7;border-bottom-color:#33dbe7;}
+.schools-panel{display:none;}
+.schools-panel.active{display:block;}
+.schools-table{width:100%;border-collapse:collapse;}
+.schools-table thead th{
+  font-family:'Open Sans',sans-serif;font-size:9px;font-weight:500;
+  letter-spacing:0.26em;text-transform:uppercase;
+  color:#111111;text-align:left;
+  padding:16px 18px 14px;
+  border-bottom:1px solid rgba(17,17,17,0.12);
+  background:rgba(17,17,17,0.03);
+}
+.schools-table tbody td{
+  font-family:'Open Sans',sans-serif;font-size:13.5px;font-weight:300;
+  color:var(--mid);padding:15px 18px;
+  border-bottom:1px solid rgba(17,17,17,0.07);vertical-align:middle;
+}
+.schools-table tbody tr:last-child td{border-bottom:none;}
+.schools-table tbody tr:hover td{background:rgba(17,17,17,0.03);color:#111111;}
+.school-name-cell{
+  font-family:'Open Sans',sans-serif;font-size:14px;font-weight:500;color:#111111;
+}
+.school-grades-cell{color:#111111!important;font-weight:400!important;}
+.schools-disclaimer{
+  font-family:'Open Sans',sans-serif;font-size:10px;font-weight:300;
+  color:rgba(17,17,17,0.35);line-height:1.75;margin-top:20px;padding-top:16px;
+  border-top:1px solid rgba(17,17,17,0.08);
+}
+
+/* ============================================================
+   NEARBY COMMUNITIES
+============================================================ */
+#nearby-communities{background:#ffffff;padding:96px 80px;}
+#nearby-communities .section-eyebrow{color:#33dbe7;}
+#nearby-communities .section-title{color:#111111;margin-bottom:12px;}
+.nearby-subtitle{
+  font-family:'Open Sans',sans-serif;font-size:13.5px;font-weight:300;
+  line-height:1.85;color:var(--mid);margin-bottom:48px;max-width:560px;
+}
+.nearby-table{width:100%;border-collapse:collapse;}
+.nearby-table thead tr{background:#021C1E;}
+.nearby-table th{
+  font-family:'Open Sans',sans-serif;font-size:9px;font-weight:500;
+  letter-spacing:0.28em;text-transform:uppercase;
+  color:rgba(255,255,255,0.65);text-align:left;padding:16px 20px;
+}
+.nearby-table tbody tr{
+  background:#ffffff;border-bottom:1px solid rgba(17,17,17,0.08);
+  transition:background 0.2s;
+}
+.nearby-table tbody tr:hover{background:rgba(17,17,17,0.02);}
+.nearby-table tbody tr:last-child{border-bottom:none;}
+.nearby-table tbody td{
+  font-family:'Open Sans',sans-serif;font-size:13.5px;font-weight:300;
+  color:var(--mid);padding:18px 20px;vertical-align:middle;
+}
+.nearby-name-cell{
+  font-family:'Open Sans',sans-serif;font-size:14px;font-weight:500;color:#111111;
+}
+.nearby-name-cell a{color:#111111;text-decoration:none;transition:opacity 0.2s;}
+.nearby-name-cell a:hover{opacity:0.65;}
+.nearby-price-cell{
+  font-family:'Tenor Sans',serif;font-size:14px;font-weight:400;
+  color:#33dbe7!important;white-space:nowrap;
+}
+.nearby-arrow-cell{
+  text-align:right;padding-right:16px!important;
+  color:rgba(17,17,17,0.25)!important;font-size:18px;
+}
+.nearby-table tbody tr:hover .nearby-arrow-cell{color:#111111!important;}
+
+/* ============================================================
+   FAQ
+============================================================ */
+/* ── FAQ SECTION — background image + dark overlay + centered content ── */
+#faq{
+  position:relative;
+  padding:96px 80px;
+  background:#111111;
+}
+/* Centered header */
+#faq .section-eyebrow{color:#33dbe7;text-align:center;justify-content:center;}
+#faq .section-title{color:#EDEFF0;margin-bottom:12px;text-align:center;}
+.faq-subtitle{
+  font-family:'Open Sans',sans-serif;font-size:13.5px;font-weight:300;
+  line-height:1.85;color:rgba(237,239,240,0.60);
+  margin-bottom:52px;max-width:560px;
+  text-align:center;margin-left:auto;margin-right:auto;
+}
+/* Centered list */
+.faq-list{max-width:860px;margin-left:auto;margin-right:auto;}
+/* Items — light text on dark */
+.faq-item{border-bottom:1px solid rgba(237,239,240,0.15);}
+.faq-question{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:24px;padding:22px 0;cursor:pointer;user-select:none;
+}
+.faq-question-text{
+  font-family:'Open Sans',sans-serif;font-size:15px;font-weight:400;
+  color:#EDEFF0;line-height:1.4;transition:color 0.25s;
+}
+.faq-question:hover .faq-question-text{color:#33dbe7;}
+.faq-toggle{
+  width:28px;height:28px;min-width:28px;
+  border:1px solid rgba(237,239,240,0.25);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  transition:background 0.25s,border-color 0.25s;flex-shrink:0;
+}
+.faq-toggle-icon{
+  font-family:'Open Sans',sans-serif;font-size:18px;font-weight:300;
+  color:#EDEFF0;line-height:1;
+  transition:transform 0.3s,color 0.25s;display:block;
+}
+.faq-item.open .faq-toggle{background:#33dbe7;border-color:#33dbe7;}
+.faq-item.open .faq-toggle-icon{color:#021C1E;transform:rotate(45deg);}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s ease;}
+.faq-answer-inner{
+  padding:0 0 24px;
+  font-family:'Open Sans',sans-serif;font-size:13.5px;font-weight:300;
+  line-height:1.85;color:rgba(237,239,240,0.55);
+}
+.faq-item.open .faq-answer{max-height:600px;}
+
+/* ============================================================
+   LIFESTYLE
+============================================================ */
+#lifestyle{
+  background:#021C1E;padding:96px 80px;
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+}
+.lifestyle-text .section-eyebrow{color:#33dbe7;}
+.lifestyle-title{
+  font-family:'Tenor Sans',Georgia,serif;
+  font-size:clamp(34px,3.2vw,48px);font-weight:400;
+  line-height:1.1;color:#ffffff;margin-bottom:24px;
+  text-transform:uppercase;letter-spacing:0.2em;
+}
+.lifestyle-title em{font-style:italic;letter-spacing:0.1em;text-transform:none;}
+.lifestyle-body{
+  font-family:'Open Sans',sans-serif;font-size:14px;font-weight:300;
+  line-height:1.85;color:rgba(237,239,240,0.6);margin-bottom:20px;
+}
+.lifestyle-bullets{
+  list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:24px;
+}
+.lifestyle-bullets li{
+  font-family:'Open Sans',sans-serif;font-size:12.5px;font-weight:300;
+  color:rgba(237,239,240,0.6);display:flex;align-items:center;gap:12px;
+}
+.lifestyle-bullets li::before{
+  content:'';display:block;width:20px;height:1px;
+  background:#33dbe7;flex-shrink:0;
+}
+.lifestyle-image-box,.lifestyle-map-box{
+  position:relative;overflow:hidden;height:520px;
+  border:1px solid rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.04);
+}
+.lifestyle-image-box img{width:100%;height:100%;object-fit:cover;display:block;opacity:0.75;}
+
+/* ============================================================
+   CTA
+============================================================ */
+#community-cta{
+  background:#EEF5F5;padding:96px 80px;text-align:center;
+  border-top:1px solid rgba(17,17,17,0.08);
+}
+.cta-eyebrow{
+  font-family:'Open Sans',sans-serif;font-size:9px;font-weight:500;
+  letter-spacing:0.26em;text-transform:uppercase;color:#33dbe7;margin-bottom:20px;
+  display:flex;align-items:center;justify-content:center;gap:14px;
+}
+.cta-eyebrow::before{
+  content:'';display:block;width:32px;height:1px;background:#33dbe7;
+}
+.cta-title{
+  font-family:'Tenor Sans',Georgia,serif;
+  font-size:clamp(36px,4vw,56px);font-weight:400;
+  color:#111111;margin-bottom:20px;line-height:1.05;
+  text-transform:uppercase;letter-spacing:0.2em;
+}
+.cta-title em{font-style:italic;letter-spacing:0.1em;text-transform:none;}
+.cta-subtitle{
+  font-family:'Open Sans',sans-serif;font-size:13.5px;font-weight:300;
+  color:var(--mid);margin-bottom:48px;
+  max-width:520px;margin-left:auto;margin-right:auto;line-height:1.85;
+}
+.cta-buttons{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;}
+
+/* ============================================================
+   BUTTONS
+============================================================ */
+.btn-primary{
+  font-family:'Open Sans',sans-serif;font-size:10.5px;font-weight:500;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:#021C1E;background:#33dbe7;
+  padding:16px 40px;text-decoration:none;display:inline-block;
+  border:none;
+  transition:background 0.3s,color 0.3s;
+}
+.btn-primary:hover{background:#021C1E;color:#EDEFF0;}
+.btn-outline{
+  font-family:'Open Sans',sans-serif;font-size:10.5px;font-weight:500;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:#021C1E;background:transparent;
+  padding:16px 40px;text-decoration:none;display:inline-block;
+  border:1px solid rgba(2,28,30,0.45);
+  transition:background 0.3s,border-color 0.3s,color 0.3s;
+}
+.btn-outline:hover{background:#021C1E;border-color:#021C1E;}
+.btn-view-all{
+  display:inline-block;
+  font-family:'Open Sans',sans-serif;font-size:10.5px;font-weight:500;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:#021C1E;background:#33dbe7;
+  padding:16px 40px;text-decoration:none;
+  border:none;
+  transition:background 0.3s,color 0.3s;
+}
+.btn-view-all:hover{background:#021C1E;color:#EDEFF0;}
+.btn-text{
+  font-family:'Open Sans',sans-serif;font-size:10px;font-weight:400;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:#33dbe7;text-decoration:none;
+  border-bottom:1px solid rgba(51,219,231,0.4);
+  padding-bottom:2px;transition:border-color 0.3s,color 0.3s;
+}
+.btn-text:hover{border-color:#33dbe7;}
+
+/* ============================================================
+   YLOPO OVERRIDES
+============================================================ */
+.YLOPO_resultsWidget,.YLOPO_resultsWidget *{color:#1a1814!important;}
+.YLOPO_resultsWidget input,.YLOPO_resultsWidget select,.YLOPO_resultsWidget textarea{color:#1a1814!important;background-color:#fff!important;}
+.YLOPO_resultsWidget button,.YLOPO_resultsWidget [role="button"]{color:#1a1814!important;}
+.YLOPO_resultsWidget [style*="background-color: rgb("]{color:#fff!important;}
+
+/* ============================================================
+   ANIMATIONS / REVEAL
+============================================================ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.85s ease,transform 0.85s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:0.1s;}
+.reveal-delay-2{transition-delay:0.2s;}
+.reveal-delay-3{transition-delay:0.3s;}
+.reveal-delay-4{transition-delay:0.4s;}
+.reveal-delay-5{transition-delay:0.5s;}
+.reveal-delay-6{transition-delay:0.6s;}
+.hero-content .hero-eyebrow{animation:fadeUp 0.8s ease 0.4s both;}
+.hero-content .hero-title{animation:fadeUp 0.9s ease 0.6s both;}
+.hero-content > :not(.hero-title):not(.hero-eyebrow){animation:fadeUp 0.8s ease 0.3s both;}
+
+/* ============================================================
+   RESPONSIVE — TABLET
+============================================================ */
+@media(max-width:1024px){
+  #demographics{padding:44px 48px;}
+  .demo-value{font-size:32px;}
+  .hero-content{padding:0 40px;}
+  .breadcrumb{left:48px;}
+  #valley-location{padding:64px 0;}
+  .valley-loc-head{padding:0 48px;}
+  .valley-loc-cards{padding:28px 48px 0;}
+  #overview{grid-template-columns:1fr;padding:72px 48px;gap:48px;}
+  #overview::before{font-size:280px;right:-40px;}
+  .quick-facts{max-width:560px;}
+  #highlights{padding:72px 48px;}
+  .highlights-grid{grid-template-columns:repeat(2,1fr);}
+  #neighborhoods{padding:72px 48px;}
+  .neighborhoods-grid{grid-template-columns:repeat(3,1fr);}
+  #city-stats{padding:64px 48px;}
+  .city-stat-number{font-size:32px;}
+  #listings{padding:72px 32px;}
+  .listings-header{flex-direction:column;align-items:flex-start;gap:12px;}
+  #hoa-fees{padding:72px 48px;}
+  .hoa-grid{grid-template-columns:1fr;gap:48px;}
+  #parks-rec{padding:72px 48px;}
+  .parks-grid{grid-template-columns:repeat(2,1fr);}
+  #schools{padding:72px 48px;}
+  #nearby-communities{padding:72px 48px;}
+  #faq{padding:72px 48px;}
+  #lifestyle{grid-template-columns:1fr;padding:72px 48px;gap:48px;}
+  #community-cta{padding:72px 48px;}
+}
+/* ============================================================
+   MAPBOX MAP CONTAINERS
+============================================================ */
+#hero-map{position:absolute;inset:0;width:100%;height:100%;}
+#context-map{width:100%;height:100%;}
+#lifestyle-map{width:100%;height:100%;}
+
+/* POI markers */
+.cv-map-poi{width:32px;height:32px;background:rgba(10,10,10,0.90);border:1.5px solid #C8C8C8;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:transform 0.15s ease,border-color 0.15s ease,box-shadow 0.15s ease;box-shadow:0 0 12px rgba(200,200,200,0.25);}
+.cv-map-poi:hover{transform:scale(1.18);border-color:#fff;box-shadow:0 0 20px rgba(200,200,200,0.55);}
+
+/* Corner label */
+.cv-map-label{position:absolute;bottom:40px;left:16px;background:rgba(10,10,10,0.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(200,200,200,0.35);border-radius:4px;padding:8px 14px;pointer-events:none;z-index:10;display:flex;flex-direction:column;gap:3px;}
+.cv-map-label-city{font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#C8C8C8;font-family:'Open Sans',sans-serif;}
+.cv-map-label-sub{font-size:10px;color:rgba(255,255,255,0.45);font-family:'Open Sans',sans-serif;}
+
+/* Popup */
+.cv-poi-popup .mapboxgl-popup-content{background:rgba(10,10,10,0.94)!important;backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important;border:1px solid rgba(200,200,200,0.40)!important;border-radius:8px!important;padding:10px 14px!important;box-shadow:0 8px 32px rgba(0,0,0,0.55)!important;}
+.cv-poi-popup .mapboxgl-popup-tip{border-top-color:rgba(200,200,200,0.40)!important;}
+.cv-poi-name{font-family:'Open Sans',sans-serif;font-size:12px;font-weight:600;color:#fff;line-height:1.4;}
+.cv-poi-desc{font-family:'Open Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.50);margin-top:3px;line-height:1.4;}
+
+/* Hide Mapbox branding */
+.mapboxgl-ctrl-attrib,.mapboxgl-ctrl-logo{display:none!important;}
+.mapboxgl-ctrl-bottom-right,.mapboxgl-ctrl-bottom-left{display:none;}
+
+/* ============================================================
+   INDEX.HTML NAV + FOOTER DESIGN
+============================================================ */
+:root {
+  --idx-black:    #0A0A0A;
+  --idx-charcoal: #021C1E;
+  --idx-white:    #EDEFF0;
+  --idx-gold:     #33dbe7;
+  --idx-fd: 'Tenor Sans', serif;
+  --idx-fb: 'Open Sans', system-ui, sans-serif;
+}
+
+/* SCROLL PROGRESS BAR */
+#prog{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--idx-gold);z-index:1000;transition:width 0.08s linear;}
+
+/* CUSTOM CURSOR */
+#cOuter{position:fixed;width:32px;height:32px;border:1px solid rgba(51,219,231,.7);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .22s ease,height .22s ease,background .22s ease,opacity .3s ease;opacity:0;}
+#cInner{position:fixed;width:4px;height:4px;background:var(--idx-gold);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:opacity .3s ease;opacity:0;}
+body:hover #cOuter,body:hover #cInner{opacity:1;}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:18px 56px;display:flex;align-items:center;justify-content:space-between;background:rgba(2,28,30,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(51,219,231,0.12);transition:background .35s ease,padding .35s ease,border-color .35s ease;}
+#nav.scrolled{background:rgba(2,28,30,0.98);padding:14px 56px;border-bottom-color:rgba(51,219,231,0.22);}
+#nav .nav-logo{display:flex;align-items:center;user-select:none;flex-shrink:0;}
+#nav .nav-links{display:flex;align-items:center;gap:40px;list-style:none;}
+#nav .nav-links a{font-size:10.5px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(237,239,240,.78);transition:color .22s ease;position:relative;text-decoration:none;}
+#nav .nav-links a::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:1px;background:var(--idx-gold);transition:width .32s ease;}
+#nav .nav-links a:hover{color:var(--idx-white);}
+#nav .nav-links a:hover::after{width:100%;}
+#nav .nav-cta{font-size:10.5px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--idx-gold);border:1px solid rgba(51,219,231,.6);padding:11px 28px;text-decoration:none;transition:background .3s ease,color .3s ease,border-color .3s ease;}
+#nav .nav-cta:hover{background:var(--idx-gold);color:var(--idx-black);border-color:var(--idx-gold);}
+#nav .nav-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+#nav .nav-ham span{display:block;width:22px;height:1px;background:var(--idx-white);}
+/* Communities dropdown */
+#nav .nav-communities{position:relative;}
+#nav .nav-communities-trigger{display:flex;align-items:center;gap:5px;cursor:pointer;font-family:var(--idx-fb);font-size:10.5px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(237,239,240,0.78);transition:color .22s ease;}
+#nav .nav-communities-trigger::after{content:'▾';font-size:9px;color:rgba(237,239,240,0.4);transition:color .22s ease;}
+#nav .nav-communities:hover .nav-communities-trigger,
+#nav .nav-communities:hover .nav-communities-trigger::after{color:var(--idx-white);}
+#nav .communities-dropdown{position:absolute;top:calc(100% + 20px);left:50%;transform:translateX(-50%) translateY(-6px);background:rgba(10,10,10,0.97);border:1px solid rgba(51,219,231,0.15);min-width:200px;opacity:0;pointer-events:none;transition:opacity 0.25s,transform 0.25s;z-index:100;}
+#nav .communities-dropdown::before{content:'';position:absolute;top:-20px;left:0;right:0;height:20px;}
+#nav .nav-communities:hover .communities-dropdown{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0);}
+#nav .communities-dropdown a{display:block;padding:11px 20px;font-family:var(--idx-fb);font-size:10px;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:rgba(237,239,240,0.65);text-decoration:none;border-bottom:1px solid rgba(51,219,231,0.08);transition:color .2s,background .2s;}
+#nav .communities-dropdown a:last-child{border-bottom:none;}
+#nav .communities-dropdown a:hover{color:var(--idx-gold);background:rgba(51,219,231,0.05);}
+
+/* FOOTER */
+#footer{background:var(--idx-black);border-top:1px solid rgba(51,219,231,.09);padding:72px 60px 36px;}
+#footer .ft-inner{max-width:1440px;margin:0 auto;}
+#footer .ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:52px;padding-bottom:52px;border-bottom:1px solid rgba(51,219,231,.09);margin-bottom:36px;}
+#footer .ft-tag{font-size:12px;font-weight:300;line-height:1.75;color:rgba(237,239,240,.28);max-width:280px;margin-bottom:28px;font-family:var(--idx-fb);}
+#footer .ft-col-h{font-size:9px;font-weight:500;letter-spacing:0.24em;text-transform:uppercase;color:var(--idx-gold);margin-bottom:20px;font-family:var(--idx-fb);}
+#footer .ft-links{list-style:none;display:flex;flex-direction:column;gap:13px;}
+#footer .ft-links a{font-size:12px;font-weight:300;color:rgba(237,239,240,.28);transition:color .22s ease;text-decoration:none;font-family:var(--idx-fb);}
+#footer .ft-links a:hover{color:var(--idx-gold);}
+#footer .ft-bot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+#footer .ft-copy{font-size:10.5px;font-weight:300;color:rgba(237,239,240,.2);letter-spacing:.05em;font-family:var(--idx-fb);}
+#footer .ft-legal{display:flex;gap:26px;}
+#footer .ft-legal a{font-size:10.5px;font-weight:300;color:rgba(237,239,240,.2);transition:color .22s ease;text-decoration:none;font-family:var(--idx-fb);}
+#footer .ft-legal a:hover{color:var(--idx-gold);}
+#footer .ft-social{display:flex;gap:18px;}
+#footer .ft-social a{font-size:11px;color:rgba(237,239,240,.28);transition:color .22s ease;text-decoration:none;font-family:var(--idx-fb);}
+#footer .ft-social a:hover{color:var(--idx-gold);}
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+============================================================ */
+@media(max-width:768px){
+  #community-hero{height:70vh;min-height:500px;}
+  .hero-content{padding:0 24px;}
+  .hero-title{font-size:clamp(36px,10vw,64px);letter-spacing:0.15em;}
+  .breadcrumb{left:24px;top:72px;}
+  .hero-stats{border-top:1px solid rgba(255,255,255,0.18);}
+  .hero-stat{padding:16px 12px;}
+  .hero-stat-value{font-size:20px;}
+  #demographics{padding:36px 20px;}
+  .demo-header{flex-direction:column;align-items:flex-start;gap:6px;margin-bottom:24px;}
+  .demo-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 0;}
+  .demo-divider-v{display:none;}
+  .demo-stat{align-items:flex-start;text-align:left;}
+  .demo-value{font-size:32px;}
+  #valley-location{padding:56px 0;}
+  .valley-loc-head{padding:0 20px;}
+  .valley-loc-map-wrap{height:320px;}
+  .valley-loc-cards{padding:24px 20px 0;gap:10px;}
+  #overview{grid-template-columns:1fr;padding:56px 20px;gap:36px;}
+  #overview::before{font-size:200px;}
+  #highlights{padding:56px 20px;}
+  .highlights-grid{grid-template-columns:1fr;gap:2px;}
+  .section-title{margin-bottom:36px;}
+  #neighborhoods{padding:56px 20px;}
+  .neighborhoods-grid{grid-template-columns:repeat(2,1fr);gap:8px;}
+  #listings{padding:56px 20px;}
+  .listings-header{flex-direction:column;align-items:flex-start;gap:12px;margin-bottom:32px;}
+  .btn-view-all{display:block;text-align:center;padding:16px 24px;}
+  #city-stats{padding:52px 20px;}
+  .city-stats-row{flex-wrap:wrap;gap:0;}
+  .city-stat-item{
+    min-width:50%;border-right:none;
+    border-bottom:1px solid rgba(255,255,255,0.07);
+    padding:20px 12px;
+  }
+  .city-stat-item:nth-child(odd){border-right:1px solid rgba(255,255,255,0.07);}
+  .city-stat-item:nth-last-child(-n+2){border-bottom:none;}
+  .city-stat-number{font-size:32px;}
+  #hoa-fees{padding:56px 20px;}
+  .hoa-grid{grid-template-columns:1fr;gap:40px;}
+  #parks-rec{padding:56px 20px;}
+  .parks-grid{grid-template-columns:1fr;gap:16px;}
+  #schools{padding:56px 20px;}
+  .schools-tabs{overflow-x:auto;}
+  #nearby-communities{padding:56px 20px;}
+  #faq{padding:56px 20px;}
+  .faq-question-text{font-size:14px;}
+  #lifestyle{grid-template-columns:1fr;padding:56px 20px;gap:36px;}
+  .lifestyle-map-box{height:380px;}
+  #community-cta{padding:64px 20px;}
+  .cta-buttons{flex-direction:column;align-items:center;gap:12px;}
+  .btn-primary,.btn-outline{width:100%;max-width:300px;text-align:center;}
+  #nav{padding:14px 20px;}
+  #nav.scrolled{padding:10px 20px;}
+  #nav .nav-links{display:none;}
+  #nav .nav-ham{display:flex;}
+  #footer{padding:52px 22px 24px;}
+  #footer .ft-top{grid-template-columns:1fr;gap:36px;}
+  #footer .ft-bot{flex-direction:column;align-items:flex-start;}
+}
+@media(max-width:1100px){
+  #nav{padding:14px 36px;}
+  #nav.scrolled{padding:10px 36px;}
+  #nav .nav-links{display:none;}
+  #nav .nav-ham{display:flex;}
+  #footer{padding:60px 36px 28px;}
+  #footer .ft-top{grid-template-columns:1fr 1fr;gap:36px;}
+}
+</style>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS -->
+<div id="prog"></div>
+<!-- CUSTOM CURSOR -->
+<div id="cOuter"></div>
+<div id="cInner"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="https://www.crightonrinalditeam.com/" class="nav-logo">
+    <img src="CrightonRinaldiTeam.webp" alt="Crighton-Rinaldi Team" style="height:64px;width:auto;object-fit:contain;display:block;">
+  </a>
+  <ul class="nav-links">
+    <li><a href="https://search.crightonrinalditeam.com/">Buy</a></li>
+    <li class="nav-communities">
+      <span class="nav-communities-trigger">Communities</span>
+      <div class="communities-dropdown">
+        <a href="https://www.crightonrinalditeam.com/communities/las-vegas-real-estate">Las Vegas</a>
+        <a href="henderson.html">Henderson</a>
+        <a href="https://www.crightonrinalditeam.com/communities/summerlin-real-estate">Summerlin</a>
+        <a href="https://www.crightonrinalditeam.com/communities/north-las-vegas-real-estate">North Las Vegas</a>
+        <a href="https://www.crightonrinalditeam.com/communities/boulder-city-real-estate">Boulder City</a>
+      </div>
+    </li>
+    <li><a href="https://www.crightonrinalditeam.com/team-page">Our Team</a></li>
+    <li><a href="https://www.crightonrinalditeam.com/blog">Blog</a></li>
+    <li><a href="https://www.crightonrinalditeam.com/contact-us">Contact</a></li>
+  </ul>
+  <a href="https://www.crightonrinalditeam.com/contact-us" class="nav-cta">Schedule Consultation</a>
+  <div class="nav-ham" id="ham" aria-label="Menu" role="button" tabindex="0">
+    <span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="community-hero">
+  <div id="hero-map"></div>
+  <div class="hero-map-overlay"></div>
+  <!-- breadcrumb is direct child → positions relative to #community-hero -->
+  <div class="breadcrumb">
+    <a href="https://www.crightonrinalditeam.com/">Home</a>
+    <span class="sep">·</span>
+    <a href="https://www.crightonrinalditeam.com/communities">Communities</a>
+    <span class="sep">·</span>
+    <span class="current">Henderson</span>
+  </div>
+  <!-- hero-content only holds eyebrow + title → centered by flexbox -->
+  <div class="hero-content">
+    <p class="hero-eyebrow">Clark County &nbsp;·&nbsp; Nevada</p>
+    <h1 class="hero-title">Hender<em>son</em></h1>
+  </div>
+  <!-- hero-stats is direct child → position:absolute bottom:0 anchors to hero section -->
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="hero-stat-value">1,000+</span>
+      <span class="hero-stat-label">Active Listings</span>
+    </div>
+    <div class="hero-divider-v"></div>
+    <div class="hero-stat">
+      <span class="hero-stat-value">$450K</span>
+      <span class="hero-stat-label">Median Price</span>
+    </div>
+    <div class="hero-divider-v"></div>
+    <div class="hero-stat">
+      <span class="hero-stat-value">3</span>
+      <span class="hero-stat-label">Property Types</span>
+    </div>
+    <div class="hero-divider-v"></div>
+    <div class="hero-stat">
+      <span class="hero-stat-value">Daily</span>
+      <span class="hero-stat-label">Updated</span>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="valley-location">
+  <div class="valley-loc-head reveal">
+    <p class="valley-loc-eyebrow">Location</p>
+    <h2 class="valley-loc-title">Where is <em>Henderson?</em></h2>
+    <p class="valley-loc-desc">Nevada's second-largest city — located immediately southeast of Las Vegas, nestled between the Spring Mountains and Lake Mead National Recreation Area.</p>
+  </div>
+  <div class="valley-loc-map-wrap">
+    <div id="context-map" style="width:100%;height:100%;"></div>
+  </div>
+  <div class="valley-loc-cards reveal">
+    <div class="valley-loc-card">
+      <span class="valley-loc-card-time">~15 min</span>
+      <span class="valley-loc-card-dest">to Las Vegas</span>
+      <span class="valley-loc-card-via">via I-515 North</span>
+    </div>
+    <div class="valley-loc-card">
+      <span class="valley-loc-card-time">~25 min</span>
+      <span class="valley-loc-card-dest">to the Strip</span>
+      <span class="valley-loc-card-via">via I-215 West</span>
+    </div>
+    <div class="valley-loc-card">
+      <span class="valley-loc-card-time">~30 min</span>
+      <span class="valley-loc-card-dest">to Lake Mead</span>
+      <span class="valley-loc-card-via">via Lake Mead Pkwy</span>
+    </div>
+    <div class="valley-loc-card">
+      <span class="valley-loc-card-time">~4 hrs</span>
+      <span class="valley-loc-card-dest">to Los Angeles</span>
+      <span class="valley-loc-card-via">via I-15 South</span>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <div class="overview-text reveal">
+    <p class="section-eyebrow">Nevada's Premier Suburb</p>
+    <h2 class="overview-title">Where Suburban <em>Luxury</em><br>Meets Desert Living</h2>
+    <div class="overview-divider"></div>
+    <p class="overview-body">
+      Henderson combines the tranquility of suburban living with access to luxury amenities in a perfect blend. From gated communities and golf course estates to family-oriented neighborhoods with scenic views, Henderson offers homes that suit a variety of tastes and lifestyles, perfect for anyone planning to come here.
+    </p>
+    <p class="overview-body">
+      As Nevada's second-largest city and one of the fastest-growing communities in the nation, Henderson has been recognized repeatedly as one of America's safest and most livable cities. Master-planned neighborhoods like Green Valley Ranch, Anthem, and Lake Las Vegas set the standard for desert luxury living.
+    </p>
+    <p class="overview-body">
+      Whether you're drawn by the award-winning schools, resort-style amenities, or the proximity to all Las Vegas has to offer — while enjoying a quieter pace of life — the Crighton Rinaldi Team brings deep local expertise to every corner of Henderson's diverse real estate market.
+    </p>
+    <div class="overview-cta">
+      <a href="https://www.crightonrinalditeam.com/contact" class="btn-primary">Connect With Us</a>
+      <a href="#listings" class="btn-text">View Listings ↓</a>
+    </div>
+  </div>
+
+  <div class="quick-facts reveal reveal-delay-2">
+    <p class="quick-facts-heading">At a Glance</p>
+    <div class="quick-fact">
+      <span class="fact-label">City Type</span>
+      <span class="fact-value">Incorporated City</span>
+    </div>
+    <div class="quick-fact">
+      <span class="fact-label">County</span>
+      <span class="fact-value">Clark County</span>
+    </div>
+    <div class="quick-fact">
+      <span class="fact-label">Population</span>
+      <span class="fact-value">~340,000</span>
+    </div>
+    <div class="quick-fact">
+      <span class="fact-label">Median Home Price</span>
+      <span class="fact-value">$450,000</span>
+    </div>
+    <div class="quick-fact">
+      <span class="fact-label">Known For</span>
+      <span class="fact-value">Master-Planned Communities</span>
+    </div>
+    <div class="quick-fact">
+      <span class="fact-label">Elevation</span>
+      <span class="fact-value">1,300 – 2,200 ft</span>
+    </div>
+    <div class="quick-fact">
+      <span class="fact-label">Airport</span>
+      <span class="fact-value">LAS (Harry Reid) ~20 min</span>
+    </div>
+    <div class="quick-fact">
+      <span class="fact-label">Drive to LA</span>
+      <span class="fact-value">~4 hours</span>
+    </div>
+  </div>
+</section>
+
+<!-- DEMOGRAPHICS -->
+<section id="demographics">
+  <div class="demo-header reveal">
+    <p class="demo-eyebrow">Community Demographics</p>
+    <p class="demo-source-note">Source: U.S. Census Bureau, ACS 5-Year Estimates</p>
+  </div>
+  <div class="demo-stats reveal">
+    <div class="demo-stat">
+      <span class="demo-value">340,000</span>
+      <span class="demo-label">Population</span>
+    </div>
+    <div class="demo-divider-v"></div>
+    <div class="demo-stat">
+      <span class="demo-value">38.5</span>
+      <span class="demo-label">Median Age</span>
+    </div>
+    <div class="demo-divider-v"></div>
+    <div class="demo-stat">
+      <span class="demo-value">$82,000</span>
+      <span class="demo-label">Avg Household Income</span>
+    </div>
+    <div class="demo-divider-v"></div>
+    <div class="demo-stat">
+      <span class="demo-value">140,000</span>
+      <span class="demo-label">Total Households</span>
+    </div>
+    <div class="demo-divider-v"></div>
+    <div class="demo-stat">
+      <span class="demo-value">55.2%</span>
+      <span class="demo-label">Ownership Rate</span>
+    </div>
+  </div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section id="highlights">
+  <p class="section-eyebrow reveal">What Makes It Special</p>
+  <h2 class="section-title reveal">Living in<br><em>Henderson</em></h2>
+
+  <div class="highlights-grid">
+    <div class="highlight-card reveal reveal-delay-1">
+      <span class="highlight-icon">🏡</span>
+      <h3 class="highlight-title">Suburban Living Excellence</h3>
+      <p class="highlight-body">Henderson combines the tranquility of suburban living with access to luxury amenities. From gated communities and golf course estates to family-oriented neighborhoods with scenic mountain and city views — there's a home for every lifestyle.</p>
+    </div>
+    <div class="highlight-card reveal reveal-delay-2">
+      <span class="highlight-icon">🎓</span>
+      <h3 class="highlight-title">Schools &amp; Education</h3>
+      <p class="highlight-body">Henderson is home to a variety of highly regarded public and private schools. Neighborhoods are thoughtfully designed with schools located conveniently nearby, giving parents peace of mind and children a strong foundation for academic success.</p>
+    </div>
+    <div class="highlight-card reveal reveal-delay-3">
+      <span class="highlight-icon">🏥</span>
+      <h3 class="highlight-title">World-Class Healthcare</h3>
+      <p class="highlight-body">Residents have access to modern healthcare facilities within Henderson and the surrounding area. Leading hospitals like <strong>Henderson Hospital</strong> and <strong>St. Rose Dominican Hospitals</strong> provide comprehensive services from routine checkups to specialized treatments.</p>
+    </div>
+    <div class="highlight-card reveal reveal-delay-4">
+      <span class="highlight-icon">🌊</span>
+      <h3 class="highlight-title">Parks &amp; Recreation</h3>
+      <p class="highlight-body"><strong>Lake Las Vegas</strong> provides scenic waterfront activities, boating, and dining. <strong>Railroad Pass Park</strong> and <strong>Cornerstone Park</strong> offer sports fields, walking trails, and picnic areas. Golf lovers enjoy world-class courses like <strong>Revere Golf Club</strong> and <strong>Rio Secco Golf Club</strong>.</p>
+    </div>
+    <div class="highlight-card reveal reveal-delay-5">
+      <span class="highlight-icon">🛍️</span>
+      <h3 class="highlight-title">Shopping, Dining &amp; Entertainment</h3>
+      <p class="highlight-body">The <strong>District at Green Valley Ranch</strong> is a premier open-air shopping and dining destination. <strong>Galleria at Sunset</strong> offers a wide selection of stores and entertainment. Residents also enjoy proximity to Las Vegas' world-class nightlife and entertainment.</p>
+    </div>
+    <div class="highlight-card reveal reveal-delay-6">
+      <span class="highlight-icon">✈️</span>
+      <h3 class="highlight-title">Accessibility &amp; Transportation</h3>
+      <p class="highlight-body"><strong>Harry Reid International Airport</strong> is nearby for domestic and international travel. Major highways, including <strong>Interstate 515</strong> and <strong>US Routes 93 and 95</strong>, make commuting to Las Vegas and beyond convenient. Well-maintained roads make daily travel effortless.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NEIGHBORHOODS -->
+<section id="neighborhoods">
+  <p class="section-eyebrow reveal">Explore Henderson</p>
+  <h2 class="section-title reveal">Neighborhoods &amp;<br><em>Communities</em></h2>
+  <div class="neighborhoods-grid reveal">
+    <div class="neighborhood-card">
+      <div class="neighborhood-header"><span class="neighborhood-name">Green Valley Ranch</span><span class="neighborhood-price">$500K–$1.5M</span></div>
+      <div class="neighborhood-tags">Master-Planned · Golf</div>
+    </div>
+    <div class="neighborhood-card">
+      <div class="neighborhood-header"><span class="neighborhood-name">Anthem</span><span class="neighborhood-price">$550K–$2M</span></div>
+      <div class="neighborhood-tags">Gated · Country Club</div>
+    </div>
+    <div class="neighborhood-card">
+      <div class="neighborhood-header"><span class="neighborhood-name">Lake Las Vegas</span><span class="neighborhood-price">$450K–$3M+</span></div>
+      <div class="neighborhood-tags">Waterfront · Resort</div>
+    </div>
+    <div class="neighborhood-card">
+      <div class="neighborhood-header"><span class="neighborhood-name">MacDonald Ranch</span><span class="neighborhood-price">$600K–$2.5M</span></div>
+      <div class="neighborhood-tags">Hillside Views · Golf</div>
+    </div>
+    <div class="neighborhood-card">
+      <div class="neighborhood-header"><span class="neighborhood-name">Seven Hills</span><span class="neighborhood-price">$450K–$1.8M</span></div>
+      <div class="neighborhood-tags">Guard-Gated · Golf</div>
+    </div>
+    <div class="neighborhood-card">
+      <div class="neighborhood-header"><span class="neighborhood-name">Inspirada</span><span class="neighborhood-price">$400K–$900K</span></div>
+      <div class="neighborhood-tags">New Construction · Family</div>
+    </div>
+    <div class="neighborhood-card">
+      <div class="neighborhood-header"><span class="neighborhood-name">Cadence</span><span class="neighborhood-price">$350K–$750K</span></div>
+      <div class="neighborhood-tags">Master-Planned · Modern</div>
+    </div>
+    <div class="neighborhood-card">
+      <div class="neighborhood-header"><span class="neighborhood-name">Tuscany Village</span><span class="neighborhood-price">$400K–$1.2M</span></div>
+      <div class="neighborhood-tags">Golf · Active Adult</div>
+    </div>
+    <div class="neighborhood-card">
+      <div class="neighborhood-header"><span class="neighborhood-name">Green Valley</span><span class="neighborhood-price">$380K–$1.2M</span></div>
+      <div class="neighborhood-tags">Established · Suburban</div>
+    </div>
+    <div class="neighborhood-card">
+      <div class="neighborhood-header"><span class="neighborhood-name">Sun City Anthem</span><span class="neighborhood-price">$350K–$800K</span></div>
+      <div class="neighborhood-tags">55+ · Active Adult</div>
+    </div>
+    <div class="neighborhood-card">
+      <div class="neighborhood-header"><span class="neighborhood-name">Caldera Hills</span><span class="neighborhood-price">$500K–$1.5M</span></div>
+      <div class="neighborhood-tags">Views · Luxury</div>
+    </div>
+    <div class="neighborhood-card">
+      <div class="neighborhood-header"><span class="neighborhood-name">Traverse</span><span class="neighborhood-price">$400K–$850K</span></div>
+      <div class="neighborhood-tags">Family · Community</div>
+    </div>
+  </div>
+</section>
+
+<!-- CITY STATS -->
+<section id="city-stats">
+  <div class="city-stats-row">
+    <div class="city-stat-item reveal">
+      <div class="city-stat-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      </div>
+      <span class="city-stat-number">300+</span>
+      <span class="city-stat-label">Sunny Days Per Year</span>
+    </div>
+    <div class="city-stat-item reveal reveal-delay-1">
+      <div class="city-stat-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      </div>
+      <span class="city-stat-number">340K</span>
+      <span class="city-stat-label">Residents &amp; Growing</span>
+    </div>
+    <div class="city-stat-item reveal reveal-delay-2">
+      <div class="city-stat-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4m0 0l-3 5m3-5l3 5"></path><path d="M6 22c0-3 1-5 3-6m6 0c2 1 3 3 3 6"></path></svg>
+      </div>
+      <span class="city-stat-number">30+</span>
+      <span class="city-stat-label">Golf Courses Nearby</span>
+    </div>
+    <div class="city-stat-item reveal reveal-delay-3">
+      <div class="city-stat-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"></path><circle cx="12" cy="9" r="2.5"></circle></svg>
+      </div>
+      <span class="city-stat-number">6</span>
+      <span class="city-stat-label">Master-Planned Communities</span>
+    </div>
+    <div class="city-stat-item reveal reveal-delay-4">
+      <div class="city-stat-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path><path d="M17 21v-8H7v8"></path></svg>
+      </div>
+      <span class="city-stat-number">100+</span>
+      <span class="city-stat-label">Parks &amp; Trails</span>
+    </div>
+  </div>
+</section>
+
+<!-- LISTINGS -->
+<section id="listings">
+  <div class="listings-header reveal">
+    <div>
+      <p class="section-eyebrow">Live MLS Data</p>
+      <h2 class="section-title">Henderson Homes For Sale</h2>
+    </div>
+    <a href="https://search.crightonrinalditeam.com/search?s[locations][0][city]=Henderson&s[locations][0][state]=NV" target="_blank" rel="noopener" class="view-all-link">View All Listings →</a>
+  </div>
+  <div class="reveal">
+    <div class="YLOPO_resultsWidget" data-search='{"locations":[{"city":"Henderson","state":"NV"}],"propertyTypes":["house","condo","townhouse"],"limit":12}'></div>
+  </div>
+  <div class="listings-cta-row reveal">
+    <a href="https://search.crightonrinalditeam.com/search?s[locations][0][city]=Henderson&s[locations][0][state]=NV" target="_blank" rel="noopener" class="btn-view-all">View All Henderson Properties →</a>
+  </div>
+</section>
+
+<!-- HOA FEES -->
+<section id="hoa-fees">
+  <p class="section-eyebrow reveal">What to Expect</p>
+  <h2 class="section-title reveal">HOA Fees in<br><em>Henderson</em></h2>
+  <div class="hoa-grid">
+    <div class="reveal">
+      <table class="hoa-table">
+        <thead><tr><th>Community Type</th><th>Monthly HOA</th></tr></thead>
+        <tbody>
+          <tr><td>Non-gated single-family</td><td>$0 – $200</td></tr>
+          <tr><td>Master-planned community (HOA)</td><td>$150 – $400</td></tr>
+          <tr><td>Golf / guard-gated community</td><td>$400 – $1,000</td></tr>
+          <tr><td>55+ active adult communities</td><td>$200 – $500</td></tr>
+          <tr><td>Luxury guard-gated estates</td><td>$600 – $1,500+</td></tr>
+        </tbody>
+      </table>
+      <div class="hoa-note">HOA fees vary by development and are subject to change. Always verify current fees and review the CC&Rs with your agent before making an offer.</div>
+      <div class="hoa-cta-note">
+        <p>Have Questions?</p>
+        <span>The Crighton Rinaldi Team can walk you through HOA documents and help you understand what's included before you commit.</span>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <p class="hoa-covers-heading">What HOAs Typically Cover</p>
+      <ul class="hoa-covers-list">
+        <li>Common area landscaping and maintenance</li>
+        <li>Community pool, spa, and fitness center</li>
+        <li>Guard gate staffing (gated communities)</li>
+        <li>Perimeter wall and entry monument maintenance</li>
+        <li>Trash collection and street lighting</li>
+        <li>Reserve fund for major repairs</li>
+        <li>Property management and administration</li>
+        <li>Parks, playgrounds, and walking trails</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PARKS & RECREATION -->
+<section id="parks-rec">
+  <p class="section-eyebrow reveal">Outdoor Living</p>
+  <h2 class="section-title reveal">Parks &amp; Recreation<br>in <em>Henderson</em></h2>
+  <div class="parks-grid">
+    <div class="park-card reveal reveal-delay-1">
+      <div class="park-name">Lake Las Vegas</div>
+      <div class="park-address">1600 Lake Las Vegas Pkwy, Henderson, NV 89011</div>
+      <span class="park-size">320-Acre Private Lake</span>
+      <ul class="park-amenities">
+        <li>Watersports and kayaking</li>
+        <li>Paddleboarding and boat rentals</li>
+        <li>Lakeside fine dining</li>
+        <li>Walking and cycling trails</li>
+        <li>Resort spas and hotels</li>
+        <li>Weekly events and festivals</li>
+      </ul>
+    </div>
+    <div class="park-card reveal reveal-delay-2">
+      <div class="park-name">Cornerstone Park</div>
+      <div class="park-address">1600 Wigwam Pkwy, Henderson, NV 89014</div>
+      <span class="park-size">~335 Acres</span>
+      <ul class="park-amenities">
+        <li>Baseball and softball fields</li>
+        <li>Soccer and multi-sport fields</li>
+        <li>Tennis and pickleball courts</li>
+        <li>Walking and cycling trails</li>
+        <li>Dog park</li>
+        <li>Picnic areas and gazebos</li>
+      </ul>
+    </div>
+    <div class="park-card reveal reveal-delay-3">
+      <div class="park-name">Heritage Park</div>
+      <div class="park-address">200 S Racetrack Rd, Henderson, NV 89015</div>
+      <span class="park-size">~60 Acres</span>
+      <ul class="park-amenities">
+        <li>Senior center and facilities</li>
+        <li>Aquatic complex (public pool)</li>
+        <li>Tennis and pickleball courts</li>
+        <li>Sports fields (soccer, baseball)</li>
+        <li>Walking trails</li>
+        <li>Picnic pavilions</li>
+      </ul>
+    </div>
+    <div class="park-card reveal reveal-delay-1">
+      <div class="park-name">Acacia Demonstration Garden</div>
+      <div class="park-address">100 E Lake Mead Pkwy, Henderson, NV 89015</div>
+      <span class="park-size">~7 Acres</span>
+      <ul class="park-amenities">
+        <li>Desert landscape tours</li>
+        <li>Botanical gardens and native plants</li>
+        <li>Walking and educational paths</li>
+        <li>Environmental programs</li>
+        <li>Photography opportunities</li>
+      </ul>
+    </div>
+    <div class="park-card reveal reveal-delay-2">
+      <div class="park-name">Revere Golf Club</div>
+      <div class="park-address">2600 Hampton Rd, Henderson, NV 89052</div>
+      <span class="park-size">Championship 36 Holes</span>
+      <ul class="park-amenities">
+        <li>Two 18-hole championship courses</li>
+        <li>Panoramic Strip and mountain views</li>
+        <li>Full-service clubhouse and pro shop</li>
+        <li>Golf academy and lessons</li>
+        <li>Restaurant and event spaces</li>
+      </ul>
+    </div>
+    <div class="park-card reveal reveal-delay-3">
+      <div class="park-name">Rio Secco Golf Club</div>
+      <div class="park-address">2851 Grand Hills Dr, Henderson, NV 89052</div>
+      <span class="park-size">World-Class 18 Holes</span>
+      <ul class="park-amenities">
+        <li>Rees Jones-designed championship course</li>
+        <li>Butch Harmon School of Golf</li>
+        <li>Stunning canyon and desert views</li>
+        <li>Private club atmosphere</li>
+        <li>Tournament-quality greens</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SCHOOLS -->
+<section id="schools">
+  <p class="section-eyebrow reveal">Education</p>
+  <h2 class="section-title reveal">Schools Serving<br><em>Henderson</em></h2>
+  <p class="schools-intro reveal">Henderson is served by the Clark County School District (CCSD), one of the nation's largest. School assignments are address-specific — contact the district to confirm enrollment boundaries before purchasing.</p>
+  <div class="schools-tabs reveal">
+    <div class="schools-tab active" data-tab="public">Public</div>
+    <div class="schools-tab" data-tab="private">Private &amp; Charter</div>
+  </div>
+  <div id="tab-public" class="schools-panel active reveal">
+    <table class="schools-table">
+      <thead><tr><th>School Name</th><th>Grades</th><th>District</th></tr></thead>
+      <tbody>
+        <tr><td class="school-name-cell">Coronado High School</td><td class="school-grades-cell">9 – 12</td><td>CCSD</td></tr>
+        <tr><td class="school-name-cell">Green Valley High School</td><td class="school-grades-cell">9 – 12</td><td>CCSD</td></tr>
+        <tr><td class="school-name-cell">Foothill High School</td><td class="school-grades-cell">9 – 12</td><td>CCSD</td></tr>
+        <tr><td class="school-name-cell">Bob Miller Middle School</td><td class="school-grades-cell">6 – 8</td><td>CCSD</td></tr>
+        <tr><td class="school-name-cell">Del Webb Middle School</td><td class="school-grades-cell">6 – 8</td><td>CCSD</td></tr>
+        <tr><td class="school-name-cell">Elise L. Wolff Elementary</td><td class="school-grades-cell">K – 5</td><td>CCSD</td></tr>
+        <tr><td class="school-name-cell">John C. Vanderburg Elementary</td><td class="school-grades-cell">K – 5</td><td>CCSD</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="tab-private" class="schools-panel reveal">
+    <table class="schools-table">
+      <thead><tr><th>School Name</th><th>Grades</th><th>Type</th></tr></thead>
+      <tbody>
+        <tr><td class="school-name-cell">Faith Lutheran Middle &amp; High</td><td class="school-grades-cell">6 – 12</td><td>Private / Faith-Based</td></tr>
+        <tr><td class="school-name-cell">Bishop Gorman High School</td><td class="school-grades-cell">9 – 12</td><td>Private Catholic</td></tr>
+        <tr><td class="school-name-cell">The Meadows School</td><td class="school-grades-cell">PK – 12</td><td>Independent Private</td></tr>
+        <tr><td class="school-name-cell">Pinecrest Academy of Nevada</td><td class="school-grades-cell">K – 12</td><td>Charter</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="schools-disclaimer reveal">School assignments are address-specific and subject to change. Verify enrollment zoning directly with the Clark County School District (702-799-5000) or at ccsd.net. Data is for informational purposes only and should not be relied upon for enrollment decisions.</p>
+</section>
+
+<!-- NEARBY COMMUNITIES -->
+<section id="nearby-communities">
+  <p class="section-eyebrow reveal">Comparisons</p>
+  <h2 class="section-title reveal">Nearby Communities<br>to <em>Consider</em></h2>
+  <p class="nearby-subtitle reveal">How Henderson compares to surrounding Las Vegas metro communities — each with its own character, price point, and lifestyle.</p>
+  <table class="nearby-table reveal">
+    <thead>
+      <tr><th>Community</th><th>Starting Price</th><th>Why Consider</th><th></th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="nearby-name-cell"><a href="https://www.crightonrinalditeam.com/communities/summerlin-real-estate">Summerlin</a></td>
+        <td class="nearby-price-cell">From $450K</td>
+        <td>Premier master-planned community on the western edge of Las Vegas with Red Rock Canyon access and top-rated schools.</td>
+        <td class="nearby-arrow-cell">→</td>
+      </tr>
+      <tr>
+        <td class="nearby-name-cell">Enterprise</td>
+        <td class="nearby-price-cell">From $350K</td>
+        <td>Fast-growing suburb offering modern homes near the Las Vegas Strip with excellent value and easy freeway access.</td>
+        <td class="nearby-arrow-cell">→</td>
+      </tr>
+      <tr>
+        <td class="nearby-name-cell">Green Valley (Unincorporated)</td>
+        <td class="nearby-price-cell">From $380K</td>
+        <td>Established, sought-after community with mature landscaping, excellent schools, and a well-connected suburban feel.</td>
+        <td class="nearby-arrow-cell">→</td>
+      </tr>
+      <tr>
+        <td class="nearby-name-cell">Boulder City</td>
+        <td class="nearby-price-cell">From $280K</td>
+        <td>Charming small-town character near Lake Mead National Recreation Area with historic appeal and no Strip proximity.</td>
+        <td class="nearby-arrow-cell">→</td>
+      </tr>
+      <tr>
+        <td class="nearby-name-cell">North Las Vegas</td>
+        <td class="nearby-price-cell">From $250K</td>
+        <td>Most affordable market in the valley with rapidly improving infrastructure and active new construction developments.</td>
+        <td class="nearby-arrow-cell">→</td>
+      </tr>
+      <tr>
+        <td class="nearby-name-cell">Paradise (Unincorporated)</td>
+        <td class="nearby-price-cell">From $320K</td>
+        <td>Unincorporated community home to the Las Vegas Strip, UNLV, T-Mobile Arena, and major entertainment venues.</td>
+        <td class="nearby-arrow-cell">→</td>
+      </tr>
+      <tr>
+        <td class="nearby-name-cell"><a href="https://www.crightonrinalditeam.com/communities/las-vegas-real-estate">Las Vegas</a></td>
+        <td class="nearby-price-cell">From $300K</td>
+        <td>The entertainment capital of the world — a booming real estate market with no state income tax and global lifestyle appeal.</td>
+        <td class="nearby-arrow-cell">→</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <p class="section-eyebrow reveal">Common Questions</p>
+  <h2 class="section-title reveal">Frequently Asked Questions<br>About <em>Henderson</em></h2>
+  <p class="faq-subtitle reveal">The questions buyers ask most when exploring Henderson real estate.</p>
+  <div class="faq-list reveal">
+    <div class="faq-item">
+      <div class="faq-question">
+        <span class="faq-question-text">What is the median home price in Henderson?</span>
+        <div class="faq-toggle"><span class="faq-toggle-icon">+</span></div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">The median home price in Henderson is approximately $450,000 as of 2026, though prices vary widely by neighborhood and property type. Entry-level single-family homes in communities like Cadence and Inspirada typically start in the $350K–$500K range. Master-planned communities like Green Valley Ranch and Seven Hills typically range from $500K–$1.5M+, while luxury estates in Lake Las Vegas and MacDonald Ranch can exceed $3M+.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span class="faq-question-text">Is Henderson a safe city to live in?</span>
+        <div class="faq-toggle"><span class="faq-toggle-icon">+</span></div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">Henderson consistently ranks as one of the safest large cities in America. It has been named to multiple "safest cities" lists over the years by publications like Money Magazine and WalletHub. The city's master-planned communities, active neighborhood watch programs, and dedicated police force contribute to exceptionally low crime rates compared to national averages for cities of its size.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span class="faq-question-text">What ZIP codes cover Henderson?</span>
+        <div class="faq-toggle"><span class="faq-toggle-icon">+</span></div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">Henderson is covered by several ZIP codes: 89002 (Basic area), 89011 (Lake Las Vegas area), 89012 (Green Valley Ranch, Seven Hills), 89014 (Green Valley), 89015 (central Henderson), 89044 (Anthem, southern Henderson), and 89052 (Anthem, MacDonald Ranch). When searching for homes, search across multiple ZIP codes to see the full inventory available in the city.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span class="faq-question-text">Are there 55+ communities in Henderson?</span>
+        <div class="faq-toggle"><span class="faq-toggle-icon">+</span></div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">Yes — Henderson has several highly regarded active adult and 55+ communities. <strong>Sun City Anthem</strong> is one of the most popular, offering resort-style amenities, golf, and an active social calendar. <strong>Four Seasons at Inspirada</strong> and <strong>Tuscany Village</strong> also offer age-restricted living with HOA-managed maintenance and community centers — ideal for retirees and snowbirds seeking a lock-and-leave lifestyle.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span class="faq-question-text">What are the best neighborhoods in Henderson for families?</span>
+        <div class="faq-toggle"><span class="faq-toggle-icon">+</span></div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">Henderson's top family-friendly neighborhoods include <strong>Green Valley Ranch</strong> (established master-planned with top schools), <strong>Anthem</strong> (guard-gated with resort amenities), <strong>Inspirada</strong> (vibrant new community with parks and events), and <strong>Cadence</strong> (modern master-planned with excellent connectivity). Each offers proximity to highly-rated schools, community parks, and family amenities. The Crighton Rinaldi Team can help you match the right neighborhood to your family's specific priorities.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span class="faq-question-text">What is the property tax rate in Henderson?</span>
+        <div class="faq-toggle"><span class="faq-toggle-icon">+</span></div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">Nevada has some of the lowest property taxes in the nation. Henderson properties fall under Clark County's property tax rate, which is approximately 0.7%–0.9% of assessed value annually — significantly lower than most U.S. states. Nevada also has no state income tax, making the total tax burden on homeowners extremely competitive. Exact rates vary based on the property's taxing district. Your Crighton Rinaldi Team agent can provide current tax estimates for any property you're considering.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span class="faq-question-text">How hot does it get in Henderson, and is it livable year-round?</span>
+        <div class="faq-toggle"><span class="faq-toggle-icon">+</span></div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">Summer temperatures in Henderson regularly reach 105°F–110°F in July and August. That said, Henderson's higher elevation (up to 2,200 ft) makes it marginally cooler than the Las Vegas Strip. The dry desert heat is far more tolerable than humid climates, and most homes feature pools, quality HVAC, and energy-efficient construction. The ideal seasons — October through April — offer warm days, cool nights, and stunning desert landscapes. Henderson is absolutely livable year-round for those who embrace the Southwestern lifestyle.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span class="faq-question-text">Is Henderson a good place for real estate investment?</span>
+        <div class="faq-toggle"><span class="faq-toggle-icon">+</span></div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">Henderson has demonstrated strong long-term appreciation driven by population growth, quality of life rankings, no state income tax, and steady demand from both local and out-of-state buyers. The rental market is solid, particularly near UNLV's graduate campus and major employment corridors. New construction communities like Cadence and Inspirada continue to attract significant buyer interest. Note that investment performance varies significantly by property type and location — the Crighton Rinaldi Team can help you identify investment-grade properties and analyze potential returns.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIFESTYLE -->
+<section id="lifestyle">
+  <div class="lifestyle-text reveal">
+    <p class="section-eyebrow">The Henderson Lifestyle</p>
+    <h2 class="lifestyle-title">Suburban Excellence,<br><em>Beautifully Lived</em></h2>
+    <p class="lifestyle-body">Henderson isn't just a suburb of Las Vegas — it's a destination in its own right. Mornings begin with golf at world-class courses or a walk around sparkling Lake Las Vegas. Evenings offer everything from intimate dining at The District to the energy of the nearby Strip.</p>
+    <p class="lifestyle-body">The community is built around families, safety, and quality of life — consistently earning national recognition as one of America's best cities to live, work, and raise a family.</p>
+    <ul class="lifestyle-bullets">
+      <li>Lake Las Vegas waterfront dining &amp; activities</li>
+      <li>Revere &amp; Rio Secco world-class golf</li>
+      <li>The District at Green Valley Ranch</li>
+      <li>Henderson Pavilion outdoor concerts</li>
+      <li>Lake Mead National Recreation Area nearby</li>
+    </ul>
+  </div>
+  <div class="lifestyle-map-box reveal reveal-delay-2">
+    <div id="lifestyle-map"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="community-cta">
+  <p class="cta-eyebrow reveal">Your Henderson Real Estate Experts</p>
+  <h2 class="cta-title reveal"><em>Ready to Find Your</em><br>Henderson Home?</h2>
+  <p class="cta-subtitle reveal">The Crighton Rinaldi Team has the market knowledge, negotiating expertise, and deep local roots to guide you to the right property at the right price in Henderson.</p>
+  <div class="cta-buttons reveal">
+    <a href="https://www.crightonrinalditeam.com/contact" class="btn-primary">Schedule a Consultation</a>
+    <a href="tel:7028556626" class="btn-outline">Call 702.855.6626</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div>
+        <img src="CrightonRinaldiTeam.webp" alt="Crighton-Rinaldi Team" style="height:52px;width:auto;object-fit:contain;margin-bottom:16px;display:block;">
+        <p class="ft-tag">Top Real Estate Agents serving Las Vegas, Henderson, Summerlin, and the entire valley. A proud member of Rothwell Gornt Companies.</p>
+        <div class="ft-social">
+          <a href="https://www.facebook.com/crightonrinalditeam/" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.zillow.com/profile/CrightonRinaldiTeam" target="_blank" rel="noopener">Zillow</a>
+          <a href="https://www.instagram.com/crightonrinalditeam/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+      <div>
+        <div class="ft-col-h">Buy &amp; Sell</div>
+        <ul class="ft-links">
+          <li><a href="https://search.crightonrinalditeam.com/">Search Homes</a></li>
+          <li><a href="https://www.crightonrinalditeam.com/home-valuation">Home Valuation</a></li>
+          <li><a href="https://www.crightonrinalditeam.com/why-list-with-us">Why List With Us</a></li>
+          <li><a href="https://search.crightonrinalditeam.com/">Off-Market Access</a></li>
+          <li><a href="https://www.crightonrinalditeam.com/join-our-team">Join Our Team</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-col-h">Communities</div>
+        <ul class="ft-links">
+          <li><a href="https://www.crightonrinalditeam.com/communities/las-vegas-real-estate">Las Vegas</a></li>
+          <li><a href="https://www.crightonrinalditeam.com/communities/henderson-real-estate">Henderson</a></li>
+          <li><a href="https://www.crightonrinalditeam.com/communities/summerlin-real-estate">Summerlin</a></li>
+          <li><a href="https://search.crightonrinalditeam.com/">North Las Vegas</a></li>
+          <li><a href="https://search.crightonrinalditeam.com/">Boulder City</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-col-h">Company</div>
+        <ul class="ft-links">
+          <li><a href="https://www.crightonrinalditeam.com/team-page">Our Team</a></li>
+          <li><a href="https://www.crightonrinalditeam.com/testimonials">Testimonials</a></li>
+          <li><a href="https://www.crightonrinalditeam.com/blog">Blog</a></li>
+          <li><a href="https://www.crightonrinalditeam.com/contact-us">Contact Us</a></li>
+          <li><a href="https://www.crightonrinalditeam.com/">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <p class="ft-copy">© Rothwell Gornt Companies 2026. All Rights Reserved. Licensed Real Estate Broker.</p>
+      <div class="ft-legal">
+        <a href="https://www.crightonrinalditeam.com/">Privacy Policy</a>
+        <a href="https://www.crightonrinalditeam.com/">Fair Housing Notice</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE NAV OVERLAY -->
+<div id="mobileNav" style="display:none;position:fixed;inset:0;z-index:490;background:rgba(10,10,10,.97);flex-direction:column;align-items:center;justify-content:center;gap:44px;">
+  <a href="https://search.crightonrinalditeam.com/" style="font-size:13px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,239,240,.7);text-decoration:none;font-family:'Open Sans',sans-serif;">Buy</a>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:18px;border-top:1px solid rgba(51,219,231,0.12);border-bottom:1px solid rgba(51,219,231,0.12);padding:20px 0;">
+    <span style="font-size:9px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:rgba(51,219,231,0.6);font-family:'Open Sans',sans-serif;">Communities</span>
+    <a href="https://www.crightonrinalditeam.com/communities/las-vegas-real-estate" style="font-size:12px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,239,240,.6);text-decoration:none;font-family:'Open Sans',sans-serif;">Las Vegas</a>
+    <a href="henderson.html" style="font-size:12px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(51,219,231,0.9);text-decoration:none;font-family:'Open Sans',sans-serif;">Henderson</a>
+    <a href="https://www.crightonrinalditeam.com/communities/summerlin-real-estate" style="font-size:12px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,239,240,.6);text-decoration:none;font-family:'Open Sans',sans-serif;">Summerlin</a>
+    <a href="https://www.crightonrinalditeam.com/communities/north-las-vegas-real-estate" style="font-size:12px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,239,240,.6);text-decoration:none;font-family:'Open Sans',sans-serif;">North Las Vegas</a>
+    <a href="https://www.crightonrinalditeam.com/communities/boulder-city-real-estate" style="font-size:12px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,239,240,.6);text-decoration:none;font-family:'Open Sans',sans-serif;">Boulder City</a>
+  </div>
+  <a href="https://www.crightonrinalditeam.com/team-page" style="font-size:13px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,239,240,.7);text-decoration:none;font-family:'Open Sans',sans-serif;">Our Team</a>
+  <a href="https://www.crightonrinalditeam.com/blog" style="font-size:13px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,239,240,.7);text-decoration:none;font-family:'Open Sans',sans-serif;">Blog</a>
+  <a href="https://www.crightonrinalditeam.com/contact-us" style="font-size:13px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,239,240,.7);text-decoration:none;font-family:'Open Sans',sans-serif;">Contact</a>
+  <a href="https://www.crightonrinalditeam.com/contact-us" style="font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:#021C1E;background:#33dbe7;padding:16px 40px;text-decoration:none;font-family:'Open Sans',sans-serif;">Schedule Consultation</a>
+</div>
+
+<script>
+/* SCROLL REVEAL */
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  },{threshold:0.12});
+  els.forEach(function(el){ io.observe(el); });
+})();
+
+/* FAQ ACCORDION */
+document.querySelectorAll('.faq-question').forEach(function(q){
+  q.addEventListener('click', function(){
+    var item = this.closest('.faq-item');
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(i){ i.classList.remove('open'); });
+    if(!isOpen){ item.classList.add('open'); }
+  });
+});
+
+/* SCHOOLS TABS */
+document.querySelectorAll('.schools-tab').forEach(function(tab){
+  tab.addEventListener('click', function(){
+    var tabId = this.dataset.tab;
+    document.querySelectorAll('.schools-tab').forEach(function(t){ t.classList.remove('active'); });
+    document.querySelectorAll('.schools-panel').forEach(function(p){ p.classList.remove('active'); });
+    this.classList.add('active');
+    var panel = document.getElementById('tab-' + tabId);
+    if(panel){ panel.classList.add('active'); }
+  });
+});
+
+/* SCROLL PROGRESS BAR */
+window.addEventListener('scroll', function(){
+  var max = document.documentElement.scrollHeight - window.innerHeight;
+  var prog = document.getElementById('prog');
+  if(prog) prog.style.width = (window.scrollY / max * 100) + '%';
+}, {passive:true});
+
+/* NAVBAR SCROLL STATE */
+(function(){
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('scrolled', window.scrollY > 56);
+  }, {passive:true});
+})();
+
+/* CUSTOM CURSOR */
+(function(){
+  var outer = document.getElementById('cOuter');
+  var inner = document.getElementById('cInner');
+  if(!outer || !inner) return;
+  var mx=0, my=0, ox=0, oy=0;
+  document.addEventListener('mousemove', function(e){
+    mx=e.clientX; my=e.clientY;
+    inner.style.left=mx+'px'; inner.style.top=my+'px';
+  });
+  (function loop(){
+    ox += (mx-ox)*0.11; oy += (my-oy)*0.11;
+    outer.style.left=ox+'px'; outer.style.top=oy+'px';
+    requestAnimationFrame(loop);
+  })();
+  document.querySelectorAll('a,button').forEach(function(el){
+    el.addEventListener('mouseenter',function(){ outer.style.width='58px'; outer.style.height='58px'; outer.style.background='rgba(51,219,231,.07)'; });
+    el.addEventListener('mouseleave',function(){ outer.style.width='32px'; outer.style.height='32px'; outer.style.background='none'; });
+  });
+})();
+
+/* MOBILE NAV */
+(function(){
+  var ham = document.getElementById('ham');
+  var mob = document.getElementById('mobileNav');
+  if(!ham || !mob) return;
+  var open = false;
+  ham.addEventListener('click', function(){
+    open = !open;
+    mob.style.display = open ? 'flex' : 'none';
+    ham.querySelectorAll('span')[0].style.transform = open ? 'rotate(45deg) translate(4px,4px)' : '';
+    ham.querySelectorAll('span')[1].style.transform = open ? 'rotate(-45deg) translate(4px,-4px)' : '';
+  });
+  mob.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      open=false; mob.style.display='none';
+      ham.querySelectorAll('span')[0].style.transform='';
+      ham.querySelectorAll('span')[1].style.transform='';
+    });
+  });
+})();
+</script>
+
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.js"></script>
+<script>
+window.CV_MAP_CONFIG = {
+  city:          "Henderson",
+  subtitle:      "Clark County, Nevada",
+  lng:           -115.045,
+  lat:            36.025,
+  heroZoom:       11.5,
+  lifestyleZoom:  11.0,
+  boundary: [
+    [-115.145, 36.072], [-115.080, 36.090], [-114.990, 36.080],
+    [-114.920, 36.040], [-114.905, 35.970], [-114.940, 35.935],
+    [-115.020, 35.930], [-115.095, 35.955], [-115.135, 35.990],
+    [-115.150, 36.030], [-115.145, 36.072]
+  ],
+  pois: [
+    { name: "Lake Las Vegas",         desc: "320-acre private lake with resort amenities",       lng: -114.938, lat: 36.098, icon: "🌊" },
+    { name: "The District at GVR",    desc: "Premier open-air shopping & dining destination",   lng: -115.085, lat: 36.018, icon: "🛍️" },
+    { name: "Revere Golf Club",       desc: "Championship golf with Las Vegas Strip views",      lng: -115.032, lat: 36.010, icon: "⛳" },
+    { name: "Henderson Hospital",     desc: "Modern full-service hospital & emergency care",     lng: -115.018, lat: 35.972, icon: "🏥" },
+    { name: "Anthem Country Club",    desc: "Luxury guard-gated golf community in South Henderson", lng: -115.038, lat: 35.960, icon: "🏆" }
+  ]
+};
+
+(function(){
+  var TOKEN   = 'pk.eyJ1IjoidmVnYXMta2l3aSIsImEiOiJjbW8waXJoaWEwOHN2MnJxYTl2bWNlaGp0In0.C57V2IUuHiNKHn5LLlbXog';
+  var STYLE   = 'mapbox://styles/mapbox/standard';
+  var cfg     = window.CV_MAP_CONFIG;
+
+  /* Road coordinates — I-215 beltway (blue) + I-515 corridor (gray) */
+  var I215 = [[-115.168,36.018],[-115.140,35.980],[-115.100,35.953],[-115.052,35.940],[-115.010,35.948],[-114.968,35.968],[-114.938,36.002]];
+  var I515 = [[-115.062,36.082],[-115.058,36.055],[-115.053,36.025],[-115.048,36.000],[-115.043,35.975],[-115.038,35.945]];
+
+  function addRoads(map) {
+    map.addSource('cv-i215', { type:'geojson', data:{ type:'Feature', geometry:{ type:'LineString', coordinates:I215 } } });
+    map.addLayer({ id:'cv-i215-glow', type:'line', source:'cv-i215', paint:{ 'line-color':'#5ba4ff','line-width':6,'line-opacity':0.22,'line-blur':4 } });
+    map.addLayer({ id:'cv-i215-line', type:'line', source:'cv-i215', paint:{ 'line-color':'#7dbfff','line-width':2,'line-opacity':0.72 } });
+
+    map.addSource('cv-i515', { type:'geojson', data:{ type:'Feature', geometry:{ type:'LineString', coordinates:I515 } } });
+    map.addLayer({ id:'cv-i515-glow', type:'line', source:'cv-i515', paint:{ 'line-color':'#C8C8C8','line-width':5,'line-opacity':0.18,'line-blur':4 } });
+    map.addLayer({ id:'cv-i515-line', type:'line', source:'cv-i515', paint:{ 'line-color':'#C8C8C8','line-width':2,'line-opacity':0.62 } });
+  }
+
+  function addBoundary(map) {
+    map.addSource('cv-boundary', { type:'geojson', data:{ type:'Feature', geometry:{ type:'Polygon', coordinates:[cfg.boundary] } } });
+    map.addLayer({ id:'cv-boundary-fill', type:'fill',   source:'cv-boundary', paint:{ 'fill-color':'#C8C8C8','fill-opacity':0.08 } });
+    map.addLayer({ id:'cv-boundary-line', type:'line',   source:'cv-boundary', paint:{ 'line-color':'#C8C8C8','line-width':1.5,'line-opacity':0.55 } });
+  }
+
+  function addPOIs(map) {
+    cfg.pois.forEach(function(poi){
+      var el = document.createElement('div');
+      el.className = 'cv-map-poi';
+      el.textContent = poi.icon;
+      var popup = new mapboxgl.Popup({ className:'cv-poi-popup', offset:18, closeButton:false })
+        .setHTML('<div class="cv-poi-name">'+poi.name+'</div><div class="cv-poi-desc">'+poi.desc+'</div>');
+      new mapboxgl.Marker({ element:el }).setLngLat([poi.lng, poi.lat]).setPopup(popup).addTo(map);
+    });
+  }
+
+  mapboxgl.accessToken = TOKEN;
+
+  /* ── HERO MAP ── */
+  var heroEl = document.getElementById('hero-map');
+  if (heroEl) {
+    var heroMap = new mapboxgl.Map({
+      container: 'hero-map', style: STYLE,
+      center: [cfg.lng, cfg.lat], zoom: cfg.heroZoom || 12,
+      pitch: 45, bearing: -10, interactive: false, attributionControl: false
+    });
+    heroMap.on('load', function(){
+      heroMap.setConfigProperty('basemap','lightPreset','night');
+      heroMap.once('idle', function(){ addRoads(heroMap); addBoundary(heroMap); });
+    });
+  }
+
+  /* ── CONTEXT MAP (location section) ── */
+  var ctxEl = document.getElementById('context-map');
+  if (ctxEl) {
+    var ctxMap = new mapboxgl.Map({
+      container: 'context-map', style: STYLE,
+      center: [-115.06, 36.085], zoom: 9.8,
+      pitch: 0, bearing: 0, interactive: false, attributionControl: false
+    });
+
+    /* Las Vegas Valley nearby cities for label markers */
+    var VALLEY_CITIES = [
+      { name: 'Las Vegas',       lng: -115.148, lat: 36.175 },
+      { name: 'North Las Vegas', lng: -115.117, lat: 36.265 },
+      { name: 'Summerlin',       lng: -115.325, lat: 36.175 },
+      { name: 'Enterprise',      lng: -115.215, lat: 36.038 },
+      { name: 'Paradise',        lng: -115.125, lat: 36.110 },
+      { name: 'Boulder City',    lng: -114.835, lat: 35.979 },
+      { name: 'Henderson',       lng: -115.020, lat: 36.018, active: true }
+    ];
+
+    ctxMap.on('load', function(){
+      ctxMap.setConfigProperty('basemap','lightPreset','night');
+      ctxMap.once('idle', function(){
+        /* Road layers */
+        addRoads(ctxMap);
+
+        /* Henderson boundary — yellow highlight */
+        ctxMap.addSource('ctx-henderson', {
+          type: 'geojson',
+          data: { type:'Feature', geometry:{ type:'Polygon', coordinates:[cfg.boundary] } }
+        });
+        ctxMap.addLayer({ id:'ctx-henderson-fill', type:'fill', source:'ctx-henderson',
+          paint:{ 'fill-color':'#FFE14D', 'fill-opacity':0.20 } });
+        ctxMap.addLayer({ id:'ctx-henderson-line', type:'line', source:'ctx-henderson',
+          paint:{ 'line-color':'#FFE14D', 'line-width':2, 'line-opacity':0.92 } });
+
+        /* Valley city label markers */
+        VALLEY_CITIES.forEach(function(city){
+          var el = document.createElement('div');
+          el.className = 'valley-city-label' + (city.active ? ' active' : '');
+          el.textContent = city.name.toUpperCase();
+          new mapboxgl.Marker({ element:el, anchor:'center' })
+            .setLngLat([city.lng, city.lat])
+            .addTo(ctxMap);
+        });
+      });
+    });
+  }
+
+  /* ── LIFESTYLE MAP (lazy-loaded via IntersectionObserver) ── */
+  var lsEl = document.getElementById('lifestyle-map');
+  if (lsEl) {
+    var lsInited = false;
+    function initLifestyleMap() {
+      if (lsInited) return;
+      lsInited = true;
+      var lsMap = new mapboxgl.Map({
+        container: 'lifestyle-map', style: STYLE,
+        center: [cfg.lng, cfg.lat], zoom: cfg.lifestyleZoom || 11.5,
+        pitch: 52, bearing: -17, attributionControl: false
+      });
+      lsMap.addControl(new mapboxgl.NavigationControl({ showCompass:false }), 'top-right');
+      setTimeout(function(){ lsMap.resize(); }, 200);
+      lsMap.on('load', function(){
+        lsMap.setConfigProperty('basemap','lightPreset','night');
+        lsMap.once('idle', function(){
+          addRoads(lsMap);
+          addBoundary(lsMap);
+          addPOIs(lsMap);
+          var lbl = document.createElement('div');
+          lbl.className = 'cv-map-label';
+          lbl.innerHTML = '<span class="cv-map-label-city">'+cfg.city+'</span><span class="cv-map-label-sub">'+cfg.subtitle+'</span>';
+          lsMap.getContainer().appendChild(lbl);
+        });
+      });
+    }
+    /* Lazy-load on scroll into view; fall back to immediate init after 1.5s */
+    var lsObs = new IntersectionObserver(function(entries){
+      if (entries[0].isIntersecting) { lsObs.disconnect(); initLifestyleMap(); }
+    }, { threshold:0.1, rootMargin:'200px' });
+    lsObs.observe(lsEl);
+    setTimeout(initLifestyleMap, 1500);
+  }
+})();
+</script>
+</body>
+</html>
