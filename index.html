@@ -416,6 +416,138 @@
   }
   .btn-ol:hover { background: var(--gold); }
 
+  /* ── YLOPO WIDGET OVERRIDES — tall dark overlay portrait card design ── */
+  .YLOPO-widget .widget-gallery-container.DEFAULT {
+    display: grid !important;
+    grid-template-columns: repeat(3,1fr) !important;
+    gap: 3px !important;
+    width: 100% !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin-top: 52px !important;
+  }
+  .YLOPO-widget .grid-view-item {
+    min-width: 0 !important;
+    float: none !important;
+    width: auto !important;
+    padding: 0 !important;
+  }
+  .YLOPO-widget .gallery-card-b {
+    position: relative !important;
+    aspect-ratio: 3/4 !important;
+    overflow: hidden !important;
+    background: var(--charcoal) !important;
+    cursor: pointer !important;
+    display: block !important;
+  }
+  .YLOPO-widget .gallery-card-b-main-card {
+    position: absolute !important;
+    inset: 0 !important;
+  }
+  .YLOPO-widget .gallery-card-b-image-container {
+    position: absolute !important;
+    inset: 0 !important;
+    height: 100% !important;
+    width: 100% !important;
+  }
+  .YLOPO-widget .gallery-card-b-image-container::after {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(to top,rgba(10,10,10,.88) 0%,rgba(10,10,10,.22) 55%,transparent 100%) !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+  }
+  .YLOPO-widget .gallery-card-b-image-container a {
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+  }
+  .YLOPO-widget .listing-image-with-map-image-layout,
+  .YLOPO-widget .listin-image-with-map-compliance-bin {
+    position: absolute !important;
+    inset: 0 !important;
+    height: 100% !important;
+  }
+  .YLOPO-widget .full-background-img {
+    position: absolute !important;
+    inset: 0 !important;
+  }
+  .YLOPO-widget .full-background-img .img {
+    width: 100% !important;
+    height: 100% !important;
+    transition: transform .7s cubic-bezier(.25,.46,.45,.94) !important;
+  }
+  .YLOPO-widget .gallery-card-b:hover .full-background-img .img {
+    transform: scale(1.07) !important;
+  }
+  .YLOPO-widget .gallery-card-b-details-container {
+    position: absolute !important;
+    bottom: 0 !important; left: 0 !important; right: 0 !important;
+    z-index: 2 !important;
+    padding: 28px !important;
+    background: transparent !important;
+  }
+  .YLOPO-widget .gallery-card-b-summary-details { background: transparent !important; }
+  .YLOPO-widget .gallery-card-b-address-block .layout > div:first-child {
+    font-family: var(--fd) !important;
+    font-size: 22px !important; font-weight: 400 !important;
+    color: var(--white) !important; line-height: 1.25 !important; margin-bottom: 8px !important;
+  }
+  .YLOPO-widget .locality {
+    font-size: 9.5px !important; font-weight: 400 !important;
+    letter-spacing: 0.2em !important; text-transform: uppercase !important;
+    color: var(--gold) !important; margin-bottom: 12px !important;
+    display: block !important;
+  }
+  .YLOPO-widget .locality span { display: inline !important; }
+  .YLOPO-widget .summary-info {
+    display: flex !important; gap: 18px !important;
+    background: transparent !important;
+  }
+  .YLOPO-widget .info-block {
+    display: flex !important; flex-direction: column !important;
+    font-size: 9px !important; font-weight: 400 !important;
+    letter-spacing: 0.12em !important; text-transform: uppercase !important;
+    color: rgba(237,239,240,.55) !important;
+    background: transparent !important;
+  }
+  .YLOPO-widget .info-block .label { order: 2 !important; }
+  .YLOPO-widget .info-block > span:not(.label) {
+    display: block !important; order: 1 !important;
+    font-size: 13px !important; font-weight: 500 !important;
+    color: var(--white) !important; letter-spacing: 0 !important; margin-bottom: 2px !important;
+  }
+  .YLOPO-widget .listing-status-flag {
+    position: absolute !important; top: 22px !important; left: 22px !important;
+    font-size: 8.5px !important; font-weight: 600 !important;
+    letter-spacing: 0.22em !important; text-transform: uppercase !important;
+    color: var(--charcoal) !important; background: var(--gold) !important;
+    padding: 5px 12px !important; z-index: 3 !important; border-radius: 0 !important;
+    font-family: var(--fb) !important;
+  }
+  .YLOPO-widget img.map-overlay,
+  .YLOPO-widget .favorite-icon-wrapper,
+  .YLOPO-widget .card-icon,
+  .YLOPO-widget .property-details-wrap,
+  .YLOPO-widget .gallery-card-b-generate-sort-block,
+  .YLOPO-widget .idx-compliance { display: none !important; }
+
+  /* Pagination & sort keep minimal styling */
+  .YLOPO-widget .widget-sort-panel,
+  .YLOPO-widget .pagination-footer,
+  .YLOPO-widget .widget-results-header {
+    background: transparent !important;
+    color: var(--black) !important;
+  }
+  @media(max-width:1024px){
+    .YLOPO-widget .widget-gallery-container.DEFAULT { grid-template-columns: repeat(2,1fr) !important; }
+  }
+  @media(max-width:600px){
+    .YLOPO-widget .widget-gallery-container.DEFAULT { grid-template-columns: 1fr !important; }
+  }
+
   /* ── TEAM ── */
   #team {
     background: var(--charcoal);
