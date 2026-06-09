@@ -1,0 +1,2457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+<title>Crighton-Rinaldi Team | Top Real Estate Agents in Las Vegas</title>
+<meta name="description" content="Crighton-Rinaldi Team — Top Real Estate Agents in Las Vegas. Extraordinary properties, exceptional representation across Summerlin, Henderson, The Strip, and all of Las Vegas.">
+<meta name="keywords" content="Las Vegas real estate, luxury homes Las Vegas, Summerlin real estate, Henderson homes, luxury brokerage Las Vegas, Crighton Rinaldi">
+<meta property="og:title" content="Crighton-Rinaldi Team — Top Real Estate Agents in Las Vegas">
+<meta property="og:description" content="Curating Las Vegas's most extraordinary properties for discerning buyers and sellers.">`
+<meta property="og:type" content="website">
+<!-- Image preloads -->
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="preconnect" href="https://picsum.photos">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=90&fit=crop" fetchpriority="high">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=700&q=80&fit=crop&crop=faces">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<script>
+  var YLOPO_HOSTNAME = 'search.crightonrinalditeam.com';
+  window.YLOPO_WIDGETS = { domain: 'search.crightonrinalditeam.com' };
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          'lux-black':    '#0A0A0A',
+          'lux-charcoal': '#021C1E',
+          'lux-white':    '#EDEFF0',
+          'lux-gold':     '#33dbe7',
+          'lux-beige':    '#ededc2',
+          'lux-teal':     '#7acfd1',
+          'lux-mint':     '#bcdecd',
+          'lux-ocean':    '#0E201F',
+        },
+        fontFamily: {
+          'display': ['"Tenor Sans"', 'sans-serif'],
+          'heading':  ['"Tenor Sans"',  'sans-serif'],
+          'body':     ['"Open Sans"', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black:    #0A0A0A;
+    --charcoal: #021C1E;
+    --dark2:    #171711;
+    --ocean:    #0E201F;
+    --white:    #EDEFF0;
+    --gold:     #33dbe7;
+    --beige:    #ededc2;
+    --teal:     #7acfd1;
+    --mint:     #bcdecd;
+    --fd: 'Tenor Sans', sans-serif;
+    --fh: 'Tenor Sans',  sans-serif;
+    --fb: 'Open Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--fb);
+    background: var(--white);
+    color: var(--black);
+    -webkit-font-smoothing: antialiased;
+    cursor: none;
+    overflow-x: hidden;
+	      background: #000;
+  }
+
+  a  { text-decoration: none; color: inherit; }
+  img { display: block; max-width: 100%; }
+
+  /* ── SCROLL PROGRESS ── */
+  #prog {
+    position: fixed; top: 0; left: 0;
+    height: 2px; width: 0%;
+    background: var(--gold);
+    z-index: 1000;
+    transition: width 0.08s linear;
+  }
+
+  /* ── LOADER ── */
+  #loader {
+    position: fixed; inset: 0;
+    background: var(--black);
+    z-index: 9999;
+    display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 20px;
+    transition: opacity 0.9s ease, visibility 0.9s ease;
+  }
+  #loader.out { opacity: 0; visibility: hidden; pointer-events: none; }
+  .ldr-logo { display: none; }
+  .ldr-bar {
+    width: 0; height: 1px; background: var(--gold);
+    animation: growBar 1.2s ease 0.7s forwards;
+  }
+  .ldr-sub {
+    font-family: var(--fb); font-size: 16px; font-weight: 400;
+    letter-spacing: 0.26em; text-transform: uppercase; color: rgba(237,239,240,.35);
+    opacity: 0; animation: fadeUp 0.7s ease 1.1s forwards;
+  }
+  @keyframes fadeUp  { to { opacity: 1; transform: none; } from { opacity: 0; transform: translateY(10px); } }
+  @keyframes growBar { to { width: 100px; } }
+
+  /* ── CUSTOM CURSOR ── */
+  #cOuter {
+    position: fixed; width: 32px; height: 32px;
+    border: 1px solid rgba(51,219,231,.7); border-radius: 50%;
+    pointer-events: none; z-index: 9998;
+    transform: translate(-50%,-50%);
+    transition: width .22s ease, height .22s ease, background .22s ease, opacity .3s ease;
+    opacity: 0;
+  }
+  #cInner {
+    position: fixed; width: 4px; height: 4px;
+    background: var(--gold); border-radius: 50%;
+    pointer-events: none; z-index: 9998;
+    transform: translate(-50%,-50%);
+    transition: opacity .3s ease;
+    opacity: 0;
+  }
+  body:hover #cOuter,
+  body:hover #cInner { opacity: 1; }
+
+  /* ── NAVBAR ── */
+  #nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+    padding: 16px 56px;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: background .45s ease, padding .45s ease, backdrop-filter .45s ease;
+  }
+  #nav.scrolled {
+    background: rgba(10,10,10,.93);
+    backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+    padding: 12px 56px;
+    border-bottom: 1px solid rgba(51,219,231,.12);
+  }
+  .nav-logo {
+    display: flex; align-items: center;
+    user-select: none; flex-shrink: 0;
+  }
+  .nav-links { display: flex; align-items: center; gap: 40px; list-style: none; }
+  .nav-links a {
+    font-size: 16px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(237,239,240,.62);
+    transition: color .22s ease;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -5px; left: 0;
+    width: 0; height: 1px; background: var(--gold);
+    transition: width .32s ease;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta {
+    font-size: 16px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); border: 1px solid rgba(51,219,231,.6);
+    padding: 11px 28px;
+    transition: background .3s ease, color .3s ease, border-color .3s ease;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+  .nav-ham { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .nav-ham span { display: block; width: 22px; height: 1px; background: var(--white); }
+
+  /* ── COMMUNITIES DROPDOWN ── */
+  .nav-communities { position: relative; }
+  .nav-communities-trigger { display: flex; align-items: center; gap: 5px; cursor: pointer; font-size: 16px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(237,239,240,.62); transition: color .22s ease; }
+  .nav-communities-trigger::after { content: '▾'; font-size: 16px; color: rgba(237,239,240,.4); transition: color .22s ease; }
+  .nav-communities:hover .nav-communities-trigger,
+  .nav-communities:hover .nav-communities-trigger::after { color: var(--white); }
+  .communities-dropdown { position: absolute; top: calc(100% + 20px); left: 50%; transform: translateX(-50%) translateY(-6px); background: rgba(10,10,10,.97); border: 1px solid rgba(51,219,231,.15); min-width: 200px; opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 100; }
+  .communities-dropdown::before { content: ''; position: absolute; top: -20px; left: 0; right: 0; height: 20px; }
+  .nav-communities:hover .communities-dropdown { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+  .communities-dropdown a { display: block; padding: 11px 20px; font-size: 16px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(237,239,240,.65); text-decoration: none; border-bottom: 1px solid rgba(51,219,231,.08); transition: color .2s, background .2s; }
+  .communities-dropdown a:last-child { border-bottom: none; }
+  .communities-dropdown a:hover { color: var(--gold); background: rgba(51,219,231,.05); }
+
+  /* ── OVERLINE ── */
+  .ol {
+    display: flex; align-items: center; gap: 14px;
+    font-size: 16px; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--gold);
+  }
+  .ol::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); flex-shrink: 0; }
+
+  /* ── REVEAL ── */
+  .rv {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity .85s ease, transform .85s ease;
+  }
+  .rv.vis { opacity: 1; transform: none; }
+  .rv.d1 { transition-delay: .1s; } .rv.d2 { transition-delay: .2s; }
+  .rv.d3 { transition-delay: .3s; } .rv.d4 { transition-delay: .4s; }
+  .rv.d5 { transition-delay: .5s; }
+
+  /* ── GRAIN FILTER ── */
+  #grain-filter { position: absolute; width: 0; height: 0; }
+
+  /* ── HERO ── */
+  #hero {
+    position: relative; height: 100vh; min-height: 680px;
+    display: flex; align-items: flex-end; overflow: hidden;
+    background: var(--black);
+  }
+  #hBg {
+    position: absolute; inset: 0;
+    overflow: hidden;
+    transform: scale(1.06);
+    will-change: transform;
+  }
+  #hBg iframe {
+    position: absolute;
+    top: 50%; left: 50%;
+    /* cover trick: keep 16:9 ratio and always fill the container */
+    width: 100vw;
+    height: 56.25vw;   /* 100/16*9 */
+    min-width: 177.78vh; /* 100/9*16 */
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border: none;
+  }
+  .h-ov {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      175deg,
+      rgba(10,10,10,.78) 0%,
+      rgba(10,10,10,.30) 40%,
+      rgba(10,10,10,.88) 100%
+    );
+  }
+  /* dark fade from nav into hero so there is no visible "seam" */
+  .h-nav-fade {
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 140px; z-index: 3; pointer-events: none;
+    background: linear-gradient(to bottom, rgba(10,10,10,.85) 0%, transparent 100%);
+  }
+  .h-ov2 {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 20% 80%, rgba(51,219,231,.08) 0%, transparent 70%);
+  }
+  .h-grain {
+    position: absolute; inset: 0; opacity: .035; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat; background-size: 200px;
+  }
+
+  .h-content {
+    position: relative; z-index: 2;
+    width: 100%; max-width: 1440px; margin: 0 auto;
+    padding: 0 60px 88px;
+  }
+  /* hero content always starts visible; subtle fade-up on load */
+  @keyframes hIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  @keyframes hFd { from { opacity: 0; } to { opacity: 1; } }
+  .h-content .ol { animation: hIn .7s ease .05s both; }
+  .h-hl          { animation: hIn .8s ease .05s both; }
+  .h-sub         { animation: hIn .7s ease .05s both; }
+  .h-ctas        { animation: hIn .7s ease .05s both; }
+  .h-stats       { animation: hFd .7s ease .05s both; }
+
+  .h-hl {
+    font-family: var(--fd);
+    font-size: clamp(44px, 5.5vw, 88px);
+    font-weight: 300; line-height: 1.0; letter-spacing: -.02em;
+    color: var(--white); margin: 20px 0 26px;
+  }
+  .h-hl em { font-style: italic; color: var(--gold); }
+
+  .h-sub {
+    font-size: 18px; font-weight: 300; line-height: 1.75;
+    color: rgba(237,239,240,.6); max-width: 460px; margin-bottom: 44px;
+  }
+
+  .h-ctas { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 44px; }
+
+  .btn-gld {
+    font-size: 16px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--charcoal); background: var(--gold); padding: 16px 40px; border: none;
+    transition: background .3s ease, color .3s ease, transform .2s ease;
+    cursor: pointer; display: inline-block;
+  }
+  .btn-gld:hover { background: var(--charcoal); color: var(--white); transform: translateY(-2px); }
+
+  .btn-ghost {
+    font-size: 16px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--white); border: 1px solid rgba(237,239,240,.38);
+    padding: 16px 40px;
+    transition: border-color .3s ease, color .3s ease, transform .2s ease;
+    cursor: pointer; display: inline-block;
+  }
+  .btn-ghost:hover { border-color: var(--white); transform: translateY(-2px); }
+
+  .h-stats {
+    display: grid; grid-template-columns: repeat(4,1fr);
+    border-top: 1px solid rgba(51,219,231,.2);
+    padding-top: 36px; gap: 0;
+  }
+  .h-stat { padding-right: 20px; }
+  .h-stat-n {
+    font-family: var(--fd);
+    font-size: 38px; font-weight: 300; letter-spacing: -.02em;
+    color: var(--gold); line-height: 1; margin-bottom: 7px;
+  }
+  .h-stat-l {
+    font-size: 16px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(237,239,240,.4);
+  }
+
+  .h-scroll-ind {
+    position: absolute; bottom: 40px; right: 52px; z-index: 3;
+    display: flex; flex-direction: column; align-items: center; gap: 9px;
+    opacity: .45;
+  }
+  .h-scroll-ind span {
+    font-size: 16px; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--white); writing-mode: vertical-rl;
+  }
+  .h-scroll-bar {
+    width: 1px; height: 52px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease infinite;
+  }
+  @keyframes scrollPulse {
+    0%,100% { transform: scaleY(1);   opacity: .5; }
+    50%      { transform: scaleY(.55); opacity: 1;  }
+  }
+
+  /* ── SECTION SHELLS ── */
+  .sec { padding: 128px 60px; }
+  .sec-inner { max-width: 1440px; margin: 0 auto; }
+  .sec-hd { margin-bottom: 20px; }
+  .sec-title {
+    font-family: var(--fh);
+    font-size: clamp(34px, 4vw, 62px);
+    font-weight: 400; letter-spacing: -.02em; line-height: 1.08;
+    color: var(--black); margin: 18px 0 36px;
+  }
+  .sec-title-light { color: var(--white); }
+
+  /* ── PROPERTIES ── */
+  /* ── PROPERTIES ── */
+  #properties { background: #f4f6f6; }
+  .ylopo-widget-wrap { margin-top: 0; width: 100%; }
+
+  /* Listing tabs */
+  .listing-tabs { display: flex; gap: 0; margin-bottom: 28px; }
+  .listing-tab {
+    padding: 9px 26px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(2,28,30,.42); border: 1px solid rgba(2,28,30,.14);
+    cursor: pointer; transition: all .22s ease; margin-right: -1px; position: relative;
+  }
+  .listing-tab.selected {
+    color: var(--charcoal); background: var(--gold); border-color: var(--gold); z-index: 1;
+  }
+  .listing-tab:hover:not(.selected) { color: var(--charcoal); background: rgba(51,219,231,.08); }
+
+  /* Scroller outer */
+  .listings-scroll-wrap { position: relative; }
+  .listings-arrow {
+    position: absolute; top: 37%; transform: translateY(-50%);
+    width: 38px; height: 38px; border-radius: 50%;
+    background: #fff; border: 1px solid rgba(2,28,30,.13);
+    box-shadow: 0 2px 10px rgba(0,0,0,.1);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; z-index: 10;
+    transition: background .22s ease, box-shadow .22s ease, opacity .22s ease;
+    font-size: 22px; line-height: 1; color: var(--charcoal); user-select: none;
+    font-style: normal; outline: none; border: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,.12); border: 1px solid rgba(2,28,30,.12);
+  }
+  .listings-arrow:hover { background: var(--gold); box-shadow: 0 4px 18px rgba(51,219,231,.3); }
+  .listings-arrow:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .listings-arrow.lft { left: -20px; }
+  .listings-arrow.rgt { right: -20px; }
+  .listings-arrow.disabled { opacity: 0.22; pointer-events: none; }
+
+  .listings-scroller { overflow: hidden; padding-bottom: 6px; }
+  .listings-content {
+    display: flex; gap: 18px; padding: 6px 0 14px; width: max-content;
+    transition: transform .48s cubic-bezier(.25,.46,.45,.94);
+    will-change: transform;
+  }
+
+  /* YLOPO widget carousel wrapper */
+  .ylopo-carousel-outer { position: relative; }
+  .ylopo-carousel-vp { overflow: hidden; }
+
+  /* ── LISTING CARD (locallivingrg style) ── */
+  .l-card {
+    flex: 0 0 auto; width: auto;
+    background: #fff; border: 1px solid rgba(2,28,30,.09);
+    border-radius: 10px; overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.03);
+    transition: transform .28s cubic-bezier(.25,.46,.45,.94), box-shadow .28s ease;
+    text-decoration: none; color: inherit; display: block;
+  }
+  .l-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 36px rgba(0,0,0,.11), 0 2px 8px rgba(0,0,0,.06);
+  }
+  .l-card-img {
+    position: relative; width: 100%; aspect-ratio: 3/2; overflow: hidden; background: #ddd;
+  }
+  .l-card-img img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform .55s cubic-bezier(.25,.46,.45,.94);
+  }
+  .l-card:hover .l-card-img img { transform: scale(1.06); }
+  .l-status {
+    position: absolute; top: 10px; left: 10px;
+    font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase;
+    background: var(--gold); color: var(--charcoal); padding: 4px 10px; border-radius: 2px;
+    font-family: var(--fb);
+  }
+  .l-img-meta {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 24px 10px 8px;
+    background: linear-gradient(to top, rgba(0,0,0,.42) 0%, transparent 100%);
+    display: flex; align-items: flex-end; justify-content: flex-end;
+  }
+  .l-img-count {
+    font-size: 10px; color: #fff; letter-spacing: .06em;
+    display: flex; align-items: center; gap: 4px; font-family: var(--fb);
+  }
+  .l-img-count svg { width: 11px; height: 11px; fill: #fff; flex-shrink: 0; }
+
+  .l-card-body { padding: 14px 15px 13px; }
+  .l-addr {
+    font-size: 13px; font-weight: 700; color: #021C1E;
+    line-height: 1.3; margin-bottom: 3px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    font-family: var(--fb);
+  }
+  .l-city { font-size: 12px; color: rgba(2,28,30,.45); margin-bottom: 9px; font-family: var(--fb); }
+  .l-price {
+    font-family: var(--fd); font-size: 20px; font-weight: 400;
+    color: #021C1E; margin-bottom: 10px; letter-spacing: -.01em;
+  }
+  .l-amenities {
+    display: flex; gap: 0;
+    border-top: 1px solid rgba(2,28,30,.09); border-bottom: 1px solid rgba(2,28,30,.09);
+    margin-bottom: 10px;
+  }
+  .l-amenity {
+    flex: 1; display: flex; flex-direction: column; align-items: center;
+    padding: 7px 0; font-size: 10px; color: rgba(2,28,30,.4);
+    letter-spacing: .1em; text-transform: uppercase; font-family: var(--fb);
+    border-right: 1px solid rgba(2,28,30,.08);
+  }
+  .l-amenity:last-child { border-right: none; }
+  .l-amenity strong {
+    font-size: 14px; font-weight: 700; color: #021C1E;
+    letter-spacing: 0; margin-bottom: 1px; font-family: var(--fb);
+  }
+  .l-days { font-size: 11px; color: rgba(2,28,30,.32); margin-bottom: 3px; font-family: var(--fb); }
+  .l-mls { font-size: 10px; color: rgba(2,28,30,.26); line-height: 1.55; font-family: var(--fb); }
+
+  .view-all { display: flex; justify-content: center; margin-top: 44px; }
+  .btn-ol {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--charcoal); border: 1.5px solid var(--gold); padding: 14px 48px;
+    transition: background .3s ease, color .3s ease; cursor: pointer; display: inline-block;
+    border-radius: 2px;
+  }
+  .btn-ol:hover { background: var(--gold); }
+
+  /* ── YLOPO WIDGET OVERRIDES — horizontal scroll, landscape card (locallivingrg style) ── */
+  .YLOPO-widget .widget-gallery-container,
+  .YLOPO-widget .widget-gallery-container.DEFAULT {
+    display: flex !important; flex-wrap: nowrap !important; overflow: visible !important;
+    gap: 18px !important; width: max-content !important; max-width: none !important;
+    background: transparent !important; padding: 6px 0 14px !important;
+    margin-top: 0 !important; justify-content: flex-start !important;
+    transition: transform .48s cubic-bezier(.25,.46,.45,.94) !important;
+    will-change: transform !important;
+  }
+  .YLOPO-widget .grid-view-item {
+    flex: 0 0 345px !important; width: 272px !important; min-width: 0 !important;
+    max-width: none !important; margin: 0 !important; padding: 0 !important; float: none !important;
+  }
+  /* Card shell: white, rounded, landscape */
+  .YLOPO-widget .gallery-card-b,
+  .YLOPO-widget .widget-gallery-container .grid-view-item > .gallery-card-b {
+    position: relative !important; width: 100% !important; max-width: none !important;
+    height: auto !important; padding-bottom: 0 !important; overflow: hidden !important;
+    background: #fff !important; cursor: pointer !important;
+    display: flex !important; flex-direction: column !important;
+    border: 1px solid rgba(2,28,30,.09) !important; border-radius: 10px !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.03) !important;
+    isolation: isolate !important;
+    transition: transform .28s cubic-bezier(.25,.46,.45,.94), box-shadow .28s ease !important;
+  }
+  .YLOPO-widget .gallery-card-b:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 14px 36px rgba(0,0,0,.11), 0 2px 8px rgba(0,0,0,.06) !important;
+  }
+  /* Main card layout */
+  .YLOPO-widget .gallery-card-b-main-card {
+    position: relative !important; inset: unset !important;
+    display: flex !important; flex-direction: column !important;
+    height: auto !important; border: none !important;
+    background: transparent !important; text-align: left !important;
+  }
+  /* Image container: landscape 3:2 */
+  .YLOPO-widget .gallery-card-b-main-card .gallery-card-b-image-container {
+    position: relative !important; inset: unset !important;
+    width: 100% !important; height: 0 !important; padding-bottom: 66.67% !important;
+    max-height: none !important; overflow: hidden !important;
+    border-radius: 10px 10px 0 0 !important;
+  }
+  .YLOPO-widget .gallery-card-b-image-container > a {
+    display: block !important; position: absolute !important; inset: 0 !important;
+  }
+  .YLOPO-widget .listing-image-with-map-image-layout,
+  .YLOPO-widget .listin-image-with-map-compliance-bin {
+    position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important;
+  }
+  .YLOPO-widget .full-background-img {
+    position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important;
+  }
+  .YLOPO-widget .full-background-img .img {
+    position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important;
+    background-size: cover !important; background-position: center !important;
+    transition: transform .55s cubic-bezier(.25,.46,.45,.94) !important;
+  }
+  .YLOPO-widget .gallery-card-b:hover .full-background-img .img { transform: scale(1.06) !important; }
+  /* Details: below image, white bg */
+  .YLOPO-widget .gallery-card-b-main-card .gallery-card-b-details-container {
+    position: relative !important; inset: unset !important; z-index: 2 !important;
+    padding: 14px 15px 13px !important; background: #fff !important;
+    display: flex !important; flex-direction: column !important; justify-content: flex-start !important;
+    flex: 1 !important;
+  }
+  .YLOPO-widget .gallery-card-b-summary-details { background: transparent !important; border: none !important; }
+  /* Address */
+  .YLOPO-widget .gallery-card-b-address-block .layout > div:first-child {
+    font-family: var(--fb) !important; font-size: 13px !important; font-weight: 700 !important;
+    color: #021C1E !important; line-height: 1.3 !important; margin-bottom: 3px !important;
+    text-align: left !important; white-space: nowrap !important;
+    overflow: hidden !important; text-overflow: ellipsis !important;
+  }
+  /* Locality */
+  .YLOPO-widget .gallery-card-b-address-block .locality {
+    font-family: var(--fb) !important; font-size: 12px !important; font-weight: 400 !important;
+    letter-spacing: 0 !important; text-transform: none !important;
+    color: rgba(2,28,30,.45) !important; margin-bottom: 9px !important;
+    display: block !important; text-align: left !important;
+  }
+  .YLOPO-widget .locality span { display: inline !important; }
+  /* Stats row */
+  .YLOPO-widget .summary-info {
+    display: flex !important; gap: 0 !important; background: transparent !important;
+    justify-content: flex-start !important;
+    border-top: 1px solid rgba(2,28,30,.09) !important; border-bottom: 1px solid rgba(2,28,30,.09) !important;
+    margin-bottom: 10px !important;
+  }
+  .YLOPO-widget .info-block {
+    flex: 1 !important; display: flex !important; flex-direction: column !important;
+    align-items: center !important; padding: 7px 0 !important;
+    font-family: var(--fb) !important; font-size: 10px !important; font-weight: 400 !important;
+    letter-spacing: .1em !important; text-transform: uppercase !important;
+    color: rgba(2,28,30,.4) !important; background: transparent !important;
+    border-right: 1px solid rgba(2,28,30,.08) !important;
+  }
+  .YLOPO-widget .info-block:last-of-type { border-right: none !important; }
+  .YLOPO-widget .info-block .label { order: 2 !important; }
+  .YLOPO-widget .info-block > span:not(.label) {
+    display: block !important; order: 1 !important;
+    font-size: 14px !important; font-weight: 700 !important;
+    color: #021C1E !important; letter-spacing: 0 !important; margin-bottom: 1px !important;
+  }
+  /* Status badge */
+  .YLOPO-widget .listing-status-flag {
+    position: absolute !important; top: 10px !important; left: 10px !important;
+    font-size: 9px !important; font-weight: 800 !important; letter-spacing: 0.22em !important;
+    text-transform: uppercase !important; color: var(--charcoal) !important;
+    background: var(--gold) !important; padding: 4px 10px !important; z-index: 3 !important;
+    border-radius: 2px !important; font-family: var(--fb) !important;
+  }
+  /* Hide unneeded elements */
+  .YLOPO-widget img.static-google-map,
+  .YLOPO-widget .favorite-icon-wrapper,
+  .YLOPO-widget .card-icon,
+  .YLOPO-widget .property-details-wrap,
+  .YLOPO-widget .gallery-card-b-generate-sort-block,
+  .YLOPO-widget .idx-compliance,
+  .YLOPO-widget .gallery-card-b-compliance-display { display: none !important; }
+  .YLOPO-widget .widget-sort-panel,
+  .YLOPO-widget .pagination-footer,
+  .YLOPO-widget .widget-results-header { background: transparent !important; }
+
+  /* ── TEAM ── */
+  #team {
+    background: var(--charcoal);
+    position: relative;
+    overflow: hidden;
+    padding: 120px 0 100px;
+  }
+  #team .sec-inner { position: relative; z-index: 2; }
+  .tc-blob {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(51,219,231,0.07), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .tc-blob-1 {
+    width: 600px; height: 600px;
+    top: -80px; left: -120px;
+    animation: tcFloat1 12s ease-in-out infinite;
+  }
+  .tc-blob-2 {
+    width: 400px; height: 400px;
+    bottom: -60px; right: -80px;
+    animation: tcFloat2 12s ease-in-out infinite;
+  }
+  @keyframes tcFloat1 {
+    0%,100% { transform: translateY(0) scale(1); }
+    50%      { transform: translateY(30px) scale(1.06); }
+  }
+  @keyframes tcFloat2 {
+    0%,100% { transform: translateY(0) scale(1); }
+    50%      { transform: translateY(-24px) scale(1.04); }
+  }
+
+  /* Team heading */
+  .tc-hd {
+    text-align: center;
+    margin-bottom: 64px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .tc-hd.visible { opacity: 1; transform: none; }
+  #team .ol { justify-content: center; }
+  #team .ol::before { display: none; }
+
+  /* Carousel wrapper */
+  .tc-wrap {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 24px 0 48px;
+  }
+
+  /* Track */
+  .tc-track {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    will-change: transform;
+    transition: transform 0.55s cubic-bezier(0.22,1,0.36,1);
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: grab;
+  }
+  .tc-track.dragging {
+    transition: none;
+    cursor: grabbing;
+  }
+
+  /* Cards */
+  .tc-card {
+    flex: 0 0 380px;
+    width: 380px;
+    background: rgba(2,28,30,0.85);
+    border: 1px solid rgba(51,219,231,0.12);
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 0 0 1px rgba(51,219,231,0.06), 0 8px 32px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.2);
+    overflow: hidden;
+    transition: transform 0.55s cubic-bezier(0.22,1,0.36,1), opacity 0.55s ease, filter 0.55s ease, box-shadow 0.55s ease;
+    transform: scale(0.86);
+    opacity: 0.35;
+    filter: blur(1px);
+    flex-shrink: 0;
+  }
+  .tc-card.tc-adjacent {
+    transform: scale(0.93);
+    opacity: 0.65;
+    filter: blur(0.5px);
+  }
+  .tc-card.tc-active {
+    transform: scale(1);
+    opacity: 1;
+    filter: none;
+    box-shadow: 0 0 0 1px rgba(51,219,231,0.18), 0 20px 60px rgba(0,0,0,0.55), 0 4px 16px rgba(51,219,231,0.08), 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .tc-card.tc-entrance {
+    opacity: 0;
+    transform: scale(0.86) translateY(40px);
+  }
+  .tc-photo {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+  }
+  .tc-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  .tc-card.tc-active .tc-photo img { transform: scale(1.03); }
+  .tc-photo-ov {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(2,28,30,0.9) 0%, rgba(2,28,30,0.2) 40%, transparent 70%);
+    pointer-events: none;
+  }
+  .tc-info {
+    padding: 24px;
+  }
+  .tc-name {
+    font-family: var(--fd);
+    font-size: 22px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .tc-role {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .tc-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(51,219,231,0.15);
+    margin-bottom: 14px;
+  }
+  .tc-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .tc-contacts a {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    color: rgba(237,239,240,0.5);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.22s ease;
+  }
+  .tc-contacts a:hover { color: var(--gold); }
+
+  /* Arrow buttons */
+  .tc-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(51,219,231,0.2);
+    background: rgba(2,28,30,0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    outline: none;
+  }
+  .tc-arrow:hover {
+    background: rgba(51,219,231,0.15);
+    border-color: rgba(51,219,231,0.5);
+    transform: translateY(-50%) scale(1.08);
+  }
+  .tc-arrow:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+  }
+  .tc-arrow:active { transform: translateY(-50%) scale(0.96); }
+  .tc-prev { left: 16px; }
+  .tc-next { right: 16px; }
+  .tc-arrow svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+  /* Dots */
+  .tc-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .tc-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(51,219,231,0.25);
+    cursor: pointer;
+    transition: width 0.35s cubic-bezier(0.22,1,0.36,1), background 0.35s ease;
+    flex-shrink: 0;
+  }
+  .tc-dot.active {
+    width: 24px;
+    background: var(--gold);
+  }
+
+  /* Progress bar */
+  .tc-progress-bar {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background: rgba(51,219,231,0.1);
+    margin-top: 40px;
+    overflow: hidden;
+  }
+  .tc-progress-fill {
+    height: 100%;
+    background: var(--gold);
+    width: 0%;
+    transition: width 0.4s ease;
+  }
+
+  @media (max-width: 1024px) {
+    .tc-card { flex: 0 0 320px; width: 320px; }
+  }
+  @media (max-width: 640px) {
+    .tc-card { flex: 0 0 85vw; width: 85vw; }
+    .tc-arrow { display: none; }
+  }
+
+  /* ── SPOTLIGHT ── */
+  #spotlight {
+    display: grid; grid-template-columns: 1fr 1fr;
+    min-height: 90vh; background: var(--black);
+  }
+  .sp-img { position: relative; overflow: hidden; min-height: 600px; }
+  .sp-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 7s ease;
+  }
+  .sp-img:hover img { transform: scale(1.04); }
+  .sp-img-ov {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, transparent 55%, rgba(10,10,10,.55) 100%);
+  }
+  .sp-content {
+    padding: 88px 80px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .sp-hl {
+    font-family: var(--fd);
+    font-size: clamp(40px, 4.5vw, 76px);
+    font-weight: 300; line-height: 1.0; letter-spacing: -.025em;
+    color: var(--white); margin: 18px 0 26px;
+  }
+  .sp-hl em { font-style: italic; color: var(--gold); }
+  .sp-desc {
+    font-size: 16px; font-weight: 300; line-height: 1.85;
+    color: rgba(237,239,240,.5); max-width: 440px; margin-bottom: 44px;
+  }
+  .sp-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 22px; padding-top: 36px;
+    border-top: 1px solid rgba(51,219,231,.15);
+    margin-bottom: 52px;
+  }
+  .sp-item-l {
+    font-size: 16px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 5px;
+  }
+  .sp-item-v {
+    font-family: var(--fd); font-size: 20px; font-weight: 400;
+    color: var(--white); line-height: 1.2;
+  }
+
+  /* ── MARKETS ── */
+  #markets { background: var(--white); }
+  .mkts-grid {
+    display: grid; grid-template-columns: repeat(5,1fr);
+    gap: 3px; margin-top: 52px;
+  }
+  .mkt-card {
+    position: relative; overflow: hidden;
+    aspect-ratio: 3/5; cursor: pointer;
+  }
+  .mkt-card img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .65s cubic-bezier(.25,.46,.45,.94), filter .4s ease;
+    filter: brightness(.6) saturate(.75);
+  }
+  .mkt-card:hover img { transform: scale(1.1); filter: brightness(.4) saturate(.65); }
+  .mkt-ov {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10,10,10,.84) 0%, transparent 58%);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 22px 18px;
+  }
+  .mkt-name {
+    font-family: var(--fd); font-size: 22px; font-weight: 400;
+    color: var(--white); margin-bottom: 3px;
+  }
+  .mkt-count {
+    font-size: 16px; font-weight: 400; letter-spacing: 0.17em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 14px;
+  }
+  .mkt-btn {
+    font-size: 16px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--black); background: var(--gold); padding: 8px 16px;
+    display: inline-block; width: fit-content;
+    opacity: 0; transform: translateY(8px);
+    transition: opacity .3s ease, transform .3s ease;
+  }
+  .mkt-card:hover .mkt-btn { opacity: 1; transform: none; }
+
+  /* ── ABOUT ── */
+  #about { display: none; }
+  .abt-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 88px; align-items: center;
+  }
+  .abt-img-wrap { position: relative; }
+  .abt-img {
+    width: 100%; aspect-ratio: 3/4; object-fit: cover;
+    filter: grayscale(18%) brightness(.88);
+  }
+  .abt-corner {
+    position: absolute; bottom: -22px; right: -22px;
+    width: 180px; height: 180px;
+    border: 1px solid rgba(51,219,231,.22);
+    pointer-events: none;
+  }
+  .abt-hl {
+    font-family: var(--fd);
+    font-size: clamp(40px, 4.5vw, 72px);
+    font-weight: 300; line-height: 1.0; letter-spacing: -.025em;
+    color: var(--white); margin: 18px 0 26px;
+  }
+  .abt-hl em { font-style: italic; color: var(--gold); }
+  .abt-bio {
+    font-size: 16px; font-weight: 300; line-height: 1.88;
+    color: rgba(237,239,240,.5); margin-bottom: 44px;
+  }
+  .abt-ach {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 22px;
+    border-top: 1px solid rgba(51,219,231,.15);
+    padding-top: 36px; margin-bottom: 44px;
+  }
+  .ach-l {
+    font-size: 16px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 5px;
+  }
+  .ach-v {
+    font-family: var(--fd); font-size: 20px; font-weight: 400;
+    color: var(--white); line-height: 1.2;
+  }
+  .abt-badges { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge {
+    font-size: 16px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(237,239,240,.32); border: 1px solid rgba(51,219,231,.18);
+    padding: 6px 14px;
+  }
+
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--white); padding-left: 0; padding-right: 0; }
+  #testimonials .sec-inner { padding: 0 60px; text-align: center; }
+  #testimonials .ol { justify-content: center; }
+  .tsv2-sub {
+    font-size: 17px; color: rgba(2,28,30,.5); line-height: 1.65;
+    max-width: 420px; margin: 14px auto 0;
+  }
+  .tsv2-cols {
+    display: flex; justify-content: center; gap: 20px;
+    margin-top: 56px; max-height: 740px; overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom,transparent,black 12%,black 88%,transparent);
+    mask-image: linear-gradient(to bottom,transparent,black 12%,black 88%,transparent);
+  }
+  .tsv2-col { width: 320px; flex-shrink: 0; }
+  .tsv2-col:nth-child(2) { display: none; }
+  .tsv2-col:nth-child(3) { display: none; }
+  @media (min-width:768px)  { .tsv2-col:nth-child(2) { display: block; } }
+  @media (min-width:1100px) { .tsv2-col:nth-child(3) { display: block; } }
+  .tsv2-track {
+    display: flex; flex-direction: column; gap: 20px;
+    animation: tsv2Scroll var(--dur,15s) linear infinite;
+  }
+  @keyframes tsv2Scroll {
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+  }
+  .tsv2-card {
+    background: #fff; border: 1px solid rgba(2,28,30,.09);
+    border-radius: 20px; padding: 28px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.06), 0 1px 3px rgba(0,0,0,.04);
+    transition: transform .3s ease, box-shadow .3s ease;
+    cursor: default; user-select: none;
+  }
+  .tsv2-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 20px 48px rgba(0,0,0,.11), 0 4px 8px rgba(0,0,0,.05);
+  }
+  .tsv2-text {
+    font-size: 16px; line-height: 1.75; color: rgba(2,28,30,.62); margin: 0 0 20px;
+  }
+  .tsv2-footer { display: flex; align-items: center; gap: 12px; }
+  .tsv2-avatar {
+    width: 42px; height: 42px; border-radius: 50%; object-fit: cover;
+    flex-shrink: 0; border: 2px solid rgba(51,219,231,.3);
+  }
+  .tsv2-name {
+    font-size: 16px; font-weight: 600; color: rgba(2,28,30,.9);
+    letter-spacing: -.01em; line-height: 1.3;
+  }
+  .tsv2-role { font-size: 16px; color: rgba(2,28,30,.42); margin-top: 2px; line-height: 1.3; }
+
+  /* ── LIFESTYLE ── */
+  #lifestyle { background: var(--charcoal); }
+  .life-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 340px 340px;
+    gap: 3px; margin-top: 64px;
+  }
+  .life-card {
+    position: relative; overflow: hidden; cursor: pointer;
+  }
+  .life-card:first-child { grid-row: span 2; }
+  .life-card img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .65s ease, filter .4s ease;
+    filter: brightness(.68) saturate(.78);
+  }
+  .life-card:hover img { transform: scale(1.06); filter: brightness(.45) saturate(.65); }
+  .life-ov {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10,10,10,.78) 0%, transparent 58%);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 26px;
+  }
+  .life-tag {
+    font-size: 16px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 8px;
+  }
+  .life-title {
+    font-family: var(--fd); font-size: 21px; font-weight: 400;
+    color: var(--white); line-height: 1.3;
+  }
+  .life-card:first-child .life-title { font-size: 34px; }
+
+  /* ── INSTAGRAM ── */
+  #instagram { background: var(--black); }
+  .ig-hd {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 52px;
+  }
+  .ig-follow {
+    font-size: 16px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); border-bottom: 1px solid rgba(51,219,231,.5);
+    padding-bottom: 4px; margin-bottom: 6px;
+    transition: color .2s ease, border-color .2s ease;
+  }
+  .ig-follow:hover { color: var(--white); border-color: var(--white); }
+  .ig-grid {
+    display: grid; grid-template-columns: repeat(6,1fr);
+    gap: 3px;
+  }
+  .ig-item {
+    position: relative; overflow: hidden; aspect-ratio: 1; cursor: pointer;
+  }
+  .ig-item img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .5s ease, filter .4s ease;
+    filter: brightness(.82) saturate(.88);
+  }
+  .ig-item:hover img { transform: scale(1.09); filter: brightness(.45) saturate(.65); }
+  .ig-ov {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(51,219,231,.1);
+    opacity: 0; transition: opacity .3s ease;
+  }
+  .ig-item:hover .ig-ov { opacity: 1; }
+  .ig-icon { font-size: 22px; color: var(--white); font-style: normal; }
+
+  /* ── CONTACT ── */
+  #contact {
+    position: relative;
+    height: 74vh; min-height: 540px;
+    display: flex; align-items: center; justify-content: center;
+    padding: 0;
+    background:
+      linear-gradient(160deg, rgba(2,28,30,.72) 0%, rgba(10,10,10,.52) 60%, rgba(2,28,30,.80) 100%),
+      url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1900&q=85&fit=crop') center/cover no-repeat fixed;
+  }
+  .ct-overlay { display: none; }
+  .ct-hero {
+    position: relative; z-index: 2;
+    text-align: center; padding: 0 40px;
+    max-width: 780px; width: 100%;
+  }
+  .ct-pill {
+    display: inline-block;
+    font-size: 16px; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold); border: 1px solid rgba(51,219,231,.3);
+    padding: 5px 20px; border-radius: 999px; margin-bottom: 30px;
+  }
+  .ct-hl {
+    font-family: var(--fd);
+    font-size: clamp(46px, 7vw, 96px);
+    font-weight: 300; line-height: 1; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--white);
+    margin: 0 0 30px;
+  }
+  .ct-sub {
+    font-size: 16px; font-weight: 300; line-height: 1.82;
+    color: rgba(237,239,240,.55);
+    max-width: 520px; margin: 0 auto 48px;
+  }
+  .ct-cta {
+    display: inline-block;
+    font-size: 16px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--charcoal); background: var(--gold);
+    border: 2px solid var(--gold); padding: 17px 48px;
+    text-decoration: none;
+    transition: background .3s ease, color .3s ease, transform .22s ease;
+  }
+  .ct-cta:hover { background: transparent; color: var(--gold); transform: translateY(-3px); }
+
+  /* ── FOOTER ── */
+  #footer {
+    background: var(--black);
+    border-top: 1px solid rgba(51,219,231,.09);
+    padding: 72px 60px 36px;
+  }
+  .ft-inner { max-width: 1440px; margin: 0 auto; }
+  .ft-top {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 52px; padding-bottom: 52px;
+    border-bottom: 1px solid rgba(51,219,231,.09);
+    margin-bottom: 36px;
+  }
+  .ft-brand {
+    font-family: var(--fd); font-size: 34px; font-weight: 300;
+    letter-spacing: 0.24em; color: var(--white); margin-bottom: 14px;
+  }
+  .ft-brand span { color: var(--gold); }
+  .ft-tag {
+    font-size: 16px; font-weight: 300; line-height: 1.75;
+    color: rgba(237,239,240,.28); max-width: 280px; margin-bottom: 28px;
+  }
+  .ft-col-h {
+    font-size: 16px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 20px;
+  }
+  .ft-links { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+  .ft-links a {
+    font-size: 16px; font-weight: 300; color: rgba(237,239,240,.28);
+    transition: color .22s ease;
+  }
+  .ft-links a:hover { color: var(--gold); }
+  .ft-bot {
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .ft-copy { font-size: 16px; font-weight: 300; color: rgba(237,239,240,.2); letter-spacing: .05em; }
+  .ft-legal { display: flex; gap: 26px; }
+  .ft-legal a {
+    font-size: 16px; font-weight: 300; color: rgba(237,239,240,.2);
+    transition: color .22s ease;
+  }
+  .ft-legal a:hover { color: var(--gold); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1100px) {
+    #nav { padding: 14px 36px; }
+    #nav.scrolled { padding: 10px 36px; }
+    .nav-links { display: none; }
+    .nav-ham { display: flex; }
+    .sec { padding: 88px 36px; }
+    #testimonials .sec-inner { padding: 0 36px; }
+    #footer { padding: 60px 36px 28px; }
+    .h-content { padding: 0 36px 64px; }
+    .h-stats { grid-template-columns: repeat(2,1fr); gap: 28px; }
+    .props-grid { grid-template-columns: repeat(2,1fr); }
+    .mkts-grid { grid-template-columns: repeat(3,1fr); }
+    #spotlight { grid-template-columns: 1fr; }
+    .sp-content { padding: 60px 44px; }
+    .abt-inner { grid-template-columns: 1fr; gap: 52px; }
+    .ct-inner { grid-template-columns: 1fr; gap: 52px; }
+    .ft-top { grid-template-columns: 1fr 1fr; }
+    .test-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 768px) {
+    .sec { padding: 68px 22px; }
+    #testimonials .sec-inner { padding: 0 22px; }
+    #nav { padding: 12px 22px; }
+    #nav.scrolled { padding: 10px 22px; }
+    #footer { padding: 52px 22px 24px; }
+    .h-content { padding: 0 22px 52px; }
+    .h-stats { grid-template-columns: 1fr 1fr; gap: 22px 16px; }
+    .props-grid { grid-template-columns: 1fr; }
+    .mkts-grid { grid-template-columns: repeat(2,1fr); }
+    .life-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+    .life-card:first-child { grid-row: span 1; }
+    .ig-grid { grid-template-columns: repeat(3,1fr); }
+    .ft-top { grid-template-columns: 1fr; gap: 36px; }
+    .test-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .sp-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .ig-grid { grid-template-columns: repeat(2,1fr); }
+    .mkts-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ── SHORT VIEWPORT: keep hero content below nav ── */
+  @media (max-height: 820px) {
+    .h-hl { font-size: clamp(38px, 5.5vw, 72px); margin: 10px 0 16px; }
+    .h-sub { font-size: 16px; margin-bottom: 24px; }
+    .h-ctas { margin-bottom: 24px; }
+    .h-content { padding-bottom: 52px; }
+  }
+  @media (max-height: 680px) {
+    .h-hl { font-size: clamp(32px, 5.5vw, 58px); margin: 8px 0 12px; }
+    .h-sub { font-size: 16px; margin-bottom: 16px; }
+    .h-ctas { margin-bottom: 16px; }
+    .h-content { padding-bottom: 32px; }
+    .h-stats { padding-top: 20px; }
+  }
+
+
+</style>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS -->
+<div id="prog"></div>
+
+<!-- CURSOR -->
+<div id="cOuter"></div>
+<div id="cInner"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <img src="CrightonRinaldiTeam.webp" alt="Crighton-Rinaldi Team" style="height:64px; width:auto; object-fit:contain; opacity:0; animation:fadeUp .8s ease .3s forwards;">
+  <div class="ldr-bar"></div>
+  <div class="ldr-sub">Top Real Estate Agents in Las Vegas</div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="nav">
+  <a href="https://www.crightonrinalditeam.com/" class="nav-logo"><img src="CrightonRinaldiTeam.webp" alt="Crighton-Rinaldi Team" style="height:64px; width:auto; object-fit:contain; display:block;"></a>
+  <ul class="nav-links">
+    <li><a href="https://search.crightonrinalditeam.com/">Buy</a></li>
+    <li class="nav-communities">
+      <span class="nav-communities-trigger">Communities</span>
+      <div class="communities-dropdown">
+        <a href="https://www.crightonrinalditeam.com/communities/las-vegas-real-estate">Las Vegas</a>
+        <a href="henderson.html">Henderson</a>
+        <a href="https://www.crightonrinalditeam.com/communities/summerlin-real-estate">Summerlin</a>
+        <a href="https://www.crightonrinalditeam.com/communities/north-las-vegas-real-estate">North Las Vegas</a>
+        <a href="https://www.crightonrinalditeam.com/communities/boulder-city-real-estate">Boulder City</a>
+      </div>
+    </li>
+    <li><a href="#team">Our Team</a></li>
+    <li><a href="#lifestyle">Blog</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://www.crightonrinalditeam.com/contact-us" class="nav-cta">Schedule Consultation</a>
+  <div class="nav-ham" id="ham" aria-label="Menu" role="button" tabindex="0">
+    <span></span><span></span>
+  </div>
+</nav>
+
+<!-- ①  HERO -->
+<section id="hero">
+  <div id="hBg">
+    <iframe
+      src="https://player.vimeo.com/video/1197530249?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0&controls=0"
+      allow="autoplay; fullscreen"
+      allowfullscreen
+      title=""
+      aria-hidden="true"
+    ></iframe>
+  </div>
+  <div class="h-ov"></div>
+  <div class="h-ov2"></div>
+  <div class="h-grain"></div>
+  <div class="h-nav-fade"></div>
+
+  <div class="h-content">
+    <div class="ol">Top Real Estate Agents · Las Vegas</div>
+    <h1 class="h-hl">
+      Your Las Vegas<br>Home,<br>
+      <em>Found &amp; Sold.</em>
+    </h1>
+    <p class="h-sub">To treat others the way we would want to be treated — in life and in real estate. Serving Las Vegas, Henderson, Summerlin, and the entire valley.</p>
+    <div class="h-ctas">
+      <a href="https://search.crightonrinalditeam.com/" class="btn-gld">Find Your Dream Home</a>
+      <a href="https://www.crightonrinalditeam.com/home-valuation" class="btn-ghost">Get Home Valuation</a>
+    </div>
+    <div class="h-stats">
+      <div class="h-stat">
+        <div class="h-stat-n" data-count="500" data-suffix="+">0</div>
+        <div class="h-stat-l">Homes Sold</div>
+      </div>
+      <div class="h-stat">
+        <div class="h-stat-n" data-prefix="Top " data-suffix="%">1</div>
+        <div class="h-stat-l">Agent Ranking</div>
+      </div>
+      <div class="h-stat">
+        <div class="h-stat-n" data-count="29">0</div>
+        <div class="h-stat-l">Team Agents</div>
+      </div>
+      <div class="h-stat">
+        <div class="h-stat-n">5-Star</div>
+        <div class="h-stat-l">Client Rating</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="h-scroll-ind">
+    <span>Scroll</span>
+    <div class="h-scroll-bar"></div>
+  </div>
+</section>
+
+<!-- ②  FEATURED PROPERTIES -->
+<section id="properties" class="sec">
+  <div class="sec-inner">
+    <div class="sec-hd rv">
+      <div class="ol">Las Vegas Listings</div>
+      <h2 class="sec-title">Browse Properties</h2>
+    </div>
+
+    <div class="listing-tabs rv">
+      <div class="listing-tab selected">Featured Listings</div>
+    </div>
+
+    <div class="ylopo-widget-wrap rv">
+      <!-- YLOPO carousel (shown once widget loads) -->
+      <div class="ylopo-carousel-outer" id="ylopo-carousel-outer" style="display:none;">
+        <button class="listings-arrow lft disabled" id="ylopo-prev" aria-label="Previous listings">&#8249;</button>
+        <div class="ylopo-carousel-vp" id="ylopo-carousel-vp">
+          <div class="YLOPO_resultsWidget" data-search='{"locations":[{"city":"Las Vegas","state":"NV"},{"city":"Henderson","state":"NV"},{"neighborhood":"Summerlin","city":"Las Vegas","state":"NV"}],"propertyTypes":["house","condo","townhouse"],"status":"active","limit":12}'></div>
+        </div>
+        <button class="listings-arrow rgt disabled" id="ylopo-next" aria-label="Next listings">&#8250;</button>
+      </div>
+
+      <!-- Static fallback — carousel cards, hidden once YLOPO loads -->
+      <div id="static-props-fallback">
+        <div class="listings-scroll-wrap">
+          <button class="listings-arrow lft disabled" id="props-prev" aria-label="Previous listings">&#8249;</button>
+          <div class="listings-scroller" id="props-scroller">
+            <div class="listings-content">
+
+              <!-- Card 1 -->
+              <a class="l-card" href="https://search.crightonrinalditeam.com/" target="_blank" rel="noopener">
+                <div class="l-card-img">
+                  <img src="https://picsum.photos/seed/summerlin1/560/374" alt="507 Brentwood Court" loading="lazy">
+                  <span class="l-status">Featured</span>
+                  <div class="l-img-meta">
+                    <span class="l-img-count"><svg viewBox="0 0 512 512"><path d="M512 144v288a48 48 0 0 1-48 48H48a48 48 0 0 1-48-48V144a48 48 0 0 1 48-48h88l12.3-32.9A48 48 0 0 1 193.2 32h125.5a48 48 0 0 1 44.9 31.1L376 96h88a48 48 0 0 1 48 48zM376 288a120.1 120.1 0 0 0-240 0 120.1 120.1 0 0 0 240 0zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z"/></svg> 1/8</span>
+                  </div>
+                </div>
+                <div class="l-card-body">
+                  <div class="l-addr">507 Brentwood Court</div>
+                  <div class="l-city">Summerlin, NV 89135</div>
+                  <div class="l-price">$1,250,000</div>
+                  <div class="l-amenities">
+                    <div class="l-amenity"><strong>5</strong>Beds</div>
+                    <div class="l-amenity"><strong>4</strong>Baths</div>
+                    <div class="l-amenity"><strong>3,800</strong>Sqft</div>
+                  </div>
+                  <div class="l-days">Listed 7 Days Ago</div>
+                  <div class="l-mls">MLS# NV2024-0012<br>Listing Office Rothwell Gornt Companies</div>
+                </div>
+              </a>
+
+              <!-- Card 2 -->
+              <a class="l-card" href="https://search.crightonrinalditeam.com/" target="_blank" rel="noopener">
+                <div class="l-card-img">
+                  <img src="https://picsum.photos/seed/henderson2/560/374" alt="90 Green Valley Pkwy" loading="lazy">
+                  <span class="l-status">For Sale</span>
+                  <div class="l-img-meta">
+                    <span class="l-img-count"><svg viewBox="0 0 512 512"><path d="M512 144v288a48 48 0 0 1-48 48H48a48 48 0 0 1-48-48V144a48 48 0 0 1 48-48h88l12.3-32.9A48 48 0 0 1 193.2 32h125.5a48 48 0 0 1 44.9 31.1L376 96h88a48 48 0 0 1 48 48zM376 288a120.1 120.1 0 0 0-240 0 120.1 120.1 0 0 0 240 0zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z"/></svg> 1/14</span>
+                  </div>
+                </div>
+                <div class="l-card-body">
+                  <div class="l-addr">90 Green Valley Pkwy</div>
+                  <div class="l-city">Henderson, NV 89014</div>
+                  <div class="l-price">$875,000</div>
+                  <div class="l-amenities">
+                    <div class="l-amenity"><strong>4</strong>Beds</div>
+                    <div class="l-amenity"><strong>3</strong>Baths</div>
+                    <div class="l-amenity"><strong>2,950</strong>Sqft</div>
+                  </div>
+                  <div class="l-days">Listed 21 Days Ago</div>
+                  <div class="l-mls">MLS# NV2024-0034<br>Listing Office Rothwell Gornt Companies</div>
+                </div>
+              </a>
+
+              <!-- Card 3 -->
+              <a class="l-card" href="https://search.crightonrinalditeam.com/" target="_blank" rel="noopener">
+                <div class="l-card-img">
+                  <img src="https://picsum.photos/seed/lasvegas3/560/374" alt="2200 Highlands Way" loading="lazy">
+                  <span class="l-status">Reduced</span>
+                  <div class="l-img-meta">
+                    <span class="l-img-count"><svg viewBox="0 0 512 512"><path d="M512 144v288a48 48 0 0 1-48 48H48a48 48 0 0 1-48-48V144a48 48 0 0 1 48-48h88l12.3-32.9A48 48 0 0 1 193.2 32h125.5a48 48 0 0 1 44.9 31.1L376 96h88a48 48 0 0 1 48 48zM376 288a120.1 120.1 0 0 0-240 0 120.1 120.1 0 0 0 240 0zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z"/></svg> 1/22</span>
+                  </div>
+                </div>
+                <div class="l-card-body">
+                  <div class="l-addr">2200 Highlands Way</div>
+                  <div class="l-city">Southern Highlands, NV 89141</div>
+                  <div class="l-price">$2,100,000</div>
+                  <div class="l-amenities">
+                    <div class="l-amenity"><strong>5</strong>Beds</div>
+                    <div class="l-amenity"><strong>6</strong>Baths</div>
+                    <div class="l-amenity"><strong>4,600</strong>Sqft</div>
+                  </div>
+                  <div class="l-days">Listed 2 Months Ago</div>
+                  <div class="l-mls">MLS# NV2024-0058<br>Listing Office Rothwell Gornt Companies</div>
+                </div>
+              </a>
+
+              <!-- Card 4 -->
+              <a class="l-card" href="https://search.crightonrinalditeam.com/" target="_blank" rel="noopener">
+                <div class="l-card-img">
+                  <img src="https://picsum.photos/seed/ridges4/560/374" alt="11 Ridges Blvd" loading="lazy">
+                  <span class="l-status">New Listing</span>
+                  <div class="l-img-meta">
+                    <span class="l-img-count"><svg viewBox="0 0 512 512"><path d="M512 144v288a48 48 0 0 1-48 48H48a48 48 0 0 1-48-48V144a48 48 0 0 1 48-48h88l12.3-32.9A48 48 0 0 1 193.2 32h125.5a48 48 0 0 1 44.9 31.1L376 96h88a48 48 0 0 1 48 48zM376 288a120.1 120.1 0 0 0-240 0 120.1 120.1 0 0 0 240 0zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z"/></svg> 1/31</span>
+                  </div>
+                </div>
+                <div class="l-card-body">
+                  <div class="l-addr">11 Ridges Blvd</div>
+                  <div class="l-city">The Ridges, Summerlin NV 89135</div>
+                  <div class="l-price">$3,400,000</div>
+                  <div class="l-amenities">
+                    <div class="l-amenity"><strong>6</strong>Beds</div>
+                    <div class="l-amenity"><strong>7</strong>Baths</div>
+                    <div class="l-amenity"><strong>5,800</strong>Sqft</div>
+                  </div>
+                  <div class="l-days">Listed 3 Days Ago</div>
+                  <div class="l-mls">MLS# NV2024-0071<br>Listing Office Rothwell Gornt Companies</div>
+                </div>
+              </a>
+
+              <!-- Card 5 -->
+              <a class="l-card" href="https://search.crightonrinalditeam.com/" target="_blank" rel="noopener">
+                <div class="l-card-img">
+                  <img src="https://picsum.photos/seed/henderson5/560/374" alt="420 MacDonald Ranch Dr" loading="lazy">
+                  <span class="l-status">For Sale</span>
+                  <div class="l-img-meta">
+                    <span class="l-img-count"><svg viewBox="0 0 512 512"><path d="M512 144v288a48 48 0 0 1-48 48H48a48 48 0 0 1-48-48V144a48 48 0 0 1 48-48h88l12.3-32.9A48 48 0 0 1 193.2 32h125.5a48 48 0 0 1 44.9 31.1L376 96h88a48 48 0 0 1 48 48zM376 288a120.1 120.1 0 0 0-240 0 120.1 120.1 0 0 0 240 0zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z"/></svg> 1/9</span>
+                  </div>
+                </div>
+                <div class="l-card-body">
+                  <div class="l-addr">420 MacDonald Ranch Dr</div>
+                  <div class="l-city">Henderson, NV 89012</div>
+                  <div class="l-price">$695,000</div>
+                  <div class="l-amenities">
+                    <div class="l-amenity"><strong>4</strong>Beds</div>
+                    <div class="l-amenity"><strong>3</strong>Baths</div>
+                    <div class="l-amenity"><strong>2,400</strong>Sqft</div>
+                  </div>
+                  <div class="l-days">Listed 11 Days Ago</div>
+                  <div class="l-mls">MLS# NV2024-0083<br>Listing Office Rothwell Gornt Companies</div>
+                </div>
+              </a>
+
+              <!-- Card 6 -->
+              <a class="l-card" href="https://search.crightonrinalditeam.com/" target="_blank" rel="noopener">
+                <div class="l-card-img">
+                  <img src="https://picsum.photos/seed/lakelv6/560/374" alt="88 Lake Las Vegas Dr" loading="lazy">
+                  <span class="l-status">Just Listed</span>
+                  <div class="l-img-meta">
+                    <span class="l-img-count"><svg viewBox="0 0 512 512"><path d="M512 144v288a48 48 0 0 1-48 48H48a48 48 0 0 1-48-48V144a48 48 0 0 1 48-48h88l12.3-32.9A48 48 0 0 1 193.2 32h125.5a48 48 0 0 1 44.9 31.1L376 96h88a48 48 0 0 1 48 48zM376 288a120.1 120.1 0 0 0-240 0 120.1 120.1 0 0 0 240 0zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z"/></svg> 1/17</span>
+                  </div>
+                </div>
+                <div class="l-card-body">
+                  <div class="l-addr">88 Lake Las Vegas Dr</div>
+                  <div class="l-city">Henderson, NV 89011</div>
+                  <div class="l-price">$1,850,000</div>
+                  <div class="l-amenities">
+                    <div class="l-amenity"><strong>4</strong>Beds</div>
+                    <div class="l-amenity"><strong>4</strong>Baths</div>
+                    <div class="l-amenity"><strong>3,200</strong>Sqft</div>
+                  </div>
+                  <div class="l-days">Listed Today</div>
+                  <div class="l-mls">MLS# NV2024-0096<br>Listing Office Rothwell Gornt Companies</div>
+                </div>
+              </a>
+
+              <!-- Card 7 -->
+              <a class="l-card" href="https://search.crightonrinalditeam.com/" target="_blank" rel="noopener">
+                <div class="l-card-img">
+                  <img src="https://picsum.photos/seed/summerlin7/560/374" alt="3310 Eagle Hills Ct" loading="lazy">
+                  <span class="l-status">Featured</span>
+                  <div class="l-img-meta">
+                    <span class="l-img-count"><svg viewBox="0 0 512 512"><path d="M512 144v288a48 48 0 0 1-48 48H48a48 48 0 0 1-48-48V144a48 48 0 0 1 48-48h88l12.3-32.9A48 48 0 0 1 193.2 32h125.5a48 48 0 0 1 44.9 31.1L376 96h88a48 48 0 0 1 48 48zM376 288a120.1 120.1 0 0 0-240 0 120.1 120.1 0 0 0 240 0zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z"/></svg> 1/11</span>
+                  </div>
+                </div>
+                <div class="l-card-body">
+                  <div class="l-addr">3310 Eagle Hills Ct</div>
+                  <div class="l-city">Las Vegas, NV 89117</div>
+                  <div class="l-price">$589,000</div>
+                  <div class="l-amenities">
+                    <div class="l-amenity"><strong>3</strong>Beds</div>
+                    <div class="l-amenity"><strong>2</strong>Baths</div>
+                    <div class="l-amenity"><strong>1,840</strong>Sqft</div>
+                  </div>
+                  <div class="l-days">Listed 5 Days Ago</div>
+                  <div class="l-mls">MLS# NV2024-0108<br>Listing Office Rothwell Gornt Companies</div>
+                </div>
+              </a>
+
+              <!-- Card 8 -->
+              <a class="l-card" href="https://search.crightonrinalditeam.com/" target="_blank" rel="noopener">
+                <div class="l-card-img">
+                  <img src="https://picsum.photos/seed/henderson8/560/374" alt="1705 Horizon Ridge Pkwy" loading="lazy">
+                  <span class="l-status">For Sale</span>
+                  <div class="l-img-meta">
+                    <span class="l-img-count"><svg viewBox="0 0 512 512"><path d="M512 144v288a48 48 0 0 1-48 48H48a48 48 0 0 1-48-48V144a48 48 0 0 1 48-48h88l12.3-32.9A48 48 0 0 1 193.2 32h125.5a48 48 0 0 1 44.9 31.1L376 96h88a48 48 0 0 1 48 48zM376 288a120.1 120.1 0 0 0-240 0 120.1 120.1 0 0 0 240 0zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z"/></svg> 1/19</span>
+                  </div>
+                </div>
+                <div class="l-card-body">
+                  <div class="l-addr">1705 Horizon Ridge Pkwy</div>
+                  <div class="l-city">Henderson, NV 89012</div>
+                  <div class="l-price">$1,095,000</div>
+                  <div class="l-amenities">
+                    <div class="l-amenity"><strong>5</strong>Beds</div>
+                    <div class="l-amenity"><strong>4</strong>Baths</div>
+                    <div class="l-amenity"><strong>3,420</strong>Sqft</div>
+                  </div>
+                  <div class="l-days">Listed 18 Days Ago</div>
+                  <div class="l-mls">MLS# NV2024-0119<br>Listing Office Rothwell Gornt Companies</div>
+                </div>
+              </a>
+
+            </div><!-- /.listings-content -->
+          </div><!-- /.listings-scroller -->
+          <button class="listings-arrow rgt" id="props-next" aria-label="Next listings">&#8250;</button>
+        </div><!-- /.listings-scroll-wrap -->
+
+        <div class="view-all">
+          <a href="https://search.crightonrinalditeam.com" target="_blank" rel="noopener" class="btn-ol">View All Listings</a>
+        </div>
+      </div><!-- /#static-props-fallback -->
+    </div>
+  </div>
+</section>
+
+<!-- ③  LIST YOUR HOME WITH US -->
+<section id="spotlight">
+  <div class="sp-img">
+    <img loading="eager" src="images/las-vegas2_2500.jpg" alt="List your Las Vegas home with us">
+    <div class="sp-img-ov"></div>
+  </div>
+  <div class="sp-content rv">
+    <div class="ol" style="color:rgba(51,219,231,.65);">Why List With Us</div>
+    <h2 class="sp-hl">List Your Home<br><em>With Us!</em></h2>
+    <p class="sp-desc">
+      Digital remains the fastest-growing advertising category. Your potential buyers are browsing the internet — and it's our job to place your property exactly where they can see it: on their screens.
+    </p>
+    <div class="sp-grid">
+      <div><div class="sp-item-l">Facebook Reach</div><div class="sp-item-v">1.9B+ Monthly Users</div></div>
+      <div><div class="sp-item-l">Google Searches</div><div class="sp-item-v">3.5B+ Per Day</div></div>
+      <div><div class="sp-item-l">Our Network</div><div class="sp-item-v">Rothwell Gornt</div></div>
+      <div><div class="sp-item-l">Market Expertise</div><div class="sp-item-v">Las Vegas MLS</div></div>
+    </div>
+    <a href="https://www.crightonrinalditeam.com/why-list-with-us" class="btn-gld" style="display:inline-block;">Ask Us Now</a>
+  </div>
+</section>
+
+<!-- ④  MARKETS -->
+<section id="markets" class="sec">
+  <div class="sec-inner">
+    <div class="sec-hd rv">
+      <div class="ol">Where We Work</div>
+      <h2 class="sec-title">Featured Communities</h2>
+    </div>
+    <div class="mkts-grid">
+      <a href="https://www.crightonrinalditeam.com/communities/las-vegas-real-estate" style="display:block;text-decoration:none;">
+        <div class="mkt-card rv d1">
+          <img loading="eager" src="images/las vegas.jpg" alt="Las Vegas">
+          <div class="mkt-ov">
+            <div class="mkt-name">Las Vegas</div>
+            <div class="mkt-count">Browse Listings</div>
+            <span class="mkt-btn">Explore</span>
+          </div>
+        </div>
+      </a>
+      <a href="https://www.crightonrinalditeam.com/communities/henderson-real-estate" style="display:block;text-decoration:none;">
+        <div class="mkt-card rv d2">
+          <img loading="eager" src="images/henderson.jpg" alt="Henderson">
+          <div class="mkt-ov">
+            <div class="mkt-name">Henderson</div>
+            <div class="mkt-count">Browse Listings</div>
+            <span class="mkt-btn">Explore</span>
+          </div>
+        </div>
+      </a>
+      <a href="https://search.crightonrinalditeam.com/" style="display:block;text-decoration:none;">
+        <div class="mkt-card rv d3">
+          <img loading="eager" src="images/summerlin.jpg" alt="Summerlin">
+          <div class="mkt-ov">
+            <div class="mkt-name">Summerlin</div>
+            <div class="mkt-count">Browse Listings</div>
+            <span class="mkt-btn">Explore</span>
+          </div>
+        </div>
+      </a>
+      <a href="https://search.crightonrinalditeam.com/" style="display:block;text-decoration:none;">
+        <div class="mkt-card rv d4">
+          <img loading="eager" src="images/north las vegas.jpg" alt="North Las Vegas">
+          <div class="mkt-ov">
+            <div class="mkt-name">North Las Vegas</div>
+            <div class="mkt-count">Browse Listings</div>
+            <span class="mkt-btn">Explore</span>
+          </div>
+        </div>
+      </a>
+      <a href="https://search.crightonrinalditeam.com/" style="display:block;text-decoration:none;">
+        <div class="mkt-card rv d5">
+          <img loading="eager" src="images/boulder city.jpg" alt="Boulder City">
+          <div class="mkt-ov">
+            <div class="mkt-name">Boulder City</div>
+            <div class="mkt-count">Browse Listings</div>
+            <span class="mkt-btn">Explore</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ⑤  ABOUT -->
+<section id="about" class="sec">
+  <div class="sec-inner">
+    <div class="abt-inner">
+      <div class="abt-img-wrap rv">
+        <img class="abt-img" loading="eager" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=700&q=80&fit=crop&crop=faces" alt="Frank Rinaldi and Ryan Crighton — Team Leaders">
+        <div class="abt-corner"></div>
+      </div>
+      <div class="rv d2">
+        <div class="ol" style="color:rgba(51,219,231,.65);">The Team Leaders</div>
+        <h2 class="abt-hl">Frank &amp; Ryan<br><em>Crighton Rinaldi</em></h2>
+        <p class="abt-bio">
+          To treat others the way we would want to be treated — in life and in real estate. That mission drives everything the Crighton Rinaldi Team does for clients across Las Vegas, Henderson, Summerlin, and the entire valley.<br><br>
+          With a full team of 29 licensed agents and deep roots in the local market, we combine proven digital marketing strategies with personal service to help buyers find their dream home and sellers achieve top value.
+        </p>
+        <div class="abt-ach">
+          <div><div class="ach-l">Team Agents</div><div class="ach-v">29</div></div>
+          <div><div class="ach-l">Client Reviews</div><div class="ach-v">5-Star</div></div>
+          <div><div class="ach-l">Phone</div><div class="ach-v">(702) 761-3320</div></div>
+          <div><div class="ach-l">Brokerage</div><div class="ach-v">Rothwell Gornt</div></div>
+        </div>
+        <div class="abt-badges">
+          <span class="badge">Zillow</span>
+          <span class="badge">Google</span>
+          <span class="badge">Realtor.com</span>
+          <span class="badge">Facebook</span>
+          <span class="badge">MLS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑥  MEET OUR TEAM -->
+<section id="team">
+  <!-- Ambient blobs -->
+  <div class="tc-blob tc-blob-1"></div>
+  <div class="tc-blob tc-blob-2"></div>
+
+  <div class="sec-inner">
+    <div class="tc-hd" id="tc-hd">
+      <div class="ol">The People Behind the Promise</div>
+      <h2 class="sec-title sec-title-light">Meet Our<br><span style="font-family:'Tenor Sans',sans-serif;font-style:italic;color:var(--gold);">Team</span></h2>
+    </div>
+  </div>
+
+  <!-- Carousel viewport — intentionally outside sec-inner for edge-to-edge -->
+  <div class="tc-wrap" id="tc-wrap">
+    <div class="tc-track" id="tc-track"></div>
+    <button class="tc-arrow tc-prev" id="tc-prev" aria-label="Previous">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <button class="tc-arrow tc-next" id="tc-next" aria-label="Next">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+  </div>
+
+  <div class="sec-inner">
+    <div class="tc-dots" id="tc-dots"></div>
+    <div class="tc-progress-bar">
+      <div class="tc-progress-fill" id="tc-progress"></div>
+    </div>
+  </div>
+
+  <script>
+  (function() {
+    var TEAM = [
+      { name: "Frank Rinaldi",           role: "Team Leader",         phone: "(702) 605-0759", email: "frank@crhometeam.com",      photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1769122311738-6IOYSU6N2XCK90O7LVCC/83230156_172430979_img_6820.jpg?format=300w" },
+      { name: "Ryan Crighton",           role: "Team Leader",         phone: "(702) 217-1048", email: "ryan@crhometeam.com",       photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1765322326986-8JNC746E8QTI0UV5QPR5/83230156_172430981_ryan_crighton_.png?format=300w" },
+      { name: "Danny Rinaldi",           role: "Sales Manager",       phone: "(702) 605-0759", email: "danny@crhometeam.com",      photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1767138332517-J8NQP7WFZ4IHAQWN3ZXC/83230156_172430979_danny_rinaldi_headshot.png?format=300w" },
+      { name: "Aymeric Monello-Fuentes", role: "REALTOR®",       phone: "(702) 747-6985", email: "aymeric@crhometeam.com",    photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1766196406961-VQASN0XUO8WKZP6P6HTT/pro-square.jpg?format=300w" },
+      { name: "Bailey Padilla",          role: "REALTOR®",       phone: "(725) 525-6496", email: "bailey@crhometeam.com",     photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1776791291544-9566V0JBGH64WT1FPF5G/83230156_172430979_img_8878.jpg?format=300w" },
+      { name: "Bobbie McPherson",        role: "REALTOR®",       phone: "(480) 469-6184", email: "bobbie@crhometeam.com",     photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1765914236034-5JKYMYFXX03DFTEQGOZP/83230156_172430979_headshot3.png?format=300w" },
+      { name: "Brayden Keith",           role: "REALTOR®",       phone: "(702) 765-0147", email: "brayden@crhometeam.com",    photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1766009321080-LOOMQ8EQXWVPQTNUS0GJ/83230156_172430979_brayden_keith_headshot.jpg?format=300w" },
+      { name: "Chris Brown",             role: "Real Estate Agent",   phone: "(702) 445-1330", email: "chrisbrown22@gmail.com",    photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1682451620887-8BXNVK2KVNVPQGN9J9KF/ChrisBrown_83230158_unnamed.jpeg?format=300w" },
+      { name: "Christian Cortes",        role: "REALTOR®",       phone: "(702) 743-1302", email: "christian@crhometeam.com",  photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1768248829082-2XZVQE5FXRHDZCK4AWS9/83230156_172430979_christian_cortes_headshot.png?format=300w" },
+      { name: "Dakota Hanson-Rudkins",   role: "REALTOR®",       phone: "(702) 994-7451", email: "dakota@crhometeam.com",     photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1767140819164-A11ZFEQGNP7QOWC2O2B1/83230156_172430979_dakota_hansonrudkins_headshot.jpg?format=300w" },
+      { name: "Dewey Burns",             role: "REALTOR",             phone: "(725) 577-4244", email: "dewey@crhometeam.com",      photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1765315328349-XSXFK52M0GZBAQQ2BB6N/efdbc18c-902f-44f5-9727-de3d1f7e5f8b.png?format=300w" },
+      { name: "Emmanuel Sanchez",        role: "Real Estate Agent",   phone: "(725) 255-3235", email: "emmanuel@crhometeam.com",   photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1767131890454-JV631TPJBZLML64VM8W0/83230156_172430979_emmanuel_sanchez_headshot.jpg?format=300w" },
+      { name: "Gram Burt",               role: "REALTOR®",       phone: "(702) 779-0210", email: "gram@crhometeam.com",       photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1765321450745-N0515WPCQ1XC2JADGSUH/83230156_172430979_gram_burt_headshot.jpg?format=300w" },
+      { name: "Jackie Bowers",           role: "REALTOR®",       phone: "(210) 639-7308", email: "jackie@crhometeam.com",     photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1780097177730-KJKQVXXY40SF69OZC1LE/Jackie+Bowers.png?format=300w" },
+      { name: "Jonathan Masci",          role: "Real Estate Agent",   phone: "(717) 386-2913", email: "jonathan@crhometeam.com",   photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1765319114981-T7IQI1KGH6M4SBSLU180/83230156_172430979_jonathan_masci.jpg?format=300w" },
+      { name: "Lin-Veronica Light",      role: "REALTOR®",       phone: "(702) 767-9703", email: "lin@crhometeam.com",        photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1765319420298-9NASAFRRRKOZNT2Q9PEL/83230156_172430979_linveronica_light.jpg?format=300w" },
+      { name: "Lydia Bell",              role: "REALTOR®",       phone: "(702) 745-2508", email: "lydia@crhometeam.com",      photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1778602858732-KJLONI81VL5S4SM81JRQ/83230156_172430979_lydia_bell_agent_headshot_extended_bg.png?format=300w" },
+      { name: "Michael Czmil",           role: "Realtor",             phone: "(702) 720-3505", email: "MikeCzmil@Gmail.com",       photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1765315201394-X8EUI31VB95Q7B83J3MF/d99f9c4d-205b-43ef-a045-6b359eb3fe1b.jpg?format=300w" },
+      { name: "Michelle Rinaldi",        role: "REALTOR®",       phone: "(917) 783-7408", email: "michelle@crhometeam.com",   photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1765324174060-YFVRJVQV39KMMQFMSZ7G/83230156_172430981_michelle_rinaldi_headshot.jpeg?format=300w" },
+      { name: "Paul Oh",                 role: "Real Estate Agent",   phone: "(702) 539-2290", email: "paul@crhometeam.com",       photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1768340867628-IYHDLCS23KNSH14W6J27/83230156_172430979_paul_oh_headshot+%281%29.png?format=300w" },
+      { name: "Pete Kalkas",             role: "Realtor",             phone: "(702) 328-5623", email: "kalkasrealestate@gmail.com",photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1682451880038-XOR0USEXH2MJBOP1AIH0/PeteKalkas_83230158_Photo.JPG?format=300w" },
+      { name: "Rebecca Williams",        role: "Real Estate Agent",   phone: "(702) 623-6520", email: "rebecca@crhometeam.com",    photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1776191384347-K545RLO1KC9Z8A0TVGH1/83230156_172430979_0814b36690e44ff29bd5d8a09736f10a_2.png?format=300w" },
+      { name: "Reyna Christen",          role: "Real Estate Agent",   phone: "(702) 389-6463", email: "reyna@crhometeam.com",      photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1774922226275-TNVT7YI8XRDZD8FNUXYH/83230156_172430979_reyna_christian_agent_headshot2.jpg?format=300w" },
+      { name: "Robert Barnes",           role: "REALTOR®",       phone: "(702) 479-6847", email: "robert@crhometeam.com",     photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1765315104159-Z0J6FHMIRUW05XSPUYY8/4636a43d-fe51-47b8-ad3c-5cf61b553188.jpg?format=300w" },
+      { name: "Scott Reading",           role: "Realtor",             phone: "(702) 325-6530", email: "scott@crhometeam.com",      photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1742807007555-4GIXYI3FTM6FH1FEOPQQ/83230156_172430979_9c8530591713465dbc0225e1249cfa9a.jpeg?format=300w" },
+      { name: "Stefan Crighton",         role: "Realtor",             phone: "(702) 478-0516", email: "stefan@rothwellgornt.com",  photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1777510560555-AZFBK8XCOI3JES0QKSEP/83230156_172430979_stefan_crighton_agent_headshot.png?format=300w" },
+      { name: "Victor Kipp",             role: "Sales Agent",         phone: "(845) 453-4957", email: "victor@crhometeam.com",     photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1696039304373-GN5UDWMC2MGEIISL5A8W/Vic+Pic+1.jpg?format=300w" },
+      { name: "Victoria Rose",           role: "REALTOR®",       phone: "(702) 541-4381", email: "victoria@crhometeam.com",   photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1747227024659-A6A0SZLDNRR2WJF99GL8/83230156_172430979_victoria_pic+%281%29-Picsart-AiImageEnhancer.jpg?format=300w" },
+      { name: "Zolt Szorenyi",           role: "REALTOR®",       phone: "(702) 321-4006", email: "zolt@crhometeam.com",       photo: "https://images.squarespace-cdn.com/content/v1/6407816c4c01523c73b3e9f6/1780429048510-RGZBX42O1VPW8ACG8GW3/Zolt+Szorenyi.jpg?format=300w" }
+    ];
+
+    var CLONE_COUNT = 3;
+    var GAP = 24;
+    var track    = document.getElementById('tc-track');
+    var wrap     = document.getElementById('tc-wrap');
+    var dotsEl   = document.getElementById('tc-dots');
+    var progressEl = document.getElementById('tc-progress');
+    var prevBtn  = document.getElementById('tc-prev');
+    var nextBtn  = document.getElementById('tc-next');
+    var hdEl     = document.getElementById('tc-hd');
+    var N        = TEAM.length;
+    var currentIndex = 0;
+    var autoplayTimer = null;
+    var isAnimating   = false;
+    var entranceDone  = false;
+
+    /* ── Build all cards (clones prepended/appended for infinite loop) ── */
+    var allMembers = [];
+    // Clone last CLONE_COUNT at front
+    for (var i = N - CLONE_COUNT; i < N; i++) allMembers.push(TEAM[i]);
+    // Real members
+    for (var j = 0; j < N; j++) allMembers.push(TEAM[j]);
+    // Clone first CLONE_COUNT at back
+    for (var k = 0; k < CLONE_COUNT; k++) allMembers.push(TEAM[k]);
+
+    var cardEls = [];
+
+    function buildCard(member, idx) {
+      var card = document.createElement('div');
+      card.className = 'tc-card tc-entrance';
+      card.setAttribute('data-idx', idx);
+      card.innerHTML =
+        '<div class="tc-photo">' +
+          '<img src="' + member.photo + '" alt="' + member.name + '" loading="lazy">' +
+          '<div class="tc-photo-ov"></div>' +
+        '</div>' +
+        '<div class="tc-info">' +
+          '<div class="tc-name">' + member.name + '</div>' +
+          '<div class="tc-role">' + member.role + '</div>' +
+          '<div class="tc-divider"></div>' +
+          '<div class="tc-contacts">' +
+            '<a href="tel:' + member.phone.replace(/\D/g,'') + '">' + member.phone + '</a>' +
+            '<a href="mailto:' + member.email + '">' + member.email + '</a>' +
+          '</div>' +
+        '</div>';
+      return card;
+    }
+
+    allMembers.forEach(function(m, i) {
+      var el = buildCard(m, i);
+      track.appendChild(el);
+      cardEls.push(el);
+    });
+
+    /* ── Build dots (one per real member) ── */
+    var dotEls = [];
+    for (var d = 0; d < N; d++) {
+      (function(idx) {
+        var dot = document.createElement('div');
+        dot.className = 'tc-dot';
+        dot.addEventListener('click', function() { goTo(idx, true); });
+        dotsEl.appendChild(dot);
+        dotEls.push(dot);
+      })(d);
+    }
+
+    /* ── Geometry helpers ── */
+    function getCardWidth() {
+      if (cardEls[CLONE_COUNT]) return cardEls[CLONE_COUNT].offsetWidth;
+      return 380;
+    }
+    function getOffset(index) {
+      var cw   = getCardWidth();
+      var cw_g = cw + GAP;
+      var containerW = wrap.offsetWidth;
+      var centerOff  = (containerW - cw) / 2;
+      return -((index + CLONE_COUNT) * cw_g) + centerOff;
+    }
+
+    /* ── Apply transforms to all cards ── */
+    function applyStates(ci) {
+      var realCount = CLONE_COUNT + N + CLONE_COUNT;
+      for (var i = 0; i < realCount; i++) {
+        var el = cardEls[i];
+        if (!el) continue;
+        var diff = i - (ci + CLONE_COUNT);
+        el.classList.remove('tc-active','tc-adjacent');
+        if (diff === 0) {
+          el.classList.add('tc-active');
+        } else if (Math.abs(diff) === 1) {
+          el.classList.add('tc-adjacent');
+        }
+      }
+    }
+
+    /* ── goTo ── */
+    function goTo(index, animate) {
+      if (animate === undefined) animate = true;
+      currentIndex = index;
+      var offset = getOffset(currentIndex);
+
+      if (animate) {
+        track.style.transition = 'transform 0.55s cubic-bezier(0.22,1,0.36,1)';
+      } else {
+        track.style.transition = 'none';
+      }
+      track.style.transform = 'translateX(' + offset + 'px)';
+      applyStates(currentIndex);
+      updateDots();
+      updateProgress();
+    }
+
+    function updateDots() {
+      var realIdx = ((currentIndex % N) + N) % N;
+      dotEls.forEach(function(d, i) {
+        d.classList.toggle('active', i === realIdx);
+      });
+    }
+    function updateProgress() {
+      var realIdx = ((currentIndex % N) + N) % N;
+      var pct = ((realIdx + 1) / N) * 100;
+      progressEl.style.width = pct + '%';
+    }
+
+    /* ── Infinite jump after transition ── */
+    track.addEventListener('transitionend', function() {
+      if (currentIndex < 0) {
+        goTo(currentIndex + N, false);
+      } else if (currentIndex >= N) {
+        goTo(currentIndex - N, false);
+      }
+      isAnimating = false;
+    });
+
+    /* ── prev / next ── */
+    function prev() {
+      isAnimating = true;
+      goTo(currentIndex - 1, true);
+      resetAutoplay();
+    }
+    function next() {
+      isAnimating = true;
+      goTo(currentIndex + 1, true);
+      resetAutoplay();
+    }
+
+    prevBtn.addEventListener('click', prev);
+    nextBtn.addEventListener('click', next);
+
+    /* ── Keyboard ── */
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowLeft')  prev();
+      if (e.key === 'ArrowRight') next();
+    });
+
+    /* ── Drag (pointer) ── */
+    var dragState = { active: false, startX: 0, startOffset: 0, deltaX: 0 };
+    track.addEventListener('pointerdown', function(e) {
+      if (e.button !== 0) return;
+      dragState.active  = true;
+      dragState.startX  = e.clientX;
+      dragState.deltaX  = 0;
+      track.classList.add('dragging');
+      track.setPointerCapture(e.pointerId);
+      pauseAutoplay();
+    });
+    track.addEventListener('pointermove', function(e) {
+      if (!dragState.active) return;
+      dragState.deltaX = e.clientX - dragState.startX;
+      var baseOffset = getOffset(currentIndex);
+      track.style.transition = 'none';
+      track.style.transform  = 'translateX(' + (baseOffset + dragState.deltaX) + 'px)';
+    });
+    track.addEventListener('pointerup', function(e) {
+      if (!dragState.active) return;
+      dragState.active = false;
+      track.classList.remove('dragging');
+      var delta = dragState.deltaX;
+      if (delta < -50) {
+        next();
+      } else if (delta > 50) {
+        prev();
+      } else {
+        goTo(currentIndex, true);
+      }
+      resetAutoplay();
+    });
+    track.addEventListener('pointercancel', function() {
+      if (!dragState.active) return;
+      dragState.active = false;
+      track.classList.remove('dragging');
+      goTo(currentIndex, true);
+    });
+
+    /* ── Wheel ── */
+    var wheelAccum = 0;
+    wrap.addEventListener('wheel', function(e) {
+      e.preventDefault();
+      wheelAccum += e.deltaX || e.deltaY;
+      if (Math.abs(wheelAccum) >= 120) {
+        if (wheelAccum > 0) next(); else prev();
+        wheelAccum = 0;
+      }
+    }, { passive: false });
+
+    /* ── Autoplay ── */
+    function startAutoplay() {
+      if (autoplayTimer) return;
+      autoplayTimer = setInterval(function() {
+        isAnimating = true;
+        goTo(currentIndex + 1, true);
+      }, 4000);
+    }
+    function pauseAutoplay() {
+      if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; }
+    }
+    function resetAutoplay() {
+      pauseAutoplay();
+      startAutoplay();
+    }
+
+    wrap.addEventListener('mouseenter', pauseAutoplay);
+    wrap.addEventListener('mouseleave', startAutoplay);
+
+    /* ── IntersectionObserver: entrance animation + autoplay ── */
+    var sectionEl = document.getElementById('team');
+
+    if ('IntersectionObserver' in window) {
+      var sectionObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            /* Heading */
+            hdEl.classList.add('visible');
+
+            /* Card entrance stagger */
+            if (!entranceDone) {
+              entranceDone = true;
+              // Only animate the visible window: active + adjacent + far on each side
+              var start = Math.max(0, currentIndex + CLONE_COUNT - 4);
+              var end   = Math.min(cardEls.length - 1, currentIndex + CLONE_COUNT + 4);
+              for (var ci = start; ci <= end; ci++) {
+                (function(el, delay) {
+                  el.style.transitionDelay = delay + 'ms';
+                  el.classList.remove('tc-entrance');
+                  setTimeout(function() { el.style.transitionDelay = ''; }, delay + 700);
+                })(cardEls[ci], (ci - start) * 80);
+              }
+              // Instantly reveal the rest (no animation)
+              cardEls.forEach(function(el, idx) {
+                if (idx < start || idx > end) {
+                  el.style.transition = 'none';
+                  el.classList.remove('tc-entrance');
+                  setTimeout(function() { el.style.transition = ''; }, 100);
+                }
+              });
+            }
+
+            startAutoplay();
+            sectionObs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      sectionObs.observe(sectionEl);
+    } else {
+      hdEl.classList.add('visible');
+      cardEls.forEach(function(el) { el.classList.remove('tc-entrance'); });
+      startAutoplay();
+    }
+
+    /* ── Init position (no animation) ── */
+    goTo(0, false);
+
+  })();
+  </script>
+</section>
+
+
+<!-- ⑦  TESTIMONIALS -->
+<section id="testimonials" class="sec">
+  <div class="sec-inner">
+    <div class="rv">
+      <div class="ol">Client Voices</div>
+      <h2 class="sec-title">Trusted by Las Vegas<br><span style="font-family:'Tenor Sans',sans-serif;font-style:italic;color:var(--gold);">Home Buyers &amp; Sellers</span></h2>
+      <p class="tsv2-sub">Real stories from real clients across Las Vegas, Henderson, and Summerlin.</p>
+    </div>
+  </div>
+
+  <div class="tsv2-cols">
+
+    <!-- Column 1 — 15s -->
+    <div class="tsv2-col">
+      <div class="tsv2-track" style="--dur:15s">
+        <div class="tsv2-card"><p class="tsv2-text">We cannot say enough about this team! Mike, Ryan, and Frank were all amazing. There is such a collaborative effort between everyone. Mike spent many hours with us to determine what style of home we wanted and the area to focus on. Everything about our experience was outstanding!</p><div class="tsv2-footer"><img class="tsv2-avatar" src="https://ui-avatars.com/api/?name=Tracy+Monroe&background=d4f4f7&color=021C1E&size=84&bold=true&length=2" alt="Tracy Monroe"><div><div class="tsv2-name">Tracy Monroe</div><div class="tsv2-role">Home Buyer · Las Vegas</div></div></div></div>
+        <div class="tsv2-card"><p class="tsv2-text">Ana and Ryan are phenomenal! They sold my house FAST. Very communicative throughout the entire process. Always got back to me in a timely manner. Any questions I had they always answered professionally. I would definitely go with them again!</p><div class="tsv2-footer"><img class="tsv2-avatar" src="https://ui-avatars.com/api/?name=Dioselina+Lopez&background=d4f4f7&color=021C1E&size=84&bold=true&length=2" alt="Dioselina Lopez"><div><div class="tsv2-name">Dioselina Lopez</div><div class="tsv2-role">Home Seller · Henderson</div></div></div></div>
+        <div class="tsv2-card"><p class="tsv2-text">Liz made my entire experience with this company so comfortable, accommodating, and easy to digest. I never felt pressured or rushed and truly would not choose anyone else to buy and sell my homes in the future. It shows she really loves what she does.</p><div class="tsv2-footer"><img class="tsv2-avatar" src="https://ui-avatars.com/api/?name=GG+Bellz&background=d4f4f7&color=021C1E&size=84&bold=true&length=2" alt="GG Bellz"><div><div class="tsv2-name">GG Bellz</div><div class="tsv2-role">Home Buyer · Las Vegas</div></div></div></div>
+        <!-- duplicate for infinite loop -->
+        <div class="tsv2-card" aria-hidden="true"><p class="tsv2-text">We cannot say enough about this team! Mike, Ryan, and Frank were all amazing. There is such a collaborative effort between everyone. Mike spent many hours with us to determine what style of home we wanted and the area to focus on. Everything about our experience was outstanding!</p><div class="tsv2-footer"><img class="tsv2-avatar" src="https://ui-avatars.com/api/?name=Tracy+Monroe&background=d4f4f7&color=021C1E&size=84&bold=true&length=2" alt=""><div><div class="tsv2-name">Tracy Monroe</div><div class="tsv2-role">Home Buyer · Las Vegas</div></div></div></div>
+        <div class="tsv2-card" aria-hidden="true"><p class="tsv2-text">Ana and Ryan are phenomenal! They sold my house FAST. Very communicative throughout the entire process. Always got back to me in a timely manner. Any questions I had they always answered professionally. I would definitely go with them again!</p><div class="tsv2-footer"><img class="tsv2-avatar" src="https://ui-avatars.com/api/?name=Dioselina+Lopez&background=d4f4f7&color=021C1E&size=84&bold=true&length=2" alt=""><div><div class="tsv2-name">Dioselina Lopez</div><div class="tsv2-role">Home Seller · Henderson</div></div></div></div>
+        <div class="tsv2-card" aria-hidden="true"><p class="tsv2-text">Liz made my entire experience with this company so comfortable, accommodating, and easy to digest. I never felt pressured or rushed and truly would not choose anyone else to buy and sell my homes in the future. It shows she really loves what she does.</p><div class="tsv2-footer"><img class="tsv2-avatar" src="https://ui-avatars.com/api/?name=GG+Bellz&background=d4f4f7&color=021C1E&size=84&bold=true&length=2" alt=""><div><div class="tsv2-name">GG Bellz</div><div class="tsv2-role">Home Buyer · Las Vegas</div></div></div></div>
+      </div>
+    </div>
+
+    <!-- Column 2 — 19s -->
+    <div class="tsv2-col">
+      <div class="tsv2-track" style="--dur:19s">
+        <div class="tsv2-card"><p class="tsv2-text">Leslie is a professional and very friendly agent. She answered all my questions in a timely manner. Buying a home is stressful, but Leslie made it a piece of cake. I highly recommend her if you are looking to buy a home.</p><div class="tsv2-footer"><img class="tsv2-avatar" src="https://ui-avatars.com/api/?name=Bill+Moore&background=d4f4f7&color=021C1E&size=84&bold=true&length=2" alt="Bill Moore"><div><div class="tsv2-name">Bill Moore</div><div class="tsv2-role">Home Buyer · Las Vegas</div></div></div></div>
+        <div class="tsv2-card"><p class="tsv2-text">Working with Leslie Brant was a great experience. She was helpful every step of the way — professional, funny, and provides wonderful service. I would definitely recommend Leslie and the Crighton Rinaldi Team to friends and family.</p><div class="tsv2-footer"><img class="tsv2-avatar" src="https://ui-avatars.com/api/?name=Mara+L&background=d4f4f7&color=021C1E&size=84&bold=true&length=2" alt="Mara L."><div><div class="tsv2-name">Mara L.</div><div class="tsv2-role">Home Buyer · Las Vegas</div></div></div></div>
+        <div class="tsv2-card"><p class="tsv2-text">As a first time homebuyer, it is an extremely intimidating process. Mike immediately took the stress away with his laid back personality. He truly makes you feel like you are the most important client he has. My experience was fantastic.</p><div class="tsv2-footer"><img class="tsv2-avatar" src="https://ui-avatars.com/api/?name=Jackie+Oliver&background=d4f4f7&color=021C1E&size=84&bold=true&length=2" alt="Jackie Oliver"><div><div class="tsv2-name">Jackie Oliver</div><div class="tsv2-role">First-Time Buyer · Las Vegas</div></div></div></div>
+        <!-- duplicate -->
+        <div class="tsv2-card" aria-hidden="true"><p class="tsv2-text">Leslie is a professional and very friendly agent. She answered all my questions in a timely manner. Buying a home is stressful, but Leslie made it a piece of cake. I highly recommend her if you are looking to buy a home.</p><div class="tsv2-footer"><img class="tsv2-avatar" src="https://ui-avatars.com/api/?name=Bill+Moore&background=d4f4f7&color=021C1E&size=84&bold=true&length=2" alt=""><div><div class="tsv2-name">Bill Moore</div><div class="tsv2-role">Home Buyer · Las Vegas</div></div></div></div>
+        <div class="tsv2-card" aria-hidden="true"><p class="tsv2-text">Working with Leslie Brant was a great experience. She was helpful every step of the way — professional, funny, and provides wonderful service. I would definitely recommend Leslie and the Crighton Rinaldi Team to friends and family.</p><div class="tsv2-footer"><img class="tsv2-avatar" src="https://ui-avatars.com/api/?name=Mara+L&background=d4f4f7&color=021C1E&size=84&bold=true&length=2" alt=""><div><div class="tsv2-name">Mara L.</div><div class="tsv2-role">Home Buyer · Las Vegas</div></div></div></div>
+        <div class="tsv2-card" aria-hidden="true"><p class="tsv2-text">As a first time homebuyer, it is an extremely intimidating process. Mike immediately took the stress away with his laid back personality. He truly makes you feel like you are the most important client he has. My experience was fantastic.</p><div class="tsv2-footer"><img class="tsv2-avatar" src="https://ui-avatars.com/api/?name=Jackie+Oliver&background=d4f4f7&color=021C1E&size=84&bold=true&length=2" alt=""><div><div class="tsv2-name">Jackie Oliver</div><div class="tsv2-role">First-Time Buyer · Las Vegas</div></div></div></div>
+      </div>
+    </div>
+
+    <!-- Column 3 — 17s -->
+    <div class="tsv2-col">
+      <div class="tsv2-track" style="--dur:17s">
+        <div class="tsv2-card"><p class="tsv2-text">Mike was very knowledgeable and professional when he helped us sell our house. He knew the local market and helped us price our sale appropriately to get max showings, then evaluate offers to choose the correct buyer. Would definitely work with Mike again.</p><div class="tsv2-footer"><img class="tsv2-avatar" src="https://ui-avatars.com/api/?name=Jeffrey+Simpson&background=d4f4f7&color=021C1E&size=84&bold=true&length=2" alt="Jeffrey Simpson"><div><div class="tsv2-name">Jeffrey Simpson</div><div class="tsv2-role">Home Seller · Las Vegas</div></div></div></div>
+        <div class="tsv2-card"><p class="tsv2-text">Mike was the first realtor to pick up the phone and call me. He did research on every property while we were touring. After closing, he drove across town with no complaint to deliver my keys. Altogether, very knowledgeable and great service.</p><div class="tsv2-footer"><img class="tsv2-avatar" src="https://ui-avatars.com/api/?name=Nyscilla&background=d4f4f7&color=021C1E&size=84&bold=true&length=2" alt="Nyscilla"><div><div class="tsv2-name">Nyscilla</div><div class="tsv2-role">Home Buyer · Las Vegas</div></div></div></div>
+        <div class="tsv2-card"><p class="tsv2-text">Michael was an excellent agent who helped us understand the process and found us the perfect home. Our closing seemed to hit every imaginable roadblock but Michael was there every step of the way, helping take the stress out of our experience.</p><div class="tsv2-footer"><img class="tsv2-avatar" src="https://ui-avatars.com/api/?name=Richie+Whitmore&background=d4f4f7&color=021C1E&size=84&bold=true&length=2" alt="Richie Whitmore"><div><div class="tsv2-name">Richie Whitmore</div><div class="tsv2-role">First-Time Buyer · Las Vegas</div></div></div></div>
+        <!-- duplicate -->
+        <div class="tsv2-card" aria-hidden="true"><p class="tsv2-text">Mike was very knowledgeable and professional when he helped us sell our house. He knew the local market and helped us price our sale appropriately to get max showings, then evaluate offers to choose the correct buyer. Would definitely work with Mike again.</p><div class="tsv2-footer"><img class="tsv2-avatar" src="https://ui-avatars.com/api/?name=Jeffrey+Simpson&background=d4f4f7&color=021C1E&size=84&bold=true&length=2" alt=""><div><div class="tsv2-name">Jeffrey Simpson</div><div class="tsv2-role">Home Seller · Las Vegas</div></div></div></div>
+        <div class="tsv2-card" aria-hidden="true"><p class="tsv2-text">Mike was the first realtor to pick up the phone and call me. He did research on every property while we were touring. After closing, he drove across town with no complaint to deliver my keys. Altogether, very knowledgeable and great service.</p><div class="tsv2-footer"><img class="tsv2-avatar" src="https://ui-avatars.com/api/?name=Nyscilla&background=d4f4f7&color=021C1E&size=84&bold=true&length=2" alt=""><div><div class="tsv2-name">Nyscilla</div><div class="tsv2-role">Home Buyer · Las Vegas</div></div></div></div>
+        <div class="tsv2-card" aria-hidden="true"><p class="tsv2-text">Michael was an excellent agent who helped us understand the process and found us the perfect home. Our closing seemed to hit every imaginable roadblock but Michael was there every step of the way, helping take the stress out of our experience.</p><div class="tsv2-footer"><img class="tsv2-avatar" src="https://ui-avatars.com/api/?name=Richie+Whitmore&background=d4f4f7&color=021C1E&size=84&bold=true&length=2" alt=""><div><div class="tsv2-name">Richie Whitmore</div><div class="tsv2-role">First-Time Buyer · Las Vegas</div></div></div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ⑧  LIFESTYLE / BLOG -->
+<section id="lifestyle" class="sec">
+  <div class="sec-inner">
+    <div class="rv">
+      <div class="ol" style="color:rgba(51,219,231,.65);">The CR Team Blog</div>
+      <h2 class="sec-title sec-title-light">Las Vegas Real Estate<br><em style="font-family:'Tenor Sans',sans-serif;color:var(--gold);">Insights</em></h2>
+    </div>
+    <div class="life-grid">
+      <div class="life-card rv">
+        <img loading="eager" src="https://picsum.photos/seed/lvmarket2024/900/700" alt="Las Vegas Market">
+        <div class="life-ov">
+          <div class="life-tag">Market Update</div>
+          <div class="life-title">Las Vegas Real Estate Market Trends: What Buyers and Sellers Need to Know in 2024</div>
+        </div>
+      </div>
+      <div class="life-card rv d1">
+        <img loading="eager" src="https://picsum.photos/seed/lvbuying/600/500" alt="Buying in Las Vegas">
+        <div class="life-ov">
+          <div class="life-tag">Buying Guide</div>
+          <div class="life-title">First-Time Buyer's Complete Guide to Purchasing a Home in Las Vegas</div>
+        </div>
+      </div>
+      <div class="life-card rv d2">
+        <img loading="eager" src="https://picsum.photos/seed/summerlin2024/600/500" alt="Summerlin community">
+        <div class="life-ov">
+          <div class="life-tag">Community</div>
+          <div class="life-title">Why Summerlin Is Las Vegas's Most In-Demand Neighborhood</div>
+        </div>
+      </div>
+      <div class="life-card rv d3">
+        <img loading="eager" src="https://picsum.photos/seed/lvhomesell/600/500" alt="Selling Las Vegas home">
+        <div class="life-ov">
+          <div class="life-tag">Selling Guide</div>
+          <div class="life-title">How to Price and Market Your Las Vegas Home for Maximum Value</div>
+        </div>
+      </div>
+      <div class="life-card rv d4">
+        <img loading="eager" src="https://picsum.photos/seed/henderson2024/600/500" alt="Henderson real estate">
+        <div class="life-ov">
+          <div class="life-tag">Investment</div>
+          <div class="life-title">Why Henderson, NV Is a Top Real Estate Investment Market</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑨  INSTAGRAM / SOCIAL -->
+<section id="instagram" class="sec">
+  <div class="sec-inner">
+    <div class="ig-hd rv">
+      <div>
+        <div class="ol" style="color:rgba(51,219,231,.65);">@CrightonRinaldiTeam</div>
+        <h2 class="sec-title sec-title-light" style="margin-bottom:0;">Curated Moments</h2>
+      </div>
+      <a href="https://www.facebook.com/crightonrinalditeam/" class="ig-follow">Follow Us</a>
+    </div>
+    <div class="ig-grid">
+      <div class="ig-item rv">    <img loading="eager" src="https://picsum.photos/seed/crteam1/500/500" alt=""><div class="ig-ov"><span class="ig-icon">✦</span></div></div>
+      <div class="ig-item rv d1"> <img loading="eager" src="https://picsum.photos/seed/crteam2/500/500" alt=""><div class="ig-ov"><span class="ig-icon">✦</span></div></div>
+      <div class="ig-item rv d2"> <img loading="eager" src="https://picsum.photos/seed/crteam3/500/500" alt=""><div class="ig-ov"><span class="ig-icon">✦</span></div></div>
+      <div class="ig-item rv d3"> <img loading="eager" src="https://picsum.photos/seed/crteam4/500/500" alt=""><div class="ig-ov"><span class="ig-icon">✦</span></div></div>
+      <div class="ig-item rv d4"> <img loading="eager" src="https://picsum.photos/seed/crteam5/500/500" alt=""><div class="ig-ov"><span class="ig-icon">✦</span></div></div>
+      <div class="ig-item rv d5"> <img loading="eager" src="https://picsum.photos/seed/crteam6/500/500" alt=""><div class="ig-ov"><span class="ig-icon">✦</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑩  CONTACT -->
+<section id="contact">
+  <div class="ct-hero rv">
+    <span class="ct-pill">Connect With Us</span>
+    <h2 class="ct-hl">Work With Us</h2>
+    <p class="ct-sub">With 29 licensed agents and deep roots in Las Vegas real estate, the Crighton Rinaldi Team is committed to delivering a world-class experience for every client.</p>
+    <a href="https://www.crightonrinalditeam.com/contact-us" class="ct-cta" target="_blank" rel="noopener">Contact Us</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div>
+        <img src="CrightonRinaldiTeam.webp" alt="Crighton-Rinaldi Team" style="height:52px;width:auto;object-fit:contain;margin-bottom:16px;">
+        <p class="ft-tag">Top Real Estate Agents serving Las Vegas, Henderson, Summerlin, and the entire valley. A proud member of Rothwell Gornt Companies.</p>
+        <div style="display:flex;gap:18px;">
+          <a href="https://www.facebook.com/crightonrinalditeam/" style="font-size:16px;color:rgba(237,239,240,.28);transition:color .22s ease;" onmouseover="this.style.color='#33dbe7'" onmouseout="this.style.color='rgba(237,239,240,.28)'">Facebook</a>
+          <a href="https://www.zillow.com/profile/CrightonRinaldiTeam" style="font-size:16px;color:rgba(237,239,240,.28);transition:color .22s ease;" onmouseover="this.style.color='#33dbe7'" onmouseout="this.style.color='rgba(237,239,240,.28)'">Zillow</a>
+        </div>
+      </div>
+      <div>
+        <div class="ft-col-h">Buy &amp; Sell</div>
+        <ul class="ft-links">
+          <li><a href="https://search.crightonrinalditeam.com/">Search Homes</a></li>
+          <li><a href="https://www.crightonrinalditeam.com/home-valuation">Home Valuation</a></li>
+          <li><a href="https://www.crightonrinalditeam.com/why-list-with-us">Why List With Us</a></li>
+          <li><a href="https://search.crightonrinalditeam.com/">Off-Market Access</a></li>
+          <li><a href="https://www.crightonrinalditeam.com/join-our-team">Join Our Team</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-col-h">Communities</div>
+        <ul class="ft-links">
+          <li><a href="https://www.crightonrinalditeam.com/communities/las-vegas-real-estate">Las Vegas</a></li>
+          <li><a href="https://www.crightonrinalditeam.com/communities/henderson-real-estate">Henderson</a></li>
+          <li><a href="https://search.crightonrinalditeam.com/">Summerlin</a></li>
+          <li><a href="https://search.crightonrinalditeam.com/">North Las Vegas</a></li>
+          <li><a href="https://search.crightonrinalditeam.com/">Boulder City</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-col-h">Company</div>
+        <ul class="ft-links">
+          <li><a href="https://www.crightonrinalditeam.com/team-page">Our Team</a></li>
+          <li><a href="https://www.crightonrinalditeam.com/testimonials">Testimonials</a></li>
+          <li><a href="https://www.crightonrinalditeam.com/blog">Blog</a></li>
+          <li><a href="https://www.crightonrinalditeam.com/contact-us">Contact Us</a></li>
+          <li><a href="https://www.crightonrinalditeam.com/">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <p class="ft-copy">© Rothwell Gornt Companies 2024. All Rights Reserved. Licensed Real Estate Broker.</p>
+      <div class="ft-legal">
+        <a href="https://www.crightonrinalditeam.com/">Privacy Policy</a>
+        <a href="https://www.crightonrinalditeam.com/">Fair Housing Notice</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE NAV OVERLAY -->
+<div id="mobileNav" style="
+  display:none; position:fixed; inset:0; z-index:490;
+  background:rgba(10,10,10,.97);
+  flex-direction:column; align-items:center; justify-content:center; gap:44px;
+">
+  <a href="https://search.crightonrinalditeam.com/" class="nav-links" style="font-size:16px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,239,240,.7);">Buy</a>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:18px;border-top:1px solid rgba(51,219,231,0.12);border-bottom:1px solid rgba(51,219,231,0.12);padding:20px 0;">
+    <span style="font-size:16px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:rgba(51,219,231,0.6);">Communities</span>
+    <a href="https://www.crightonrinalditeam.com/communities/las-vegas-real-estate" style="font-size:16px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,239,240,.6);text-decoration:none;">Las Vegas</a>
+    <a href="henderson.html" style="font-size:16px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(51,219,231,0.9);text-decoration:none;">Henderson</a>
+    <a href="https://www.crightonrinalditeam.com/communities/summerlin-real-estate" style="font-size:16px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,239,240,.6);text-decoration:none;">Summerlin</a>
+    <a href="https://www.crightonrinalditeam.com/communities/north-las-vegas-real-estate" style="font-size:16px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,239,240,.6);text-decoration:none;">North Las Vegas</a>
+    <a href="https://www.crightonrinalditeam.com/communities/boulder-city-real-estate" style="font-size:16px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,239,240,.6);text-decoration:none;">Boulder City</a>
+  </div>
+  <a href="#team"       style="font-size:16px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,239,240,.7);">Our Team</a>
+  <a href="#lifestyle"  style="font-size:16px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,239,240,.7);">Blog</a>
+  <a href="#contact"    style="font-size:16px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,239,240,.7);">Contact</a>
+  <a href="https://www.crightonrinalditeam.com/contact-us" class="btn-gld" style="font-size:16px;">Schedule Consultation</a>
+</div>
+
+<script>
+/* ── LOADER ── */
+(function () {
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      document.getElementById('loader').classList.add('out');
+      document.body.classList.add('loaded');
+      document.querySelectorAll('[data-count]').forEach(function (el) {
+        setTimeout(function () { animateCount(el); }, 100);
+      });
+    }, 0);
+  });
+  /* Fallback: reveal all sections after 800ms for full-page screenshots */
+  setTimeout(function () {
+    document.querySelectorAll('.rv').forEach(function (el) {
+      el.classList.add('vis');
+    });
+  }, 800);
+})();
+
+/* ── COUNTER ── */
+function animateCount(el) {
+  var target   = parseInt(el.dataset.count, 10);
+  var prefix   = el.dataset.prefix || '';
+  var suffix   = el.dataset.suffix || '';
+  var dur      = 1800;
+  var start    = performance.now();
+  (function step(now) {
+    var p = Math.min((now - start) / dur, 1);
+    var ease = 1 - Math.pow(1 - p, 3);
+    el.textContent = prefix + Math.floor(ease * target) + suffix;
+    if (p < 1) requestAnimationFrame(step);
+  })(start);
+}
+
+/* ── SCROLL PROGRESS ── */
+window.addEventListener('scroll', function () {
+  var max = document.documentElement.scrollHeight - window.innerHeight;
+  document.getElementById('prog').style.width = (window.scrollY / max * 100) + '%';
+}, { passive: true });
+
+/* ── NAVBAR ── */
+(function () {
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function () {
+    nav.classList.toggle('scrolled', window.scrollY > 56);
+  }, { passive: true });
+})();
+
+/* ── HERO PARALLAX ── */
+window.addEventListener('scroll', function () {
+  var bg = document.getElementById('hBg');
+  if (bg) bg.style.transform = 'translateY(' + (window.scrollY * 0.32) + 'px) scale(1.06)';
+}, { passive: true });
+
+
+/* ── REVEAL ON SCROLL ── */
+(function () {
+  var els = document.querySelectorAll('.rv');
+  var io  = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+
+/* ── CUSTOM CURSOR ── */
+(function () {
+  var outer = document.getElementById('cOuter');
+  var inner = document.getElementById('cInner');
+  var mx = 0, my = 0, ox = 0, oy = 0;
+
+  document.addEventListener('mousemove', function (e) {
+    mx = e.clientX; my = e.clientY;
+    inner.style.left = mx + 'px'; inner.style.top = my + 'px';
+  });
+
+  (function loop() {
+    ox += (mx - ox) * 0.11;
+    oy += (my - oy) * 0.11;
+    outer.style.left = ox + 'px'; outer.style.top = oy + 'px';
+    requestAnimationFrame(loop);
+  })();
+
+  var hoverEls = document.querySelectorAll('a, button, .p-card, .mkt-card, .life-card, .ig-item');
+  hoverEls.forEach(function (el) {
+    el.addEventListener('mouseenter', function () {
+      outer.style.width = '58px'; outer.style.height = '58px';
+      outer.style.background = 'rgba(51,219,231,.07)';
+    });
+    el.addEventListener('mouseleave', function () {
+      outer.style.width = '32px'; outer.style.height = '32px';
+      outer.style.background = 'none';
+    });
+  });
+})();
+
+/* ── STATIC FALLBACK CAROUSEL (4-up) ── */
+(function () {
+  var scroller = document.getElementById('props-scroller');
+  var content  = scroller && scroller.querySelector('.listings-content');
+  var prev     = document.getElementById('props-prev');
+  var next     = document.getElementById('props-next');
+  if (!scroller || !content || !prev || !next) return;
+
+  var VISIBLE = 4, GAP = 18, cur = 0;
+  var cards = Array.from(content.querySelectorAll('.l-card'));
+  var N = cards.length;
+
+  function cardW() { return (scroller.offsetWidth - GAP * (VISIBLE - 1)) / VISIBLE; }
+
+  function layout() {
+    var w = cardW();
+    cards.forEach(function (c) { c.style.flex = '0 0 ' + w + 'px'; c.style.width = w + 'px'; });
+  }
+
+  function goTo(i) {
+    cur = Math.max(0, Math.min(i, N - VISIBLE));
+    content.style.transform = 'translateX(-' + (cur * (cardW() + GAP)) + 'px)';
+    prev.classList.toggle('disabled', cur === 0);
+    next.classList.toggle('disabled', cur >= N - VISIBLE);
+  }
+
+  layout(); goTo(0);
+  prev.addEventListener('click', function () { goTo(cur - 1); });
+  next.addEventListener('click', function () { goTo(cur + 1); });
+  window.addEventListener('resize', function () { layout(); goTo(cur); });
+})();
+
+/* ── FILTER TABS ── */
+document.querySelectorAll('.flt').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    document.querySelectorAll('.flt').forEach(function (b) { b.classList.remove('on'); });
+    this.classList.add('on');
+  });
+});
+
+/* ── MOBILE NAV ── */
+(function () {
+  var ham = document.getElementById('ham');
+  var mob = document.getElementById('mobileNav');
+  var open = false;
+  ham.addEventListener('click', function () {
+    open = !open;
+    mob.style.display = open ? 'flex' : 'none';
+    ham.querySelectorAll('span')[0].style.transform = open ? 'rotate(45deg) translate(4px,4px)' : '';
+    ham.querySelectorAll('span')[1].style.transform = open ? 'rotate(-45deg) translate(4px,-4px)' : '';
+  });
+  mob.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      open = false; mob.style.display = 'none';
+      ham.querySelectorAll('span')[0].style.transform = '';
+      ham.querySelectorAll('span')[1].style.transform = '';
+    });
+  });
+})();
+
+</script>
+<script src="https://search.crightonrinalditeam.com/build/js/widgets-1.0.0.js" defer></script>
+<script>
+/* ── YLOPO WIDGET CAROUSEL (4-up, shown once widget populates) ── */
+(function () {
+  var fallback     = document.getElementById('static-props-fallback');
+  var carouselOuter= document.getElementById('ylopo-carousel-outer');
+  var vp           = document.getElementById('ylopo-carousel-vp');
+  var widget       = document.querySelector('.YLOPO_resultsWidget');
+  var prev         = document.getElementById('ylopo-prev');
+  var next         = document.getElementById('ylopo-next');
+  if (!widget || !vp || !carouselOuter || !prev || !next) return;
+
+  var VISIBLE = 4, GAP = 18, cur = 0, cards = [], N = 0;
+  var initiated = false;
+
+  function cardW() { return (vp.offsetWidth - GAP * (VISIBLE - 1)) / VISIBLE; }
+
+  function layout() {
+    var w = cardW();
+    cards.forEach(function (c) { c.style.flex = '0 0 ' + w + 'px'; c.style.width = w + 'px'; });
+  }
+
+  function goTo(i) {
+    cur = Math.max(0, Math.min(i, N - VISIBLE));
+    var container = widget.querySelector('.widget-gallery-container');
+    if (container) container.style.transform = 'translateX(-' + (cur * (cardW() + GAP)) + 'px)';
+    prev.classList.toggle('disabled', cur === 0);
+    next.classList.toggle('disabled', cur >= N - VISIBLE);
+  }
+
+  function initCarousel() {
+    if (initiated) return;
+    var container = widget.querySelector('.widget-gallery-container');
+    if (!container || container.querySelectorAll('.grid-view-item').length === 0) return;
+    initiated = true;
+
+    cards = Array.from(container.querySelectorAll('.grid-view-item'));
+    N = cards.length;
+
+    fallback.style.display = 'none';
+    carouselOuter.style.display = 'block';
+
+    layout(); goTo(0);
+    prev.addEventListener('click', function () { goTo(cur - 1); });
+    next.addEventListener('click', function () { goTo(cur + 1); });
+    window.addEventListener('resize', function () { layout(); goTo(cur); });
+  }
+
+  var mo = new MutationObserver(function () {
+    initCarousel();
+    if (initiated) mo.disconnect();
+  });
+  mo.observe(widget, { childList: true, subtree: true });
+
+  /* Fallback: check after 4 s in case widget loaded before observer */
+  setTimeout(function () { initCarousel(); if (initiated) mo.disconnect(); }, 4000);
+})();
+</script>
+</body>
+</html>
