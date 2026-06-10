@@ -149,8 +149,8 @@
   }
   .nav-links { display: flex; align-items: center; gap: 40px; list-style: none; }
   .nav-links a {
-    font-size: 16px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
-    color: rgba(237,239,240,.62);
+    font-size: 14px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(237,239,240,.70);
     transition: color .22s ease;
     position: relative;
   }
@@ -173,14 +173,14 @@
 
   /* ── COMMUNITIES DROPDOWN ── */
   .nav-communities { position: relative; }
-  .nav-communities-trigger { display: flex; align-items: center; gap: 5px; cursor: pointer; font-size: 16px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(237,239,240,.62); transition: color .22s ease; }
-  .nav-communities-trigger::after { content: '▾'; font-size: 16px; color: rgba(237,239,240,.4); transition: color .22s ease; }
+  .nav-communities-trigger { display: flex; align-items: center; gap: 5px; cursor: pointer; font-size: 14px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(237,239,240,.62); transition: color .22s ease; }
+  .nav-communities-trigger::after { content: '▾'; font-size: 14px; color: rgba(237,239,240,.4); transition: color .22s ease; }
   .nav-communities:hover .nav-communities-trigger,
   .nav-communities:hover .nav-communities-trigger::after { color: var(--white); }
   .communities-dropdown { position: absolute; top: calc(100% + 20px); left: 50%; transform: translateX(-50%) translateY(-6px); background: rgba(10,10,10,.97); border: 1px solid rgba(51,219,231,.15); min-width: 200px; opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 100; }
   .communities-dropdown::before { content: ''; position: absolute; top: -20px; left: 0; right: 0; height: 20px; }
   .nav-communities:hover .communities-dropdown { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
-  .communities-dropdown a { display: block; padding: 11px 20px; font-size: 16px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(237,239,240,.65); text-decoration: none; border-bottom: 1px solid rgba(51,219,231,.08); transition: color .2s, background .2s; }
+  .communities-dropdown a { display: block; padding: 11px 20px; font-size: 14px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(237,239,240,.65); text-decoration: none; border-bottom: 1px solid rgba(51,219,231,.08); transition: color .2s, background .2s; }
   .communities-dropdown a:last-child { border-bottom: none; }
   .communities-dropdown a:hover { color: var(--gold); background: rgba(51,219,231,.05); }
 
@@ -368,21 +368,21 @@
   /* Scroller outer */
   .listings-scroll-wrap { position: relative; }
   .listings-arrow {
-    position: absolute; top: 37%; transform: translateY(-50%);
-    width: 38px; height: 38px; border-radius: 50%;
-    background: #fff; border: 1px solid rgba(2,28,30,.13);
-    box-shadow: 0 2px 10px rgba(0,0,0,.1);
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 44px; height: 44px; border-radius: 50%;
+    background: rgba(2,28,30,0.7); border: 1px solid rgba(51,219,231,0.2);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     display: flex; align-items: center; justify-content: center;
     cursor: pointer; z-index: 10;
-    transition: background .22s ease, box-shadow .22s ease, opacity .22s ease;
-    font-size: 22px; line-height: 1; color: var(--charcoal); user-select: none;
-    font-style: normal; outline: none; border: none;
-    box-shadow: 0 2px 10px rgba(0,0,0,.12); border: 1px solid rgba(2,28,30,.12);
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    color: var(--white); user-select: none; outline: none;
   }
-  .listings-arrow:hover { background: var(--gold); box-shadow: 0 4px 18px rgba(51,219,231,.3); }
+  .listings-arrow svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
+  .listings-arrow:hover { background: rgba(51,219,231,0.15); border-color: rgba(51,219,231,0.5); transform: translateY(-50%) scale(1.08); }
   .listings-arrow:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-  .listings-arrow.lft { left: -20px; }
-  .listings-arrow.rgt { right: -20px; }
+  .listings-arrow:active { transform: translateY(-50%) scale(0.96); }
+  .listings-arrow.lft { left: -22px; }
+  .listings-arrow.rgt { right: -22px; }
   .listings-arrow.disabled { opacity: 0.22; pointer-events: none; }
 
   .listings-scroller { overflow: hidden; padding-bottom: 6px; }
@@ -650,6 +650,9 @@
   .tc-wrap {
     position: relative;
     width: 100%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
     overflow: hidden;
     padding: 24px 0 48px;
   }
@@ -672,14 +675,14 @@
 
   /* Cards */
   .tc-card {
-    flex: 0 0 380px;
-    width: 380px;
-    background: rgba(2,28,30,0.85);
-    border: 1px solid rgba(51,219,231,0.12);
+    flex: 0 0 300px;
+    width: 300px;
+    background: #fff;
+    border: 1px solid rgba(2,28,30,0.09);
     border-radius: 20px;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 0 0 1px rgba(51,219,231,0.06), 0 8px 32px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.2);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.05);
     overflow: hidden;
     transition: transform 0.55s cubic-bezier(0.22,1,0.36,1), opacity 0.55s ease, filter 0.55s ease, box-shadow 0.55s ease;
     transform: scale(0.86);
@@ -696,7 +699,7 @@
     transform: scale(1);
     opacity: 1;
     filter: none;
-    box-shadow: 0 0 0 1px rgba(51,219,231,0.18), 0 20px 60px rgba(0,0,0,0.55), 0 4px 16px rgba(51,219,231,0.08), 0 2px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 0 0 1px rgba(51,219,231,0.25), 0 16px 48px rgba(0,0,0,0.14), 0 4px 12px rgba(51,219,231,0.1);
   }
   .tc-card.tc-entrance {
     opacity: 0;
@@ -731,7 +734,7 @@
     font-size: 22px;
     font-weight: 400;
     font-style: italic;
-    color: var(--white);
+    color: #021C1E;
     line-height: 1.2;
     margin-bottom: 6px;
   }
@@ -757,7 +760,7 @@
   .tc-contacts a {
     font-family: 'Courier New', Courier, monospace;
     font-size: 16px;
-    color: rgba(237,239,240,0.5);
+    color: rgba(2,28,30,0.45);
     text-decoration: none;
     letter-spacing: 0.04em;
     transition: color 0.22s ease;
@@ -842,7 +845,7 @@
   }
 
   @media (max-width: 1024px) {
-    .tc-card { flex: 0 0 320px; width: 320px; }
+    .tc-card { flex: 0 0 280px; width: 280px; }
   }
   @media (max-width: 640px) {
     .tc-card { flex: 0 0 85vw; width: 85vw; }
@@ -1167,7 +1170,7 @@
   .ft-brand span { color: var(--gold); }
   .ft-tag {
     font-size: 16px; font-weight: 300; line-height: 1.75;
-    color: rgba(237,239,240,.28); max-width: 280px; margin-bottom: 28px;
+    color: rgba(237,239,240,.70); max-width: 280px; margin-bottom: 28px;
   }
   .ft-col-h {
     font-size: 16px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase;
@@ -1175,7 +1178,7 @@
   }
   .ft-links { list-style: none; display: flex; flex-direction: column; gap: 13px; }
   .ft-links a {
-    font-size: 16px; font-weight: 300; color: rgba(237,239,240,.28);
+    font-size: 16px; font-weight: 300; color: rgba(237,239,240,.70);
     transition: color .22s ease;
   }
   .ft-links a:hover { color: var(--gold); }
@@ -1297,7 +1300,7 @@
 <section id="hero">
   <div id="hBg">
     <iframe
-      src="https://player.vimeo.com/video/1197530249?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0&controls=0"
+      src="https://player.vimeo.com/video/1199892494?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0&controls=0"
       allow="autoplay; fullscreen"
       allowfullscreen
       title=""
@@ -1361,17 +1364,17 @@
     <div class="ylopo-widget-wrap rv">
       <!-- YLOPO carousel (shown once widget loads) -->
       <div class="ylopo-carousel-outer" id="ylopo-carousel-outer" style="display:none;">
-        <button class="listings-arrow lft disabled" id="ylopo-prev" aria-label="Previous listings">&#8249;</button>
+        <button class="listings-arrow lft disabled" id="ylopo-prev" aria-label="Previous listings"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
         <div class="ylopo-carousel-vp" id="ylopo-carousel-vp">
           <div class="YLOPO_resultsWidget" data-search='{"locations":[{"city":"Las Vegas","state":"NV"},{"city":"Henderson","state":"NV"},{"neighborhood":"Summerlin","city":"Las Vegas","state":"NV"}],"propertyTypes":["house","condo","townhouse"],"status":"active","limit":12}'></div>
         </div>
-        <button class="listings-arrow rgt disabled" id="ylopo-next" aria-label="Next listings">&#8250;</button>
+        <button class="listings-arrow rgt disabled" id="ylopo-next" aria-label="Next listings"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
       </div>
 
       <!-- Static fallback — carousel cards, hidden once YLOPO loads -->
       <div id="static-props-fallback">
         <div class="listings-scroll-wrap">
-          <button class="listings-arrow lft disabled" id="props-prev" aria-label="Previous listings">&#8249;</button>
+          <button class="listings-arrow lft disabled" id="props-prev" aria-label="Previous listings"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
           <div class="listings-scroller" id="props-scroller">
             <div class="listings-content">
 
@@ -1561,7 +1564,7 @@
 
             </div><!-- /.listings-content -->
           </div><!-- /.listings-scroller -->
-          <button class="listings-arrow rgt" id="props-next" aria-label="Next listings">&#8250;</button>
+          <button class="listings-arrow rgt" id="props-next" aria-label="Next listings"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
         </div><!-- /.listings-scroll-wrap -->
 
         <div class="view-all">
@@ -2170,8 +2173,8 @@
         <img src="CrightonRinaldiTeam.webp" alt="Crighton-Rinaldi Team" style="height:52px;width:auto;object-fit:contain;margin-bottom:16px;">
         <p class="ft-tag">Top Real Estate Agents serving Las Vegas, Henderson, Summerlin, and the entire valley. A proud member of Rothwell Gornt Companies.</p>
         <div style="display:flex;gap:18px;">
-          <a href="https://www.facebook.com/crightonrinalditeam/" style="font-size:16px;color:rgba(237,239,240,.28);transition:color .22s ease;" onmouseover="this.style.color='#33dbe7'" onmouseout="this.style.color='rgba(237,239,240,.28)'">Facebook</a>
-          <a href="https://www.zillow.com/profile/CrightonRinaldiTeam" style="font-size:16px;color:rgba(237,239,240,.28);transition:color .22s ease;" onmouseover="this.style.color='#33dbe7'" onmouseout="this.style.color='rgba(237,239,240,.28)'">Zillow</a>
+          <a href="https://www.facebook.com/crightonrinalditeam/" style="font-size:16px;color:rgba(237,239,240,.70);transition:color .22s ease;" onmouseover="this.style.color='#33dbe7'" onmouseout="this.style.color='rgba(237,239,240,.70)'">Facebook</a>
+          <a href="https://www.zillow.com/profile/CrightonRinaldiTeam" style="font-size:16px;color:rgba(237,239,240,.70);transition:color .22s ease;" onmouseover="this.style.color='#33dbe7'" onmouseout="this.style.color='rgba(237,239,240,.70)'">Zillow</a>
         </div>
       </div>
       <div>
